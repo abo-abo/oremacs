@@ -8,12 +8,12 @@ profile:
         (setq load-file-name \"$(abspath init.el)\"))" \
 	-f profile-dotemacs
 
-install: install-git upgrade run
+install: install-git upgrade
 	cd $(BASEDIR) && mkdir -p oleh/personal
-	test -d "oleh/personal" || mkdir -p "oleh/personal"
 	yes n | cp -i etc/init-template.el oleh/personal/init.el
 	yes n | cp -i etc/ispell_dict oleh/personal/ispell_dict
 	yes n | cp -i etc/abbrev_defs oleh/personal/abbrev_defs
+	make run
 
 pull:
 	git pull
