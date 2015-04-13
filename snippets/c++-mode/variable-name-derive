@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: variable name
+# key: v
+# --
+`(ccc-insert-var-name)`

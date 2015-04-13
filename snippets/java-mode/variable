@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: variable
+# key: v
+# --
+$1 ${2: $(let* ((head (save-excursion (backward-word) (point)))
+		(tail (- (point) 1))
+		(type (buffer-substring-no-properties head tail)))
+	   (if (equal yas/text "o")
+	       (java-default-variable-name type)
+	     yas/text))} = new $1($3);

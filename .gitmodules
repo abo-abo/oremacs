@@ -1,0 +1,33 @@
+[submodule "git/clojure-semantic"]
+	path = git/clojure-semantic
+	url = git@github.com:abo-abo/clojure-semantic.git
+[submodule "git/abel"]
+	path = git/abel
+	url = git@github.com:abo-abo/abel.git
+[submodule "git/cedet"]
+	path = git/cedet
+	url = git@github.com:abo-abo/cedet.git
+[submodule "git/eltex"]
+	path = git/eltex
+	url = git@github.com:abo-abo/eltex.git
+[submodule "git/helm-org-wiki"]
+	path = git/helm-org-wiki
+	url = git@github.com:abo-abo/helm-org-wiki.git
+[submodule "git/htmlize"]
+	path = git/htmlize
+	url = git@github.com:abo-abo/htmlize.git
+[submodule "git/profile-dotemacs"]
+	path = git/profile-dotemacs
+	url = git@github.com:abo-abo/profile-dotemacs.git
+[submodule "git/org-mode"]
+	path = git/org-mode
+	url = orgmode@orgmode.org:org-mode.git
+[submodule "git/org-fu"]
+	path = git/org-fu
+	url = git@github.com:abo-abo/org-fu.git
+[submodule "git/ace-link"]
+	path = git/ace-link
+	url = git@github.com:abo-abo/ace-link.git
+[submodule "git/soap"]
+	path = git/soap
+	url = git@github.com:abo-abo/soap.git

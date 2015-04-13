@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: new
+# key: =
+# --
+= new `(java-type-on-this-line)`();
+ $0

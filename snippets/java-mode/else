@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: else
+# key: e
+# --
+ else$0

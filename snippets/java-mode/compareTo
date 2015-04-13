@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: compareTo
+# key: co
+# --
+return $1 < $2.$1 ? 1 : ($1 > $2.$1 ? -1 : 0);$0

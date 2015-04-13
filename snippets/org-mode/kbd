@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: kbd
+# key: kbd
+# --
+@@html:<kbd>@@$0@@html:</kbd>@@

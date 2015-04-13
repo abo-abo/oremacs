@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: println
+# condition: (> aya-invokation-point 10)
+# key: p
+# --
+System.out.println($0);

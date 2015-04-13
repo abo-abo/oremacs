@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: std::pair
+# key: pair
+# --
+std::pair<$1,$0>

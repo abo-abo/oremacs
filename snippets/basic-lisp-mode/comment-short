@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: comment-short
+# key: c
+# type: command
+# --
+(yas-expand-snippet
+ (format
+  ";; ——— $1 ${1:$(make-string (- 39 %d (length yas-text)) ?—)}$0"
+  (current-column)))

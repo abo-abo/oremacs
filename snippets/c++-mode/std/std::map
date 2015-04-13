@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: std::map
+# key: map
+# --
+std::map<$0>

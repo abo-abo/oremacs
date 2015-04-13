@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: var
+# key: a
+# --
+${1:T} ${1:$(downcase-first-letter text)}$0

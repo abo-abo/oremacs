@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: std::ostringstream
+# key: ostr
+# --
+std::ostringstream

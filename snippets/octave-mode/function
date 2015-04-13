@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: function
+# key: d
+# --
+function $1 = $2($0)
+
+endfunction

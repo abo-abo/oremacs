@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: RuntimeException
+# key: t
+# --
+`(let ((e (java-inside-catch?)))
+  (if e
+      (insert (concat "throw new RuntimeException(" e ");"))))`

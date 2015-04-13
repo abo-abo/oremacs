@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: dealii assert range
+# key: asr
+# --
+Assert(${1:a} < ${2:b},
+              ExcIndexRange($1, 0, $2));

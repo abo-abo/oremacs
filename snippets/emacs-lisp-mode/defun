@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: function
+# key: d
+# --
+(defun $1 ($2)
+$0)

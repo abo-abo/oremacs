@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: table
+# key: tt
+# --
+#+HTML: <table><tbody><tr><td>
+$0
+#+HTML: </td><td>
+
+#+HTML: </td><td>
+
+#+HTML: </td></tr></tbody></table>

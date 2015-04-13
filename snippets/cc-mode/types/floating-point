@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: floating point
+# key: f
+# --
+`(ccc-insert-float)`$0

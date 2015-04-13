@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: for with iterator
+# key: fi
+# --
+for (; $1!=$0; ++$1)

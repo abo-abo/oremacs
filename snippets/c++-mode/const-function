@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: const function
+# condition: (looking-back ")c")
+# key: c
+# --
+ const;

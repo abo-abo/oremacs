@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: block comment line
+# key: bl
+# --
+`"#* "`$1${1:$(make-string (- 78 aya-tab-position (length yas-text)) ? )}#

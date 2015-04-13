@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: block comment
+# key: bb
+# --
+`(concat "#" (make-string (- 80 aya-tab-position) ?*) "#")`
+$0
+`(concat "#" (make-string (- 80 aya-tab-position) ?*) "#")`

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Link
+# key: a
+# --
+[$1]($0)

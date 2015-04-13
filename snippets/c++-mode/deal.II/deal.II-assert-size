@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: dealii assert size
+# key: as
+# --
+Assert(${1:values}.size() == ${2:points.size()},
+ExcDimensionMismatch($1.size(), $2));

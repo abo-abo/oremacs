@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: test
+# key: test
+# --
+@property (${1:readonly$(yas/key-to-value '(("e" . "readonly")
+                          ("r" . "retain")
+                        ("c" . "copy")
+                        ("a" . "assign")))} ${2:Class} *${3:field}; 
+

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: public class
+# key: pc
+# --
+public class `(file-name-nondirectory
+                 (file-name-sans-extension
+                    (buffer-file-name)))` 

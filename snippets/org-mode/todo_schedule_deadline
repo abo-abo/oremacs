@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: todo_schedule_deadline
+# key: tsd
+# --
+m\n${1:4}|`(make-string (org-current-level) ?*)` TODO $2 %(+ x 1)\nSCHEDULED: <%(date "${3:today}" (* x 7))> DEADLINE: <%(date "${4:today}" (* x 7))>

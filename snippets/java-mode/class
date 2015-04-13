@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: class
+# key: cl
+# --
+class ${1:$(capitalize text)} $0 $1

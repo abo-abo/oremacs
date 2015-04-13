@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: constructor
+# key: c
+# condition: (not (looking-back ")c"))
+# --
+`(progn (c++-ensure-public)(moo-c++-class-name))`($0)

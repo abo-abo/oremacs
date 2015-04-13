@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: constructor
+# key: c
+# --
+public `(java-prev-class)`($1) { $0}

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+#name : tclass ... { ... }
+# key: tc
+# --
+template <int dim>
+class $1$2
+{
+public:
+ $1($0)
+};
