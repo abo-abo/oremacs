@@ -8,6 +8,8 @@
 (define-key java-mode-map (kbd "χ") 'java-attr)
 (define-key java-mode-map (kbd "C-/") 'java-toggle-map)
 (require 'soap)
+(require 'abbrev)
+(read-abbrev-file nil t)
 (dolist (k '("+" "-" "*" "/" "%" "&" "|" "<" "=" ">" ","))
   (define-key java-mode-map (kbd k) 'soap-command))
 
