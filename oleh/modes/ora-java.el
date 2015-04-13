@@ -7,10 +7,12 @@
 (define-key java-mode-map (kbd "M-<f5>") (lambda ()(interactive)(antify)(ant-compile)))
 (define-key java-mode-map (kbd "χ") 'java-attr)
 (define-key java-mode-map (kbd "C-/") 'java-toggle-map)
+(require 'soap)
+(dolist (k '("+" "-" "*" "/" "%" "&" "|" "<" "=" ">" ","))
+  (define-key java-mode-map (kbd k) 'soap-command))
 
 ;;;###autoload
 (defun ora-java-hook ()
-  (electric-spacing-mode 1)
   (text-scale-set -1)
   (hs-minor-mode)
   (setq c-basic-offset 2)
