@@ -31,3 +31,6 @@
 [submodule "git/soap"]
 	path = git/soap
 	url = git@github.com:abo-abo/soap.git
+[submodule "git/cc-chainsaw"]
+	path = git/cc-chainsaw
+	url = git@github.com:abo-abo/cc-chainsaw.git
