@@ -150,7 +150,6 @@
       (yas-global-mode)))
 (use-package auto-yasnippet
     :commands aya-create aya-open-line)
-(setq abbrev-file-name (concat emacs-d "abbrev_defs"))
 (use-package abel)
 (use-package iedit
     :commands iedit-mode
@@ -234,6 +233,8 @@
     :config (setq helm-make-completion-method 'ivy))
 (setq ispell-personal-dictionary
       (concat emacs-d "oleh/personal/ispell_dict"))
+(setq abbrev-file-name
+      (concat emacs-d "oleh/personal/abbrev_defs"))
 (use-package flyspell
     :commands flyspell-mode
     :config

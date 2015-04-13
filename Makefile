@@ -12,7 +12,8 @@ install: install-git upgrade run
 	cd $(BASEDIR) && mkdir -p oleh/personal
 	test -d "oleh/personal" || mkdir -p "oleh/personal"
 	yes n | cp -i etc/init-template.el oleh/personal/init.el
-	cp etc/ispell_dict oleh/personal/ispell_dict
+	yes n | cp -i etc/ispell_dict oleh/personal/ispell_dict
+	yes n | cp -i etc/abbrev_defs oleh/personal/abbrev_defs
 
 pull:
 	git pull
