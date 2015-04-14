@@ -3,4 +3,4 @@
 # key: c
 # condition: (not (looking-back ")c"))
 # --
-`(progn (c++-ensure-public)(moo-c++-class-name))`($0)
+`(progn (ccc-ensure-public)(moo-c++-class-name))`($0)

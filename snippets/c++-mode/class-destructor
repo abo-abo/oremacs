@@ -2,4 +2,4 @@
 # name: destructor
 # key: ~
 # --
-~`(progn (c++-ensure-public)(moo-c++-class-name))`()
+~`(progn (ccc-ensure-public)(moo-c++-class-name))`()
