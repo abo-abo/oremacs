@@ -1,15 +1,3 @@
-;;* Base directory
-(defvar ora-org-basedir
-  (concat (ora-directory-parent
-           (ora-directory-parent emacs-d))
-          "org/")
-  "Org dir should contain: gtd.org, ent.org, diary, and wiki/.")
-(unless (file-exists-p ora-org-basedir)
-  (make-directory ora-org-basedir))
-
-(defun ora-org-expand (file)
-  (expand-file-name file ora-org-basedir))
-
 ;;* Requires
 (require 'org)
 (require 'org-src)
@@ -80,7 +68,6 @@
         ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1")
         ("\\.pdf.xoj" . "xournal %s")))
 (setq system-time-locale "C")
-(setq diary-file (ora-org-expand "diary"))
 (setq appt-display-diary nil)
 
 ;;* appt
@@ -104,12 +91,6 @@
 ;;* Agenda settings
 (setq org-agenda-span 'day)
 (setq org-agenda-remove-tags t)
-(setq org-agenda-files
-      (mapcar #'ora-org-expand '("gtd.org" "ent.org")))
-(setq org-agenda-include-diary t)
-(require 'ukrainian-holidays)
-(require 'netherlands-holidays)
-(setq calendar-holidays (append calendar-holidays holiday-netherlands-holidays))
 
 ;;* Export settings
 (setq org-export-with-timestamps nil)
