@@ -132,8 +132,6 @@
 (global-set-key [C-f8] 'bookmark-set)
 (global-set-key [f9] 'delete-other-windows)
 (global-set-key [C-f9] 'delete-window)
-;; (global-set-key [f10] 'centi-assign)
-;; (global-set-key [C-f10] 'centi-summary)
 (global-set-key [f11] 'hydra-global-org/body)
 (global-set-key [C-f11] 'org-clock-goto)
 (global-set-key [f12] 'orfu-agenda-day)
@@ -175,7 +173,6 @@
   "helm"
   ("f" projectile-find-file "file")
   ("h" helm-google-suggest "google")
-  ;; ("g" helm-ls-git "git")
   ("w" helm-org-wiki "wiki")
   ("s" helm-swoop "swoop")
   ("g" (lambda ()
@@ -205,13 +202,6 @@
 (defun hydra-vi/post ()
   (set-cursor-color "#ffffff"))
 
-(defhydra hydra-vi-del (:exit t
-                        :post hydra-vi/body)
-  "del"
-  ("w" kill-sexp "word")
-  ("q" nil "quit"))
-
-;; "A" move-end-of-line and insert
 (defvar hydra-vi/init-pos nil)
 (defhydra hydra-vi (:pre hydra-vi/pre
                     :body-pre (setq hydra-vi/init-pos (point))
@@ -246,7 +236,6 @@
   ("q" (goto-char hydra-vi/init-pos) "ins" :exit t)
   ("C-n" (forward-line 1) nil :exit t)
   ("C-p" (forward-line -1) nil :exit t))
-;; (global-set-key (kbd "C-z") 'hydra-vi/body)
 (global-set-key (kbd "C-v") 'hydra-vi/body)
 
 (defhydra hydra-window (:color red)
