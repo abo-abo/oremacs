@@ -1,0 +1,6 @@
+* org-mode configuration
+#+STARTUP: overview
+* Tasks
+** TODO Install Emacs 24.5
+** TODO Follow [[https://twitter.com/_abo_abo][@_abo_abo]]
+* Projects

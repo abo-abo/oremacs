@@ -13,6 +13,7 @@ install: install-git upgrade
 	yes n | cp -i etc/init-template.el oleh/personal/init.el
 	yes n | cp -i etc/ispell_dict oleh/personal/ispell_dict
 	yes n | cp -i etc/abbrev_defs oleh/personal/abbrev_defs
+	yes n | cp -ri etc/org .
 	make run
 
 pull:

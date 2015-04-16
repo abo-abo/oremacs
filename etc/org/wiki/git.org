@@ -1,0 +1,324 @@
+#+TITLE:    My git notes
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css"/>
+
+* Articles
+** DONE [[http://git-scm.com/book/en/Git-Branching-Branching-Workflows][Git - Branching Workflows]]
+CLOSED: [2013-02-06 Wed 00:24] DEADLINE: <2013-02-05 Tue 22:00>
+** DONE [[http://git-scm.com/book/en/Distributed-Git-Distributed-Workflows][Git - Distributed Workflows]]
+CLOSED: [2013-02-07 Thu 20:47] DEADLINE: <2013-02-06 Wed 22:00>
+** DONE [[http://git-scm.com/book/en/Customizing-Git-Git-Hooks][Git - Git Hooks]]
+CLOSED: [2015-04-14 Tue 15:09]
+** DONE [[https://git.wiki.kernel.org/index.php/GitSubmoduleTutorial][Git Submodule Tutorial]]
+CLOSED: [2015-04-14 Tue 16:22]
+* Book
+** git init
+** git add
+** git commit
+*** git commit -a
+Skips staging(i.e. git add) altogether.
+*** git commit --amend
+Changes the last commit message.
+Also works with "git add" and "git remove".
+** git clone
+#+begin_src sh
+git clone user@server:/.../project.git
+#+end_src
+** git status
+** git diff
+Variants:
+- kdiff3
+- tkdiff
+- meld
+- xzdiff
+** git commit
+** git rm
+*** remove just from git
+#+begin_src sh
+git rm --cached <file>
+#+end_src
+** git mv
+A convenience command:
+#+begin_src sh
+git mv README.txt README
+#+end_src
+is equivalent to:
+#+begin_src sh
+mv README.txt README
+git rm README.txt
+git add README
+#+end_src
+** git log
+*** git log -p
+include diffs
+*** git log -3
+show last 3 commits
+** git reset HEAD <file>
+Use this to unstage a <file> e.g. after
+#+begin_src sh
+git add *
+#+end_src
+** git checkout
+*** git checkout -- <file>
+discard changes to a <file>
+this is dangerous: there's no way to recover uncommited changes.
+*** git checkout <branch>
+switch to <branch>
+*** git checkout -b <branch>
+a shorthand for
+git branch <branch>
+git checkout <branch>
+** git remote add <alias> <url>
+Create an alias for a remote repository
+** git tag
+List tags
+*** git tag -a
+annotated tag
+*** git tag <name>
+lightweight tag
+*** git tag -a v1.2 -m 'version 1.2' 0fceb02
+tag an earlier commit
+** git branch
+*** git branch <branch>
+create branch
+*** git branch -d <branch>
+delete branch
+** git checkout <branch name>
+switch to branch
+** git merge
+** git mergetool
+visual merge with e.g. meld.
+** git fetch <origin>
+synchronize with a remote branch <origin> that someone else commited to
+** git push <origin> <branch>
+push your commits to remote branch
+** git diff HEAD HEAD~1 <file>
+** git reflog
+show where HEAD has been recently.
+** git stash
+save dirty directory onto stack to avoid a commit.
+** git blame <file>
+Show the <file> line by line, alongside the commit that added them.
+** git blame -C <file>
+Add a column showing which file the line came from.
+* Tasks
+** hide ^M in diff output
+#+begin_src sh
+git config --global core.whitespace cr-at-eol
+#+end_src
+** ignore file permissions
+#+begin_src sh
+git config core.fileMode false
+#+end_src
+** github
+*** omit password
+#+begin_src sh
+git clone git@github.com:abo-abo/function-args.git
+#+end_src
+If I clone like this, I don't need to enter the password.
+*** [[https://help.github.com/articles/generating-ssh-keys][Generating SSH Keys github:help]]
+**** step 1
+#+begin_src sh
+ssh-add
+#+end_src
+**** step 2
+#+begin_src sh
+ssh -T git@github.com
+#+end_src
+**** step 3
+Remember to copy the ~/.ssh to newly installed systems.
+** make bare repository
+- remove everything but .git
+- move .git/* to .
+#+begin_src sh
+git config --bool core.bare true
+#+end_src
+** diff staged
+#+begin_src sh
+git diff --cached
+#+end_src
+** move master to branch
+#+begin_src sh
+git branch -m master old_master
+git checkout -b master
+#+end_src
+** subtree merging
+#+begin_src sh
+cd ~/Dropbox/org
+git remote add thermal_remote ../thermal
+git fetch thermal_remote
+git checkout -b thermal_branch thermal_remote/master
+git read-tree --prefix=research/thermal/ -u thermal_branch
+git merge --squash -s subtree --no-commit thermal_branch
+#+end_src
+** undo last commit
+#+begin_src sh
+git reset --soft HEAD^1
+#+end_src
+** summary of commits
+#+begin_src sh
+git shortlog -s
+#+end_src
+** commits of author
+#+begin_src sh
+git log --author="Jon"
+git log --author=Jon
+git log --author=Smith
+#+end_src
+** diff ignoring whitespace
+#+begin_src sh
+git diff -w
+#+end_src
+Also, Meld/Edit/Preferences/Text Filters/All whitespace.
+** squashing commits
+1. git rebase -i HEAD~4
+2. leave one commit, place 's' by others
+3. add a new comment
+** grep entire history:
+#+begin_src sh :results output
+git grep "step 8" $(git rev-list --all)
+#+end_src
+** pickaxe
+This one will echo the commit messages for when the number of matches
+was changed.
+#+begin_src sh
+git log -Shydra-create --
+#+end_src
+
+There's also =-G=. This one will show the log if a line that matches
+the search string was added, removed, or changed:
+#+begin_src sh
+git log -Ghydra-create --
+#+end_src
+** remove multiple files that aren't on the disk
+#+begin_src sh
+git rm $(git ls-files --deleted)
+#+end_src
+** merge vr. rebase
+*** avoid merge commits that result from git pull
+When you push, but someone else pushed before you, you have to pull in
+their changes first. Normally, git does a merge commit in this
+situation.
+
+Such merge commits can be numerous and convey no useful information
+and litter the history.
+
+Therefore, always pull with =git pull --rebase=.
+#+begin_src sh
+git config --global --bool pull.rebase true
+#+end_src
+*** interactively rebase local commits before pushing
+Every time before pushing a set of commits:
+#+begin_src sh
+git rebase -i
+#+end_src
+** add github upstream
+#+begin_src sh
+git remote add upstream https://github.com/octocat/Spoon-Knife.git
+git fetch upstream
+git merge upstream/master
+#+end_src
+** add github pages to a repository
+#+begin_src sh
+cd ~/git/lispy
+mkdir gh-pages
+cd gh-pages
+git clone git@github.com:abo-abo/lispy.git .
+git checkout --orphan gh-pages
+git rm -rf .
+#+end_src
+** git bisect
+1. git bisect start <good commit> <bad commit(usually HEAD)>
+   # git will check out the commit in the middle.
+   # I should test this commit to see if it's good or bad
+2. git bisect good
+   # or
+   git bisect bad
+** remove large files
+http://rtyley.github.io/bfg-repo-cleaner/
+** git am (apply patch)
+1. Find the patch in .git/rebase-apply/0001
+2. git apply .git/rebase-apply/0001 --reject
+3. magit ~RC~.
+
+source: [[http://www.pizzhacks.com/bugdrome/2011/10/deal-with-git-am-failures/][Deal with git am failures]]
+** getting git subtree to work
+#+begin_src sh
+sudo chmod +x /usr/share/doc/git/contrib/subtree/git-subtree.sh
+sudo ln -s /usr/share/doc/git/contrib/subtree/git-subtree.sh $(git --exec-path)/git-subtree
+#+end_src
+** remove old history from a git repository
+[[http://stackoverflow.com/questions/4515580/how-do-i-remove-the-old-history-from-a-git-repository][source]]
+** delete remote branch
+#+begin_src sh
+git push origin --delete scratch/outline
+#+end_src
+* Emacs tools
+** magit
+*** magit shortcuts
+**** E - interactive rebase
+**** lf - follow file
+**** M-s M-h M-2 M-4 - visibility
+*** edit older commit message
+1. ll
+2. E
+3. r (reword)
+4. C-c C-c
+*** [[http://vimeo.com/2871241][Meet Magit on Vimeo]]
+** ediff
+~*~ to refine match
+* ELPA workflow
+** -s subtree method
+*** Getting Started
+1. packages/hydra must *not* exist
+2. create a branch hydra tracking the upstream
+3. git subtree add --prefix packages/hydra hydra
+
+*** Merging from upstream
+1. Switch to the branch that tracks upstream:
+#+begin_src sh
+git checkout hydra && git pull
+#+end_src
+
+2. Switch to master and merge:
+#+begin_src sh
+git checkout master
+git subtree merge --prefix packages/hydra hydra
+#+end_src
+* Github tasks
+** force push
+#+begin_src sh
+git push --force origin master
+#+end_src
+** push tags
+#+begin_src sh
+git push --tags
+#+end_src
+** get user pubkeys
+#+begin_src sh
+curl https://github.com/abo-abo.keys
+#+end_src
+
+#+RESULTS:
+| ssh-rsa | AAAAB3NzaC1yc2EAAAADAQABAAABAQDAZtY4+MwQ+1ci7ZA+HKTCTW+BrhWqaEfh/hCWfAcNSgB7k+K7uWdTiptG5JFAQmnGv8H7q+ZSZiKOVx6Xa761A5AQFFC5OODywaXh+iYP5bLavWb8AzwiUkNjyugV3xajKGBlFzfkRTvclXDnGrfUIF/MxrT9v1bk2oBKoX6/S0SFl7wcWOAodQ54nimjuj6N3e+onFF2L7UdrWe0eLoW+DQSsQtgYkB2frg61KuOJrsMM2bsGKLRJylGKVpJEzLQyT8QLbh4AqOAvOoQZm3X1/GhW0vXZgbMsaLxEOd5juHnmgmslx3xpLiPZdM7QFQLXyqVVGGLiuCTn8HEqeUn |
+| ssh-rsa | AAAAB3NzaC1yc2EAAAADAQABAAABAQDZCB8eQF8u1CCUcbIHqMprDijySAz5dkt+p/DvqeTIWUZF0GDU2O4EbLelojq2drktfh7RUSuZGZzmcNV4vJEWNE+dFVsniD1R3tzRtiNac9N10YAaqjhunvuNgoNTrk2X7w/NXvaV4ZX4C4qudX4MgVmWVMJL1CBq/T/U2ultzvuB9ArecLDwW8kooW6sDArFjI5HyFPRZf0Bs1FKJZ8p2zNm78kPJ8vTD16DIf1CJ2B/kc3Kltc/hIUjjVXsFG63JeyzWBXb1LwPyqkyA1dXNDFZh76W3+Wq2WiJZoxkUoHIUTEYmrWJcahTeGg8wL0nck82QldntfP+2JSFXEL3 |
+| ssh-rsa | AAAAB3NzaC1yc2EAAAADAQABAAABAQC1qNwBLCh9pUYaB8zcYcybsLXVb4arI7vhAP/dJ3nsg1M5AkLOnhGRzbeqCccC2z4dxAeQzHWk98HOV6NIXySdDgJSpXsGEd1vs7OukSvRqh7hKT+bSY52tIr0+CC3OUXItK2bJd3aB8/FXkcgdgNkTIWVopyx4JAMzNf3hx/9Pba7NbHKG/FiKgENrWznZhe0r15iy5Fv/YgCORJxcCEVeq6xyoEt2QvHapegLtKYORsn0387dzD0QqsujYrU8xEGHbMCvdzhsGcmti1dmBMTMP1p14pN8r7wHpyQSEJ+9mGOA1ljTVM+bnPkQAdC9tv6ilmz6Pv1wCVQBFBuql1/ |
+** get all the pulls locally
+[[https://news.ycombinator.com/item?id=9051220][source]]
+*** config
+#+begin_src sh
+[remote "upstream"]
+    url = https://github.com/abo-abo/hydra
+    fetch = +refs/heads/*:refs/remotes/upstream/*
+    fetch = +refs/pull/*/head:refs/pull/upstream/*
+#+end_src
+*** routine
+#+begin_src sh
+git fetch --all
+#+end_src
+This results in *all* pull requests available in the local repo in the
+local =pull/= namespace. To check out e.g. PR #42:
+#+begin_src sh
+git checkout -b foo refs/pull/upstream/42
+#+end_src
