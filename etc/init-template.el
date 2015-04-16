@@ -15,9 +15,12 @@
 (setq diary-file (ora-org-expand "diary"))
 (setq org-agenda-include-diary t)
 
-;; org-mode wiki location
-(setq helm-org-wiki-directory
-      (expand-file-name "org/wiki/" emacs-d))
+;; org-mode wiki
+(use-package helm-org-wiki
+    :commands helm-org-wiki
+    :config
+    (setq helm-org-wiki-directory
+          (ora-org-expand "wiki/")))
 
 ;;* Rest
 (csetq elfeed-feeds

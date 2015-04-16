@@ -191,10 +191,6 @@
 (require 'bookmark)
 (setq bookmark-completion-ignore-case nil)
 (bookmark-maybe-load-default-file)
-(use-package helm-org-wiki
-    :commands helm-org-wiki
-    :config
-    (setq helm-org-wiki-directory "~/Dropbox/org/wiki/"))
 ;;** windows
 (use-package ace-window
     :init
