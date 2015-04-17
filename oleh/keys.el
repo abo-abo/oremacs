@@ -100,7 +100,8 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 ;;* C-c shortcuts
 (global-set-key (kbd "C-c d") 'ora-insert-date-from)
-(global-set-key (kbd "C-c f") 'counsel-git)
+(global-set-key (kbd "C-c f") 'find-file-in-project)
+(global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c j") 'repeat)
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -281,5 +282,7 @@
 (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
 (define-key isearch-mode-map "'" 'avi-isearch)
 ;; (global-set-key "\C-t" (lambda () (interactive) (let (flx-ido-mode) (smex))))
+
+;; (global-set-key "\C-t" 'execute-extended-command)
 
 (provide 'oleh/keys)
