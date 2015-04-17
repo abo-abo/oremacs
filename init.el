@@ -89,25 +89,14 @@
 (when (fboundp 'global-eldoc-mode) (global-eldoc-mode -1))
 (show-paren-mode 1)
 (winner-mode 1)
-(use-package ido
-    :init
-  (progn
-    (ido-mode 1)
-    (require 'ora-ido)))
 (use-package ido-occasional)
-(use-package smex
-    :commands smex
-    :config
-    (require 'ora-ido))
-(use-package ido-vertical-mode
-    :config
-  (setf (nth 0 ido-vertical-decorations) "\n")
-  (setf (nth 2 ido-vertical-decorations) "\n")
-  (setf (nth 11 ido-vertical-decorations) "\n")
-  (ido-vertical-mode 1))
+(use-package smex)
+(require 'ora-ido)
 (use-package swiper
     :commands swiper
-    :config (require 'ora-ivy))
+    :config
+    (ivy-mode 1)
+    (require 'ora-ivy))
 (require 'counsel)
 (blink-cursor-mode -1)
 (use-package guide-key
@@ -249,13 +238,15 @@
     (setq projectile-enable-caching t)
     (setq projectile-verbose nil)
     (setq projectile-do-log nil))
+(use-package find-file-in-project
+    :commands find-file-in-project)
 (use-package magit
     :commands magit-status
     :diminish magit-auto-revert-mode
     :config
     (progn
-      (setq magit-completing-read-function 'magit-ido-completing-read)
-      ;; (setq magit-completing-read-function 'ivy-completing-read)
+      ;; (setq magit-completing-read-function 'magit-ido-completing-read)
+      (setq magit-completing-read-function 'ivy-completing-read)
       (setq magit-item-highlight-face 'bold)
       (setq magit-repo-dirs-depth 1)
       (setq magit-repo-dirs

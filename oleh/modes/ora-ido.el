@@ -1,4 +1,11 @@
 (require 'ido)
+(use-package ido-vertical-mode
+    :config
+  (setf (nth 0 ido-vertical-decorations) "\n")
+  (setf (nth 2 ido-vertical-decorations) "\n")
+  (setf (nth 11 ido-vertical-decorations) "\n")
+  (ido-vertical-mode 1))
+
 ;;* Settings
 (setq ido-auto-merge-work-directories-length -1)
 ;; (setq ido-enable-flex-matching t)
