@@ -2,24 +2,28 @@
 ;;* Settings
 (setq ido-auto-merge-work-directories-length -1)
 ;; (setq ido-enable-flex-matching t)
-;;* Keymaps
-;;** buffer
-(define-key ido-buffer-completion-map "η" 'ido-next-match)
-;; (define-key ido-buffer-completion-map "\C-i" 'ido-buffer-helm)
-(define-key ido-buffer-completion-map "β" 'ido-buffer-helm)
-;; (define-key ido-buffer-completion-map " " 'ido-restrict-to-matches)
-(define-key ido-buffer-completion-map (kbd "C-p") 'ido-fallback-command)
-(define-key ido-buffer-completion-map ";" 'hydra-ido/body)
-;;** file
-(define-key ido-file-dir-completion-map "~" (lambda () (interactive) (ido-set-current-directory "~/") (setq ido-exit 'refresh) (exit-minibuffer)))
-(define-key ido-file-dir-completion-map (kbd "φ") 'ido-next-match)
-(define-key ido-file-dir-completion-map (kbd ":") 'ido-prev-match)
-(define-key ido-file-dir-completion-map (kbd "C-y") 'ido-yank)
-;;** common
-(define-key ido-common-completion-map (kbd "DEL") 'ido-backspace)
-(define-key ido-common-completion-map "\C-n" 'ido-next-match)
-(define-key ido-common-completion-map (kbd "\C-p") 'ido-prev-match)
-(define-key ido-common-completion-map " " 'self-insert-command)
+
+(when (keymapp ido-buffer-completion-map)
+  (define-key ido-buffer-completion-map "η" 'ido-next-match)
+  (define-key ido-buffer-completion-map (kbd "C-p") 'ido-fallback-command)
+  (define-key ido-buffer-completion-map ";" 'hydra-ido/body))
+
+(when (keymapp ido-file-dir-completion-map)
+  (define-key ido-file-dir-completion-map "~" (lambda ()
+                                                (interactive)
+                                                (ido-set-current-directory "~/")
+                                                (setq ido-exit 'refresh)
+                                                (exit-minibuffer)))
+  (define-key ido-file-dir-completion-map (kbd "φ") 'ido-next-match)
+  (define-key ido-file-dir-completion-map (kbd ":") 'ido-prev-match)
+  (define-key ido-file-dir-completion-map (kbd "C-y") 'ido-yank))
+
+(when (keymapp ido-common-completion-map)
+  (define-key ido-common-completion-map (kbd "DEL") 'ido-backspace)
+  (define-key ido-common-completion-map "\C-n" 'ido-next-match)
+  (define-key ido-common-completion-map (kbd "\C-p") 'ido-prev-match)
+  (define-key ido-common-completion-map " " 'self-insert-command))
+
 ;;* Functions
 (require 'hydra)
 (defhydra hydra-ido (:color amaranth
