@@ -1,7 +1,7 @@
 ;;
 
 ;;;### (autoloads nil "git/org-fu/org-fu" "git/org-fu/org-fu.el"
-;;;;;;  (21770 62235 453452 939000))
+;;;;;;  (21816 56282 352674 848000))
 ;;; Generated autoloads from git/org-fu/org-fu.el
 
 (autoload 'orfu-agenda-quick "git/org-fu/org-fu" "\
@@ -101,7 +101,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-c++" "oleh/modes/ora-c++.el"
-;;;;;;  (21787 64749 507773 190000))
+;;;;;;  (21814 37590 224482 672000))
 ;;; Generated autoloads from oleh/modes/ora-c++.el
 
 (autoload 'ora-c-common-hook "oleh/modes/ora-c++" "\
@@ -305,7 +305,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-java" "oleh/modes/ora-java.el"
-;;;;;;  (21768 4314 20903 243000))
+;;;;;;  (21804 7949 247622 738000))
 ;;; Generated autoloads from oleh/modes/ora-java.el
 
 (autoload 'ora-java-hook "oleh/modes/ora-java" "\
@@ -327,7 +327,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-latex" "oleh/modes/ora-latex.el"
-;;;;;;  (21769 37115 631751 3000))
+;;;;;;  (21816 56122 712671 851000))
 ;;; Generated autoloads from oleh/modes/ora-latex.el
 
 (autoload 'ora-latex-hook "oleh/modes/ora-latex" "\
@@ -349,7 +349,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-magit" "oleh/modes/ora-magit.el"
-;;;;;;  (21777 4166 633197 520000))
+;;;;;;  (21815 38037 365721 413000))
 ;;; Generated autoloads from oleh/modes/ora-magit.el
 
 (autoload 'ora-magit-status-hook "oleh/modes/ora-magit" "\
@@ -391,7 +391,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-markdown" "oleh/modes/ora-markdown.el"
-;;;;;;  (21778 43394 631164 317000))
+;;;;;;  (21797 27642 0 0))
 ;;; Generated autoloads from oleh/modes/ora-markdown.el
 
 (autoload 'ora-markdown-hook "oleh/modes/ora-markdown" "\
@@ -407,7 +407,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-matlab" "oleh/modes/ora-matlab.el"
-;;;;;;  (21781 37179 346738 674000))
+;;;;;;  (21807 38291 63883 403000))
 ;;; Generated autoloads from oleh/modes/ora-matlab.el
 
 (autoload 'ora-matlab-hook "oleh/modes/ora-matlab" "\
@@ -472,7 +472,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-org" "oleh/modes/ora-org.el"
-;;;;;;  (21769 32387 971662 248000))
+;;;;;;  (21807 38291 99883 404000))
 ;;; Generated autoloads from oleh/modes/ora-org.el
 
 (autoload 'ora-org-hook "oleh/modes/ora-org" "\
@@ -499,7 +499,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-python" "oleh/modes/ora-python.el"
-;;;;;;  (21777 24556 233580 306000))
+;;;;;;  (21806 17244 758257 941000))
 ;;; Generated autoloads from oleh/modes/ora-python.el
 
 (autoload 'ora-python-hook "oleh/modes/ora-python" "\
@@ -590,32 +590,15 @@ run current script
 
 ;;;***
 
-;;;### (autoloads nil "oleh/personal/hearth" "oleh/personal/hearth.el"
-;;;;;;  (21726 16786 187140 382000))
-;;; Generated autoloads from oleh/personal/hearth.el
-
-(autoload 'hel-new-deck "oleh/personal/hearth" "\
-
-
-\(fn)" t nil)
-
-(autoload 'hel-summary "oleh/personal/hearth" "\
-
-
-\(fn ARG)" t nil)
-
-;;;***
-
 ;;;### (autoloads nil nil ("init.el" "oleh/hooks.el" "oleh/keys.el"
 ;;;;;;  "oleh/modes/ora-company.el" "oleh/modes/ora-helm.el" "oleh/modes/ora-ido.el"
-;;;;;;  "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el" "oleh/personal/init.el"
-;;;;;;  "oleh/personal/more-c++.el" "oleh/personal/rest.el" "packages.el")
-;;;;;;  (21795 53656 957866 953000))
+;;;;;;  "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el" "packages.el")
+;;;;;;  (21816 56583 582181 296000))
 
 ;;;***
 
-;;;### (autoloads nil "oleh/auto" "oleh/auto.el" (21795 53644 593407
-;;;;;;  484000))
+;;;### (autoloads nil "oleh/auto" "oleh/auto.el" (21816 56478 612678
+;;;;;;  532000))
 ;;; Generated autoloads from oleh/auto.el
 
 (autoload 'ora-para-down "oleh/auto" "\
@@ -661,6 +644,11 @@ with STRING defaulting to the symbol under point.
 If called with a prefix, prompts for flags to pass to ag.
 
 \(fn STRING DIRECTORY)" t nil)
+
+(autoload 'ora-unfill-paragraph "oleh/auto" "\
+Transform a paragraph into a single line.
+
+\(fn)" t nil)
 
 (autoload 'ora-ctrltab "oleh/auto" "\
 List buffers and give it focus.
