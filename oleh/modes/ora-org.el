@@ -23,7 +23,6 @@
 (define-key org-mode-map (kbd "<f2> a") 'org-archive)
 (define-key org-mode-map (kbd "χ") 'worf-back-to-heading)
 (define-key org-mode-map (kbd "C-σ") 'org-edit-special)
-(define-key org-mode-map (kbd "C-M-0") (lambda (interactive) (org-schedule nil "0d")))
 (define-key org-mode-map (kbd "C-a") 'ora-move-beginning-of-line)
 (define-key org-src-mode-map (kbd "C-c C-c") 'org-edit-src-exit)
 
