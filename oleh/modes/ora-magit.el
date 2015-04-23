@@ -23,12 +23,14 @@
 (define-key magit-log-mode-map (kbd "M-w") 'ora-magit-copy-item-as-kill)
 (define-key magit-log-mode-map "n" 'ora-magit-copy-item-as-kill)
 (define-key magit-log-mode-map "v" 'ora-magit-visit)
+(define-key magit-log-mode-map "o" 'ora-magit-visit-item-other-window)
 ;;** Commit
 (define-key magit-commit-mode-map "i" 'magit-toggle-section)
 (define-key magit-commit-mode-map "j" 'magit-goto-next-section)
 (define-key magit-commit-mode-map "k" 'magit-goto-previous-section)
 (define-key magit-commit-mode-map "n" 'ora-magit-copy-item-as-kill)
 (define-key magit-commit-mode-map "C" 'ora-magit-commit-add-log)
+(define-key magit-commit-mode-map "o" 'ora-magit-visit-item-other-window)
 ;;** Diff
 (define-key magit-diff-mode-map "i" 'magit-toggle-section)
 (define-key magit-diff-mode-map "j" 'magit-goto-next-section)
@@ -183,5 +185,9 @@
         (magit-git-string
          "config" "--add" "remote.origin.fetch"
          fetch-address)))))
+
+(defun ora-magit-visit-item-other-window ()
+  (interactive)
+  (magit-visit-item t))
 
 ;; (add-hook 'magit-mode-hook #'endless/add-PR-fetch)
