@@ -61,13 +61,11 @@ On error (read-only), quit without selecting."
     (yank)))
 
 (eval-after-load 'smex
-  `(defun smex-prepare-ido-bindings ()
-     (define-key ido-completion-map (kbd "TAB") 'minibuffer-complete)
-     (define-key ido-completion-map (kbd "C-,") 'smex-describe-function)
-     (define-key ido-completion-map (kbd "C-w") 'smex-where-is)
-     (define-key ido-completion-map (kbd "C-.") 'smex-find-function)
-     (define-key ido-completion-map (kbd "C-a") 'move-beginning-of-line)
-     (define-key ido-completion-map "β" 'smex-helm)
-     (define-key ido-completion-map " " 'smex-helm)))
+  `(progn
+     (define-key smex-map (kbd "TAB") 'minibuffer-complete)
+     (define-key smex-map (kbd "C-,") 'smex-describe-function)
+     (define-key smex-map (kbd "C-h w") 'smex-where-is)
+     (define-key smex-map (kbd "C-.") 'smex-find-function)
+     (define-key smex-map (kbd "C-a") 'move-beginning-of-line)))
 
 (provide 'ora-ido)
