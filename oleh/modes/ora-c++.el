@@ -110,6 +110,9 @@ and <code>...</code>."
 (dolist (k '("+" "-" "*" "/" "%" "&" "|" "<" "=" ">" ","))
   (define-key c++-mode-map (kbd k) 'soap-command))
 
+(dolist (k '("+" "-" "*" "/" "%" "&" "|" "<" "=" ">" ","))
+  (define-key c-mode-map (kbd k) 'soap-command))
+
 ;;** Hooks
 ;;;###autoload
 (defun ora-c-common-hook ()
