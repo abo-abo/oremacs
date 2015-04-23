@@ -134,6 +134,13 @@ If called with a prefix, prompts for flags to pass to ag."
   (require 'ag)
   (ag/search string directory))
 
+;;;###autoload
+(defun ora-unfill-paragraph ()
+  "Transform a paragraph into a single line."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil t)))
+
 ;;* Launchers
 ;;;###autoload
 (defun ora-ctrltab ()

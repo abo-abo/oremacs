@@ -35,6 +35,7 @@
 (global-set-key (kbd "C-M-,") 'lispy-mark)
 (global-set-key (kbd "C-M-h") 'backward-list)
 (global-set-key (kbd "C-M-i") 'iedit-mode)
+(global-set-key (kbd "C-M-q") 'ora-unfill-paragraph)
 ;;* Ctrl Mod4 shortcuts
 (global-set-key (kbd "C-θ") 'ora-single-quotes)                ; [q]
 (global-set-key (kbd "C-ω") 'aya-create)                       ; [w]
