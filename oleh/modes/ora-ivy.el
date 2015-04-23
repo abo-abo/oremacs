@@ -28,6 +28,7 @@ _h_ ^✜^ _l_     _r_eplace    _,_ unmark   _o_: quit
 
 (define-key ivy-minibuffer-map (kbd "C-o") 'hydra-ivy/body)
 (define-key ivy-minibuffer-map (kbd "<return>") 'ivy-alt-done)
+(define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
 
 (defun ivy-dired-mark (arg)
   (interactive "p")
