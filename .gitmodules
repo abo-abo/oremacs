@@ -10,9 +10,6 @@
 [submodule "git/eltex"]
 	path = git/eltex
 	url = git@github.com:abo-abo/eltex.git
-[submodule "git/helm-org-wiki"]
-	path = git/helm-org-wiki
-	url = git@github.com:abo-abo/helm-org-wiki.git
 [submodule "git/htmlize"]
 	path = git/htmlize
 	url = git@github.com:abo-abo/htmlize.git
@@ -37,3 +34,6 @@
 [submodule "git/smex"]
 	path = git/smex
 	url = git@github.com:abo-abo/smex.git
+[submodule "git/plain-org-wiki"]
+	path = git/plain-org-wiki
+	url = git@github.com:abo-abo/plain-org-wiki.git

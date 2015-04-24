@@ -16,10 +16,10 @@
 (setq org-agenda-include-diary t)
 
 ;; org-mode wiki
-(use-package helm-org-wiki
-    :commands helm-org-wiki
+(use-package plain-org-wiki
+    :commands plain-org-wiki plain-org-wiki-helm
     :config
-    (setq helm-org-wiki-directory
+    (setq pow-directory
           (ora-org-expand "wiki/")))
 
 ;;* Rest

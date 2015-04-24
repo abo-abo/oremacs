@@ -175,8 +175,7 @@
   "helm"
   ("f" projectile-find-file "file")
   ("h" helm-google-suggest "google")
-  ("w" helm-org-wiki "wiki")
-  ("s" helm-swoop "swoop")
+  ("w" plain-org-wiki "wiki")
   ("g" (lambda ()
          (interactive)
          (let ((current-prefix-arg 4))
