@@ -89,7 +89,6 @@
 (when (fboundp 'global-eldoc-mode) (global-eldoc-mode -1))
 (show-paren-mode 1)
 (winner-mode 1)
-(use-package ido-occasional)
 (use-package smex
     :init (setq smex-completion-method 'ivy))
 (require 'ora-ido)

@@ -23,14 +23,12 @@
     counsel
     eclipse-theme
     elfeed
-    flx-ido
     function-args
     geiser
     google-c-style
     guide-key
     headlong
     helm-make
-    ido-occasional
     ido-vertical-mode
     j-mode
     jedi

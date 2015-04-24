@@ -8,7 +8,6 @@
 
 ;;* Settings
 (setq ido-auto-merge-work-directories-length -1)
-;; (setq ido-enable-flex-matching t)
 
 (when (keymapp ido-buffer-completion-map)
   (define-key ido-buffer-completion-map "η" 'ido-next-match)
@@ -28,22 +27,9 @@
 (when (keymapp ido-common-completion-map)
   (define-key ido-common-completion-map (kbd "DEL") 'ido-backspace)
   (define-key ido-common-completion-map "\C-n" 'ido-next-match)
-  (define-key ido-common-completion-map (kbd "\C-p") 'ido-prev-match)
-  (define-key ido-common-completion-map " " 'self-insert-command))
+  (define-key ido-common-completion-map (kbd "\C-p") 'ido-prev-match))
 
 ;;* Functions
-(require 'hydra)
-(defhydra hydra-ido (:color amaranth
-                     :pre (setq hydra-is-helpful nil)
-                     :post (setq hydra-is-helpful t))
-  ("j" ido-next-match)
-  ("k" ido-prev-match)
-  ("v" (lambda ()
-         (interactive)
-         (setq hydra-is-helpful t)
-         (ido-exit-minibuffer)))
-  ("q" nil))
-
 (defun ido-backspace ()
   "Forward to `backward-delete-char'.
 On error (read-only), quit without selecting."
