@@ -81,7 +81,7 @@ and <code>...</code>."
 ;;** C
 (define-key c-mode-base-map [f5] 'ccc-run)
 (define-key c-mode-map (kbd "M-.") 'semantic-ia-fast-jump)
-(define-key c-mode-map (kbd "β") 'auto-complete)
+(define-key c-mode-map (kbd "β") 'moo-complete)
 
 ;;** C++
 (define-key c++-mode-map (kbd "β") 'moo-complete)
