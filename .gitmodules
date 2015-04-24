@@ -18,7 +18,7 @@
 	url = git@github.com:abo-abo/profile-dotemacs.git
 [submodule "git/org-mode"]
 	path = git/org-mode
-	url = orgmode@orgmode.org:org-mode.git
+	url = git://orgmode.org/org-mode.git
 [submodule "git/org-fu"]
 	path = git/org-fu
 	url = git@github.com:abo-abo/org-fu.git
