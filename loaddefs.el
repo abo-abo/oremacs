@@ -101,7 +101,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-c++" "oleh/modes/ora-c++.el"
-;;;;;;  (21814 37590 224482 672000))
+;;;;;;  (21817 14166 209114 523000))
 ;;; Generated autoloads from oleh/modes/ora-c++.el
 
 (autoload 'ora-c-common-hook "oleh/modes/ora-c++" "\
@@ -247,10 +247,10 @@ Open or move eshell in `default-directory'.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-gnus" "oleh/modes/ora-gnus.el"
-;;;;;;  (21770 42214 545077 75000))
+;;;;;;  (21817 64344 146056 543000))
 ;;; Generated autoloads from oleh/modes/ora-gnus.el
 
-(autoload 'ora-gnus-group-mode-hook "oleh/modes/ora-gnus" "\
+(autoload 'ora-gnus-group-hook "oleh/modes/ora-gnus" "\
 
 
 \(fn)" nil nil)
@@ -472,7 +472,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-org" "oleh/modes/ora-org.el"
-;;;;;;  (21807 38291 99883 404000))
+;;;;;;  (21817 10788 805051 117000))
 ;;; Generated autoloads from oleh/modes/ora-org.el
 
 (autoload 'ora-org-hook "oleh/modes/ora-org" "\
@@ -593,12 +593,12 @@ run current script
 ;;;### (autoloads nil nil ("init.el" "oleh/hooks.el" "oleh/keys.el"
 ;;;;;;  "oleh/modes/ora-company.el" "oleh/modes/ora-helm.el" "oleh/modes/ora-ido.el"
 ;;;;;;  "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el" "packages.el")
-;;;;;;  (21816 56583 582181 296000))
+;;;;;;  (21817 64350 410490 245000))
 
 ;;;***
 
-;;;### (autoloads nil "oleh/auto" "oleh/auto.el" (21816 56478 612678
-;;;;;;  532000))
+;;;### (autoloads nil "oleh/auto" "oleh/auto.el" (21816 58267 120712
+;;;;;;  109000))
 ;;; Generated autoloads from oleh/auto.el
 
 (autoload 'ora-para-down "oleh/auto" "\
@@ -701,6 +701,11 @@ Useful to completely revert an `org-mode' file.
 \(fn)" t nil)
 
 (autoload 'ora-nw-yank "oleh/auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-install-gcl "oleh/auto" "\
 
 
 \(fn)" t nil)

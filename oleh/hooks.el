@@ -40,7 +40,7 @@
 (add-hook 'mu4e-headers-mode-hook 'ora-mu4e-headers-hook)
 (add-hook 'gnus-article-mode-hook 'ora-gnus-article-hook)
 (add-hook 'gnus-summary-mode-hook 'ora-gnus-summary-hook)
-(add-hook 'gnus-group-mode-hook 'ora-gnus-group-mode-hook)
+(add-hook 'gnus-group-mode-hook 'ora-gnus-group-hook)
 (add-hook 'message-mode-hook 'ora-message-hook)
 (add-hook 'text-mode-hook 'ora-text-hook)
 (add-hook 'term-exec-hook 'ora-term-exec-hook)

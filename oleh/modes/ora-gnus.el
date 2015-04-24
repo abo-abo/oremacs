@@ -20,7 +20,7 @@
 (define-key gnus-group-mode-map "v" (lambda () (interactive) (gnus-group-select-group t)))
 ;;* hooks
 ;;;###autoload
-(defun ora-gnus-group-mode-hook ())
+(defun ora-gnus-group-hook ())
 
 ;;;###autoload
 (defun ora-gnus-summary-hook ())
