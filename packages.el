@@ -40,6 +40,7 @@
     org-download
     powerline
     projectile
+    find-file-in-project
     rainbow-mode
     request
     slime
