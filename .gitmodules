@@ -1,39 +1,36 @@
 [submodule "git/clojure-semantic"]
 	path = git/clojure-semantic
-	url = git@github.com:abo-abo/clojure-semantic.git
+	url = https://github.com/abo-abo/clojure-semantic
 [submodule "git/abel"]
 	path = git/abel
-	url = git@github.com:abo-abo/abel.git
+	url = https://github.com/abo-abo/abel
 [submodule "git/cedet"]
 	path = git/cedet
-	url = git@github.com:abo-abo/cedet.git
+	url = https://github.com/abo-abo/cedet
 [submodule "git/eltex"]
 	path = git/eltex
-	url = git@github.com:abo-abo/eltex.git
+	url = https://github.com/abo-abo/eltex
 [submodule "git/htmlize"]
 	path = git/htmlize
-	url = git@github.com:abo-abo/htmlize.git
+	url = https://github.com/abo-abo/htmlize
 [submodule "git/profile-dotemacs"]
 	path = git/profile-dotemacs
-	url = git@github.com:abo-abo/profile-dotemacs.git
+	url = https://github.com/abo-abo/profile-dotemacs
 [submodule "git/org-mode"]
 	path = git/org-mode
 	url = git://orgmode.org/org-mode.git
 [submodule "git/org-fu"]
 	path = git/org-fu
-	url = git@github.com:abo-abo/org-fu.git
-[submodule "git/ace-link"]
-	path = git/ace-link
-	url = git@github.com:abo-abo/ace-link.git
+	url = https://github.com/abo-abo/org-fu
 [submodule "git/soap"]
 	path = git/soap
-	url = git@github.com:abo-abo/soap.git
+	url = https://github.com/abo-abo/soap
 [submodule "git/cc-chainsaw"]
 	path = git/cc-chainsaw
-	url = git@github.com:abo-abo/cc-chainsaw.git
+	url = https://github.com/abo-abo/cc-chainsaw
 [submodule "git/smex"]
 	path = git/smex
-	url = git@github.com:abo-abo/smex.git
+	url = https://github.com/abo-abo/smex
 [submodule "git/plain-org-wiki"]
 	path = git/plain-org-wiki
-	url = git@github.com:abo-abo/plain-org-wiki.git
+	url = https://github.com/abo-abo/plain-org-wiki
