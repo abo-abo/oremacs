@@ -27,6 +27,7 @@
 
 ;;;###autoload
 (defun ora-message-hook ()
+  (flyspell-mode)
   ;; (bbdb-initialize 'message)
   ;; (bbdb-initialize 'gnus)
   ;; (define-key message-mode-map (kbd "<tab>") 'bbdb-complete-mail)
