@@ -69,7 +69,6 @@
     (progn
       (setq lispy-no-permanent-semantic t)
       (setq lispy-helm-columns '(70 100))
-      (set-face-background 'lispy-command-name-face "#d8d8f7")
       (lispy-set-key-theme '(oleh special lispy c-digits))))
 
 (define-key lisp-mode-shared-map "β" 'counsel-el)
