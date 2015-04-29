@@ -45,21 +45,13 @@ and <code>...</code>."
 (require 'semantic/bovine/c)
 (add-to-list 'semantic-lex-c-preprocessor-symbol-file
              "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h")
-(mapc
- (lambda (x) (semantic-add-system-include x 'c++-mode))
- '("/home/usr/local/trilinos/include/"
-   "/usr/include/qt4"
-   "/usr/local/boost_1_54_0/"))
+(dolist (x (list "/home/usr/local/trilinos/include/"
+                 "/usr/local/boost_1_54_0/"))
+  (semantic-add-system-include x 'c++-mode))
 (set-default 'semantic-case-fold t)
-(setq qt4-base-dir "/usr/include/qt4")
-(semantic-add-system-include qt4-base-dir 'c++-mode)
-(add-to-list 'auto-mode-alist (cons qt4-base-dir 'c++-mode))
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/Qt/qconfig.h"))
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/QtCore/qconfig.h"))
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/Qt/qconfig-dist.h"))
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/QtCore/qconfig-dist.h"))
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/Qt/qglobal.h"))
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/QtCore/qglobal.h"))
+(defconst emacs-src-dir "~/git/gnu-emacs/")
+(semantic-add-system-include (expand-file-name "src/" emacs-src-dir) 'c-mode)
+(semantic-add-system-include (expand-file-name "lib/" emacs-src-dir) 'c-mode)
 
 ;;* Keymaps
 ;;** Base
