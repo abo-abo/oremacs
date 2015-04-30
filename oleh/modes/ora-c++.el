@@ -72,6 +72,7 @@ and <code>...</code>."
       (self-insert-command 1))))
 ;;** C
 (define-key c-mode-base-map [f5] 'ccc-run)
+(define-key c-mode-base-map (kbd "M-r") 'ccc-run)
 (define-key c-mode-map (kbd "M-.") 'semantic-ia-fast-jump)
 (define-key c-mode-map (kbd "β") 'moo-complete)
 
