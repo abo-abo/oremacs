@@ -70,6 +70,7 @@ and <code>...</code>."
     (if (region-active-p)
         (call-interactively 'ccc-align-function-arguments)
       (self-insert-command 1))))
+(define-key c-mode-base-map (kbd "DEL") 'ccc-electric-del)
 ;;** C
 (define-key c-mode-base-map [f5] 'ccc-run)
 (define-key c-mode-base-map (kbd "M-r") 'ccc-run)
