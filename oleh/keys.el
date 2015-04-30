@@ -41,7 +41,7 @@
 (global-set-key (kbd "C-ω") 'aya-create)                       ; [w]
 (global-set-key (kbd "C-=") 'eval-expression)                  ; [e]
 (global-set-key (kbd "C-ρ") 'ora-eval-other-window)            ; [r]
-(global-set-key (kbd "C-~") 'headlong-M-x)                     ; [t]
+(global-set-key (kbd "C-~") nil)                               ; [t]
 (global-set-key (kbd "C-υ") 'aya-create)                       ; [y]
 (global-set-key (kbd "C-ψ") 'moo-jump-local)                   ; [u]
 (global-set-key [C-tab] 'ora-ctrltab)                          ; [i]
@@ -84,7 +84,7 @@
 (global-set-key "κ" 'hydra-helm/body)                        ; [k]
 ;; (global-set-key (kbd "<") 'self-insert-command)           ; [l]
 ;; (global-set-key (kbd "+") 'self-insert-command)           ; [z]
-(global-set-key "χ" 'lispy-out-forward)                      ; [x]
+(global-set-key "χ" 'lispy-right)                            ; [x]
 (global-set-key "σ" 'ora-braces)                             ; [c]
 ;; (global-set-key (kbd "RET") 'newline)                     ; [v]
 (global-set-key "β" nil)                                     ; [b]
@@ -197,16 +197,8 @@
   ("w" whitespace-mode "whitespace")
   ("q" nil "cancel"))
 
-(defun hydra-vi/pre ()
-  (set-cursor-color "#e52b50"))
-
-(defun hydra-vi/post ()
-  (set-cursor-color "#ffffff"))
-
-(defvar hydra-vi/init-pos nil)
-(defhydra hydra-vi (:pre hydra-vi/pre
-                    :body-pre (setq hydra-vi/init-pos (point))
-                    :post hydra-vi/post
+(defhydra hydra-vi (:pre (set-cursor-color "#e52b50")
+                    :post (set-cursor-color "#ffffff")
                     :color pink)
   "vi"
   ;; movement
@@ -234,7 +226,7 @@
   ("e" move-end-of-line "end")
   ("y" kill-ring-save "yank" :exit t)
   ;; exit points
-  ("q" (goto-char hydra-vi/init-pos) "ins" :exit t)
+  ("q" nil "ins")
   ("C-n" (forward-line 1) nil :exit t)
   ("C-p" (forward-line -1) nil :exit t))
 (global-set-key (kbd "C-v") 'hydra-vi/body)
