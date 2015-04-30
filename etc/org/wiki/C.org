@@ -1,0 +1,134 @@
+* GCC
+** Common Predefined Macros
+
+[[https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html][source]]
+
+#+begin_src C :results verbatim
+#include <stdio.h>
+
+int main() {
+  // version stuff
+  printf("__GNUC__ %d\n", __GNUC__);
+  printf("__GNUC_MINOR__ %d\n", __GNUC_MINOR__);
+  printf("__GNUC_PATCHLEVEL__ %d\n", __GNUC_PATCHLEVEL__);
+  printf("__VERSION__ %s\n", __VERSION__);
+
+  // file related
+  printf("__BASE_FILE__ %s\n", __BASE_FILE__);
+  printf("__INCLUDE_LEVEL__ %d\n", __INCLUDE_LEVEL__);
+
+  // optimization related
+#ifdef __OPTIMIZE__
+  printf("__OPTIMIZE__ %d\n", __OPTIMIZE__);
+#endif
+  printf("__NO_INLINE__ %d\n", __NO_INLINE__);
+
+  switch (__BYTE_ORDER__) {
+    case __ORDER_LITTLE_ENDIAN__:
+      printf("__BYTE_ORDER__ little\n");
+      break;
+    case __ORDER_BIG_ENDIAN__:
+      printf("__BYTE_ORDER__ big\n");
+      break;
+    case __ORDER_PDP_ENDIAN__:
+      printf("__BYTE_ORDER__ omg\n");
+      break;
+    default:
+      printf("__BYTE_ORDER__ unknown\n");
+  }
+  printf("__TIMESTAMP__ %s\n", __TIMESTAMP__);
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+: __GNUC__ 4
+: __GNUC_MINOR__ 8
+: __GNUC_PATCHLEVEL__ 2
+: __VERSION__ 4.8.2
+: __BASE_FILE__ /tmp/babel-310IHh/C-src-310RYJ.c
+: __INCLUDE_LEVEL__ 0
+: __NO_INLINE__ 1
+: __BYTE_ORDER__ little
+: __TIMESTAMP__ Thu Apr 30 14:57:44 2015
+
+** Size Types
+#+begin_src C :results verbatim
+#include <stdio.h>
+#define ESTR(a) STR(a)
+#define STR(a) #a
+
+int main() {
+  printf("__SIZE_TYPE__ %s (%d)\n", ESTR(__SIZE_TYPE__), sizeof(__SIZE_TYPE__));
+  printf("__PTRDIFF_TYPE__ %s (%d)\n", ESTR(__PTRDIFF_TYPE__), sizeof(__PTRDIFF_TYPE__));
+  printf("__WCHAR_TYPE__ %s (%d)\n", ESTR(__WCHAR_TYPE__), sizeof(__WCHAR_TYPE__));
+  printf("__WINT_TYPE__ %s (%d)\n", ESTR(__WINT_TYPE__), sizeof(__WINT_TYPE__));
+  printf("__INTMAX_TYPE__ %s (%d)\n", ESTR(__INTMAX_TYPE__), sizeof(__INTMAX_TYPE__));
+  printf("__UINTMAX_TYPE__ %s (%d)\n", ESTR(__UINTMAX_TYPE__), sizeof(__UINTMAX_TYPE__));
+  printf("__SIG_ATOMIC_TYPE__ %s (%d)\n", ESTR(__SIG_ATOMIC_TYPE__), sizeof(__SIG_ATOMIC_TYPE__));
+  printf("__INT8_TYPE__ %s (%d)\n", ESTR(__INT8_TYPE__), sizeof(__INT8_TYPE__));
+  printf("__INT16_TYPE__ %s (%d)\n", ESTR(__INT16_TYPE__), sizeof(__INT16_TYPE__));
+  printf("__INT32_TYPE__ %s (%d)\n", ESTR(__INT32_TYPE__), sizeof(__INT32_TYPE__));
+  printf("__INT64_TYPE__ %s (%d)\n", ESTR(__INT64_TYPE__), sizeof(__INT64_TYPE__));
+  printf("__UINT8_TYPE__ %s (%d)\n", ESTR(__UINT8_TYPE__), sizeof(__UINT8_TYPE__));
+  printf("__UINT16_TYPE__ %s (%d)\n", ESTR(__UINT16_TYPE__), sizeof(__UINT16_TYPE__));
+  printf("__UINT32_TYPE__ %s (%d)\n", ESTR(__UINT32_TYPE__), sizeof(__UINT32_TYPE__));
+  printf("__UINT64_TYPE__ %s (%d)\n", ESTR(__UINT64_TYPE__), sizeof(__UINT64_TYPE__));
+  printf("__INT_LEAST8_TYPE__ %s (%d)\n", ESTR(__INT_LEAST8_TYPE__), sizeof(__INT_LEAST8_TYPE__));
+  printf("__INT_LEAST16_TYPE__ %s (%d)\n", ESTR(__INT_LEAST16_TYPE__), sizeof(__INT_LEAST16_TYPE__));
+  printf("__INT_LEAST32_TYPE__ %s (%d)\n", ESTR(__INT_LEAST32_TYPE__), sizeof(__INT_LEAST32_TYPE__));
+  printf("__INT_LEAST64_TYPE__ %s (%d)\n", ESTR(__INT_LEAST64_TYPE__), sizeof(__INT_LEAST64_TYPE__));
+  printf("__UINT_LEAST8_TYPE__ %s (%d)\n", ESTR(__UINT_LEAST8_TYPE__), sizeof(__UINT_LEAST8_TYPE__));
+  printf("__UINT_LEAST16_TYPE__ %s (%d)\n", ESTR(__UINT_LEAST16_TYPE__), sizeof(__UINT_LEAST16_TYPE__));
+  printf("__UINT_LEAST32_TYPE__ %s (%d)\n", ESTR(__UINT_LEAST32_TYPE__), sizeof(__UINT_LEAST32_TYPE__));
+  printf("__UINT_LEAST64_TYPE__ %s (%d)\n", ESTR(__UINT_LEAST64_TYPE__), sizeof(__UINT_LEAST64_TYPE__));
+  printf("__INT_FAST8_TYPE__ %s (%d)\n", ESTR(__INT_FAST8_TYPE__), sizeof(__INT_FAST8_TYPE__));
+  printf("__INT_FAST16_TYPE__ %s (%d)\n", ESTR(__INT_FAST16_TYPE__), sizeof(__INT_FAST16_TYPE__));
+  printf("__INT_FAST32_TYPE__ %s (%d)\n", ESTR(__INT_FAST32_TYPE__), sizeof(__INT_FAST32_TYPE__));
+  printf("__INT_FAST64_TYPE__ %s (%d)\n", ESTR(__INT_FAST64_TYPE__), sizeof(__INT_FAST64_TYPE__));
+  printf("__UINT_FAST8_TYPE__ %s (%d)\n", ESTR(__UINT_FAST8_TYPE__), sizeof(__UINT_FAST8_TYPE__));
+  printf("__UINT_FAST16_TYPE__ %s (%d)\n", ESTR(__UINT_FAST16_TYPE__), sizeof(__UINT_FAST16_TYPE__));
+  printf("__UINT_FAST32_TYPE__ %s (%d)\n", ESTR(__UINT_FAST32_TYPE__), sizeof(__UINT_FAST32_TYPE__));
+  printf("__UINT_FAST64_TYPE__ %s (%d)\n", ESTR(__UINT_FAST64_TYPE__), sizeof(__UINT_FAST64_TYPE__));
+  printf("__INTPTR_TYPE__ %s (%d)\n", ESTR(__INTPTR_TYPE__), sizeof(__INTPTR_TYPE__));
+  printf("__UINTPTR_TYPE__ %s (%d)\n", ESTR(__UINTPTR_TYPE__), sizeof(__UINTPTR_TYPE__));
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+__SIZE_TYPE__ long unsigned int (8)
+__PTRDIFF_TYPE__ long int (8)
+__WCHAR_TYPE__ int (4)
+__WINT_TYPE__ unsigned int (4)
+__INTMAX_TYPE__ long int (8)
+__UINTMAX_TYPE__ long unsigned int (8)
+__SIG_ATOMIC_TYPE__ int (4)
+__INT8_TYPE__ signed char (1)
+__INT16_TYPE__ short int (2)
+__INT32_TYPE__ int (4)
+__INT64_TYPE__ long int (8)
+__UINT8_TYPE__ unsigned char (1)
+__UINT16_TYPE__ short unsigned int (2)
+__UINT32_TYPE__ unsigned int (4)
+__UINT64_TYPE__ long unsigned int (8)
+__INT_LEAST8_TYPE__ signed char (1)
+__INT_LEAST16_TYPE__ short int (2)
+__INT_LEAST32_TYPE__ int (4)
+__INT_LEAST64_TYPE__ long int (8)
+__UINT_LEAST8_TYPE__ unsigned char (1)
+__UINT_LEAST16_TYPE__ short unsigned int (2)
+__UINT_LEAST32_TYPE__ unsigned int (4)
+__UINT_LEAST64_TYPE__ long unsigned int (8)
+__INT_FAST8_TYPE__ signed char (1)
+__INT_FAST16_TYPE__ long int (8)
+__INT_FAST32_TYPE__ long int (8)
+__INT_FAST64_TYPE__ long int (8)
+__UINT_FAST8_TYPE__ unsigned char (1)
+__UINT_FAST16_TYPE__ long unsigned int (8)
+__UINT_FAST32_TYPE__ long unsigned int (8)
+__UINT_FAST64_TYPE__ long unsigned int (8)
+__INTPTR_TYPE__ long int (8)
+__UINTPTR_TYPE__ long unsigned int (8)
+#+end_example
