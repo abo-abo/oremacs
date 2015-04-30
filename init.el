@@ -1,6 +1,6 @@
 ;;; oremacs
 ;;* Base directory
-(defconst emacs-d
+(defvar emacs-d
   (file-name-directory
    (file-chase-links load-file-name))
   "The giant turtle on which the world rests.")
