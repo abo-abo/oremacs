@@ -24,6 +24,7 @@
 (define-key org-mode-map (kbd "χ") 'worf-back-to-heading)
 (define-key org-mode-map (kbd "C-σ") 'org-edit-special)
 (define-key org-mode-map (kbd "C-a") 'ora-move-beginning-of-line)
+(define-key org-mode-map (kbd "M-r") 'org-ctrl-c-ctrl-c)
 (define-key org-src-mode-map (kbd "C-c C-c") 'org-edit-src-exit)
 
 ;;** org-agenda-mode-map
