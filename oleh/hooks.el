@@ -48,6 +48,7 @@
 (add-hook 'makefile-mode-hook 'ora-makefile-hook)
 (add-hook 'makefile-gmake-mode-hook 'ora-makefile-hook)
 (add-hook 'doc-view-mode-hook 'ora-doc-view-hook)
+(add-hook 'pdf-view-mode-hook 'ora-pdf-view-hook)
 (add-hook 'help-mode-hook 'ora-help-hook)
 (add-hook 'eltex-mode-hook 'ora-eltex-hook)
 (add-hook 'Info-mode-hook 'ora-Info-hook)

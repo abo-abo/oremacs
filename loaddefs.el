@@ -101,7 +101,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-c++" "oleh/modes/ora-c++.el"
-;;;;;;  (21817 14166 209114 523000))
+;;;;;;  (21825 8176 82053 329000))
 ;;; Generated autoloads from oleh/modes/ora-c++.el
 
 (autoload 'ora-c-common-hook "oleh/modes/ora-c++" "\
@@ -247,7 +247,7 @@ Open or move eshell in `default-directory'.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-gnus" "oleh/modes/ora-gnus.el"
-;;;;;;  (21817 64344 146056 543000))
+;;;;;;  (21823 20396 0 0))
 ;;; Generated autoloads from oleh/modes/ora-gnus.el
 
 (autoload 'ora-gnus-group-hook "oleh/modes/ora-gnus" "\
@@ -391,7 +391,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-markdown" "oleh/modes/ora-markdown.el"
-;;;;;;  (21797 27642 0 0))
+;;;;;;  (21797 27642 682519 207000))
 ;;; Generated autoloads from oleh/modes/ora-markdown.el
 
 (autoload 'ora-markdown-hook "oleh/modes/ora-markdown" "\
@@ -498,6 +498,17 @@ Transform Elisp-style code references to Markdown-style.
 
 ;;;***
 
+;;;### (autoloads nil "oleh/modes/ora-pdf-view" "oleh/modes/ora-pdf-view.el"
+;;;;;;  (21825 9173 646069 501000))
+;;; Generated autoloads from oleh/modes/ora-pdf-view.el
+
+(autoload 'ora-pdf-view-hook "oleh/modes/ora-pdf-view" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
 ;;;### (autoloads nil "oleh/modes/ora-python" "oleh/modes/ora-python.el"
 ;;;;;;  (21806 17244 758257 941000))
 ;;; Generated autoloads from oleh/modes/ora-python.el
@@ -593,7 +604,7 @@ run current script
 ;;;### (autoloads nil nil ("init.el" "oleh/hooks.el" "oleh/keys.el"
 ;;;;;;  "oleh/modes/ora-company.el" "oleh/modes/ora-helm.el" "oleh/modes/ora-ido.el"
 ;;;;;;  "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el" "packages.el")
-;;;;;;  (21817 64350 410490 245000))
+;;;;;;  (21825 9206 395343 29000))
 
 ;;;***
 
