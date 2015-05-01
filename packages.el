@@ -37,6 +37,7 @@
     make-it-so
     markdown-mode
     netherlands-holidays
+    org-bullets
     org-download
     powerline
     projectile
