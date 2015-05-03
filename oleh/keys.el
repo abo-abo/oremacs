@@ -109,6 +109,7 @@
 (global-set-key (kbd "C-c h") 'hydra-apropos/body)
 (global-set-key (kbd "C-c s") 'isearch-forward)
 (global-set-key (kbd "C-c r") 'isearch-backward)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
 ;;* C-x shortcuts
 (global-set-key (kbd "C-x C-r") (lambda () (interactive) (revert-buffer nil t)))
 (global-set-key (kbd "C-x l") 'locate)
@@ -126,7 +127,7 @@
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 (global-set-key (kbd "<f2> C-u") 'helm-ucs)
 (global-set-key [f5] 'compile)
-(global-set-key [f6] 'next-error)
+(global-set-key [f6] 'ivy-resume)
 (global-set-key [C-f6] 'previous-error)
 (global-set-key [f7] 'winner-undo)
 (global-set-key [C-f7] 'winner-redo)
