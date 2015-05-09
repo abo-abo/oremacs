@@ -1,13 +1,13 @@
 (require 'ivy)
 
 (defhydra hydra-ivy (:hint nil
-                     :color pink)
+                     :color red)
   "
 ^^^^^^          ^Actions^    ^Dired^      ^Quit^
 ^^^^^^^^^^^^^^------------------------------------------------------
 ^ ^ _k_ ^ ^     _._ repeat   _m_ark       _i_: cancel  _v_: recenter
 _h_ ^✜^ _l_     _r_eplace    _,_ unmark   _o_: quit
-^ ^ _j_ ^ ^     _u_ndo
+^ ^ _j_ ^ ^     _u_ndo       ^ ^          _f_: finish
 "
   ;; arrows
   ("h" ivy-beginning-of-buffer)
@@ -24,11 +24,36 @@ _h_ ^✜^ _l_     _r_eplace    _,_ unmark   _o_: quit
   ("," ivy-dired-unmark)
   ;; exit
   ("o" keyboard-escape-quit :exit t)
-  ("i" nil))
+  ("i" nil)
+  ("f" ivy-done :exit t))
 
-(define-key ivy-minibuffer-map (kbd "C-o") 'hydra-ivy/body)
+(define-key ivy-minibuffer-map (kbd "C-o") 'ivy-hydra-wrapper)
 (define-key ivy-minibuffer-map (kbd "<return>") 'ivy-alt-done)
 (define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
+(define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
+(define-key ivy-minibuffer-map (kbd "C-:") 'ivy-dired)
+
+(defun ivy-hydra-wrapper ()
+  (interactive)
+  (if ivy--directory
+      (ivy-quit-and-run
+       (dired ivy--directory)
+       (run-at-time nil nil
+                    'hydra-ivy/body)
+       (swiper ivy-text))
+    (hydra-ivy/body)))
+
+(defun ivy-dired ()
+  (interactive)
+  (if ivy--directory
+      (ivy-quit-and-run
+       (dired ivy--directory)
+       (when (re-search-forward
+              (regexp-quote
+               (substring ivy--current 0 -1)) nil t)
+         (goto-char (match-beginning 0))))
+    (user-error
+     "Not completing files currently")))
 
 (defun ivy-dired-mark (arg)
   (interactive "p")
