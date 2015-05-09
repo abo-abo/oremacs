@@ -187,7 +187,11 @@
   (setq aw-background nil)
   (csetq aw-flip-keys '("n" "ν")))
 (use-package avy-jump
-    :commands avi-goto-char avi-goto-char-2 avi-isearch)
+    :commands avy-goto-char avy-goto-char-2 avy-isearch avy-goto-line
+    :config
+    (avy-setup-default)
+    (setq avy-all-windows nil)
+    (setq avy-styles-alist '((avy-goto-char-2 . post))))
 (use-package golden-ratio
     :commands golden-ratio-mode
     :config

@@ -28,7 +28,7 @@
 (global-set-key (kbd "C-z") 'capitalize-word-toggle)     ; capitili[z]e
 (global-set-key (kbd "C-.") 'comment-dwim)
 (global-set-key (kbd "C-,") 'lispy-kill-at-point)
-(global-set-key (kbd "C-'") 'avi-goto-char-2)
+(global-set-key (kbd "C-'") 'avy-goto-char-2)
 (global-set-key (kbd "C-/") 'ora-replace-regexp)
 (global-set-key (kbd "C-7") 'mc/mark-next-like-this)
 ;;* Ctrl Meta shortcuts
@@ -73,7 +73,7 @@
 (global-set-key "ψ" 'universal-argument)                     ; [u]
 ;; (global-set-key (kbd "TAB") 'self-insert-command)         ; [i]
 ;; (global-set-key (kbd "DEL") 'self-insert-command)         ; [o]
-(global-set-key (kbd "π") 'avi-goto-char)                    ; [p]
+(global-set-key (kbd "π") 'avy-goto-char)                    ; [p]
 ;; (global-set-key (kbd "-") 'self-insert-command)           ; [a]
 ;; (global-set-key (kbd "_") 'self-insert-command)           ; [s]
 ;; (global-set-key (kbd ":") 'self-insert-command)           ; [d]
@@ -152,9 +152,10 @@
   ("k" previous-error "prev")
   ("v" recenter-top-bottom "recenter")
   ("q" nil "quit"))
-(global-set-key (kbd "M-g f") 'avi-goto-line)
-(global-set-key (kbd "M-g e") 'avi-goto-word-0)
-(global-set-key (kbd "M-g w") 'avi-goto-word-1)
+(global-set-key (kbd "M-g g") 'avy-goto-line)
+(global-set-key (kbd "M-g e") 'avy-goto-word-0)
+(global-set-key (kbd "M-g w") 'avy-goto-word-1)
+(global-set-key (kbd "M-g s") 'avy-goto-subword-0)
 
 (defhydra hydra-zoom (global-map "<f2>")
   "zoom"
@@ -273,9 +274,7 @@
   ("c" goto-char "char"))
 
 (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
-(define-key isearch-mode-map "'" 'avi-isearch)
 ;; (global-set-key "\C-t" (lambda () (interactive) (let (flx-ido-mode) (smex))))
-
 ;; (global-set-key "\C-t" 'execute-extended-command)
 
 (provide 'oleh/keys)
