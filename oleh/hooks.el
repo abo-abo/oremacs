@@ -70,7 +70,8 @@
     (progn
       (setq lispy-no-permanent-semantic t)
       (setq lispy-helm-columns '(70 100))
-      (lispy-set-key-theme '(oleh special lispy c-digits))))
+      (lispy-set-key-theme '(oleh special lispy c-digits))
+      (setq lispy-avy-style-symbol 'at-full)))
 
 (define-key lisp-mode-shared-map "β" 'counsel-el)
 (define-key lisp-mode-shared-map (kbd "C-c C-z")
