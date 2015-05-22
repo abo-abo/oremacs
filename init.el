@@ -96,6 +96,8 @@
   (setq recentf-exclude '("COMMIT_MSG" "COMMIT_EDITMSG" "github.*txt$"
                           ".*png$"))
   (setq recentf-max-saved-items 60))
+(eval-after-load 'xref
+  '(setq xref-pulse-on-jump nil))
 (require 'ora-ido)
 (use-package swiper
     :commands swiper
