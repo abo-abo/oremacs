@@ -531,7 +531,7 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
   (if arg
       (let ((current-prefix-arg 4))
         (call-interactively #'magit-status))
-    (ido-switch-buffer)))
+    (ivy-switch-buffer)))
 
 ;;;###autoload
 (defun youtube-dl ()
