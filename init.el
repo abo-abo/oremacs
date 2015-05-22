@@ -189,23 +189,13 @@
 (setq bookmark-completion-ignore-case nil)
 (bookmark-maybe-load-default-file)
 ;;** windows
-(use-package ace-window
-    :init
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (setq aw-background nil)
-  (csetq aw-flip-keys '("n" "ν")))
-(use-package avy-jump
-    :commands avy-goto-char avy-goto-char-2 avy-isearch avy-goto-line
-    :config
-    (avy-setup-default)
-    (setq avy-all-windows nil)
-    (setq avy-styles-alist '((avy-goto-char-2 . post))))
-(use-package golden-ratio
-    :commands golden-ratio-mode
-    :config
-    (mapc
-     (lambda (x) (add-to-list 'golden-ratio-exclude-buffer-names x))
-     '("*LV*" "*lispy-goto*")))
+(require 'ora-avy)
+;; (use-package golden-ratio
+;;     :commands golden-ratio-mode
+;;     :config
+;;     (mapc
+;;      (lambda (x) (add-to-list 'golden-ratio-exclude-buffer-names x))
+;;      '("*LV*" "*lispy-goto*")))
 (use-package transpose-frame
   :commands transpose-frame)
 ;;** rest
@@ -288,6 +278,7 @@
  (lambda () (require 'ora-org)))
 (use-package htmlize
     :commands htmlize-buffer)
+
 (require 'oleh/personal/init nil t)
 (require 'server)
 (or (server-running-p) (server-start))
