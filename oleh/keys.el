@@ -1,3 +1,4 @@
+;; keys -*- lexical-binding: t -*-
 ;;* Ctrl shortcuts
 (global-set-key "\C-a" 'ora-move-beginning-of-line)      ; 'move-beginning-of-line
 ;; (global-set-key "\C-b" 'backward-char)                ; default
@@ -81,7 +82,7 @@
 ;; (global-set-key (kbd ">") 'self-insert-command)           ; [g]
 (global-set-key "η" 'ora-save-and-switch-buffer)             ; [h]
 ;; (global-set-key (kbd ";") 'self-insert-command)           ; [j]
-(global-set-key "κ" 'hydra-helm/body)                        ; [k]
+(global-set-key "κ" 'hydra-k/body)                           ; [k]
 ;; (global-set-key (kbd "<") 'self-insert-command)           ; [l]
 ;; (global-set-key (kbd "+") 'self-insert-command)           ; [z]
 (global-set-key "χ" 'lispy-right)                            ; [x]
@@ -173,18 +174,20 @@
    ("s" shell "shell")
    ("q" nil "cancel"))
 
-(defhydra hydra-helm (:color blue)
-  "helm"
-  ("f" projectile-find-file "file")
-  ("h" helm-google-suggest "google")
-  ("w" plain-org-wiki "wiki")
+(defhydra hydra-k (:color blue
+                   :idle 0.5)
+  "k"
+  ("b" hydra-launcher/body "browse")
+  ("d" define-word-at-point "def")
+  ("f" find-file-in-project "file")
   ("g" (lambda ()
          (interactive)
          (let ((current-prefix-arg 4))
            (call-interactively #'magit-status)))
        "git")
-  ("b" hydra-launcher/body "browse")
   ("l" helm-locate "locate")
+  ;; ("h" helm-google-suggest "google")
+  ("w" plain-org-wiki "wiki")
   ("q" nil "quit"))
 
 (global-set-key (kbd "C-c C-v") 'hydra-toggle/body)

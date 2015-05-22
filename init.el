@@ -264,6 +264,7 @@
               (projectile-relevant-known-projects))))))
 (use-package ace-link
     :config (ace-link-setup-default))
+(require 'define-word)
 (use-package slime
     :commands slime
     :init
