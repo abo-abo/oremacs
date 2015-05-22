@@ -91,11 +91,17 @@
 (winner-mode 1)
 (use-package smex
     :init (setq smex-completion-method 'ivy))
+(use-package recentf
+  :config
+  (setq recentf-exclude '("COMMIT_MSG" "COMMIT_EDITMSG" "github.*txt$"
+                          ".*png$"))
+  (setq recentf-max-saved-items 60))
 (require 'ora-ido)
 (use-package swiper
     :commands swiper
     :config
     (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
     (require 'ora-ivy))
 (require 'counsel)
 (blink-cursor-mode -1)
