@@ -268,16 +268,6 @@
   ("u" (progn (winner-undo) (setq this-command 'winner-undo)) "undo")
   ("f" nil))
 (global-set-key (kbd "C-M-o") 'hydra-window/body)
-
-(defhydra hydra-goto-line (global-map "M-g"
-                           :pre (linum-mode 1)
-                           :after-exit (linum-mode -1)
-                           :exit t)
-  ("g" goto-line "line")
-  ("c" goto-char "char"))
-
 (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
-;; (global-set-key "\C-t" (lambda () (interactive) (let (flx-ido-mode) (smex))))
-;; (global-set-key "\C-t" 'execute-extended-command)
 
 (provide 'oleh/keys)
