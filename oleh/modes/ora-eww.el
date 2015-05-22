@@ -1,15 +1,11 @@
 (require 'eww)
-(require 'ace-jump-mode)
+(require 'avy)
 
 (defun eww-view-ace ()
   "Select point with ace-jump-mode and make that line the top one."
   (interactive)
-  (setq ace-jump-mode-end-hook
-        (list (lambda ()
-                (setq ace-jump-mode-end-hook)
-                (recenter 0))))
-  (let ((ace-jump-mode-scope 'window))
-    (call-interactively 'ace-jump-char-mode)))
+  (call-interactively #'avy-goto-char)
+  (recenter 0))
 
 (define-key eww-mode-map "j" 'ora-para-down)
 (define-key eww-mode-map "k" 'ora-para-up)
