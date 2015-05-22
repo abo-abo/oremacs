@@ -18,6 +18,7 @@
 ;;* Keys
 ;;** org-mode-map
 (define-key org-mode-map (kbd "C-,") nil)
+(define-key org-mode-map (kbd "C-'") nil)
 (define-key org-mode-map (kbd "C-TAB") nil)
 (define-key org-mode-map (kbd "C-M-i") nil)
 (define-key org-mode-map [C-tab] nil)
@@ -44,6 +45,7 @@
 (setq org-todo-keywords
       '((sequence "TODO" "|" "DONE" "CANCELLED")))
 (setq org-startup-indented t)
+(setq org-startup-folded nil)
 (setq org-cycle-separator-lines 0)
 (setq org-return-follows-link t)
 (setq org-bookmark-names-plist
