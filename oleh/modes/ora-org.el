@@ -8,8 +8,6 @@
 ;;;###autoload
 (defun ora-org-hook ()
   (worf-mode)
-  ;; (reveal-mode)
-  (auto-fill-mode)
   (org-bullets-mode))
 
 ;;;###autoload
