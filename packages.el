@@ -21,6 +21,7 @@
     cmake-mode
     company
     counsel
+    define-word
     eclipse-theme
     elfeed
     function-args
