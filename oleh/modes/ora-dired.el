@@ -85,7 +85,8 @@
          (let ((v (tramp-dissect-file-name current-dir t)))
            (format "ssh %s@%s\n"
                    (aref v 1) (aref v 2)))
-       (format "cd '%s'\n" current-dir)))))
+       (format "cd '%s'\n" current-dir)))
+    (setq default-directory current-dir)))
 
 (require 'hydra)
 (defhydra hydra-marked-items (dired-mode-map "")
