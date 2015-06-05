@@ -98,7 +98,7 @@
 (global-set-key (kbd "M-p") (lambda () (interactive) (set-mark-command 4)))
 (global-set-key (kbd "M-i") (lambda () (interactive) (iedit-mode 0)))
 (global-set-key (kbd "M-,") 'pop-tag-mark)
-(global-set-key (kbd "M-/") 'ora-query-replace-regex)
+(global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 ;;* C-c shortcuts
 (global-set-key (kbd "C-c d") 'ora-insert-date-from)
