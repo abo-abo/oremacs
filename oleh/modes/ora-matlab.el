@@ -4,7 +4,6 @@
 (define-key matlab-mode-map (kbd "C-h") nil)
 (define-key matlab-mode-map (kbd "C-M-i") nil)
 (define-key matlab-mode-map (kbd "<f5>") 'matlab-run-file)
-(define-key matlab-mode-map (kbd "'") 'ora-single-quotes)
 (define-key matlab-mode-map (kbd "θ") 'ora-single-quotes)
 (define-key matlab-mode-map (kbd "C-'") (lambda()(interactive)(insert "'")))
 (define-key matlab-mode-map (kbd "C-c C-z")
@@ -20,6 +19,8 @@
 
 ;;;###autoload
 (defun ora-matlab-hook ())
+
+;; (setq matlab-really-gaudy-font-lock-keywords nil)
 
 (defun matlab-run-file ()
   (interactive)
