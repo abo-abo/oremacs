@@ -17,16 +17,17 @@ install: install-git upgrade
 	make run
 
 pull:
-	git pull
-	git submodule init
-	git submodule update
+	> etc/log
+	git pull 2>&1 | tee etc/log
+	git submodule init 2>&1 | tee etc/log
+	git submodule update 2>&1 | tee etc/log
 
 install-git: pull
-	cd git/cedet && make
-	cd git/org-mode && make compile
+	cd git/cedet && make 2>&1 | tee etc/log
+	cd git/org-mode && make compile 2>&1 | tee etc/log
 
 upgrade: pull
-	$(emacs) -batch -l packages.el
+	$(emacs) -batch -l packages.el 2>&1 | tee etc/log
 
 up: upgrade
 	$(emacs) -Q -l init.el
