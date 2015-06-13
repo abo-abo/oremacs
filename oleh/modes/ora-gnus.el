@@ -1,5 +1,6 @@
 (require 'gnus)
 (require 'gnus-group)
+(setq nnmail-treat-duplicates t)
 ;;* article
 (define-key gnus-article-mode-map "\C-h" nil)
 (define-key gnus-article-mode-map "j" 'forward-paragraph)
@@ -18,6 +19,7 @@
 (define-key gnus-group-mode-map "j" 'gnus-group-next-unread-group)
 (define-key gnus-group-mode-map "p" 'gnus-group-jump-to-group)
 (define-key gnus-group-mode-map "v" (lambda () (interactive) (gnus-group-select-group t)))
+(define-key gnus-group-mode-map (kbd "C-o") 'ora-list-subscribed-groups)
 ;;* hooks
 ;;;###autoload
 (defun ora-gnus-group-hook ())
@@ -44,3 +46,8 @@
    (nnimap-stream ssl)))
 
 (setq gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
+
+(defun ora-list-subscribed-groups ()
+  "List all subscribed groups with or without un-read messages"
+  (interactive)
+  (gnus-group-list-all-groups 5))
