@@ -13,6 +13,7 @@
 (define-key Info-mode-map "A" 'beginning-of-buffer)
 (define-key Info-mode-map "E" 'end-of-buffer)
 (define-key Info-mode-map "t" 'hydra-info-to/body)
+(define-key Info-mode-map "u" 'Info-history-back)
 
 ;;;###autoload
 (defun ora-Info-hook ())
