@@ -178,7 +178,8 @@
   (setq powerline-display-buffer-size nil)
   (setq powerline-display-mule-info nil)
   (setq powerline-display-hud nil)
-  (powerline-default-theme))
+  (when (display-graphic-p)
+    (powerline-default-theme)))
 (use-package uniquify
     :init
   (setq uniquify-buffer-name-style 'reverse)
