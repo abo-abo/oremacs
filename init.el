@@ -201,6 +201,7 @@
   :commands transpose-frame)
 ;;** rest
 (require 'hydra)
+(setq hydra--work-around-dedicated nil)
 (hydra-add-font-lock)
 (require 'oleh/hooks)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
