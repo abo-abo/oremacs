@@ -754,6 +754,15 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
                 (and (functionp local) major-mode)
                 (and (functionp global) 'global)))))
 
+;;;###autoload
+(defun ora-pretty-quote-glyphs ()
+  (let ((tbl (make-display-table)))
+    (aset tbl 8220 (vector (make-glyph-code ?\" 'default)))
+    (aset tbl 8221 (vector (make-glyph-code ?\" 'default)))
+    (aset tbl 8216 (vector (make-glyph-code ?\` 'default)))
+    (aset tbl 8217 (vector (make-glyph-code ?\' 'default)))
+    (setq standard-display-table tbl)))
+
 ;;* Advices
 ;;;###autoload
 (defadvice kill-compilation (after ora-disable-compiling-message activate)

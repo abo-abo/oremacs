@@ -90,7 +90,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-Info" "oleh/modes/ora-Info.el"
-;;;;;;  (21768 29316 668947 133000))
+;;;;;;  (21899 48845 0 0))
 ;;; Generated autoloads from oleh/modes/ora-Info.el
 
 (autoload 'ora-Info-hook "oleh/modes/ora-Info" "\
@@ -101,7 +101,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-c++" "oleh/modes/ora-c++.el"
-;;;;;;  (21825 8176 82053 329000))
+;;;;;;  (21899 48845 0 0))
 ;;; Generated autoloads from oleh/modes/ora-c++.el
 
 (autoload 'ora-c-common-hook "oleh/modes/ora-c++" "\
@@ -122,7 +122,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-cider" "oleh/modes/ora-cider.el"
-;;;;;;  (21768 9415 172912 197000))
+;;;;;;  (21899 48845 0 0))
 ;;; Generated autoloads from oleh/modes/ora-cider.el
 
 (autoload 'ora-cider-hook "oleh/modes/ora-cider" "\
@@ -133,7 +133,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-clojure" "oleh/modes/ora-clojure.el"
-;;;;;;  (21790 25061 102719 136000))
+;;;;;;  (21899 58584 0 0))
 ;;; Generated autoloads from oleh/modes/ora-clojure.el
 
 (autoload 'ora-clojure-hook "oleh/modes/ora-clojure" "\
@@ -149,7 +149,7 @@ Log in to http://www.4clojure.com.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-dired" "oleh/modes/ora-dired.el"
-;;;;;;  (21786 40340 304949 750000))
+;;;;;;  (21899 48845 0 0))
 ;;; Generated autoloads from oleh/modes/ora-dired.el
 
 (autoload 'ora-dired-hook "oleh/modes/ora-dired" "\
@@ -236,7 +236,7 @@ Open or move eshell in `default-directory'.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-eww" "oleh/modes/ora-eww.el"
-;;;;;;  (21759 2814 579865 206000))
+;;;;;;  (21877 32855 0 0))
 ;;; Generated autoloads from oleh/modes/ora-eww.el
 
 (autoload 'ora-eww-hook "oleh/modes/ora-eww" "\
@@ -247,7 +247,7 @@ Open or move eshell in `default-directory'.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-gnus" "oleh/modes/ora-gnus.el"
-;;;;;;  (21823 20396 0 0))
+;;;;;;  (21899 48845 0 0))
 ;;; Generated autoloads from oleh/modes/ora-gnus.el
 
 (autoload 'ora-gnus-group-hook "oleh/modes/ora-gnus" "\
@@ -349,7 +349,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-magit" "oleh/modes/ora-magit.el"
-;;;;;;  (21815 38037 365721 413000))
+;;;;;;  (21899 54160 0 0))
 ;;; Generated autoloads from oleh/modes/ora-magit.el
 
 (autoload 'ora-magit-status-hook "oleh/modes/ora-magit" "\
@@ -391,7 +391,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-markdown" "oleh/modes/ora-markdown.el"
-;;;;;;  (21797 27642 682519 207000))
+;;;;;;  (21899 48845 0 0))
 ;;; Generated autoloads from oleh/modes/ora-markdown.el
 
 (autoload 'ora-markdown-hook "oleh/modes/ora-markdown" "\
@@ -407,7 +407,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-matlab" "oleh/modes/ora-matlab.el"
-;;;;;;  (21807 38291 63883 403000))
+;;;;;;  (21877 32855 0 0))
 ;;; Generated autoloads from oleh/modes/ora-matlab.el
 
 (autoload 'ora-matlab-hook "oleh/modes/ora-matlab" "\
@@ -422,6 +422,37 @@ Transform Elisp-style code references to Markdown-style.
 ;;; Generated autoloads from oleh/modes/ora-mu4e.el
 
 (autoload 'ora-mu4e-headers-hook "oleh/modes/ora-mu4e" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "oleh/modes/ora-nextmagit" "oleh/modes/ora-nextmagit.el"
+;;;;;;  (21864 39635 0 0))
+;;; Generated autoloads from oleh/modes/ora-nextmagit.el
+
+(autoload 'ora-magit-status-hook "oleh/modes/ora-nextmagit" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'ora-magit-log-hook "oleh/modes/ora-nextmagit" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'ora-magit-commit-hook "oleh/modes/ora-nextmagit" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'ora-magit-diff-hook "oleh/modes/ora-nextmagit" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'ora-magit-branch-manager-hook "oleh/modes/ora-nextmagit" "\
 
 
 \(fn)" nil nil)
@@ -472,7 +503,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-org" "oleh/modes/ora-org.el"
-;;;;;;  (21817 10788 805051 117000))
+;;;;;;  (21899 48845 0 0))
 ;;; Generated autoloads from oleh/modes/ora-org.el
 
 (autoload 'ora-org-hook "oleh/modes/ora-org" "\
@@ -499,7 +530,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-pdf-view" "oleh/modes/ora-pdf-view.el"
-;;;;;;  (21825 9173 646069 501000))
+;;;;;;  (21877 32855 0 0))
 ;;; Generated autoloads from oleh/modes/ora-pdf-view.el
 
 (autoload 'ora-pdf-view-hook "oleh/modes/ora-pdf-view" "\
@@ -591,7 +622,7 @@ run current script
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-text" "oleh/modes/ora-text.el"
-;;;;;;  (21759 2292 135864 289000))
+;;;;;;  (21899 48838 0 0))
 ;;; Generated autoloads from oleh/modes/ora-text.el
 
 (autoload 'ora-text-hook "oleh/modes/ora-text" "\
@@ -602,14 +633,13 @@ run current script
 ;;;***
 
 ;;;### (autoloads nil nil ("init.el" "oleh/hooks.el" "oleh/keys.el"
-;;;;;;  "oleh/modes/ora-company.el" "oleh/modes/ora-helm.el" "oleh/modes/ora-ido.el"
-;;;;;;  "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el" "packages.el")
-;;;;;;  (21825 9206 395343 29000))
+;;;;;;  "oleh/modes/ora-avy.el" "oleh/modes/ora-company.el" "oleh/modes/ora-helm.el"
+;;;;;;  "oleh/modes/ora-ido.el" "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el"
+;;;;;;  "packages.el") (21902 21852 537674 36000))
 
 ;;;***
 
-;;;### (autoloads nil "oleh/auto" "oleh/auto.el" (21816 58267 120712
-;;;;;;  109000))
+;;;### (autoloads nil "oleh/auto" "oleh/auto.el" (21899 48845 0 0))
 ;;; Generated autoloads from oleh/auto.el
 
 (autoload 'ora-para-down "oleh/auto" "\
@@ -867,6 +897,11 @@ Hides the disturbing '^M' showing up in files containing mixed UNIX and DOS line
 
 
 \(fn KEY)" nil nil)
+
+(autoload 'ora-pretty-quote-glyphs "oleh/auto" "\
+
+
+\(fn)" nil nil)
 
 (defadvice kill-compilation (after ora-disable-compiling-message activate) (setq compilation-in-progress))
 
