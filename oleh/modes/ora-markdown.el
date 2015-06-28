@@ -9,7 +9,8 @@
 
 ;;;###autoload
 (defun ora-markdown-hook ()
-  (flyspell-mode))
+  (flyspell-mode)
+  (pandoc-mode))
 
 (setq markdown-metadata-key-face 'default)
 (setq markdown-metadata-value-face 'default)
