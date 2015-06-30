@@ -428,37 +428,6 @@ Transform Elisp-style code references to Markdown-style.
 
 ;;;***
 
-;;;### (autoloads nil "oleh/modes/ora-nextmagit" "oleh/modes/ora-nextmagit.el"
-;;;;;;  (21864 39635 0 0))
-;;; Generated autoloads from oleh/modes/ora-nextmagit.el
-
-(autoload 'ora-magit-status-hook "oleh/modes/ora-nextmagit" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-magit-log-hook "oleh/modes/ora-nextmagit" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-magit-commit-hook "oleh/modes/ora-nextmagit" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-magit-diff-hook "oleh/modes/ora-nextmagit" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-magit-branch-manager-hook "oleh/modes/ora-nextmagit" "\
-
-
-\(fn)" nil nil)
-
-;;;***
-
 ;;;### (autoloads nil "oleh/modes/ora-nxml" "oleh/modes/ora-nxml.el"
 ;;;;;;  (21759 622 439861 358000))
 ;;; Generated autoloads from oleh/modes/ora-nxml.el
@@ -635,7 +604,7 @@ run current script
 ;;;### (autoloads nil nil ("init.el" "oleh/hooks.el" "oleh/keys.el"
 ;;;;;;  "oleh/modes/ora-avy.el" "oleh/modes/ora-company.el" "oleh/modes/ora-helm.el"
 ;;;;;;  "oleh/modes/ora-ido.el" "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el"
-;;;;;;  "packages.el") (21902 21852 537674 36000))
+;;;;;;  "packages.el") (21902 29508 534983 38000))
 
 ;;;***
 
