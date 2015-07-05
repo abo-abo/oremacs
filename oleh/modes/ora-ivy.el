@@ -1,7 +1,7 @@
 (require 'ivy)
 
-(defhydra hydra-ivy (:hint nil
-                     :color red)
+(defhydra hydra-ivy-dired (:hint nil
+                           :color red)
   "
 ^^^^^^          ^Actions^    ^Dired^      ^Quit^
 ^^^^^^^^^^^^^^------------------------------------------------------
@@ -27,9 +27,8 @@ _h_ ^✜^ _l_     _r_eplace    _,_ unmark   _o_: quit
   ("i" nil)
   ("f" ivy-done :exit t))
 
-(define-key ivy-minibuffer-map (kbd "C-o") 'ivy-hydra-wrapper)
+;; (define-key ivy-minibuffer-map (kbd "C-o") 'ivy-hydra-wrapper)
 (define-key ivy-minibuffer-map (kbd "<return>") 'ivy-alt-done)
-(define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
 (define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
 (define-key ivy-minibuffer-map (kbd "C-:") 'ivy-dired)
 
@@ -39,9 +38,9 @@ _h_ ^✜^ _l_     _r_eplace    _,_ unmark   _o_: quit
       (ivy-quit-and-run
        (dired ivy--directory)
        (run-at-time nil nil
-                    'hydra-ivy/body)
+                    'hydra-ivy-dired/body)
        (swiper ivy-text))
-    (hydra-ivy/body)))
+    (hydra-ivy-dired/body)))
 
 (defun ivy-dired ()
   (interactive)
