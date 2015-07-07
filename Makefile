@@ -19,8 +19,8 @@ install: upgrade
 	make run
 
 pull:
-	> etc/log
-	git pull 2>&1 | tee etc/log
+	echo "-*- mode: compilation -*-" > etc/log
+	git pull 2>&1 | tee -a etc/log
 	git submodule init 2>&1 | tee -a etc/log
 	git submodule update 2>&1 | tee -a etc/log
 
