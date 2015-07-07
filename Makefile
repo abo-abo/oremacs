@@ -23,11 +23,11 @@ pull:
 	git submodule update 2>&1 | tee etc/log
 
 install-git: pull
-	cd git/cedet && make 2>&1 | tee etc/log
-	cd git/org-mode && make compile 2>&1 | tee etc/log
+	cd git/cedet && make 2>&1 | tee ../../etc/log
+	cd git/org-mode && make compile 2>&1 | tee ../../etc/log
 
 upgrade: pull
-	$(emacs) -batch -l packages.el 2>&1 | tee etc/log
+	cd $(BASEDIR) && $(emacs) -batch -l packages.el 2>&1 | tee etc/log
 
 up: upgrade
 	$(emacs) -Q -l init.el
