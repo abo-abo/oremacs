@@ -1,54 +1,153 @@
 ;;* Customs
 (require 'magit)
-(csetq magit-item-highlight-face 'bold)
-(csetq magit-log-margin-spec '(30 nil magit-duration-spec))
+;; (csetq magit-log-margin-spec '(30 nil magit-duration-spec))
+(csetq magit-status-buffer-name-format "*magit: %b*")
+(csetq magit-revert-buffers t)
+(setq git-commit-finish-query-functions nil)
+
+(csetq magit-status-sections-hook
+       '(magit-insert-status-headers
+         magit-insert-merge-log
+         magit-insert-rebase-sequence
+         magit-insert-am-sequence
+         magit-insert-sequencer-sequence
+         magit-insert-bisect-output
+         magit-insert-bisect-rest
+         magit-insert-bisect-log
+         magit-insert-stashes
+         magit-insert-untracked-files
+         magit-insert-unstaged-changes
+         magit-insert-staged-changes
+         magit-insert-unpulled-commits
+         magit-insert-unpushed-commits))
+
+(setq magit-status-headers-hook
+      '(magit-insert-repo-header
+        magit-insert-remote-header
+        magit-insert-head-header
+        magit-insert-tags-header))
+
 (eval-after-load 'magit-blame
   '(progn
-    (define-key magit-blame-map "n" nil)
-    (define-key magit-blame-map "p" nil)
-    (define-key magit-blame-map "j" 'magit-blame-next-chunk)
-    (define-key magit-blame-map "k" 'magit-blame-previous-chunk)))
+    (define-key magit-blame-mode-map "n" nil)
+    (define-key magit-blame-mode-map "p" nil)
+    (define-key magit-blame-mode-map "j" 'magit-blame-next-chunk)
+    (define-key magit-blame-mode-map "k" 'magit-blame-previous-chunk)))
 
-;;* Maps
-;;** Status
-(define-key magit-status-mode-map "j" 'magit-goto-next-section)
-(define-key magit-status-mode-map "k" 'magit-goto-previous-section)
-(define-key magit-status-mode-map "h" 'magit-goto-previous-section)
-(define-key magit-status-mode-map "\C-k" 'magit-discard-item)
-(define-key magit-status-mode-map "\C-d" 'magit-discard-item)
-(define-key magit-status-mode-map "d" 'magit-discard-item)
-(define-key magit-status-mode-map "i" 'magit-toggle-section)
-(define-key magit-status-mode-map (kbd "M-m") 'lispy-mark-symbol)
-(define-key magit-status-mode-map "C" 'ora-magit-commit-add-log)
-(define-key magit-status-mode-map "v" (lambda () (interactive) (magit-visit-item t)))
-(define-key magit-status-mode-map "V" 'projectile-find-file)
-(define-key magit-status-mode-map "h" 'ora-magit-find-main-file)
-;;** Log
-(define-key magit-log-mode-map "j" 'magit-goto-next-section)
-(define-key magit-log-mode-map "k" 'magit-goto-previous-section)
-(define-key magit-log-mode-map (kbd "M-w") 'ora-magit-copy-item-as-kill)
+(define-key magit-refs-mode-map "j" 'magit-section-forward)
+(define-key magit-refs-mode-map "k" 'magit-section-backward)
+(define-key magit-refs-mode-map "i" 'magit-section-toggle)
+
+(defun ora-move-key (key-from key-to keymap)
+  "Move the command bound to KEY-FROM to KEY-TO in KEYMAP."
+  (if (null key-to)
+      (define-key keymap (kbd key-from) nil)
+    (let* ((key-from (kbd key-from))
+           (key-to (kbd key-to))
+           (cmd (lookup-key keymap key-from)))
+      (when cmd
+        (define-key keymap key-to cmd)
+        (define-key keymap key-from nil)))))
+
+(ora-move-key "k" "C-k" magit-file-section-map)
+(ora-move-key "k" "C-k" magit-untracked-section-map)
+(ora-move-key "k" "C-k" magit-tag-section-map)
+(ora-move-key "k" "C-k" magit-stash-section-map)
+(ora-move-key "k" "C-k" magit-stashes-section-map)
+(ora-move-key "k" "C-k" magit-unstaged-section-map)
+(ora-move-key "k" "C-k" magit-hunk-section-map)
+(ora-move-key "k" "C-k" magit-branch-section-map)
+(ora-move-key "<C-tab>" nil magit-log-mode-map)
+(ora-move-key "<C-tab>" nil magit-revision-mode-map)
+(ora-move-key "<C-tab>" nil magit-status-mode-map)
+(define-key magit-hunk-section-map (kbd "RET") 'magit-diff-visit-file-worktree)
+
+(dolist (map (list magit-status-mode-map
+                   magit-log-mode-map
+                   magit-diff-mode-map
+                   magit-staged-section-map))
+  (define-key map "j" 'magit-section-forward)
+  (define-key map "k" 'magit-section-backward)
+  (define-key map "n" nil)
+  (define-key map "p" nil)
+  (define-key map "v" 'recenter-top-bottom)
+  (define-key map "i" 'magit-section-toggle))
+
+(ora-move-key "v" nil magit-file-section-map)
+(ora-move-key "v" nil magit-hunk-section-map)
 (define-key magit-log-mode-map "n" 'ora-magit-copy-item-as-kill)
-(define-key magit-log-mode-map "v" 'ora-magit-visit)
+(setq magit-remote-section-map (make-sparse-keymap))
+
+
+(define-key magit-status-mode-map (kbd "M-m") 'lispy-mark-symbol)
+(define-key magit-hunk-section-map "C" 'magit-commit-add-log)
+(defvar ora-magit-commit-nodefun nil)
+(define-key magit-status-mode-map "C"
+  (lambda ()
+    (interactive)
+    (setq ora-magit-commit-nodefun t)
+    (magit-commit-add-log)))
+(define-key magit-status-mode-map "h" 'ora-magit-find-main-file)
+(setq magit-commit-add-log-insert-function 'ora-magit-commit-add-log-insert)
+(defun ora-magit-commit-add-log-insert (buffer file defun)
+  (with-current-buffer buffer
+    (goto-char (point-min))
+    (cond ((not (re-search-forward (format "^\\* %s" (regexp-quote file))
+                                   nil t))
+           ;; No entry for file, create it.
+           (if (eolp)
+               ;; Nothing on the first line
+               nil
+             (re-search-forward "^#")
+             (backward-char 1)
+             (if (looking-back "\n\n\n")
+                 (backward-char 2)
+               (backward-char 1)
+               (insert "\n\n")
+               (backward-char 1)))
+           (if (bobp)
+               (insert file)
+             (insert (format "* %s" file)))
+           (unless ora-magit-commit-nodefun
+             (when defun
+               (insert (format " (%s)" defun))))
+           (setq ora-magit-commit-nodefun nil)
+           (insert ": "))
+          (defun
+              ;; found entry for file, look for defun
+              (let ((limit (save-excursion
+                             (or (and (re-search-forward "^\\* " nil t)
+                                      (match-beginning 0))
+                                 (progn (goto-char (point-max))
+                                        (forward-comment -1000)
+                                        (point))))))
+                (cond ((re-search-forward
+                        (format "(.*\\_<%s\\_>.*):" (regexp-quote defun))
+                        limit t)
+                       ;; found it, goto end of current entry
+                       (if (re-search-forward "^(" limit t)
+                           (backward-char 2)
+                         (goto-char limit)))
+                      (t
+                       ;; not found, insert new entry
+                       (goto-char limit)
+                       (if (bolp)
+                           (open-line 1)
+                         (newline))
+                       (insert (format "(%s): " defun))))))
+          (t
+           ;; found entry for file, look for its beginning
+           (when (looking-at ":")
+             (forward-char 2))))))
+
 (define-key magit-log-mode-map "o" 'ora-magit-visit-item-other-window)
-;;** Commit
-(define-key magit-commit-mode-map "i" 'magit-toggle-section)
-(define-key magit-commit-mode-map "j" 'magit-goto-next-section)
-(define-key magit-commit-mode-map "k" 'magit-goto-previous-section)
-(define-key magit-commit-mode-map "n" 'ora-magit-copy-item-as-kill)
-(define-key magit-commit-mode-map "C" 'ora-magit-commit-add-log)
-(define-key magit-commit-mode-map "o" 'ora-magit-visit-item-other-window)
-;;** Diff
-(define-key magit-diff-mode-map "i" 'magit-toggle-section)
-(define-key magit-diff-mode-map "j" 'magit-goto-next-section)
-(define-key magit-diff-mode-map "k" 'magit-goto-previous-section)
 (define-key magit-diff-mode-map "o"
   (lambda () (interactive) (magit-visit-item t)))
-;;** Manager
-(define-key magit-branch-manager-mode-map "j" 'magit-goto-next-section)
-(define-key magit-branch-manager-mode-map "k" 'magit-goto-previous-section)
-(define-key magit-branch-manager-mode-map "d" 'magit-discard-item)
-(define-key magit-branch-manager-mode-map "u" 'magit-diff-working-tree)
-;;* Hooks
+;; (define-key magit-branch-manager-mode-map "j" 'magit-goto-next-section)
+;; (define-key magit-branch-manager-mode-map "k" 'magit-goto-previous-section)
+;; (define-key magit-branch-manager-mode-map "d" 'magit-discard-item)
+;; (define-key magit-branch-manager-mode-map "u" 'magit-diff-working-tree)
+
 ;;;###autoload
 (defun ora-magit-status-hook ()
   (yas-minor-mode 0))
@@ -194,8 +293,6 @@
 
 (defun ora-magit-visit-item-other-window ()
   (interactive)
-  (magit-visit-item t))
+  (magit-diff-visit-file-worktree (magit-file-at-point)))
 
-;; (add-hook 'magit-mode-hook #'endless/add-PR-fetch)
-
-(provide 'ora-magit)
+(provide 'ora-nextmagit)

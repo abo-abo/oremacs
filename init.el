@@ -246,10 +246,10 @@
     :commands find-file-in-project)
 (use-package magit
     :commands magit-status
-    :diminish magit-auto-revert-mode
     :config
     (progn
-      ;; (setq magit-completing-read-function 'magit-ido-completing-read)
+      (ignore-errors
+        (diminish 'magit-auto-revert-mode))
       (setq magit-completing-read-function 'ivy-completing-read)
       (setq magit-item-highlight-face 'bold)
       (setq magit-repo-dirs-depth 1)
