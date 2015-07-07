@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: function
+# key: d
+# --
+function [] = `(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`($0)
+
+end
+
