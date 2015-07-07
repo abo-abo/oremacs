@@ -14,6 +14,7 @@
 (define-key gnus-summary-mode-map "h" 'gnus-summary-up-thread)
 (define-key gnus-summary-mode-map "\C-t" nil)
 (define-key gnus-summary-mode-map "v" 'gnus-summary-scroll-up)
+(define-key gnus-summary-mode-map (kbd "DEL") 'gnus-summary-clear-mark-backward)
 ;;* group
 (define-key gnus-group-mode-map "k" 'gnus-group-prev-unread-group)
 (define-key gnus-group-mode-map "j" 'gnus-group-next-unread-group)
