@@ -22,6 +22,7 @@
 (define-key term-raw-map "ν" 'ace-window)
 (define-key term-raw-map (kbd "C-c C-y") 'term-paste)
 (define-key term-raw-map "\C-t" nil)
+(define-key term-raw-map (kbd "C-M-o") nil)
 
 ;;;###autoload
 (defun ora-term-hook ()
