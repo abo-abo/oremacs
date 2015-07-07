@@ -9,8 +9,8 @@ profile:
 	-f profile-dotemacs
 
 install: upgrade
-	cd git/cedet && make 2>&1 | tee ../../etc/log
-	cd git/org-mode && make compile 2>&1 | tee ../../etc/log
+	cd git/cedet && make 2>&1 | tee -a ../../etc/log
+	cd git/org-mode && make compile 2>&1 | tee -a ../../etc/log
 	cd $(BASEDIR) && mkdir -p oleh/personal
 	yes n | cp -i etc/init-template.el oleh/personal/init.el
 	yes n | cp -i etc/ispell_dict oleh/personal/ispell_dict
@@ -21,11 +21,11 @@ install: upgrade
 pull:
 	> etc/log
 	git pull 2>&1 | tee etc/log
-	git submodule init 2>&1 | tee etc/log
-	git submodule update 2>&1 | tee etc/log
+	git submodule init 2>&1 | tee -a etc/log
+	git submodule update 2>&1 | tee -a etc/log
 
 upgrade: pull
-	cd $(BASEDIR) && $(emacs) -batch -l packages.el 2>&1 | tee etc/log
+	cd $(BASEDIR) && $(emacs) -batch -l packages.el 2>&1 | tee -a etc/log
 
 up: upgrade
 	$(emacs) -Q -l init.el
