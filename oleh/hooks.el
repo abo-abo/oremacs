@@ -29,7 +29,7 @@
 (add-hook 'occur-hook 'ora-occur-hook)
 (add-hook 'Buffer-menu-mode-hook 'ora-Buffer-menu-hook)
 (add-hook 'bookmark-bmenu-mode-hook 'ora-bmenu-hook)
-(require 'magit)
+(require 'magit nil t)
 (if (featurep 'magit-utils)
     (require 'ora-nextmagit)
   (add-hook 'magit-status-mode-hook 'ora-magit-status-hook)

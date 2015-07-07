@@ -58,7 +58,8 @@
 ;; install required
 (dolist (package ora-packages)
   (unless (package-installed-p package)
-    (package-install package)))
+    (ignore-errors
+      (package-install package))))
 
 ;; upgrade installed
 (save-window-excursion
