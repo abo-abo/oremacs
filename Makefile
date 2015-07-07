@@ -8,7 +8,9 @@ profile:
         (setq load-file-name \"$(abspath init.el)\"))" \
 	-f profile-dotemacs
 
-install: install-git upgrade
+install: upgrade
+	cd git/cedet && make 2>&1 | tee ../../etc/log
+	cd git/org-mode && make compile 2>&1 | tee ../../etc/log
 	cd $(BASEDIR) && mkdir -p oleh/personal
 	yes n | cp -i etc/init-template.el oleh/personal/init.el
 	yes n | cp -i etc/ispell_dict oleh/personal/ispell_dict
@@ -21,10 +23,6 @@ pull:
 	git pull 2>&1 | tee etc/log
 	git submodule init 2>&1 | tee etc/log
 	git submodule update 2>&1 | tee etc/log
-
-install-git: pull
-	cd git/cedet && make 2>&1 | tee ../../etc/log
-	cd git/org-mode && make compile 2>&1 | tee ../../etc/log
 
 upgrade: pull
 	cd $(BASEDIR) && $(emacs) -batch -l packages.el 2>&1 | tee etc/log
