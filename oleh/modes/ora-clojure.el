@@ -39,3 +39,7 @@
             "http://www.4clojure.com/login?location=%%2F"
             :type "POST"
             :data `(("user" . ,user) ("pwd" . ,pwd)))))
+
+(font-lock-add-keywords
+ 'clojure-mode
+ '(("^;;\\*+ \\([^\n]*\\)$" 1 font-lock-constant-face prepend)))
