@@ -24,7 +24,9 @@
     (delete-region (match-beginning 1)
                    (match-end 1))
     (insert " "))
-  (insert "& "))
+  (if (looking-back "%")
+      (insert "&")
+    (insert "& ")))
 
 (require 'request)
 (declare-function request "ext:request")
