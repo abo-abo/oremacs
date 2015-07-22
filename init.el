@@ -94,7 +94,7 @@
 (use-package recentf
   :config
   (setq recentf-exclude '("COMMIT_MSG" "COMMIT_EDITMSG" "github.*txt$"
-                          ".*png$"))
+                          ".*png$" ".*cache$"))
   (setq recentf-max-saved-items 60))
 (eval-after-load 'xref
   '(setq xref-pulse-on-jump nil))
