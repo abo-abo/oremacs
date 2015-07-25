@@ -95,7 +95,7 @@
 (global-set-key (kbd "M-%") 'ora-query-replace)
 (global-set-key (kbd "M-t") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "M-m") 'lispy-mark-symbol)
-(global-set-key (kbd "M-p") (lambda () (interactive) (set-mark-command 4)))
+(global-set-key (kbd "M-p") 'avy-pop-mark)
 (global-set-key (kbd "M-i") (lambda () (interactive) (iedit-mode 0)))
 (global-set-key (kbd "M-,") 'pop-tag-mark)
 (global-set-key (kbd "M-/") 'hippie-expand)
