@@ -270,5 +270,6 @@
   ("f" nil))
 (global-set-key (kbd "C-M-o") 'hydra-window/body)
 (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
+(global-set-key (kbd "C-t") 'counsel-M-x)
 
 (provide 'oleh/keys)
