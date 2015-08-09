@@ -147,6 +147,7 @@
 (global-set-key (kbd "C-<f2>") (lambda () (interactive) (shell-command "setxkbmap us;xmodmap ~/.Xmodmap")))
 ;;* Misc shortcuts
 (define-key universal-argument-map "ψ" 'universal-argument-more)
+(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 ;;* Hydras
 (require 'hydra-examples)
 (defhydra hydra-error (global-map "M-g")
