@@ -170,7 +170,7 @@
   ("0" (text-scale-set 0) :bind nil :exit t)
   ("1" (text-scale-set 0) nil :bind nil :exit t))
 
-(defhydra hydra-launcher (:color blue)
+(defhydra hydra-launcher (:color blue :columns 2)
    "Launch"
    ("h" man "man")
    ("r" (browse-url "http://www.reddit.com/r/emacs/") "reddit")
@@ -183,7 +183,9 @@
   "k"
   ("b" hydra-launcher/body "browse")
   ("d" define-word-at-point "def")
+  ("e" eval-expression "eval")
   ("f" find-file-in-project "file")
+  ("r" counsel-recoll "recoll")
   ("g" (lambda ()
          (interactive)
          (let ((current-prefix-arg 4))
