@@ -97,7 +97,9 @@
                           ".*png$" ".*cache$"))
   (setq recentf-max-saved-items 60))
 (eval-after-load 'xref
-  '(setq xref-pulse-on-jump nil))
+  '(progn
+    (setq xref-pulse-on-jump nil)
+    (setq xref-after-return-hook nil)))
 (require 'ora-ido)
 (use-package swiper
     :commands swiper
