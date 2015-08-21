@@ -4,7 +4,7 @@
 (use-package function-args
     :init
   (fa-config-default)
-  (setq fa-insert-method 'name-and-parens))
+  (setq fa-insert-method 'name-space-parens))
 (require 'cc-chainsaw)
 (require 'auto-yasnippet)
 (require 'auto-complete)
