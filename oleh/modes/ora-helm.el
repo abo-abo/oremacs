@@ -1,7 +1,7 @@
 (require 'helm)
 (setq helm-display-header-line nil)
 (setq helm-mode-line-string "")
-(setq helm-candidate-number-limit)
+(setq helm-candidate-number-limit 100)
 (setq helm-always-two-windows t)
 
 (define-key helm-map (kbd "C-r") 'helm-select-3rd-action)
