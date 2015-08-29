@@ -17,6 +17,7 @@
 (define-key python-mode-map (kbd "C-c C-l") 'ora-python-send)
 (define-key python-mode-map (kbd "C-c C-z") 'ora-python-switch-to-shell)
 (define-key python-mode-map (kbd "θ") 'ora-python-quotes)
+(define-key python-mode-map (kbd "β") 'counsel-jedi)
 (define-key python-mode-map (kbd "C-M-j") 'helm-semantic)
 (define-key jedi-mode-map [C-tab] nil)
 
