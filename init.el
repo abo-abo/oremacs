@@ -25,6 +25,7 @@
 (csetq scroll-bar-mode nil)
 (csetq inhibit-startup-screen t)
 (csetq initial-scratch-message "")
+(setq text-quoting-style 'grave)
 ;;** navigation within buffer
 (csetq next-screen-context-lines 5)
 (csetq recenter-positions '(top middle bottom))
