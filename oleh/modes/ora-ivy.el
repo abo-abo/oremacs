@@ -1,4 +1,5 @@
 (require 'ivy)
+(setq ivy-display-style 'fancy)
 
 (defhydra hydra-ivy-dired (:hint nil
                            :color red)
