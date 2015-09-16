@@ -18,6 +18,10 @@ install: upgrade
 	yes n | cp -ri etc/org .
 	make run
 
+bare:
+	$(emacs) -Q -l etc/bareinit.el
+
+
 pull:
 	echo "-*- mode: compilation -*-" > etc/log
 	git pull 2>&1 | tee -a etc/log
