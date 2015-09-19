@@ -775,3 +775,31 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
 ;;   (call-process
 ;;    "wmctrl" nil nil nil "-i" "-R"
 ;;    (frame-parameter (or frame (selected-frame)) 'outer-window-id)))
+
+;;;###autoload
+(defun ora-custom-setq ()
+  "Set a custom variable, with completion."
+  (interactive)
+  (let ((sym (intern
+              (ivy-read "Variable: "
+                        (counsel-variable-list))))
+        sym-type
+        cands)
+    (when (and (boundp sym)
+               (setq sym-type (get sym 'custom-type)))
+      (cond
+        ((and (consp sym-type)
+              (memq (car sym-type) '(choice radio)))
+         (setq cands (mapcar #'lispy--setq-doconst (cdr sym-type))))
+        ((eq sym-type 'boolean)
+         (setq cands
+               '(("nil" . nil) ("t" . t))))
+        (t
+         (error "Unrecognized custom type")))
+      (let ((res (ivy-read (format "Set (%S): " sym) cands)))
+        (when res
+          (setq res
+                (if (assoc res cands)
+                    (cdr (assoc res cands))
+                  (read res)))
+          (eval `(setq ,sym ,res)))))))
