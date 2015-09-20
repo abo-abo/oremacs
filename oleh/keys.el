@@ -130,6 +130,7 @@
 (global-set-key (kbd "<f2> o") (lambda () (interactive) (search-forward "\"" (line-end-position) t) (ffap)))
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 (global-set-key (kbd "<f2> C-u") 'helm-ucs)
+(global-set-key (kbd "<f2> j") 'ora-custom-setq)
 (global-set-key [f5] 'compile)
 (global-set-key [f6] 'ivy-resume)
 (global-set-key [C-f6] 'previous-error)
