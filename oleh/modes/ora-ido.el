@@ -1,4 +1,8 @@
 (require 'ido)
+
+;;;###autoload
+(defun ora-ido-hook ())
+
 (use-package ido-vertical-mode
     :config
   (setf (nth 0 ido-vertical-decorations) "\n")
