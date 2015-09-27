@@ -8,7 +8,8 @@
   (setf (nth 0 ido-vertical-decorations) "\n")
   (setf (nth 2 ido-vertical-decorations) "\n")
   (setf (nth 11 ido-vertical-decorations) "\n")
-  (ido-vertical-mode 1))
+  (ido-vertical-mode 1)
+  :ensure t)
 
 ;;* Settings
 (setq ido-auto-merge-work-directories-length -1)
