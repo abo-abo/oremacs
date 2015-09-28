@@ -2,6 +2,7 @@
 (require 'magit)
 (csetq magit-item-highlight-face 'bold)
 (csetq magit-log-margin-spec '(30 nil magit-duration-spec))
+(csetq magit-time-format-string "%Y-%m-%d")
 (eval-after-load 'magit-blame
   '(progn
     (define-key magit-blame-map "n" nil)
