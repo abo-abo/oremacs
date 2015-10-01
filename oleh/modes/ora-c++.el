@@ -50,6 +50,16 @@ and <code>...</code>."
 (dolist (x (list "/home/usr/local/trilinos/include/"
                  "/usr/local/boost_1_54_0/"))
   (semantic-add-system-include x 'c++-mode))
+(dolist (x (list "/usr/include/pango-1.0/"
+                 "/usr/include/glib-2.0/"
+                 "/usr/lib/x86_64-linux-gnu/glib-2.0/include/"
+                 "/usr/include/cairo/"
+                 "/usr/include/gtk-3.0/"
+                 "/usr/include/gtk-3.0/gdk/"
+                 "/usr/include/gdk-pixbuf-2.0/"
+                 "/usr/include/atk-1.0/"))
+  (semantic-add-system-include x 'c-mode)
+  (semantic-add-system-include x 'c++-mode))
 (set-default 'semantic-case-fold t)
 (defconst emacs-src-dir "~/git/gnu-emacs/")
 (semantic-add-system-include (expand-file-name "src/" emacs-src-dir) 'c-mode)
