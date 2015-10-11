@@ -41,8 +41,8 @@
 (define-key org-agenda-mode-map "k" 'org-agenda-previous-line)
 
 ;;* Basic settings
-(setq org-todo-keywords
-      '((sequence "TODO" "|" "DONE" "CANCELLED")))
+(setq-default org-todo-keywords
+              '((sequence "TODO" "NEXT" "|" "DONE" "CANCELLED")))
 (setq org-startup-indented t)
 (setq org-startup-folded nil)
 (setq org-cycle-separator-lines 0)
