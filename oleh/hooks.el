@@ -86,6 +86,7 @@
 (define-key lisp-interaction-mode-map (kbd "C-M-i") 'iedit-mode)
 
 (setq lisp-indent-function 'common-lisp-indent-function)
+;; (setq lisp-indent-function 'lisp-indent-function)
 (eval-after-load 'cl-indent
   `(progn
      (put 'cl-flet 'common-lisp-indent-function
@@ -107,22 +108,24 @@
 (font-lock-add-keywords 'emacs-lisp-mode
                         '(("^;;;###[-a-z]*autoload.*$" 0 'shadow t))
                         'end)
+(font-lock-add-keywords 'emacs-lisp-mode
+                        '(("=\\([^=\n]+\\)=" 1 font-lock-string-face prepend)))
 
-(setq outline-regexp "^;;\\(?:;[^#]\\|\\*+\\)")
 (when (version< emacs-version "24.4")
   (defun prettify-symbols-mode ()))
 
 (defun ora-emacs-lisp-hook ()
-  (prettify-symbols-mode)
-  (company-mode)
-  (abel-mode)
-  (diminish 'abbrev-mode)
-  (set (make-local-variable 'company-backends)
-       '((company-elisp :with company-dabbrev-code)))
-  (yas-minor-mode-on)
-  (lispy-mode 1)
-  (auto-compile-mode 1)
-  (semantic-mode -1))
+  (ignore-errors
+    (prettify-symbols-mode)
+    (company-mode)
+    (abel-mode)
+    (diminish 'abbrev-mode)
+    (set (make-local-variable 'company-backends)
+         '((company-elisp :with company-dabbrev-code)))
+    (yas-minor-mode-on)
+    (lispy-mode 1)
+    (auto-compile-mode 1)
+    (semantic-mode -1)))
 
 (defun conditionally-enable-lispy ()
   (when (eq this-command 'eval-expression)
