@@ -1,47 +1,12 @@
+;; -*- lexical-binding: t -*-
 (require 'ivy)
 (setq ivy-display-style 'fancy)
+;; (setq ivy-count-format "(%d/%d) ")
 
-(defhydra hydra-ivy-dired (:hint nil
-                           :color red)
-  "
-^^^^^^          ^Actions^    ^Dired^      ^Quit^
-^^^^^^^^^^^^^^------------------------------------------------------
-^ ^ _k_ ^ ^     _._ repeat   _m_ark       _i_: cancel  _v_: recenter
-_h_ ^✜^ _l_     _r_eplace    _,_ unmark   _o_: quit
-^ ^ _j_ ^ ^     _u_ndo       ^ ^          _f_: finish
-"
-  ;; arrows
-  ("h" ivy-beginning-of-buffer)
-  ("j" ivy-next-line)
-  ("k" ivy-previous-line)
-  ("l" ivy-end-of-buffer)
-  ;; actions
-  ("." hydra-repeat)
-  ("r" ivy-replace)
-  ("u" ivy-undo)
-  ("v" swiper-recenter-top-bottom)
-  ;; dired
-  ("m" ivy-dired-mark)
-  ("," ivy-dired-unmark)
-  ;; exit
-  ("o" keyboard-escape-quit :exit t)
-  ("i" nil)
-  ("f" ivy-done :exit t))
-
-;; (define-key ivy-minibuffer-map (kbd "C-o") 'ivy-hydra-wrapper)
 (define-key ivy-minibuffer-map (kbd "<return>") 'ivy-alt-done)
 (define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
 (define-key ivy-minibuffer-map (kbd "C-:") 'ivy-dired)
-
-(defun ivy-hydra-wrapper ()
-  (interactive)
-  (if ivy--directory
-      (ivy-quit-and-run
-       (dired ivy--directory)
-       (run-at-time nil nil
-                    'hydra-ivy-dired/body)
-       (swiper ivy-text))
-    (hydra-ivy-dired/body)))
+(define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
 
 (defun ivy-dired ()
   (interactive)
@@ -55,39 +20,28 @@ _h_ ^✜^ _l_     _r_eplace    _,_ unmark   _o_: quit
     (user-error
      "Not completing files currently")))
 
-(defun ivy-dired-mark (arg)
-  (interactive "p")
-  (dotimes (_i arg)
-    (with-selected-window swiper--window
-      (dired-mark 1))
-    (ivy-next-line 1)
-    (ivy--exhibit)))
+(require 'ivy-hydra)
+(defhydra hydra-ivy-sb (:hint nil
+                        :color pink
+                        :inherit (hydra-ivy/heads))
+  ("v" (progn
+         (setq ivy-use-virtual-buffers (not ivy-use-virtual-buffers))
+         (ivy--reset-state ivy-last))))
 
-(defun ivy-dired-unmark (arg)
-  (interactive "p")
-  (dotimes (_i arg)
-    (with-selected-window swiper--window
-      (dired-unmark 1))
-    (ivy-next-line 1)
-    (ivy--exhibit)))
+(defun hydra-ivy-sb-docstring ()
+  (hydra--vconcat
+   (list
+    (eval hydra-ivy/hint)
+    (format "Misc
+------------
+%sirtual: %-3S
 
-(defun ivy-replace ()
-  (interactive)
-  (let ((from (with-selected-window swiper--window
-                (move-beginning-of-line nil)
-                (when (re-search-forward
-                       (ivy--regex ivy-text) (line-end-position) t)
-                  (match-string 0)))))
-    (if (null from)
-        (user-error "No match")
-      (let ((rep (read-string (format "Repace [%s] with: " from))))
-        (with-selected-window swiper--window
-          (undo-boundary)
-          (replace-match rep t t))))))
+"
+            (propertize "v" 'face 'hydra-face-pink)
+            ivy-use-virtual-buffers))))
 
-(defun ivy-undo ()
-  (interactive)
-  (with-selected-window swiper--window
-    (undo)))
+(setq hydra-ivy-sb/hint '(hydra-ivy-sb-docstring))
+
+(define-key ivy-switch-buffer-map (kbd "C-o") 'hydra-ivy-sb/body)
 
 (provide 'ora-ivy)
