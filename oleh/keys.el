@@ -29,7 +29,7 @@
 (global-set-key (kbd "C-z") 'capitalize-word-toggle)     ; capitili[z]e
 (global-set-key (kbd "C-.") 'comment-dwim)
 (global-set-key (kbd "C-,") 'lispy-kill-at-point)
-(global-set-key (kbd "C-'") 'avy-goto-char-2)
+(global-set-key (kbd "C-'") 'avy-goto-char-timer)
 (global-set-key (kbd "C-/") 'ora-replace-regexp)
 (global-set-key (kbd "C-7") 'mc/mark-next-like-this)
 ;;* Ctrl Meta shortcuts
