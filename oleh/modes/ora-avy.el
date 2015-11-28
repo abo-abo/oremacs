@@ -8,7 +8,9 @@
 ;;* Avy
 (avy-setup-default)
 (setq avy-all-windows nil)
-(setq avy-styles-alist '((avy-goto-char-2 . post)))
+(setq avy-styles-alist '((avy-goto-char-2 . post)
+                         (ivy-avy . pre)
+                         (avy-goto-line . pre)))
 
 ;;* Lispy
 (setq avy-keys-alist
