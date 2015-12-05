@@ -8,7 +8,8 @@
 ;;;###autoload
 (defun ora-org-hook ()
   (worf-mode)
-  (org-bullets-mode))
+  (org-bullets-mode)
+  (org-indent-mode))
 
 ;;;###autoload
 (defun ora-org-agenda-hook ())
