@@ -21,7 +21,7 @@
 ;;;###autoload
 (defun ora-move-beginning-of-line ()
   (interactive)
-  (if (looking-back "^")
+  (if (bolp)
       (back-to-indentation)
     (beginning-of-line)))
 
