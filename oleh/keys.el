@@ -244,7 +244,8 @@
   ("C-p" (forward-line -1) nil :exit t))
 (global-set-key (kbd "C-v") 'hydra-vi/body)
 
-(defhydra hydra-window (:color red)
+(defhydra hydra-window (:color red
+                        :columns nil)
   "window"
   ("h" windmove-left nil)
   ("j" windmove-down nil)
