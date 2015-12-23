@@ -37,6 +37,7 @@
 (prefer-coding-system 'utf-8)
 ;;** minibuffer interaction
 (csetq enable-recursive-minibuffers t)
+(setq minibuffer-message-timeout 1)
 (csetq read-quoted-char-radix 16)
 ;;** editor behavior
 (csetq indent-tabs-mode nil)
