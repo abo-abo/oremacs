@@ -38,6 +38,7 @@
 ;;** minibuffer interaction
 (csetq enable-recursive-minibuffers t)
 (setq minibuffer-message-timeout 1)
+(minibuffer-depth-indicate-mode 1)
 (csetq read-quoted-char-radix 16)
 ;;** editor behavior
 (csetq indent-tabs-mode nil)
