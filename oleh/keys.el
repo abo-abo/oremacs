@@ -107,6 +107,7 @@
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
 (global-set-key (kbd "C-c k") 'counsel-ag)
 (global-set-key (kbd "C-c t") 'counsel-load-theme)
+(global-set-key (kbd "C-c i") 'counsel-imenu)
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c h") 'hydra-apropos/body)
