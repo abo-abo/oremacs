@@ -1,10 +1,11 @@
 (require 'matlab-load)
 (require 'matlab)
-
 (define-key matlab-mode-map (kbd "C-h") nil)
 (define-key matlab-mode-map (kbd "C-M-i") nil)
+(define-key matlab-shell-mode-map (kbd "β") 'counsel-matlab)
 (define-key matlab-mode-map (kbd "<f5>") 'matlab-run-file)
 (define-key matlab-mode-map (kbd "θ") 'ora-single-quotes)
+(define-key matlab-mode-map (kbd "β") 'counsel-matlab)
 (define-key matlab-mode-map (kbd "C-'") (lambda()(interactive)(insert "'")))
 (define-key matlab-mode-map (kbd "C-c C-z")
   (lambda ()
@@ -12,6 +13,32 @@
     (delete-other-windows)
     (split-window-below)
     (matlab-shell)))
+
+;;;###autoload
+(defun counsel-matlab ()
+  "MATLAB completion at point."
+  (interactive)
+  (let* ((bnd (bounds-of-thing-at-point
+               'symbol))
+         (str (if bnd
+                  (buffer-substring-no-properties
+                   (car bnd)
+                   (cdr bnd))
+                ""))
+         (pt (point))
+         (cands (mapcar #'car (matlab-shell-completion-list str))))
+    (goto-char pt)
+    (setq bnd (bounds-of-thing-at-point 'symbol))
+    (if bnd
+        (progn
+          (setq counsel-completion-beg
+                (move-marker (make-marker) (car bnd)))
+          (setq counsel-completion-end
+                (move-marker (make-marker) (cdr bnd))))
+      (setq counsel-completion-beg nil)
+      (setq counsel-completion-end nil))
+    (ivy-read "Symbol name: " cands
+              :action #'counsel--el-action)))
 
 (require 'soap)
 (dolist (k '("=" "+" "-" "<" ">" ","))
