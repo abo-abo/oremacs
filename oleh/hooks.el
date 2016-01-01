@@ -76,7 +76,20 @@
       (lispy-set-key-theme '(oleh special lispy c-digits))
       (setq lispy-avy-style-symbol 'at-full)))
 
+(defun ora-package-symbol ()
+  (interactive)
+  (let ((prefix (concat (file-name-nondirectory
+                         (directory-file-name
+                          (file-name-directory (buffer-file-name))))
+                        "-")))
+    (unless (looking-back prefix (line-beginning-position))
+      (insert prefix))
+    (counsel-el)))
+
 (define-key lisp-mode-shared-map "β" 'counsel-el)
+(define-key lisp-mode-shared-map (kbd "C-β") 'ora-package-symbol)
+
+
 (define-key lisp-mode-shared-map (kbd "C-c C-z")
   (lambda ()
     (interactive)
