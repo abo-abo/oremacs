@@ -16,7 +16,9 @@
            (goto-char (1+ end))
            (insert "\"")))
 
-        ((and (lispy--in-string-p) (not arg))
+        ((and (not (eq major-mode 'org-mode))
+              (lispy--in-string-p)
+              (not arg))
          (insert "\\\"\\\"")
          (backward-char 2))
 
