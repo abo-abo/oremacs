@@ -310,7 +310,9 @@ If called with a prefix, prompts for flags to pass to ag."
   (when (buffer-file-name)
     (delete-trailing-whitespace)
     (save-buffer))
-  (magit-status default-directory))
+  (call-interactively 'magit-status)
+  ;; (magit-status nil)
+  )
 
 ;;;###autoload
 (defun bmk/scratch ()
