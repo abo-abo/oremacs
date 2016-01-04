@@ -14,7 +14,8 @@
   (add-to-list 'ac-sources 'ac-source-javascript)
   (auto-complete-mode 1)
   (electric-spacing-mode 1)
-  (moz-minor-mode 1))
+  (ignore-errors
+    (moz-minor-mode 1)))
 
 (defvar keyword-function
   '(("\\(function\\)\\>" (0 (prog1 ()
