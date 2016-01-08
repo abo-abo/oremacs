@@ -88,6 +88,7 @@
     (setq ora-magit-commit-nodefun t)
     (magit-commit-add-log)))
 (define-key magit-status-mode-map "h" 'ora-magit-find-main-file)
+(define-key magit-status-mode-map "d" 'magit-discard)
 (setq magit-commit-add-log-insert-function 'ora-magit-commit-add-log-insert)
 (defun ora-magit-commit-add-log-insert (buffer file defun)
   (with-current-buffer buffer
