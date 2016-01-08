@@ -768,7 +768,7 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
 ;;* Advices
 ;;;###autoload
 (defadvice kill-compilation (after ora-disable-compiling-message activate)
-  (setq compilation-in-progress))
+  (setq compilation-in-progress nil))
 
 ;; (defadvice raise-frame (after ora-fix-raise-frame (&optional frame) activate)
 ;;   "Work around some bug? in raise-frame/Emacs/GTK/Metacity/something.
