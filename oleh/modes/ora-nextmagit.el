@@ -18,8 +18,8 @@
          magit-insert-untracked-files
          magit-insert-unstaged-changes
          magit-insert-staged-changes
-         magit-insert-unpulled-commits
-         magit-insert-unpushed-commits))
+         magit-insert-unpulled-from-upstream
+         magit-insert-unpushed-to-upstream))
 
 (setq magit-status-headers-hook
       '(magit-insert-repo-header
