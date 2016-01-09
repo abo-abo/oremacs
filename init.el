@@ -75,6 +75,7 @@
 (csetq smtpmail-smtp-service 587)
 ;;** Rest
 (csetq browse-url-browser-function 'browse-url-firefox)
+(csetq browse-url-firefox-program "firefox")
 ;;* Bootstrap
 ;;** autoloads
 (load (concat emacs-d "loaddefs.el") nil t)
