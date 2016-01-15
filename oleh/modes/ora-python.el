@@ -3,6 +3,8 @@
 (csetq python-indent-guess-indent-offset nil)
 (setq jedi:use-shortcuts t)
 (setq jedi:complete-on-dot t)
+(setq jedi:setup-function nil)
+(setq jedi:mode-function nil)
 
 (require 'soap)
 (dolist (k '("+" "-" "*" "/" "%" "&" "|" "<" "=" ">" ","))
