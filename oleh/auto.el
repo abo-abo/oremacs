@@ -39,6 +39,16 @@
               (backward-char))
             (backward-kill-word 1))
         (delete-region st en)))))
+
+;;;###autoload
+(defun ora-c-forward-sexp-function (arg)
+  (let ((forward-sexp-function nil))
+    (forward-sexp arg))
+  (when (and (eq (char-after) ?.)
+             (looking-back "[0-9]+" (line-beginning-position)))
+    (forward-char)
+    (skip-chars-forward "0-9")))
+
 ;;* Regex
 ;;;###autoload
 (defun ora-occur ()
