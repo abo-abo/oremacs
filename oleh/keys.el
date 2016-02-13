@@ -53,7 +53,7 @@
 (global-set-key (kbd "C-:") 'dired-jump)                       ; [d]
 (global-set-key (kbd "C-φ") 'lispy-parens-down)                ; [f]
 (global-set-key (kbd "C->") 'upcase-word-toggle)               ; [g]
-(global-set-key (kbd "C-η") 'ido-switch-buffer-other-window)   ; [h]
+(global-set-key (kbd "C-η") 'switch-to-buffer-other-window)    ; [h]
 (global-set-key (kbd "C-;") 'tiny-expand)                      ; [j]
 (global-set-key (kbd "C-κ") 'ora-kill-current-buffer)          ; [k]
 (global-set-key (kbd "C-<") 'rgrep)                            ; [l]
