@@ -1,7 +1,7 @@
 (require 'python)
 (require 'jedi)
 (csetq python-indent-guess-indent-offset nil)
-(setq jedi:use-shortcuts t)
+(setq jedi:use-shortcuts nil)
 (setq jedi:complete-on-dot t)
 (setq jedi:setup-function nil)
 (setq jedi:mode-function nil)
