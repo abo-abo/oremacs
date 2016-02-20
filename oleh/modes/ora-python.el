@@ -10,6 +10,7 @@
 (dolist (k '("+" "-" "*" "/" "%" "&" "|" "<" "=" ">" ","))
   (define-key python-mode-map (kbd k) 'soap-command))
 (define-key python-mode-map [C-.] 'comment-dwim)
+(define-key python-mode-map (kbd "C-.") nil)
 (define-key python-mode-map [f5] 'ora-python-send-file)
 (define-key python-mode-map [C-f5] 'ora-python-eval)
 (define-key python-mode-map (kbd "C-x C-p") 'jedi:goto-definition)
