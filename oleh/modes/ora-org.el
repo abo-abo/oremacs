@@ -180,24 +180,24 @@
   "Show a popup if we're on X, or echo it otherwise; TITLE is the title
 of the message, MSG is the context. Optionally, you can provide an ICON and
 a sound to be played"
-
   (interactive)
-  (when sound (shell-command
-               (concat "mplayer -really-quiet " sound " 2> /dev/null")))
   (if (eq window-system 'x)
-      (shell-command (concat "notify-send "
-
-                             (if icon (concat "-i " icon) "")
-                             " '" title "' '" msg "'"))
+      (progn
+        (notifications-notify
+         :title title
+         :body msg
+         :app-icon icon
+         :urgency 'low)
+        (ora-dired-start-process
+         (concat "mplayer -really-quiet " sound " 2> /dev/null")))
     ;; text only version
     (message (concat title ": " msg))))
 
 (defun ora-appt-display (min-to-app new-time msg)
   "our little façade-function for ora-org-popup"
   (ora-org-popup (format "Appointment in %s minute(s)" min-to-app) msg
-              "/usr/share/icons/gnome/32x32/status/appointment-soon.png"
-
-              "/usr/share/sounds/ubuntu/stereo/phone-incoming-call.ogg"))
+                 "/usr/share/icons/gnome/32x32/status/appointment-soon.png"
+                 "/usr/share/sounds/ubuntu/stereo/phone-incoming-call.ogg"))
 
 (defun ora-org-agenda-to-appt ()
   "Erase all reminders and rebuild reminders for today from the agenda"
