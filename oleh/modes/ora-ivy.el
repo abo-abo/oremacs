@@ -1,8 +1,10 @@
 ;; -*- lexical-binding: t -*-
 (require 'ivy)
+(require 'counsel)
 (setq ivy-display-style 'fancy)
 ;; (setq ivy-count-format "(%d/%d) ")
-
+(csetq ivy-use-virtual-buffers t)
+(setq counsel-find-file-ignore-regexp "\\`\\.")
 (define-key ivy-minibuffer-map (kbd "<return>") 'ivy-alt-done)
 (define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
 (define-key ivy-minibuffer-map (kbd "C-:") 'ivy-dired)
