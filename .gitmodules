@@ -34,3 +34,6 @@
 [submodule "git/plain-org-wiki"]
 	path = git/plain-org-wiki
 	url = https://github.com/abo-abo/plain-org-wiki
+[submodule "git/magit"]
+	path = git/magit
+	url = git@github.com:abo-abo/magit.git
