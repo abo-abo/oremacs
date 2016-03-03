@@ -1,14 +1,16 @@
 ;; -*- lexical-binding: t -*-
 (require 'ivy)
 (require 'counsel)
-(setq ivy-display-style 'fancy)
-;; (setq ivy-count-format "(%d/%d) ")
+(csetq ivy-display-style 'fancy)
+;; (csetq ivy-count-format "(%d/%d) ")
 (csetq ivy-use-virtual-buffers t)
-(setq counsel-find-file-ignore-regexp "\\`\\.")
+(csetq counsel-find-file-ignore-regexp "\\`\\.")
+(csetq counsel-ag-base-command "ag --noheading --nocolor %S")
 (define-key ivy-minibuffer-map (kbd "<return>") 'ivy-alt-done)
 (define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
 (define-key ivy-minibuffer-map (kbd "C-:") 'ivy-dired)
 (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
+(diminish 'ivy-mode " 🙒")
 
 (defun ivy-dired ()
   (interactive)
@@ -22,28 +24,12 @@
     (user-error
      "Not completing files currently")))
 
-(require 'ivy-hydra)
-(defhydra hydra-ivy-sb (:hint nil
-                        :color pink
-                        :inherit (hydra-ivy/heads))
-  ("v" (progn
-         (setq ivy-use-virtual-buffers (not ivy-use-virtual-buffers))
-         (ivy--reset-state ivy-last))))
+(defun ivy-insert-action (x)
+  (with-ivy-window
+    (insert x)))
 
-(defun hydra-ivy-sb-docstring ()
-  (hydra--vconcat
-   (list
-    (eval hydra-ivy/hint)
-    (format "Misc
-------------
-%sirtual: %-3S
-
-"
-            (propertize "v" 'face 'hydra-face-pink)
-            ivy-use-virtual-buffers))))
-
-(setq hydra-ivy-sb/hint '(hydra-ivy-sb-docstring))
-
-(define-key ivy-switch-buffer-map (kbd "C-o") 'hydra-ivy-sb/body)
+(ivy-set-actions
+ t
+ '(("I" ivy-insert-action "insert")))
 
 (provide 'ora-ivy)
