@@ -10,7 +10,8 @@
 (define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
 (define-key ivy-minibuffer-map (kbd "C-:") 'ivy-dired)
 (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
-(diminish 'ivy-mode " 🙒")
+(when (version< "24.5" emacs-version)
+  (diminish 'ivy-mode " 🙒"))
 
 (defun ivy-dired ()
   (interactive)
