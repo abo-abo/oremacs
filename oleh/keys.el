@@ -99,7 +99,7 @@
 (global-set-key (kbd "M-i") (lambda () (interactive) (iedit-mode 0)))
 (global-set-key (kbd "M-,") 'pop-tag-mark)
 (global-set-key (kbd "M-/") 'hippie-expand)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "M-y") 'counsel-yank-pop)
 ;;* C-c shortcuts
 (global-set-key (kbd "C-c d") 'ora-insert-date-from)
 (global-set-key (kbd "C-c f") 'find-file-in-project)
