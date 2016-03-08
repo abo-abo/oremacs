@@ -51,12 +51,4 @@ On error (read-only), quit without selecting."
       (ido-fallback-command)
     (yank)))
 
-(eval-after-load 'smex
-  `(progn
-     (define-key smex-map (kbd "TAB") 'minibuffer-complete)
-     (define-key smex-map (kbd "C-,") 'smex-describe-function)
-     (define-key smex-map (kbd "C-h w") 'smex-where-is)
-     (define-key smex-map (kbd "C-.") 'smex-find-function)
-     (define-key smex-map (kbd "C-a") 'move-beginning-of-line)))
-
 (provide 'ora-ido)
