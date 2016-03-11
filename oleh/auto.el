@@ -173,10 +173,15 @@ If called with a prefix, prompts for flags to pass to ag."
 (defun ora-terminal ()
   "Switch to terminal. Launch if nonexistent."
   (interactive)
-  (if (get-buffer "*ansi-term*")
-      (switch-to-buffer "*ansi-term*")
-    (ansi-term "/bin/bash"))
-  (get-buffer-process "*ansi-term*"))
+  (let ((term-buffer (if (eq system-type 'windows-nt)
+                         "*shell*"
+                       "*ansi-term*")))
+    (if (get-buffer term-buffer)
+        (switch-to-buffer term-buffer)
+      (if (eq system-type 'windows-nt)
+          (shell)
+        (ansi-term "/bin/bash")))
+    (get-buffer-process term-buffer)))
 
 ;;;###autoload
 (defun ora-goto-hook-file ()

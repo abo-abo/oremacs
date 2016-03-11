@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: std::string
-# key: str
-# --
-std::string

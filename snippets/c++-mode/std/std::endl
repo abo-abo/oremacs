@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: std::endl
-# key: endl
-# --
-`(ccc-insert-endl)`$0

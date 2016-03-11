@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: std::list
-# key: list
-# --
-std::list<$0>
