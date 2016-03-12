@@ -3,7 +3,10 @@
 (require 'dired-aux)
 (require 'term)
 ;;* set
-(setq dired-listing-switches "-laGh1v --group-directories-first")
+(setq dired-listing-switches
+      (if (eq system-type 'windows-nt)
+          "-alk"
+        "-laGh1v --group-directories-first"))
 (setq directory-free-space-args "-Pmh")
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
