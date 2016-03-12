@@ -15,8 +15,17 @@
 (add-to-list 'load-path emacs-d)
 (add-to-list 'load-path (expand-file-name "oleh/modes/" emacs-d))
 ;;* Theme
-(require 'eclipse-theme)
-;;* Customize
+(if (display-graphic-p)
+    (require 'eclipse-theme)
+  (require 'eclipse-theme))
+;;** Font
+(cond ((eq system-type 'gnu/linux)
+       (set-frame-font "DejaVu Sans Mono"))
+      ((eq system-type 'windows-nt)
+       (set-frame-font "Lucida Sans Typewriter")))
+;; (set-face-attribute 'default nil :height 113)
+
+;; ;;* Customize
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
 ;;** decorations
