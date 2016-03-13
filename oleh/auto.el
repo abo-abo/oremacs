@@ -794,13 +794,16 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
 ;;    "wmctrl" nil nil nil "-i" "-R"
 ;;    (frame-parameter (or frame (selected-frame)) 'outer-window-id)))
 
+(defvar ora-custom-setq-history nil)
+
 ;;;###autoload
 (defun ora-custom-setq ()
   "Set a custom variable, with completion."
   (interactive)
   (let ((sym (intern
               (ivy-read "Variable: "
-                        (counsel-variable-list))))
+                        (counsel-variable-list)
+                        :history 'ora-custom-setq-history)))
         sym-type
         cands)
     (when (and (boundp sym)
