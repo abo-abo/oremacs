@@ -176,14 +176,15 @@ Spaces around X are modified accorind to `j-ops-alist'."
                                 (save-buffer)
                                 (j-console-execute-buffer)
                                 (other-window 1)))
-  (j-setup-shortcuts))
+  ;; (j-setup-shortcuts)
+  )
 
 ;;;###autoload
 (defun run-j ()
   "Call `j-console' and setup shortcuts."
   (interactive)
   (j-console)
-  (j-setup-shortcuts)
+  ;; (j-setup-shortcuts)
   (j-set-syntax-parens))
 
 (defun j-set-syntax-parens ()
