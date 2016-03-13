@@ -1,5 +1,10 @@
 ;;* Requires
 (require 'org)
+(require 'org-fu)
+(require 'org-weather)
+(setq org-weather-location "Eindhoven,NL")
+(setq org-weather-api-key "bfb812a56cff56fe7efeea207643a153")
+(add-to-list 'load-path (expand-file-name "git/org-mode/contrib/lisp/" emacs-d))
 (require 'org-src)
 (require 'worf)
 (require 'org-download)
