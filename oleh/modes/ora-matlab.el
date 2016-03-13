@@ -1,5 +1,8 @@
 (require 'matlab-load)
 (require 'matlab)
+;; (when (eq major-mode 'matlab-mode)
+;;   (setcar font-lock-defaults '(matlab-font-lock-keywords
+;;                                matlab-gaudy-font-lock-keywords)))
 (define-key matlab-mode-map (kbd "C-h") nil)
 (define-key matlab-mode-map (kbd "C-M-i") nil)
 (when (keymapp matlab-shell-mode-map)
@@ -59,7 +62,7 @@
     (switch-to-buffer buffer)
     (save-window-excursion
       (switch-to-buffer (concat "*" matlab-shell-buffer-name "*"))
-      (matlab-shell-send-string (format "userpath('%s');\n"
+      (matlab-shell-send-string (format "addpath('%s');\n"
                                         dir)))
     (matlab-shell-save-and-go)))
 
