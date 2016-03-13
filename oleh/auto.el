@@ -824,3 +824,16 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
                     (cdr (assoc res cands))
                   (read res)))
           (eval `(setq ,sym ,res)))))))
+
+;;;###autoload
+(defun ora-quote-github-issues ()
+  (interactive)
+  (let ((base "https://github.com/abo-abo/avy/issues/"))
+    (goto-char (point-min))
+    (while (re-search-forward "\\([^[]\\)#\\([0-9]+\\)" nil t)
+      (replace-match
+       (format "%s[[%s%s][#%s]]"
+               (match-string 1)
+               base
+               (match-string 2)
+               (match-string 2))))))
