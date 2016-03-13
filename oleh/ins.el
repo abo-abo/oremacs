@@ -49,10 +49,22 @@
          (term-send-raw-string ""))
         ((region-active-p)
          (lispy--surround-region "(" ")"))
+        ((looking-back "\\\\")
+         (insert "(\\)")
+         (backward-char 2))
         (t
          (if (looking-back "\\(if\\)\\|\\(for\\)\\|\\(switch\\)\\|\\(while\\)")
              (insert " "))
          (insert "()")
+         (backward-char))))
+
+;;;###autoload
+(defun ora-dollars ()
+  (interactive)
+  (cond ((region-active-p)
+         (lispy--surround-region "$" "$"))
+        (t
+         (insert "$$")
          (backward-char))))
 
 ;;;###autoload
