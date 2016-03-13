@@ -811,7 +811,7 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
       (cond
         ((and (consp sym-type)
               (memq (car sym-type) '(choice radio)))
-         (setq cands (mapcar #'lispy--setq-doconst (cdr sym-type))))
+         (setq cands (delq nil (mapcar #'lispy--setq-doconst (cdr sym-type)))))
         ((eq sym-type 'boolean)
          (setq cands
                '(("nil" . nil) ("t" . t))))
