@@ -29,14 +29,14 @@
 (add-hook 'occur-hook 'ora-occur-hook)
 (add-hook 'Buffer-menu-mode-hook 'ora-Buffer-menu-hook)
 (add-hook 'bookmark-bmenu-mode-hook 'ora-bmenu-hook)
-(require 'magit nil t)
-(if (featurep 'magit-utils)
+(eval-after-load 'magit
+  '(if (featurep 'magit-utils)
     (require 'ora-nextmagit)
-  (add-hook 'magit-status-mode-hook 'ora-magit-status-hook)
-  (add-hook 'magit-log-mode-hook 'ora-magit-log-hook)
-  (add-hook 'magit-commit-mode-hook 'ora-magit-commit-hook)
-  (add-hook 'magit-diff-mode-hook 'ora-magit-diff-hook)
-  (add-hook 'magit-branch-manager-mode-hook 'ora-magit-branch-manager-hook))
+    (add-hook 'magit-status-mode-hook 'ora-magit-status-hook)
+    (add-hook 'magit-log-mode-hook 'ora-magit-log-hook)
+    (add-hook 'magit-commit-mode-hook 'ora-magit-commit-hook)
+    (add-hook 'magit-diff-mode-hook 'ora-magit-diff-hook)
+    (add-hook 'magit-branch-manager-mode-hook 'ora-magit-branch-manager-hook)))
 (add-hook 'ediff-mode-hook 'ora-ediff-hook)
 (add-hook 'diff-mode-hook 'ora-diff-hook)
 (add-hook 'package-menu-mode-hook 'ora-package-menu-hook)
@@ -68,13 +68,14 @@
   '(define-key grep-mode-map (kbd "C-c C-c") 'wgrep-finish-edit))
 (add-hook 'command-history-hook 'lispy-mode)
 
+(require 'ora-elisp-style-guide)
 (use-package lispy
     :config
-    (progn
-      (setq lispy-no-permanent-semantic t)
-      (setq lispy-helm-columns '(70 100))
-      (lispy-set-key-theme '(oleh special lispy c-digits))
-      (setq lispy-avy-style-symbol 'at-full)))
+  (progn
+    (setq lispy-no-permanent-semantic t)
+    (setq lispy-helm-columns '(70 100))
+    (lispy-set-key-theme '(oleh special lispy c-digits))
+    (setq lispy-avy-style-symbol 'at-full)))
 
 (defun ora-package-symbol ()
   (interactive)
@@ -88,25 +89,13 @@
 
 (define-key lisp-mode-shared-map "β" 'counsel-el)
 (define-key lisp-mode-shared-map (kbd "C-β") 'ora-package-symbol)
-
-
 (define-key lisp-mode-shared-map (kbd "C-c C-z")
   (lambda ()
     (interactive)
     (switch-to-buffer-other-window "*scratch*")))
 (define-key lisp-mode-shared-map (kbd "C-c C-l") 'eval-buffer)
-(define-key emacs-lisp-mode-map (kbd "C-M-i") 'iedit-mode)
-(define-key lisp-interaction-mode-map (kbd "C-M-i") 'iedit-mode)
-
-(setq lisp-indent-function 'common-lisp-indent-function)
-;; (setq lisp-indent-function 'lisp-indent-function)
-(eval-after-load 'cl-indent
-  `(progn
-     (put 'cl-flet 'common-lisp-indent-function
-          (get 'flet 'common-lisp-indent-function))
-     (put 'cl-labels 'common-lisp-indent-function
-          (get 'labels 'common-lisp-indent-function))
-     (put 'if 'common-lisp-indent-function 2)))
+(define-key emacs-lisp-mode-map (kbd "C-M-i") nil)
+(define-key lisp-interaction-mode-map (kbd "C-M-i") nil)
 
 (defun lisp--match-hidden-arg (limit) nil)
 
@@ -130,13 +119,13 @@
 (defun ora-emacs-lisp-hook ()
   (ignore-errors
     (prettify-symbols-mode)
+    (lispy-mode 1)
     (company-mode)
-    (abel-mode)
-    (diminish 'abbrev-mode)
     (set (make-local-variable 'company-backends)
          '((company-elisp :with company-dabbrev-code)))
-    (yas-minor-mode-on)
-    (lispy-mode 1)
+    (abel-mode)
+    (diminish 'abbrev-mode)
+    ;; (yas-minor-mode-on)
     (auto-compile-mode 1)
     (semantic-mode -1)))
 
@@ -148,7 +137,8 @@
 (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
 
 (defun ora-lisp-interaction-hook ()
-  (lispy-mode 1))
+  (lispy-mode 1)
+  (company-mode 1))
 
 (defalias 'tt 'ora-terminal)
 (defalias 'cal 'calendar)
