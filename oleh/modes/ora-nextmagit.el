@@ -150,16 +150,16 @@
 ;; (define-key magit-branch-manager-mode-map "u" 'magit-diff-working-tree)
 
 ;;;###autoload
-(defun ora-magit-status-hook ()
+(defun ora-nextmagit-status-hook ()
   (yas-minor-mode 0))
 ;;;###autoload
-(defun ora-magit-log-hook ())
+(defun ora-nextmagit-log-hook ())
 ;;;###autoload
-(defun ora-magit-commit-hook ())
+(defun ora-nextmagit-commit-hook ())
 ;;;###autoload
-(defun ora-magit-diff-hook ())
+(defun ora-nextmagit-diff-hook ())
 ;;;###autoload
-(defun ora-magit-branch-manager-hook ())
+(defun ora-nextmagit-branch-manager-hook ())
 ;;* Functions
 (defun ora-magit-find-main-file ()
   "Open the main file of the repo."
