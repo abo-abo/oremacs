@@ -3,4 +3,11 @@
 
 ;;;###autoload
 (defun ora-nxml-hook ()
-  (rng-validate-mode -1))
+  (rng-validate-mode -1)
+  (setq-local lispy-left "<")
+  (setq-local lispy-right ">")
+  (setq-local lispy-forward-list-function 'nxml-forward-element)
+  (setq-local lispy-backward-list-function 'nxml-forward-element)
+  (modify-syntax-entry ?< "(>")
+  (modify-syntax-entry ?> ")<")
+  (lispy-mode))
