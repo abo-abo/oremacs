@@ -2,7 +2,7 @@
 (require 'diff-mode)
 (csetq ediff-window-setup-function 'ediff-setup-windows-plain)
 (csetq ediff-split-window-function 'split-window-horizontally)
-(csetq ediff-diff-options "-w")
+(csetq ediff-diff-options "-w --text")
 
 (defun ora-ediff-jk ()
   (define-key ediff-mode-map "j" 'ediff-next-difference)
