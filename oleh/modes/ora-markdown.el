@@ -6,6 +6,7 @@
 (define-key markdown-mode-map (kbd "C-c r") 'markdown-pre-region)
 (define-key markdown-mode-map (kbd "C-c s") 'ora-markdown-stack-block)
 (define-key markdown-mode-map (kbd "M-p") nil)
+(define-key markdown-mode-map (kbd "C-M-i") nil)
 
 ;;;###autoload
 (defun ora-markdown-hook ()
