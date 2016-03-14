@@ -250,37 +250,96 @@ _h_tml    ^ ^        _A_SCII:
   ("I" (hot-expand "<I"))
   ("H" (hot-expand "<H"))
   ("A" (hot-expand "<A"))
+  ("t" (hot-expand "<t"))
   ("<" self-insert-command "ins")
   ("o" nil "quit"))
 
-(defhydra hydra-global-org (:color blue
-                            :hint nil)
-  "
-Timer^^        ^Clock^         ^Capture^
---------------------------------------------------
-s_t_art        _w_ clock in    _c_apture
- _s_top        _o_ clock out   _l_ast capture
-_r_eset        _j_ clock goto
-_p_rint
-"
-  ("t" org-timer-start)
-  ("s" org-timer-stop)
-  ;; Need to be at timer
-  ("r" org-timer-set-timer)
-  ;; Print timer value to buffer
-  ("p" org-timer)
-  ("w" (org-clock-in '(4)))
-  ("o" org-clock-out)
-  ;; Visit the clocked task from any buffer
-  ("j" org-clock-goto)
-  ("c" org-capture)
-  ("l" org-capture-goto-last-stored))
-
 (define-key org-mode-map "<"
-  (lambda () (interactive)
-     (if (looking-back "^")
-         (hydra-org-template/body)
-       (self-insert-command 1))))
+  (defun org-self-insert-or-less ()
+    (interactive)
+    (if (looking-back "^")
+        (hydra-org-template/body)
+      (self-insert-command 1))))
 
-(require 'org-fu)
+(font-lock-add-keywords 'org-mode
+                        '(("\\\\(\\([^(]*\\)\\\\)" 0 'font-latex-math-face prepend)))
+
+;;* Mode Objects
+(defhydra hydra-org-objects (:exit t)
+  "org-objects"
+  ("t" hydra-org-timer/body "timer")
+  ("c" hydra-org-clock/body "clock"))
+
+;;** Timer
+(defhydra hydra-org-timer (:exit t
+                           :columns 2)
+  "org-timer"
+  ;; "run"
+  ("rr" org-timer-start "run relative")
+  ("rd" org-timer-set-timer "run descending")
+  ;; "kill"
+  ("k" org-timer-stop "kill")
+  ;; "pause"
+  ("z" org-timer-pause-or-continue "suspend/resume")
+  ;; "insert"
+  ("is" org-timer "insert simple")
+  ("ii" org-timer-item "insert item")
+  ("im" org-timer-show-remaining-time "insert as message")
+  ;; "change"
+  ("c" org-timer-change-times-in-region "change in region")
+  ;; "menu"
+  ("b" hydra-org-objects/body "back")
+  ("q" nil "quit"))
+
+;;** Clock
+(defun ora-org-clock-goto ()
+  (interactive)
+  (ring-insert
+   find-tag-marker-ring
+   (point-marker))
+  (org-clock-goto))
+
+(defhydra hydra-org-clock (:color teal
+                           :columns 2)
+  "org-clock"
+  ;; "run"
+  ("ri" org-clock-in "in here")
+  ("rj" (org-clock-in '(4)) "in choice")
+  ("rl" org-clock-in-last "in last")
+  ("ro" org-clock-out "out")
+  ;; "kill"
+  ("k" org-clock-cancel "kill")
+  ;; "goto"
+  ("g" ora-org-clock-goto "goto")
+  ;; "change"
+  ("ce" org-clock-modify-effort-estimate "change estimate")
+  ("cs" hydra-org-clock-timestamps/body "timestamps")
+  ;; "insert"
+  ("ir" org-clock-report "insert report")
+  ("it" hydra-org-clock-display/body "display time")
+  ;; "menu"
+  ("b" hydra-org-objects/body "back")
+  ("q" nil "quit"))
+
+(defhydra hydra-org-clock-display (:color teal
+                                   :columns 1)
+  "org-clock-display"
+  ("i" org-clock-display "for buffer")
+  ("t" (org-clock-display '(4)) "for today")
+  ("j" (org-clock-display '(16)) "for interval")
+  ("a" (org-clock-display '(64)) "for all")
+  ("k" org-clock-remove-overlays "kill")
+  ;; "menu"
+  ("b" hydra-org-clock/body "back")
+  ("q" nil "quit"))
+
+(defhydra hydra-org-clock-timestamps ()
+  "org-clock-timestamps"
+  ("h" backward-word "left")
+  ("j" org-clock-timestamps-down "down")
+  ("k" org-clock-timestamps-up "up")
+  ("l" forward-word "right")
+  ("b" hydra-org-clock/body "back" :exit t)
+  ("q" nil "quit"))
+
 (provide 'ora-org)

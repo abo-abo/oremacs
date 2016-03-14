@@ -7,7 +7,7 @@
 ;; (global-set-key "\C-e" 'move-end-of-line)             ; default
 ;; (global-set-key "\C-f" 'forward-char)                 ; default
 ;; (global-set-key "\C-g" 'keyboard-quit)                ; default
-(global-set-key "\C-h" nil)                              ; 'help-command
+;; (global-set-key "\C-h" nil)                           ; 'help-command
 ;; (global-set-key "\C-i" 'indent-for-tab-command)       ; default
 ;; (global-set-key "\C-j" 'newline)                      ; default
 ;; (global-set-key "\C-k" 'kill-line)                    ; default
@@ -30,7 +30,7 @@
 (global-set-key (kbd "C-.") 'comment-dwim)
 (global-set-key (kbd "C-,") 'lispy-kill-at-point)
 (global-set-key (kbd "C-'") 'avy-goto-char-timer)
-(global-set-key (kbd "C-/") 'ora-replace-regexp)
+(global-set-key (kbd "C-/") 'hydra-org-objects/body)
 (global-set-key (kbd "C-7") 'mc/mark-next-like-this)
 ;;* Ctrl Meta shortcuts
 (global-set-key (kbd "C-M-,") 'lispy-mark)
@@ -116,6 +116,8 @@
 (global-set-key (kbd "C-c s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-c r") 'isearch-backward)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "C-c o") 'hydra-org-objects/body)
+
 ;;* C-x shortcuts
 (global-set-key (kbd "C-x C-r") (lambda () (interactive) (revert-buffer nil t)))
 (global-set-key (kbd "C-x l") 'counsel-locate)
@@ -144,7 +146,7 @@
 (global-set-key [C-f8] 'bookmark-set)
 (global-set-key [f9] 'delete-other-windows)
 (global-set-key [C-f9] 'delete-window)
-(global-set-key [f11] 'hydra-global-org/body)
+(global-set-key [f11] 'hydra-org-objects/body)
 (global-set-key [C-f11] 'org-clock-goto)
 (global-set-key [f12] 'orfu-agenda-day)
 (global-set-key [C-f12] 'org-agenda)
