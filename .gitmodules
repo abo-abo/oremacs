@@ -40,3 +40,6 @@
 [submodule "git/org-weather"]
 	path = git/org-weather
 	url = https://github.com/kautsig/org-weather
+[submodule "git/org-pomodoro"]
+	path = git/org-pomodoro
+	url = git@github.com:abo-abo/org-pomodoro.git
