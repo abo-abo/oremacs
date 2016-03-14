@@ -95,7 +95,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-Info" "oleh/modes/ora-Info.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22247 3645 624410 708000))
 ;;; Generated autoloads from oleh/modes/ora-Info.el
 
 (autoload 'ora-Info-hook "oleh/modes/ora-Info" "\
@@ -106,7 +106,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-c++" "oleh/modes/ora-c++.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22247 3645 624410 708000))
 ;;; Generated autoloads from oleh/modes/ora-c++.el
 
 (autoload 'ora-c-common-hook "oleh/modes/ora-c++" "\
@@ -138,7 +138,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-clojure" "oleh/modes/ora-clojure.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22246 41631 826624 967000))
 ;;; Generated autoloads from oleh/modes/ora-clojure.el
 
 (autoload 'ora-clojure-hook "oleh/modes/ora-clojure" "\
@@ -154,7 +154,7 @@ Log in to http://www.4clojure.com.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-dired" "oleh/modes/ora-dired.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22247 3677 540409 220000))
 ;;; Generated autoloads from oleh/modes/ora-dired.el
 
 (autoload 'ora-dired-hook "oleh/modes/ora-dired" "\
@@ -365,7 +365,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-magit" "oleh/modes/ora-magit.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22247 3645 624410 708000))
 ;;; Generated autoloads from oleh/modes/ora-magit.el
 
 (autoload 'ora-magit-status-hook "oleh/modes/ora-magit" "\
@@ -423,7 +423,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-matlab" "oleh/modes/ora-matlab.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22245 36729 358535 776000))
 ;;; Generated autoloads from oleh/modes/ora-matlab.el
 
 (autoload 'counsel-matlab "oleh/modes/ora-matlab" "\
@@ -524,7 +524,7 @@ MATLAB completion at point.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-org" "oleh/modes/ora-org.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22247 4029 660392 807000))
 ;;; Generated autoloads from oleh/modes/ora-org.el
 
 (autoload 'ora-org-hook "oleh/modes/ora-org" "\
@@ -573,7 +573,7 @@ MATLAB completion at point.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-python" "oleh/modes/ora-python.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22247 3645 624410 708000))
 ;;; Generated autoloads from oleh/modes/ora-python.el
 
 (autoload 'ora-python-hook "oleh/modes/ora-python" "\
@@ -667,12 +667,12 @@ run current script
 ;;;### (autoloads nil nil ("init.el" "oleh/hooks.el" "oleh/keys.el"
 ;;;;;;  "oleh/modes/ora-avy.el" "oleh/modes/ora-company.el" "oleh/modes/ora-elisp-style-guide.el"
 ;;;;;;  "oleh/modes/ora-helm.el" "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el"
-;;;;;;  "packages.el") (22245 36445 742548 996000))
+;;;;;;  "packages.el") (22247 3645 624410 708000))
 
 ;;;***
 
-;;;### (autoloads nil "oleh/auto" "oleh/auto.el" (22244 31364 648717
-;;;;;;  479000))
+;;;### (autoloads nil "oleh/auto" "oleh/auto.el" (22247 3925 516397
+;;;;;;  662000))
 ;;; Generated autoloads from oleh/auto.el
 
 (autoload 'ora-para-down "oleh/auto" "\
@@ -963,9 +963,9 @@ Set a custom variable, with completion.
 
 \(fn)" t nil)
 
-(autoload 'ora-dired-start-process "oleh/auto" "\
+(autoload 'ora-start-process "oleh/auto" "\
 
 
-\(fn CMD &optional FILE-LIST)" t nil)
+\(fn CMD)" nil nil)
 
 ;;;***

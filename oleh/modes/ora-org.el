@@ -10,12 +10,18 @@
 (require 'org-download)
 (org-download-enable)
 (require 'org-pomodoro)
+(modify-syntax-entry ?\. "w" org-mode-syntax-table)
+(setq org-attach-file-list-property nil)
+(setq org-reveal-hlevel 2)
 
 ;;;###autoload
 (defun ora-org-hook ()
   (worf-mode)
   (org-bullets-mode)
-  (org-indent-mode))
+  (org-indent-mode)
+  (add-to-list 'prettify-symbols-alist
+               '(":PROPERTIES:" . ":"))
+  (prettify-symbols-mode))
 
 ;;;###autoload
 (defun ora-org-agenda-hook ())
@@ -26,6 +32,7 @@
 (define-key org-mode-map (kbd "C-'") nil)
 (define-key org-mode-map (kbd "C-TAB") nil)
 (define-key org-mode-map (kbd "C-M-i") nil)
+(define-key org-mode-map (kbd "C-c C-r") nil)
 (define-key org-mode-map [C-tab] nil)
 (define-key org-mode-map (kbd "<f2> a") 'org-archive)
 (define-key org-mode-map (kbd "χ") 'worf-back-to-heading)
@@ -34,6 +41,7 @@
 (define-key org-mode-map (kbd "M-r") 'org-ctrl-c-ctrl-c)
 (define-key org-src-mode-map (kbd "C-c C-c") 'org-edit-src-exit)
 (define-key org-mode-map (kbd "C-c C-q") 'counsel-org-tag)
+(define-key org-mode-map (kbd "$") 'ora-dollars)
 
 ;;** org-agenda-mode-map
 (require 'org-agenda)
@@ -50,7 +58,9 @@
 
 ;;* Basic settings
 (setq-default org-todo-keywords
-              '((sequence "TODO" "NEXT" "|" "DONE" "CANCELLED")))
+              '((sequence "TODO" ;; "NEXT"
+                 "|" "DONE" "CANCELLED")))
+(setq org-return-follows-link nil)
 (setq org-startup-indented t)
 (setq org-startup-folded nil)
 (setq org-cycle-separator-lines 0)
@@ -90,6 +100,7 @@
 (setq appt-display-format 'window)
 (setq appt-disp-window-function #'ora-appt-display)
 (run-at-time "24:01" nil #'ora-org-agenda-to-appt)
+(remove-hook 'org-finalize-agenda-hook #'ora-org-agenda-to-appt)
 (add-hook 'org-finalize-agenda-hook #'ora-org-agenda-to-appt)
 
 ;;* TODO settings
@@ -130,7 +141,7 @@
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
 ;;* Files
-(setq org-archive-location "archive/%s_archive::")
+(setq org-archive-location "archive/gtd.org_archive::")
 
 ;;* Babel
 (org-babel-do-load-languages
@@ -149,6 +160,7 @@
    (calc . t)))
 (require 'j-font-lock)
 (add-to-list 'org-src-lang-modes '("J" . j))
+
 (eval-when-compile
   (require 'ob-C)
   (require 'ob-ruby)
@@ -176,7 +188,7 @@
                      (compose-region (match-beginning 1)
                                      (match-end 1)
                                      ?*))))))
-(setcar (nthcdr 2 org-emphasis-regexp-components) " \t\n'")
+(setcar (nthcdr 2 org-emphasis-regexp-components) " \t\n")
 (csetq org-emphasis-alist org-emphasis-alist)
 
 (defun ora-org-schedule-today ()
@@ -195,7 +207,7 @@ a sound to be played"
          :body msg
          :app-icon icon
          :urgency 'low)
-        (ora-dired-start-process
+        (ora-start-process
          (concat "mplayer -really-quiet " sound " 2> /dev/null")))
     ;; text only version
     (message (concat title ": " msg))))

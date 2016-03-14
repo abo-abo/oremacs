@@ -863,3 +863,10 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
                                (format "[%s] %s (%s).pdf" authors title year) t)
             (revert-buffer))
         (error "Could not rename file")))))
+
+;;;###autoload
+(defun ora-start-process (cmd)
+  (start-process
+   cmd nil shell-file-name
+   shell-command-switch
+   (format "nohup 1>/dev/null 2>/dev/null %s" cmd)))
