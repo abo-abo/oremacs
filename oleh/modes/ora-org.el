@@ -9,6 +9,7 @@
 (require 'worf)
 (require 'org-download)
 (org-download-enable)
+(require 'org-pomodoro)
 
 ;;;###autoload
 (defun ora-org-hook ()
@@ -36,7 +37,8 @@
 
 ;;** org-agenda-mode-map
 (require 'org-agenda)
-(define-key org-agenda-mode-map "h" 'previous-line)
+
+(define-key org-agenda-mode-map "p" 'org-pomodoro)
 (define-key org-agenda-mode-map (kbd "C-j") 'org-open-at-point)
 (define-key org-agenda-mode-map "i" 'org-agenda-clock-in)
 (define-key org-agenda-mode-map "o" 'org-agenda-clock-out)
