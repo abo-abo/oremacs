@@ -116,6 +116,7 @@
 (global-set-key (kbd "C-c s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-c r") 'isearch-backward)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "C-c m") 'counsel-linux-app)
 (global-set-key (kbd "C-c o") 'hydra-org-objects/body)
 
 ;;* C-x shortcuts
