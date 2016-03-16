@@ -27,7 +27,7 @@
     function-args
     geiser
     google-c-style
-    guide-key
+    which-key
     headlong
     helm-make
     ido-vertical-mode
