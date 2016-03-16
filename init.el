@@ -119,13 +119,6 @@
 (require 'ora-ivy)
 (ivy-mode 1)
 (blink-cursor-mode -1)
-;; (use-package guide-key
-;;     :commands guide-key-mode
-;;     :diminish guide-key-mode
-;;     :init
-;;     (setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v" "C-x 8"))
-;;     (guide-key-mode 1))
-;;** auto-mode-alist
 (add-to-list 'auto-mode-alist '("\\.tex\\'" . TeX-latex-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
 (add-to-list 'auto-mode-alist '("\\.cache\\'" . emacs-lisp-mode))
