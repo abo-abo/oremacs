@@ -51,6 +51,7 @@
 (define-key org-agenda-mode-map "i" 'org-agenda-clock-in)
 (define-key org-agenda-mode-map "o" 'org-agenda-clock-out)
 (define-key org-agenda-mode-map "0" 'ora-org-schedule-today)
+(define-key org-agenda-mode-map "1" 'ora-org-schedule-tomorrow)
 ;; was `org-agenda-goto-date'
 (define-key org-agenda-mode-map "j" 'org-agenda-next-line)
 ;; was `org-agenda-capture'
@@ -193,7 +194,11 @@
 
 (defun ora-org-schedule-today ()
   (interactive)
-  (org-agenda-schedule 0))
+  (org-agenda-schedule 0 "+0d"))
+
+(defun ora-org-schedule-tomorrow ()
+  (interactive)
+  (org-agenda-schedule 0 "+1d"))
 
 (defun ora-org-popup (title msg &optional icon sound)
   "Show a popup if we're on X, or echo it otherwise; TITLE is the title
