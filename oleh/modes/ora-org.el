@@ -152,6 +152,7 @@
  'org-babel-load-languages
  '((ruby . t)
    (sh . t)
+   (shell . t)
    (python . t)
    (emacs-lisp . t)
    (matlab . t)
