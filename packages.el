@@ -15,6 +15,7 @@
   '(ac-cider
     ace-link
     ace-window
+    ace-popup-menu
     auto-compile
     auto-yasnippet
     auctex

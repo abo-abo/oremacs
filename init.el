@@ -90,12 +90,11 @@
 (load (concat emacs-d "loaddefs.el") nil t)
 ;;** enable features
 (mapc (lambda (x) (put x 'disabled nil))
-      (list 'erase-buffer 'upcase-region 'downcase-region
-            'dired-find-alternate-file 'narrow-to-region 'set-goal-column))
+      '(erase-buffer upcase-region downcase-region
+        dired-find-alternate-file narrow-to-region))
 ;;** package.el
 (setq package-archives
-      '(("melpa" . "http://melpa.milkbox.net/packages/")
-        ;; ("marmalade" . "http://marmalade-repo.org/packages/")
+      '(("melpa" . "http://melpa.org/packages/")
         ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")))
 (require 'use-package)
@@ -198,14 +197,6 @@
 (bookmark-maybe-load-default-file)
 ;;** windows
 (require 'ora-avy)
-;; (use-package golden-ratio
-;;     :commands golden-ratio-mode
-;;     :config
-;;     (mapc
-;;      (lambda (x) (add-to-list 'golden-ratio-exclude-buffer-names x))
-;;      '("*LV*" "*lispy-goto*")))
-(use-package transpose-frame
-  :commands transpose-frame)
 ;;** rest
 (require 'hydra)
 (setq hydra--work-around-dedicated nil)
@@ -284,6 +275,7 @@
     :diminish compilation-in-progress
     :config
     (setq compilation-ask-about-save nil))
+(ace-popup-menu-mode)
 (run-with-idle-timer
  3 nil
  (lambda () (require 'ora-org)))
