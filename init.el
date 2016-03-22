@@ -232,6 +232,8 @@
     (progn
       (define-key flyspell-mode-map [(control ?\,)] nil)
       (define-key flyspell-mode-map [(control ?\;)] nil)
+      (define-key flyspell-mode-map (kbd "C-.") nil)
+      (define-key flyspell-mode-map (kbd "C-M-i") nil)
       (setq flyspell-auto-correct-binding (kbd "C-M-;"))))
 (use-package projectile
     :diminish projectile-mode
