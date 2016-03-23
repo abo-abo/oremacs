@@ -126,7 +126,7 @@
 ;; (global-set-key (kbd "C-x m") 'mu4e-compose-new)
 (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x p") 'proced)
-(global-set-key (kbd "C-x C-i") 'ispell-word)
+(global-set-key (kbd "C-x C-i") 'flyspell-correct-word-before-point)
 ;;* Functional keys shortcuts
 (global-set-key (kbd "<f1> a") 'apropos)
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
