@@ -285,6 +285,7 @@
   ("f" nil))
 (global-set-key (kbd "C-M-o") 'hydra-window/body)
 (global-set-key (kbd "C-M-k") 'hydra-pause-resume)
+(global-set-key (kbd "C-M-s") 'counsel-grep)
 (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
 (global-set-key (kbd "<deletechar>") 'avy-goto-char)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
