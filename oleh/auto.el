@@ -11,7 +11,8 @@
 ;;;###autoload
 (defun ora-swiper ()
   (interactive)
-  (if (and (not (ignore-errors
+  (if (and (buffer-file-name)
+           (not (ignore-errors
                   (file-remote-p (buffer-file-name))))
            (if (eq major-mode 'org-mode)
                (> (buffer-size) 60000)
