@@ -14,6 +14,10 @@
 (setq org-attach-file-list-property nil)
 (setq org-reveal-hlevel 2)
 
+(require 'org-bullets)
+(setcdr org-bullets-bullet-map nil)
+(setq org-hide-emphasis-markers t)
+
 ;;;###autoload
 (defun ora-org-hook ()
   (worf-mode)
