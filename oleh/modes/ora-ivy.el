@@ -10,8 +10,9 @@
 (define-key ivy-minibuffer-map (kbd "C-:") 'ivy-dired)
 (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
 (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
-(when (and (version< "25" emacs-version)
-           (eq system-type 'gnu/linux))
+(when (and (version< "24.5" emacs-version)
+           (eq system-type 'gnu/linux)
+           (char-displayable-p ?🙒))
   (diminish 'ivy-mode " 🙒"))
 
 (defun ivy-dired ()
