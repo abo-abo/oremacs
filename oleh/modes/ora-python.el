@@ -24,9 +24,14 @@
 (define-key python-mode-map (kbd "C-M-j") 'helm-semantic)
 (define-key jedi-mode-map [C-tab] nil)
 
-;;;###autoload
+(defvar ora-no-pip
+  (string-match "Command not found"
+                (shell-command-to-string "which pip")))
+
+ ;;;###autoload
 (defun ora-python-hook ()
-  (jedi:setup))
+  (unless ora-no-pip
+    (jedi:setup)))
 
 (defun ora-python-switch-to-shell ()
   (interactive)
