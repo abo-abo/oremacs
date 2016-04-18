@@ -60,6 +60,7 @@
 (define-key org-agenda-mode-map "j" 'org-agenda-next-line)
 ;; was `org-agenda-capture'
 (define-key org-agenda-mode-map "k" 'org-agenda-previous-line)
+(define-key org-agenda-mode-map "v" 'hydra-org-agenda-view/body)
 
 ;;* Basic settings
 (setq-default org-todo-keywords
