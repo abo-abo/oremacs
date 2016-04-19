@@ -225,6 +225,7 @@
     :config (setq helm-make-completion-method 'ivy))
 (setq ispell-personal-dictionary
       (concat emacs-d "oleh/personal/ispell_dict"))
+(setq ispell-program-name "aspell")
 (setq abbrev-file-name
       (concat emacs-d "oleh/personal/abbrev_defs"))
 (use-package flyspell
