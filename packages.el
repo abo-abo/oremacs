@@ -31,7 +31,7 @@
     which-key
     headlong
     helm-make
-    ido-vertical-mode
+    hideshowvis
     j-mode
     jedi
     lispy
@@ -51,6 +51,7 @@
     swiper
     ukrainian-holidays
     use-package
+    vimish-fold
     wgrep
     worf
     yaml-mode)
