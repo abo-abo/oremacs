@@ -19,7 +19,7 @@
 (keyboard-translate ?\C-p ?\C-h)                         ; swap
 ;; (global-set-key "\C-q" 'quoted-insert)                ; default
 (global-set-key "\C-r" 'swiper)                          ; 'isearch-backward
-(global-set-key "\C-s" 'ora-swiper)                      ; 'isearch-forward
+(global-set-key "\C-s" 'counsel-grep-or-swiper)          ; 'isearch-forward
 (global-set-key "\C-t" 'smex)                            ; 'transpose-chars
 (global-set-key "\C-u" 'undo)                            ; 'universal-argument
 ;; (global-set-key "\C-v" 'scroll-up)                    ; default
