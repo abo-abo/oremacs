@@ -1,4 +1,5 @@
 ;;* Requires
+(setq org-export-backends '(html latex))
 (require 'org)
 (require 'org-fu)
 (require 'org-weather)
