@@ -49,6 +49,31 @@
     (forward-char)
     (skip-chars-forward "0-9")))
 
+(defun ora-dirs-in (dir)
+  "Return the list of directories in DIR."
+  (delq nil
+        (mapcar
+         (lambda (x)
+           (let (y)
+             (when (file-directory-p
+                    (setq y (expand-file-name x dir)))
+               (cons x y))))
+         (cl-set-difference
+          (directory-files dir)
+          '("." "..")
+          :test #'equal))))
+
+;;;###autoload
+(defun ora-project ()
+  (interactive)
+  (ivy-read
+   "Project: "
+   (delete-dups
+    (append
+     (ora-dirs-in (expand-file-name "git/" emacs-d))
+     (ora-dirs-in "~/git/")))
+   :action #'find-file))
+
 ;;* Regex
 ;;;###autoload
 (defun ora-occur ()
