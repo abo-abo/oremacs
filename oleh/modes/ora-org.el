@@ -64,6 +64,7 @@
 ;; was `org-agenda-capture'
 (define-key org-agenda-mode-map "k" 'org-agenda-previous-line)
 (define-key org-agenda-mode-map "v" 'hydra-org-agenda-view/body)
+(define-key org-agenda-mode-map "T" 'worf-clock-in-and-out)
 
 ;;* Basic settings
 (setq-default org-todo-keywords
