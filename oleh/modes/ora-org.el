@@ -53,7 +53,7 @@
 ;;** org-agenda-mode-map
 (require 'org-agenda)
 
-(define-key org-agenda-mode-map "p" 'org-pomodoro)
+(define-key org-agenda-mode-map "p" 'ora-org-pomodoro)
 (define-key org-agenda-mode-map (kbd "C-j") 'org-open-at-point)
 (define-key org-agenda-mode-map "i" 'org-agenda-clock-in)
 (define-key org-agenda-mode-map "o" 'org-agenda-clock-out)
@@ -359,5 +359,13 @@ _h_tml    ^ ^        _A_SCII:
   ("l" forward-word "right")
   ("b" hydra-org-clock/body "back" :exit t)
   ("q" nil "quit"))
+
+(defun ora-org-pomodoro ()
+  (interactive)
+  (if (eq major-mode 'org-agenda-mode)
+      (progn
+        (org-pomodoro)
+        (org-save-all-org-buffers))
+    (org-pomodoro)))
 
 (provide 'ora-org)
