@@ -360,6 +360,8 @@ _h_tml    ^ ^        _A_SCII:
   ("b" hydra-org-clock/body "back" :exit t)
   ("q" nil "quit"))
 
+(setq org-pomodoro-ask-upon-killing nil)
+
 (defun ora-org-pomodoro ()
   (interactive)
   (if (eq major-mode 'org-agenda-mode)
