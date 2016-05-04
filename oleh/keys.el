@@ -93,6 +93,7 @@
 (global-set-key "μ" 'headlong-bookmark-jump)                 ; [m]
 ;;* Meta shortcuts
 (global-set-key (kbd "M-%") 'ora-query-replace)
+(global-set-key (kbd "M-.") nil)
 (global-set-key (kbd "M-t") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "M-m") 'lispy-mark-symbol)
 (global-set-key (kbd "M-p") 'avy-pop-mark)
