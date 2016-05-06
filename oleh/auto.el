@@ -861,7 +861,10 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
                (match-string 1)
                base
                (match-string 2)
-               (match-string 2))))))
+               (match-string 2)))
+      (goto-char (match-end 0))
+      (when (and (eolp) (not (eq (char-before) ?\.)))
+        (insert ".")))))
 
 ;;;###autoload
 (defun ora-rename-pdf ()
