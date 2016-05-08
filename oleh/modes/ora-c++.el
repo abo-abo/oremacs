@@ -45,8 +45,10 @@ and <code>...</code>."
 
 ;;* Configure semantic
 (require 'semantic/bovine/c)
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file
-             "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h")
+(dolist (x (list "/home/oleh/git/gnu-emacs/src/config.h"
+                 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h"))
+  (add-to-list 'semantic-lex-c-preprocessor-symbol-file x))
+
 (dolist (x (list "/home/usr/local/trilinos/include/"
                  "/usr/local/boost_1_54_0/"))
   (semantic-add-system-include x 'c++-mode))
