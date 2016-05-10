@@ -1,12 +1,6 @@
-(require 'matlab-load)
-(require 'matlab)
-;; (when (eq major-mode 'matlab-mode)
-;;   (setcar font-lock-defaults '(matlab-font-lock-keywords
-;;                                matlab-gaudy-font-lock-keywords)))
+(setq matlab-mode-verify-fix-functions nil)
 (define-key matlab-mode-map (kbd "C-h") nil)
 (define-key matlab-mode-map (kbd "C-M-i") nil)
-(when (keymapp matlab-shell-mode-map)
-  (define-key matlab-shell-mode-map (kbd "β") 'counsel-matlab))
 (define-key matlab-mode-map (kbd "<f5>") 'matlab-run-file)
 (define-key matlab-mode-map (kbd "θ") 'ora-single-quotes)
 (define-key matlab-mode-map (kbd "β") 'counsel-matlab)
