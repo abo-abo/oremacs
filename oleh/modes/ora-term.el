@@ -23,6 +23,7 @@
 (define-key term-raw-map (kbd "C-c C-y") 'term-paste)
 (define-key term-raw-map "\C-t" nil)
 (define-key term-raw-map (kbd "C-M-o") nil)
+(define-key term-raw-map (kbd "C-c m") nil)
 (define-key term-raw-map (kbd "C-s") 'swiper)
 
 ;;;###autoload
