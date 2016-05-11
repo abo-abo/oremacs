@@ -13,7 +13,7 @@
         (delete ".." (directory-files emacs-git))))
 (add-to-list 'load-path (expand-file-name "git/org-mode/lisp/" emacs-d))
 (add-to-list 'load-path emacs-d)
-(add-to-list 'load-path (expand-file-name "oleh/modes/" emacs-d))
+(add-to-list 'load-path (expand-file-name "modes/" emacs-d))
 ;;* Theme
 (if (display-graphic-p)
     (require 'eclipse-theme)
@@ -177,7 +177,7 @@
 ;;** keys
 (use-package centimacro
     :commands centi-assign)
-(require 'oleh/keys)
+(require 'keys)
 ;;** appearance
 (when (image-type-available-p 'xpm)
   (use-package powerline
@@ -202,7 +202,7 @@
 (require 'hydra)
 (setq hydra--work-around-dedicated nil)
 (hydra-add-font-lock)
-(require 'oleh/hooks)
+(require 'hooks)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
   (lispy-flet (process-list ()) ad-do-it))

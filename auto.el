@@ -451,7 +451,7 @@ it is displayed along with the global value."
         (insert ";;") ;; create the file with non-zero size to appease autoload
         (save-buffer)))
     (mapcar #'update-directory-autoloads
-            '("" "oleh" "oleh/modes" "git/org-fu"))))
+            '("" "modes" "git/org-fu"))))
 
 ;;;###autoload
 (defun align-cols (start end max-cols)

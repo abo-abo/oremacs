@@ -144,4 +144,4 @@
 
 (defalias 'tt 'ora-terminal)
 (defalias 'cal 'calendar)
-(provide 'oleh/hooks)
+(provide 'hooks)

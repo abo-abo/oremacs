@@ -292,4 +292,4 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-t") 'counsel-M-x)
 
-(provide 'oleh/keys)
+(provide 'keys)
