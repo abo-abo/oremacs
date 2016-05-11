@@ -1,7 +1,305 @@
 ;;
 
+;;;### (autoloads nil "auto" "auto.el" (22323 14078 636945 551000))
+;;; Generated autoloads from auto.el
+
+(autoload 'ora-para-down "auto" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'ora-para-up "auto" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'ora-move-beginning-of-line "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-c-forward-sexp-function "auto" "\
+
+
+\(fn ARG)" nil nil)
+
+(autoload 'ora-project "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-occur "auto" "\
+Call `occur' with a sane default.
+
+\(fn)" t nil)
+
+(autoload 'ora-query-replace-regex "auto" "\
+
+
+\(fn FROM)" t nil)
+
+(autoload 'ora-query-replace "auto" "\
+
+
+\(fn FROM)" t nil)
+
+(autoload 'ora-replace-regexp "auto" "\
+Works on current line if there's no region.
+When ARG is non-nil launch `query-replace-regexp'.
+
+\(fn ARG)" t nil)
+
+(autoload 'og "auto" "\
+Search using ag in a given DIRECTORY for a given search STRING,
+with STRING defaulting to the symbol under point.
+
+If called with a prefix, prompts for flags to pass to ag.
+
+\(fn STRING DIRECTORY)" t nil)
+
+(autoload 'ora-unfill-paragraph "auto" "\
+Transform a paragraph into a single line.
+
+\(fn)" t nil)
+
+(autoload 'ora-ctrltab "auto" "\
+List buffers and give it focus.
+
+\(fn)" t nil)
+
+(autoload 'ora-terminal "auto" "\
+Switch to terminal. Launch if nonexistent.
+
+\(fn)" t nil)
+
+(autoload 'ora-goto-hook-file "auto" "\
+Opens hooks.el at point specific to current `major-mode'
+
+\(fn)" t nil)
+
+(autoload 'ora-dired-rsync "auto" "\
+
+
+\(fn DEST)" t nil)
+
+(autoload 'ora-describe-keys "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'illiterate "auto" "\
+Useful to completely revert an `org-mode' file.
+
+\(fn)" t nil)
+
+(autoload 'melpa "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-test-emacs "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-figlet-region "auto" "\
+
+
+\(fn &optional B E)" t nil)
+
+(autoload 'ora-reinit-semantic "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-nw-yank "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-install-gcl "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'bmk/magit-status "auto" "\
+Bookmark for `magit-status'.
+
+\(fn)" t nil)
+
+(autoload 'bmk/scratch "auto" "\
+Bookmark for *scratch*.
+
+\(fn)" t nil)
+
+(autoload 'bmk/function "auto" "\
+Handle a function bookmark BOOKMARK.
+
+\(fn BOOKMARK)" nil nil)
+
+(autoload 'ora-eval-other-window "auto" "\
+Eval current expression in the context of other window.
+Expression has to be of type (setq X BODY)
+In case 'setq isn't present, add it.
+
+\(fn ARG123)" t nil)
+
+(autoload 'ora-describe-hash "auto" "\
+Display the full documentation of VARIABLE (a symbol).
+Returns the documentation as a string, also.
+If VARIABLE has a buffer-local value in BUFFER (default to the current buffer),
+it is displayed along with the global value.
+
+\(fn VARIABLE &optional BUFFER)" t nil)
+
+(autoload 'ora-toggle-window-dedicated "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'update-all-autoloads "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'align-cols "auto" "\
+Align text between point and mark as columns.
+Columns are separated by whitespace characters.
+Prefix arg means align that many columns. (default is all)
+
+\(fn START END MAX-COLS)" t nil)
+
+(autoload 'ora-comment-and-insert "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-dired-org-to-pdf "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'wmctrl-720p "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-kill-current-buffer "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-save-and-switch-buffer "auto" "\
+
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'youtube-dl "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-directory-parent "auto" "\
+Return parent of directory DIR.
+
+\(fn DIR)" nil nil)
+
+(autoload 'ora-pretty-things "auto" "\
+Compose chars according to `ora-pretty-alist'.
+
+\(fn)" nil nil)
+
+(autoload 'ora-fontify-glyph "auto" "\
+
+
+\(fn ITEM GLYPH)" nil nil)
+
+(autoload 'ora-elisp-follow "auto" "\
+Jump to the definition of the function (or variable) at point.
+
+\(fn NAME)" t nil)
+
+(autoload 'capitalize-word-toggle "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'upcase-word-toggle "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'named-term "auto" "\
+
+
+\(fn NAME)" t nil)
+
+(autoload 'jekyll-serve "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'sudired "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-insert-date "auto" "\
+Insert DATE using the current locale.
+
+\(fn DATE)" t nil)
+
+(autoload 'ora-insert-date-from "auto" "\
+Insert date that is DAYS from current.
+
+\(fn &optional DAYS)" t nil)
+
+(autoload 'ora-set-transparency "auto" "\
+
+
+\(fn ALPHA-LEVEL)" t nil)
+
+(autoload 'ora-hide-ctrl-M "auto" "\
+Hides the disturbing '^M' showing up in files containing mixed UNIX and DOS line endings.
+
+\(fn)" t nil)
+
+(autoload 'ora-lookup-key "auto" "\
+
+
+\(fn KEY)" nil nil)
+
+(autoload 'ora-pretty-quote-glyphs "auto" "\
+
+
+\(fn)" nil nil)
+
+(defadvice kill-compilation (after ora-disable-compiling-message activate) (setq compilation-in-progress nil))
+
+(autoload 'ora-custom-setq "auto" "\
+Set a custom variable, with completion.
+
+\(fn)" t nil)
+
+(autoload 'ora-quote-github-issues "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-rename-pdf "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-start-process "auto" "\
+
+
+\(fn CMD)" nil nil)
+
+;;;***
+
 ;;;### (autoloads nil "git/org-fu/org-fu" "git/org-fu/org-fu.el"
-;;;;;;  (22223 11691 509248 805000))
+;;;;;;  (22323 7793 285164 430000))
 ;;; Generated autoloads from git/org-fu/org-fu.el
 
 (autoload 'orfu-agenda-quick "git/org-fu/org-fu" "\
@@ -95,7 +393,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-Info" "oleh/modes/ora-Info.el"
-;;;;;;  (22247 3645 624410 708000))
+;;;;;;  (22323 14078 636945 551000))
 ;;; Generated autoloads from oleh/modes/ora-Info.el
 
 (autoload 'ora-Info-hook "oleh/modes/ora-Info" "\
@@ -106,7 +404,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-c++" "oleh/modes/ora-c++.el"
-;;;;;;  (22247 3645 624410 708000))
+;;;;;;  (22323 14078 636945 551000))
 ;;; Generated autoloads from oleh/modes/ora-c++.el
 
 (autoload 'ora-c-common-hook "oleh/modes/ora-c++" "\
@@ -154,7 +452,7 @@ Log in to http://www.4clojure.com.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-dired" "oleh/modes/ora-dired.el"
-;;;;;;  (22247 3677 540409 220000))
+;;;;;;  (22323 14078 636945 551000))
 ;;; Generated autoloads from oleh/modes/ora-dired.el
 
 (autoload 'ora-dired-hook "oleh/modes/ora-dired" "\
@@ -176,7 +474,7 @@ Log in to http://www.4clojure.com.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-ediff" "oleh/modes/ora-ediff.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22323 8489 465140 186000))
 ;;; Generated autoloads from oleh/modes/ora-ediff.el
 
 (autoload 'ora-ediff-hook "oleh/modes/ora-ediff" "\
@@ -241,7 +539,7 @@ Open or move eshell in `default-directory'.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-eww" "oleh/modes/ora-eww.el"
-;;;;;;  (22079 42972 25460 912000))
+;;;;;;  (22323 8489 465140 186000))
 ;;; Generated autoloads from oleh/modes/ora-eww.el
 
 (autoload 'ora-eww-hook "oleh/modes/ora-eww" "\
@@ -278,7 +576,7 @@ Open or move eshell in `default-directory'.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-help" "oleh/modes/ora-help.el"
-;;;;;;  (22079 42972 49460 911000))
+;;;;;;  (22292 65364 741907 822000))
 ;;; Generated autoloads from oleh/modes/ora-help.el
 
 (autoload 'ora-help-hook "oleh/modes/ora-help" "\
@@ -288,8 +586,19 @@ Open or move eshell in `default-directory'.
 
 ;;;***
 
+;;;### (autoloads nil "oleh/modes/ora-hy" "oleh/modes/ora-hy.el"
+;;;;;;  (22323 10039 153086 221000))
+;;; Generated autoloads from oleh/modes/ora-hy.el
+
+(autoload 'ora-hy-hook "oleh/modes/ora-hy" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
 ;;;### (autoloads nil "oleh/modes/ora-ido" "oleh/modes/ora-ido.el"
-;;;;;;  (22238 57974 0 0))
+;;;;;;  (22238 57974 281404 52000))
 ;;; Generated autoloads from oleh/modes/ora-ido.el
 
 (autoload 'ora-ido-hook "oleh/modes/ora-ido" "\
@@ -354,7 +663,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-lisp" "oleh/modes/ora-lisp.el"
-;;;;;;  (22244 31364 652717 479000))
+;;;;;;  (22323 14078 636945 551000))
 ;;; Generated autoloads from oleh/modes/ora-lisp.el
 
 (autoload 'ora-lisp-hook "oleh/modes/ora-lisp" "\
@@ -365,7 +674,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-magit" "oleh/modes/ora-magit.el"
-;;;;;;  (22247 3645 624410 708000))
+;;;;;;  (22323 12016 341017 368000))
 ;;; Generated autoloads from oleh/modes/ora-magit.el
 
 (autoload 'ora-magit-status-hook "oleh/modes/ora-magit" "\
@@ -423,8 +732,13 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-matlab" "oleh/modes/ora-matlab.el"
-;;;;;;  (22245 36729 358535 776000))
+;;;;;;  (22323 14078 636945 551000))
 ;;; Generated autoloads from oleh/modes/ora-matlab.el
+
+(autoload 'ora-matlab-shell-hook "oleh/modes/ora-matlab" "\
+
+
+\(fn)" nil nil)
 
 (autoload 'counsel-matlab "oleh/modes/ora-matlab" "\
 MATLAB completion at point.
@@ -524,7 +838,7 @@ MATLAB completion at point.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-org" "oleh/modes/ora-org.el"
-;;;;;;  (22247 4029 660392 807000))
+;;;;;;  (22323 14078 636945 551000))
 ;;; Generated autoloads from oleh/modes/ora-org.el
 
 (autoload 'ora-org-hook "oleh/modes/ora-org" "\
@@ -573,7 +887,7 @@ MATLAB completion at point.
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-python" "oleh/modes/ora-python.el"
-;;;;;;  (22247 3645 624410 708000))
+;;;;;;  (22323 14078 636945 551000))
 ;;; Generated autoloads from oleh/modes/ora-python.el
 
 (autoload 'ora-python-hook "oleh/modes/ora-python" "\
@@ -638,7 +952,7 @@ run current script
 ;;;***
 
 ;;;### (autoloads nil "oleh/modes/ora-term" "oleh/modes/ora-term.el"
-;;;;;;  (22185 56085 744683 850000))
+;;;;;;  (22323 9346 393110 345000))
 ;;; Generated autoloads from oleh/modes/ora-term.el
 
 (autoload 'ora-term-exec-hook "oleh/modes/ora-term" "\
@@ -653,6 +967,13 @@ run current script
 
 ;;;***
 
+;;;### (autoloads nil nil ("init.el" "oleh/hooks.el" "oleh/keys.el"
+;;;;;;  "oleh/modes/ora-avy.el" "oleh/modes/ora-company.el" "oleh/modes/ora-elisp-style-guide.el"
+;;;;;;  "oleh/modes/ora-helm.el" "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el"
+;;;;;;  "packages.el") (22323 14078 636945 551000))
+
+;;;***
+
 ;;;### (autoloads nil "oleh/modes/ora-text" "oleh/modes/ora-text.el"
 ;;;;;;  (22244 27761 204885 444000))
 ;;; Generated autoloads from oleh/modes/ora-text.el
@@ -661,311 +982,5 @@ run current script
 
 
 \(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads nil nil ("init.el" "oleh/hooks.el" "oleh/keys.el"
-;;;;;;  "oleh/modes/ora-avy.el" "oleh/modes/ora-company.el" "oleh/modes/ora-elisp-style-guide.el"
-;;;;;;  "oleh/modes/ora-helm.el" "oleh/modes/ora-image.el" "oleh/modes/ora-ivy.el"
-;;;;;;  "packages.el") (22247 3645 624410 708000))
-
-;;;***
-
-;;;### (autoloads nil "oleh/auto" "oleh/auto.el" (22247 3925 516397
-;;;;;;  662000))
-;;; Generated autoloads from oleh/auto.el
-
-(autoload 'ora-para-down "oleh/auto" "\
-
-
-\(fn ARG)" t nil)
-
-(autoload 'ora-para-up "oleh/auto" "\
-
-
-\(fn ARG)" t nil)
-
-(autoload 'ora-move-beginning-of-line "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-c-forward-sexp-function "oleh/auto" "\
-
-
-\(fn ARG)" nil nil)
-
-(autoload 'ora-occur "oleh/auto" "\
-Call `occur' with a sane default.
-
-\(fn)" t nil)
-
-(autoload 'ora-query-replace-regex "oleh/auto" "\
-
-
-\(fn FROM)" t nil)
-
-(autoload 'ora-query-replace "oleh/auto" "\
-
-
-\(fn FROM)" t nil)
-
-(autoload 'ora-replace-regexp "oleh/auto" "\
-Works on current line if there's no region.
-When ARG is non-nil launch `query-replace-regexp'.
-
-\(fn ARG)" t nil)
-
-(autoload 'og "oleh/auto" "\
-Search using ag in a given DIRECTORY for a given search STRING,
-with STRING defaulting to the symbol under point.
-
-If called with a prefix, prompts for flags to pass to ag.
-
-\(fn STRING DIRECTORY)" t nil)
-
-(autoload 'ora-unfill-paragraph "oleh/auto" "\
-Transform a paragraph into a single line.
-
-\(fn)" t nil)
-
-(autoload 'ora-ctrltab "oleh/auto" "\
-List buffers and give it focus.
-
-\(fn)" t nil)
-
-(autoload 'ora-terminal "oleh/auto" "\
-Switch to terminal. Launch if nonexistent.
-
-\(fn)" t nil)
-
-(autoload 'ora-goto-hook-file "oleh/auto" "\
-Opens hooks.el at point specific to current `major-mode'
-
-\(fn)" t nil)
-
-(autoload 'ora-dired-rsync "oleh/auto" "\
-
-
-\(fn DEST)" t nil)
-
-(autoload 'ora-describe-keys "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'illiterate "oleh/auto" "\
-Useful to completely revert an `org-mode' file.
-
-\(fn)" t nil)
-
-(autoload 'melpa "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-test-emacs "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-figlet-region "oleh/auto" "\
-
-
-\(fn &optional B E)" t nil)
-
-(autoload 'ora-reinit-semantic "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-nw-yank "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-install-gcl "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'bmk/magit-status "oleh/auto" "\
-Bookmark for `magit-status'.
-
-\(fn)" t nil)
-
-(autoload 'bmk/scratch "oleh/auto" "\
-Bookmark for *scratch*.
-
-\(fn)" t nil)
-
-(autoload 'bmk/function "oleh/auto" "\
-Handle a function bookmark BOOKMARK.
-
-\(fn BOOKMARK)" nil nil)
-
-(autoload 'ora-eval-other-window "oleh/auto" "\
-Eval current expression in the context of other window.
-Expression has to be of type (setq X BODY)
-In case 'setq isn't present, add it.
-
-\(fn ARG123)" t nil)
-
-(autoload 'ora-describe-hash "oleh/auto" "\
-Display the full documentation of VARIABLE (a symbol).
-Returns the documentation as a string, also.
-If VARIABLE has a buffer-local value in BUFFER (default to the current buffer),
-it is displayed along with the global value.
-
-\(fn VARIABLE &optional BUFFER)" t nil)
-
-(autoload 'ora-toggle-window-dedicated "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'update-all-autoloads "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'align-cols "oleh/auto" "\
-Align text between point and mark as columns.
-Columns are separated by whitespace characters.
-Prefix arg means align that many columns. (default is all)
-
-\(fn START END MAX-COLS)" t nil)
-
-(autoload 'ora-comment-and-insert "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-dired-org-to-pdf "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'wmctrl-720p "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-kill-current-buffer "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-save-and-switch-buffer "oleh/auto" "\
-
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'youtube-dl "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-directory-parent "oleh/auto" "\
-Return parent of directory DIR.
-
-\(fn DIR)" nil nil)
-
-(autoload 'ora-pretty-things "oleh/auto" "\
-Compose chars according to `ora-pretty-alist'.
-
-\(fn)" nil nil)
-
-(autoload 'ora-fontify-glyph "oleh/auto" "\
-
-
-\(fn ITEM GLYPH)" nil nil)
-
-(autoload 'ora-elisp-follow "oleh/auto" "\
-Jump to the definition of the function (or variable) at point.
-
-\(fn NAME)" t nil)
-
-(autoload 'capitalize-word-toggle "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'upcase-word-toggle "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'named-term "oleh/auto" "\
-
-
-\(fn NAME)" t nil)
-
-(autoload 'jekyll-serve "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'sudired "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-insert-date "oleh/auto" "\
-Insert DATE using the current locale.
-
-\(fn DATE)" t nil)
-
-(autoload 'ora-insert-date-from "oleh/auto" "\
-Insert date that is DAYS from current.
-
-\(fn &optional DAYS)" t nil)
-
-(autoload 'ora-set-transparency "oleh/auto" "\
-
-
-\(fn ALPHA-LEVEL)" t nil)
-
-(autoload 'ora-hide-ctrl-M "oleh/auto" "\
-Hides the disturbing '^M' showing up in files containing mixed UNIX and DOS line endings.
-
-\(fn)" t nil)
-
-(autoload 'ora-lookup-key "oleh/auto" "\
-
-
-\(fn KEY)" nil nil)
-
-(autoload 'ora-pretty-quote-glyphs "oleh/auto" "\
-
-
-\(fn)" nil nil)
-
-(defadvice kill-compilation (after ora-disable-compiling-message activate) (setq compilation-in-progress nil))
-
-(autoload 'ora-custom-setq "oleh/auto" "\
-Set a custom variable, with completion.
-
-\(fn)" t nil)
-
-(autoload 'ora-quote-github-issues "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-rename-pdf "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-mode-objects "oleh/auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-start-process "oleh/auto" "\
-
-
-\(fn CMD)" nil nil)
 
 ;;;***
