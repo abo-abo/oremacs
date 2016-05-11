@@ -13,6 +13,17 @@
     (matlab-shell)))
 
 ;;;###autoload
+(defun ora-matlab-shell-hook ()
+  (setcar font-lock-defaults '(matlab-font-lock-keywords
+                               matlab-gaudy-font-lock-keywords))
+  (define-key matlab-shell-mode-map (kbd "β") 'counsel-matlab)
+  (define-key matlab-shell-mode-map (kbd "<tab>") 'complete-symbol)
+  (define-key matlab-shell-mode-map (kbd "RET") 'ora-matlab-ret)
+  (define-key matlab-shell-mode-map (kbd "C-r") 'ora-matlab-history)
+  (define-key matlab-shell-mode-map [mouse-1] 'matlab-shell-html-click)
+  (setq completion-at-point-functions '(ora-matlab-completion-at-point t)))
+
+;;;###autoload
 (defun counsel-matlab ()
   "MATLAB completion at point."
   (interactive)
@@ -44,6 +55,15 @@
 
 ;;;###autoload
 (defun ora-matlab-hook ())
+(defun ora-matlab-completion-at-point ()
+  (let ((bnd (bounds-of-thing-at-point 'symbol)))
+    (when bnd
+      (let* ((beg (car bnd))
+             (end (cdr bnd))
+             (sym (buffer-substring-no-properties beg end))
+             (res (matlab-shell-completion-list sym)))
+        ;; (sit-for 0.1)
+        (list (car bnd) (cdr bnd) res)))))
 
 ;; (setq matlab-really-gaudy-font-lock-keywords nil)
 

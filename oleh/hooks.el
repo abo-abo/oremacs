@@ -20,7 +20,7 @@
 (add-hook 'LaTeX-mode-hook 'ora-latex-hook)
 (add-hook 'latex-mode-hook 'ora-latex-hook)
 (add-hook 'matlab-mode-hook 'ora-matlab-hook)
-(add-hook 'matlab-shell-mode-hook 'ora-matlab-hook)
+(add-hook 'matlab-shell-mode-hook 'ora-matlab-shell-hook)
 (add-hook 'octave-mode-hook 'ora-octave-hook)
 (add-hook 'org-mode-hook 'ora-org-hook)
 (add-hook 'org-agenda-mode-hook 'ora-org-agenda-hook)
