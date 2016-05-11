@@ -451,7 +451,11 @@ it is displayed along with the global value."
         (insert ";;") ;; create the file with non-zero size to appease autoload
         (save-buffer)))
     (mapcar #'update-directory-autoloads
-            '("" "modes" "git/org-fu"))))
+            '("" "modes" "git/org-fu"))
+
+    (cd "personal")
+    (setq generated-autoload-file (expand-file-name "loaddefs.el"))
+    (update-directory-autoloads "")))
 
 ;;;###autoload
 (defun align-cols (start end max-cols)

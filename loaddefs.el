@@ -1,6 +1,6 @@
 ;;
 
-;;;### (autoloads nil "auto" "auto.el" (22323 14319 368937 168000))
+;;;### (autoloads nil "auto" "auto.el" (22323 15139 868908 595000))
 ;;; Generated autoloads from auto.el
 
 (autoload 'ora-para-down "auto" "\
@@ -366,7 +366,7 @@ Threat is as function body when from endline before )
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-Info" "modes/ora-Info.el" (22323
-;;;;;;  14078 636945 551000))
+;;;;;;  14431 500933 263000))
 ;;; Generated autoloads from modes/ora-Info.el
 
 (autoload 'ora-Info-hook "modes/ora-Info" "\
@@ -376,8 +376,8 @@ Threat is as function body when from endline before )
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-c++" "modes/ora-c++.el" (22323 14078
-;;;;;;  636945 551000))
+;;;### (autoloads nil "modes/ora-c++" "modes/ora-c++.el" (22323 14431
+;;;;;;  496933 263000))
 ;;; Generated autoloads from modes/ora-c++.el
 
 (autoload 'ora-c-common-hook "modes/ora-c++" "\
@@ -425,7 +425,7 @@ Log in to http://www.4clojure.com.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-dired" "modes/ora-dired.el" (22323
-;;;;;;  14078 636945 551000))
+;;;;;;  14431 496933 263000))
 ;;; Generated autoloads from modes/ora-dired.el
 
 (autoload 'ora-dired-hook "modes/ora-dired" "\
@@ -636,7 +636,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-lisp" "modes/ora-lisp.el" (22323
-;;;;;;  14078 636945 551000))
+;;;;;;  14431 496933 263000))
 ;;; Generated autoloads from modes/ora-lisp.el
 
 (autoload 'ora-lisp-hook "modes/ora-lisp" "\
@@ -705,7 +705,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-matlab" "modes/ora-matlab.el" (22323
-;;;;;;  14078 636945 551000))
+;;;;;;  14431 496933 263000))
 ;;; Generated autoloads from modes/ora-matlab.el
 
 (autoload 'ora-matlab-shell-hook "modes/ora-matlab" "\
@@ -810,8 +810,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-org" "modes/ora-org.el" (22323 14078
-;;;;;;  636945 551000))
+;;;### (autoloads nil "modes/ora-org" "modes/ora-org.el" (22323 14431
+;;;;;;  496933 263000))
 ;;; Generated autoloads from modes/ora-org.el
 
 (autoload 'ora-org-hook "modes/ora-org" "\
@@ -860,8 +860,13 @@ MATLAB completion at point.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-python" "modes/ora-python.el" (22323
-;;;;;;  14078 636945 551000))
+;;;;;;  14431 496933 263000))
 ;;; Generated autoloads from modes/ora-python.el
+
+(autoload 'hp-beginning-of-line "modes/ora-python" "\
+
+
+\(fn)" t nil)
 
 (autoload 'ora-python-hook "modes/ora-python" "\
 
@@ -954,7 +959,7 @@ run current script
 ;;;### (autoloads nil nil ("hooks.el" "init.el" "keys.el" "modes/ora-avy.el"
 ;;;;;;  "modes/ora-company.el" "modes/ora-elisp-style-guide.el" "modes/ora-helm.el"
 ;;;;;;  "modes/ora-image.el" "modes/ora-ivy.el" "packages.el") (22323
-;;;;;;  14078 636945 551000))
+;;;;;;  15071 80910 991000))
 
 ;;;***
 

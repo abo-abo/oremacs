@@ -14,6 +14,7 @@
 (add-to-list 'load-path (expand-file-name "git/org-mode/lisp/" emacs-d))
 (add-to-list 'load-path emacs-d)
 (add-to-list 'load-path (expand-file-name "modes/" emacs-d))
+(add-to-list 'load-path (expand-file-name "personal/" emacs-d))
 ;;* Theme
 (if (display-graphic-p)
     (require 'eclipse-theme)
@@ -88,6 +89,7 @@
 ;;* Bootstrap
 ;;** autoloads
 (load (concat emacs-d "loaddefs.el") nil t)
+(load (concat emacs-d "personal/loaddefs.el") t t)
 ;;** enable features
 (mapc (lambda (x) (put x 'disabled nil))
       '(erase-buffer upcase-region downcase-region
