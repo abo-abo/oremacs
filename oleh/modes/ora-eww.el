@@ -20,6 +20,7 @@
 (define-key eww-mode-map "o" 'ace-link-eww)
 (define-key eww-mode-map "y" 'eww)
 (define-key eww-mode-map "A" 'eww-view-ace)
+(define-key eww-mode-map "c" 'counsel-ace-link)
 
 ;;;###autoload
 (defun ora-eww-hook ())
