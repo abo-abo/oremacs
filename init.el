@@ -224,10 +224,10 @@
     :init (defalias 'hm 'helm-make)
     :config (setq helm-make-completion-method 'ivy))
 (setq ispell-personal-dictionary
-      (concat emacs-d "oleh/personal/ispell_dict"))
+      (concat emacs-d "personal/ispell_dict"))
 (setq ispell-program-name "aspell")
 (setq abbrev-file-name
-      (concat emacs-d "oleh/personal/abbrev_defs"))
+      (concat emacs-d "personal/abbrev_defs"))
 (use-package flyspell
     :commands flyspell-mode
     :config
@@ -286,7 +286,6 @@
 (use-package htmlize
     :commands htmlize-buffer)
 (lispy-mode)
-
-(require 'oleh/personal/init nil t)
+(require 'personal/init nil t)
 (require 'server)
 (or (server-running-p) (server-start))

@@ -11,10 +11,10 @@ profile:
 install: upgrade
 	cd git/cedet && make 2>&1 | tee -a ../../etc/log
 	cd git/org-mode && make compile 2>&1 | tee -a ../../etc/log
-	cd $(BASEDIR) && mkdir -p oleh/personal
-	yes n | cp -i etc/init-template.el oleh/personal/init.el
-	yes n | cp -i etc/ispell_dict oleh/personal/ispell_dict
-	yes n | cp -i etc/abbrev_defs oleh/personal/abbrev_defs
+	cd $(BASEDIR) && mkdir -p personal
+	yes n | cp -i etc/init-template.el personal/init.el
+	yes n | cp -i etc/ispell_dict personal/ispell_dict
+	yes n | cp -i etc/abbrev_defs personal/abbrev_defs
 	yes n | cp -ri etc/org .
 	make run
 
