@@ -556,6 +556,13 @@ Prefix arg means align that many columns. (default is all)"
      files)))
 
 ;;;###autoload
+(defun ora-org-clock-out ()
+  (interactive)
+  (when (org-pomodoro-active-p)
+    (org-clock-out nil t)
+    (org-pomodoro-kill)))
+
+;;;###autoload
 (defun wmctrl-720p ()
   (interactive)
   (shell-command "

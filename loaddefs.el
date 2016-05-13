@@ -1,6 +1,6 @@
 ;;
 
-;;;### (autoloads nil "auto" "auto.el" (22323 15139 868908 595000))
+;;;### (autoloads nil "auto" "auto.el" (22323 16071 484876 153000))
 ;;; Generated autoloads from auto.el
 
 (autoload 'ora-para-down "auto" "\
@@ -175,6 +175,11 @@ Prefix arg means align that many columns. (default is all)
 \(fn)" t nil)
 
 (autoload 'ora-dired-org-to-pdf "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-org-clock-out "auto" "\
 
 
 \(fn)" t nil)
