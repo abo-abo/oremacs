@@ -194,6 +194,10 @@
   '((:results . "value") (:tangle . "yes")))
 (setq org-babel-default-header-args:python
       '((:results . "output")))
+(setq org-babel-default-header-args:sh
+      '((:results . "verbatim")))
+(setq org-babel-default-header-args:bash
+      '((:results . "verbatim")))
 
 ;;* misc functions
 (font-lock-add-keywords
