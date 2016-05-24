@@ -16,6 +16,7 @@
     ace-link
     ace-window
     ace-popup-menu
+    alert
     auto-compile
     auto-yasnippet
     auctex
