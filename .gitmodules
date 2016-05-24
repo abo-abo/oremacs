@@ -16,9 +16,6 @@
 [submodule "git/profile-dotemacs"]
 	path = git/profile-dotemacs
 	url = https://github.com/abo-abo/profile-dotemacs
-[submodule "git/org-mode"]
-	path = git/org-mode
-	url = git://orgmode.org/org-mode.git
 [submodule "git/org-fu"]
 	path = git/org-fu
 	url = https://github.com/abo-abo/org-fu
@@ -43,3 +40,6 @@
 [submodule "git/org-pomodoro"]
 	path = git/org-pomodoro
         url = https://github.com/abo-abo/org-pomodoro
+[submodule "git/org-mode"]
+	path = git/org-mode
+	url = git://orgmode.org/org-mode.git
