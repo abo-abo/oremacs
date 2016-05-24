@@ -163,7 +163,7 @@
               (define-key iedit-mode-keymap "\C-h" nil)
               (define-key iedit-lib-keymap "\C-s" 'iedit-next-occurrence)
               (define-key iedit-lib-keymap "\C-r" 'iedit-prev-occurrence))
-    :init (setq iedit-toggle-key-default (kbd "M-i")))
+    :init (setq iedit-toggle-key-default nil))
 ;;** completion
 (use-package headlong
     :defer t)
