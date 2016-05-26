@@ -6,10 +6,7 @@
 (setq jedi:setup-function nil)
 (setq jedi:mode-function nil)
 
-(require 'soap)
-(dolist (k '("+" "-" "*" "/" "%" "&" "|" "<" "=" ">" ","))
-  (define-key python-mode-map (kbd k) 'soap-command))
-(define-key python-mode-map [C-.] 'comment-dwim)
+(require 'lpy)
 (define-key python-mode-map (kbd "C-.") nil)
 (define-key python-mode-map [f5] 'ora-python-send-file)
 (define-key python-mode-map [C-f5] 'ora-python-eval)
@@ -21,7 +18,8 @@
 (define-key python-mode-map (kbd "C-c C-z") 'ora-python-switch-to-shell)
 (define-key python-mode-map (kbd "θ") 'ora-python-quotes)
 (define-key python-mode-map (kbd "β") 'counsel-jedi)
-(define-key python-mode-map (kbd "C-M-j") 'helm-semantic)
+(define-key python-mode-map (kbd "C-M-j") 'py-jump-local)
+(define-key python-mode-map (kbd "C-c C-v") nil)
 (define-key jedi-mode-map [C-tab] nil)
 
 (defvar ora-no-pip
@@ -29,13 +27,27 @@
                 (shell-command-to-string "which pip")))
 
  ;;;###autoload
+(require 'ciao)
+(require 'le-python)
+(require 'flyspell)
+(flyspell-delay-command 'python-indent-dedent-line-backspace)
+
+;;;###autoload
 (defun ora-python-hook ()
   (unless ora-no-pip
-    (jedi:setup)))
+    (jedi:setup))
+  (company-mode)
+  (remove-hook 'post-command-hook 'jedi:handle-post-command t)
+  (setq lispy-no-space t)
+  (setq forward-sexp-function 'ora-c-forward-sexp-function)
+  (lpy-mode)
+  (setq completion-at-point-functions '(lispy-python-completion-at-point t))
+  (setq-local company-backends '(company-dabbrev-code
+                                 company-keywords)))
 
 (defun ora-python-switch-to-shell ()
   (interactive)
-  (let ((buffer (get-buffer "*Python*")))
+  (let ((buffer (process-buffer (lispy--python-proc))))
     (if buffer
         (pop-to-buffer buffer)
       (run-python "python")
@@ -135,3 +147,87 @@
   (save-buffer)
   (python-shell-send-file (buffer-file-name))
   (pop-to-buffer "*Python*"))
+
+(defun py-tag-name (tag)
+  (let* ((class (semantic-tag-class tag))
+         (str (cl-case class
+                (function
+                 (let ((args (semantic-tag-get-attribute tag :arguments)))
+                   (format "%s %s (%s)"
+                           (propertize "def" 'face 'font-lock-builtin-face)
+                           (propertize (car tag) 'face 'font-lock-function-name-face)
+                           (mapconcat #'car args ", "))))
+                (variable
+                 (car tag))
+                (type
+                 (propertize (car tag) 'face 'fa-face-type-definition))
+                (include
+                 (format "%s %s"
+                         (propertize "import" 'face 'font-lock-preprocessor-face)
+                         (car tag)))
+                (code
+                 (let* ((beg)
+                        (end)
+                        (ov (semantic-tag-overlay tag))
+                        (buf (cond
+                               ((and (overlayp ov)
+                                     (bufferp (overlay-buffer ov)))
+                                (setq beg (overlay-start ov))
+                                (setq end (overlay-end ov))
+                                (overlay-buffer ov))
+                               ((arrayp ov)
+                                (setq beg (aref ov 0))
+                                (setq end (aref ov 1))
+                                (current-buffer)))))
+                   (when buf
+                     (let ((str
+                            (with-current-buffer buf
+                              (buffer-substring-no-properties beg end))))
+                       (when (string-match (format "^%s ?=" (car tag)) str)
+                         (concat (car tag) "="))))))
+                (t
+                 (error "Unknown class for tag: %S" tag)))))
+    str))
+
+(defun py-jump-local (arg)
+  "Select a tag to jump to from tags defined in current buffer.
+When ARG is non-nil, regenerate tags."
+  (interactive "P")
+  (let* ((file-list (cl-remove-if
+                     (lambda (x)
+                       (string-match "^\\.#" x))
+                     (append (file-expand-wildcards "*.py"))))
+         (sd-force-reparse arg)
+         (ready-tags
+          (or ;; (and (null arg) (gethash file-list moo-jump-local-cache))
+           (let ((tags (sd-fetch-tags file-list)))
+             (when (memq major-mode '(python-mode))
+               (setq tags
+                     (delq nil
+                           (mapcar
+                            (lambda (x)
+                              (let ((s (py-tag-name x)))
+                                (when s
+                                  (cons
+                                   (moo-format-tag-line
+                                    s (semantic-tag-get-attribute x :truefile))
+                                   x))))
+                            tags))))
+             (puthash file-list tags moo-jump-local-cache)
+             tags)))
+         (preselect (car (semantic-current-tag)))
+         (preselect (and preselect
+                         (if (memq moo-select-method '(helm helm-fuzzy))
+                             (regexp-quote preselect)
+                           preselect))))
+    (moo-select-candidate
+     ready-tags
+     #'moo-action-jump
+     preselect)))
+
+;; (font-lock-add-keywords
+;;  'python-mode
+;;  '(("`\\(\\(?:\\sw\\|\\s_\\|\\\\.\\)\\(?:\\sw\\|\\s_\\|\\\\.\\)+\\)'" 1 font-lock-constant-face prepend)))
+
+;; (font-lock-add-keywords 'python-mode
+;;                         '(("^\\(#\\*+ .*\\)$" 1 'org-level-1 prepend)))
