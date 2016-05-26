@@ -179,13 +179,15 @@
                                ((arrayp ov)
                                 (setq beg (aref ov 0))
                                 (setq end (aref ov 1))
-                                (current-buffer)))))
-                   (when buf
-                     (let ((str
-                            (with-current-buffer buf
-                              (buffer-substring-no-properties beg end))))
-                       (when (string-match (format "^%s ?=" (car tag)) str)
-                         (concat (car tag) "="))))))
+                                (current-buffer))))
+                        str)
+                   (when (and buf
+                              (setq str
+                                    (ignore-errors
+                                      (with-current-buffer buf
+                                        (buffer-substring-no-properties beg end))))
+                              (string-match (format "^%s ?=" (car tag)) str))
+                     (concat (car tag) "="))))
                 (t
                  (error "Unknown class for tag: %S" tag)))))
     str))
