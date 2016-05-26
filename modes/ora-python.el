@@ -7,6 +7,7 @@
   (setq jedi:complete-on-dot t)
   (setq jedi:setup-function nil)
   (setq jedi:mode-function nil))
+(require 'ciao nil t)
 
 (require 'lpy)
 (define-key python-mode-map (kbd "C-.") nil)
@@ -28,7 +29,6 @@
                 (shell-command-to-string "which pip")))
 
  ;;;###autoload
-(require 'ciao)
 (require 'le-python)
 (require 'flyspell)
 (flyspell-delay-command 'python-indent-dedent-line-backspace)
