@@ -43,3 +43,6 @@
 [submodule "git/org-mode"]
 	path = git/org-mode
 	url = git://orgmode.org/org-mode.git
+[submodule "git/lpy"]
+	path = git/lpy
+	url = https://github.com/abo-abo/lpy
