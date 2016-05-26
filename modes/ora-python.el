@@ -24,15 +24,8 @@
 (define-key python-mode-map (kbd "C-M-j") 'py-jump-local)
 (define-key python-mode-map (kbd "C-c C-v") nil)
 
-(unless (fboundp 'python-shell-calculate-command)
-  (defun python-shell-calculate-command ()
-    "Calculate the string used to execute the inferior Python process."
-    (format "%s %s"
-            (shell-quote-argument python-shell-interpreter)
-            python-shell-interpreter-args)))
-
 (defvar ora-no-pip
-  (string-match "Command not found"
+  (string-match "Command not found\\|no pip in"
                 (shell-command-to-string "which pip")))
 
  ;;;###autoload
