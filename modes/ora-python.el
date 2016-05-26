@@ -1,5 +1,5 @@
 (require 'python)
-(require 'jedi)
+(require 'jedi nil t)
 (csetq python-indent-guess-indent-offset nil)
 (setq jedi:use-shortcuts nil)
 (setq jedi:complete-on-dot t)
