@@ -55,6 +55,25 @@
 
 ;;;###autoload
 (defun ora-matlab-hook ())
+(defvar ora-matlab-shell-history nil)
+
+(defun ora-matlab-ret ()
+  (interactive)
+  (push (comint-get-old-input-default) ora-matlab-shell-history)
+  (setq ora-matlab-shell-history (delete-dups ora-matlab-shell-history))
+  (comint-send-input))
+(defun ora-matlab-history ()
+  (interactive)
+  (ivy-read "cmd: " ora-matlab-shell-history
+            :action (lambda (x)
+                      (with-ivy-window
+                        (comint-delete-input)
+                        (insert x)))
+            :unwind (lambda ()
+                      (unless (eq ivy-exit 'done)
+                        (with-ivy-window
+                          (comint-delete-input))))))
+
 (defun ora-matlab-completion-at-point ()
   (let ((bnd (bounds-of-thing-at-point 'symbol)))
     (when bnd
