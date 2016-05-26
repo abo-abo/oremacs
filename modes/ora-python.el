@@ -1,12 +1,16 @@
 (require 'python)
 (csetq python-indent-guess-indent-offset nil)
-(use-package jedi
-    :config
-  (define-key jedi-mode-map [C-tab] nil)
-  (setq jedi:use-shortcuts nil)
-  (setq jedi:complete-on-dot t)
-  (setq jedi:setup-function nil)
-  (setq jedi:mode-function nil))
+(defvar ora-no-pip
+  (string-match "Command not found\\|no pip in"
+                (shell-command-to-string "which pip")))
+(unless ora-no-pip
+  (use-package jedi
+      :config
+    (define-key jedi-mode-map [C-tab] nil)
+    (setq jedi:use-shortcuts nil)
+    (setq jedi:complete-on-dot t)
+    (setq jedi:setup-function nil)
+    (setq jedi:mode-function nil)))
 (require 'ciao nil t)
 
 (require 'lpy)
@@ -24,9 +28,6 @@
 (define-key python-mode-map (kbd "C-M-j") 'py-jump-local)
 (define-key python-mode-map (kbd "C-c C-v") nil)
 
-(defvar ora-no-pip
-  (string-match "Command not found\\|no pip in"
-                (shell-command-to-string "which pip")))
 
  ;;;###autoload
 (require 'le-python)
