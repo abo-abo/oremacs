@@ -194,6 +194,7 @@
   "Select a tag to jump to from tags defined in current buffer.
 When ARG is non-nil, regenerate tags."
   (interactive "P")
+  (require 'semantic-directory)
   (let* ((file-list (cl-remove-if
                      (lambda (x)
                        (string-match "^\\.#" x))
