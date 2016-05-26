@@ -218,7 +218,7 @@ If called with a prefix, prompts for flags to pass to ag."
          (hook-fn (intern-soft hook-fn-name)))
     (if hook-fn
         (ora-elisp-follow hook-fn-name)
-      (find-file (concat emacs-d "oleh/hooks.el"))
+      (find-file (concat emacs-d "hooks.el"))
       (goto-char (point-min))
       (search-forward str-mode-hook nil t))))
 
