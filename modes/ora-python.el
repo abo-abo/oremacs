@@ -1,10 +1,12 @@
 (require 'python)
-(require 'jedi nil t)
 (csetq python-indent-guess-indent-offset nil)
-(setq jedi:use-shortcuts nil)
-(setq jedi:complete-on-dot t)
-(setq jedi:setup-function nil)
-(setq jedi:mode-function nil)
+(use-package jedi
+    :config
+  (define-key jedi-mode-map [C-tab] nil)
+  (setq jedi:use-shortcuts nil)
+  (setq jedi:complete-on-dot t)
+  (setq jedi:setup-function nil)
+  (setq jedi:mode-function nil))
 
 (require 'lpy)
 (define-key python-mode-map (kbd "C-.") nil)
@@ -20,7 +22,6 @@
 (define-key python-mode-map (kbd "β") 'counsel-jedi)
 (define-key python-mode-map (kbd "C-M-j") 'py-jump-local)
 (define-key python-mode-map (kbd "C-c C-v") nil)
-(define-key jedi-mode-map [C-tab] nil)
 
 (defvar ora-no-pip
   (string-match "Command not found"
