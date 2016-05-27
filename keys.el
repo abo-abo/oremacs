@@ -97,7 +97,7 @@
 (global-set-key (kbd "M-t") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "M-m") 'lispy-mark-symbol)
 (global-set-key (kbd "M-p") 'avy-pop-mark)
-(global-set-key (kbd "M-i") (lambda () (interactive) (iedit-mode 0)))
+(global-set-key (kbd "M-i") 'iedit-mode)
 (global-set-key (kbd "M-,") 'pop-tag-mark)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
