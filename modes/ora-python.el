@@ -29,6 +29,22 @@
 (define-key python-mode-map (kbd "C-c C-v") nil)
 (define-key inferior-python-mode-map (kbd "C-c M-o") 'comint-kill-region)
 
+(defun py-slurp (arg)
+  (interactive "p")
+  (when (region-active-p)
+    (cond ((and (= (point) (region-end))
+                (save-excursion
+                  (goto-char (region-beginning))
+                  (bolp)))
+           (end-of-line (+ arg 1)))
+          ((and (= (point) (region-beginning))
+                (save-excursion
+                  (goto-char (region-end))
+                  (eolp)))
+           (beginning-of-line (- 1 arg)))
+          (t
+           (lispy-slurp arg)))))
+
 
  ;;;###autoload
 (require 'le-python)
