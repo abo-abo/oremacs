@@ -15,7 +15,6 @@
 
 (require 'lpy)
 (define-key python-mode-map (kbd "C-.") nil)
-(define-key python-mode-map [f5] 'ora-python-send-file)
 (define-key python-mode-map [C-f5] 'ora-python-eval)
 (define-key python-mode-map (kbd "C-x C-p") 'jedi:goto-definition)
 (define-key python-mode-map (kbd "C-?") 'jedi:show-doc)
@@ -46,7 +45,6 @@
            (lispy-slurp arg)))))
 
 
- ;;;###autoload
 (require 'le-python)
 (require 'flyspell)
 (flyspell-delay-command 'python-indent-dedent-line-backspace)
@@ -160,12 +158,6 @@
    (if (re-search-forward "^\\s-*\\(##[^#]\\)" nil t)
        (- (match-beginning 1) 2)
      (point-max))))
-
-(defun ora-python-send-file ()
-  (interactive)
-  (save-buffer)
-  (python-shell-send-file (buffer-file-name))
-  (pop-to-buffer "*Python*"))
 
 (defun py-tag-name (tag)
   (let* ((class (semantic-tag-class tag))
