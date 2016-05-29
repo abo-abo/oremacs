@@ -243,7 +243,7 @@ a sound to be played"
 (defun ora-org-agenda-to-appt ()
   "Erase all reminders and rebuild reminders for today from the agenda"
   (interactive)
-  (setq appt-time-msg-list nil)
+  ;; (setq appt-time-msg-list nil)
   (org-agenda-to-appt))
 
 (defun hot-expand (str)
