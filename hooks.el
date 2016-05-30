@@ -31,6 +31,7 @@
 (add-hook 'occur-hook 'ora-occur-hook)
 (add-hook 'Buffer-menu-mode-hook 'ora-Buffer-menu-hook)
 (add-hook 'bookmark-bmenu-mode-hook 'ora-bmenu-hook)
+(add-hook 'vc-dir-mode-hook 'ora-vc-dir-hook)
 (eval-after-load 'magit
   '(if (featurep 'magit-utils)
     (require 'ora-nextmagit)

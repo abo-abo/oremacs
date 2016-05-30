@@ -1,6 +1,6 @@
 ;;
 
-;;;### (autoloads nil "auto" "auto.el" (22323 16071 484876 153000))
+;;;### (autoloads nil "auto" "auto.el" (22344 22759 220717 35000))
 ;;; Generated autoloads from auto.el
 
 (autoload 'ora-para-down "auto" "\
@@ -683,7 +683,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-makefile" "modes/ora-makefile.el"
-;;;;;;  (22079 42971 997460 914000))
+;;;;;;  (22342 61780 459922 577000))
 ;;; Generated autoloads from modes/ora-makefile.el
 
 (autoload 'ora-makefile-hook "modes/ora-makefile" "\
@@ -709,8 +709,8 @@ Transform Elisp-style code references to Markdown-style.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-matlab" "modes/ora-matlab.el" (22323
-;;;;;;  14431 496933 263000))
+;;;### (autoloads nil "modes/ora-matlab" "modes/ora-matlab.el" (22342
+;;;;;;  63851 275850 463000))
 ;;; Generated autoloads from modes/ora-matlab.el
 
 (autoload 'ora-matlab-shell-hook "modes/ora-matlab" "\
@@ -772,8 +772,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-nxml" "modes/ora-nxml.el" (22242
-;;;;;;  50603 136531 937000))
+;;;### (autoloads nil "modes/ora-nxml" "modes/ora-nxml.el" (22344
+;;;;;;  1969 661441 3000))
 ;;; Generated autoloads from modes/ora-nxml.el
 
 (autoload 'ora-nxml-hook "modes/ora-nxml" "\
@@ -815,8 +815,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-org" "modes/ora-org.el" (22323 14431
-;;;;;;  496933 263000))
+;;;### (autoloads nil "modes/ora-org" "modes/ora-org.el" (22324 15502
+;;;;;;  174613 777000))
 ;;; Generated autoloads from modes/ora-org.el
 
 (autoload 'ora-org-hook "modes/ora-org" "\
@@ -864,8 +864,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-python" "modes/ora-python.el" (22323
-;;;;;;  14431 496933 263000))
+;;;### (autoloads nil "modes/ora-python" "modes/ora-python.el" (22347
+;;;;;;  3219 0 0))
 ;;; Generated autoloads from modes/ora-python.el
 
 (autoload 'hp-beginning-of-line "modes/ora-python" "\
@@ -961,10 +961,21 @@ run current script
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-vc-dir" "modes/ora-vc-dir.el" (22348
+;;;;;;  21790 743621 956000))
+;;; Generated autoloads from modes/ora-vc-dir.el
+
+(autoload 'ora-vc-dir-hook "modes/ora-vc-dir" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
 ;;;### (autoloads nil nil ("hooks.el" "init.el" "keys.el" "modes/ora-avy.el"
 ;;;;;;  "modes/ora-company.el" "modes/ora-elisp-style-guide.el" "modes/ora-helm.el"
-;;;;;;  "modes/ora-image.el" "modes/ora-ivy.el" "packages.el") (22323
-;;;;;;  15071 80910 991000))
+;;;;;;  "modes/ora-image.el" "modes/ora-ivy.el" "packages.el") (22348
+;;;;;;  21636 559627 325000))
 
 ;;;***
 
