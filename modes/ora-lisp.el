@@ -10,4 +10,6 @@
   (setq prettify-symbols-alist
         '(("lambda" . ?λ)))
   (prettify-symbols-mode)
-  (lispy-mode))
+  (lispy-mode)
+  (when (bound-and-true-p slime-autodoc-mode)
+    (slime-autodoc-mode -1)))
