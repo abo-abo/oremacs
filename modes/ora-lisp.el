@@ -4,6 +4,8 @@
 (define-key slime-mode-indirect-map (kbd "C-M-i") nil)
 (define-key lisp-mode-map (kbd "β") 'counsel-cl)
 (setq lispy-colon-no-space-regex nil)
+(remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook)
+
 
 ;;;###autoload
 (defun ora-lisp-hook ()
