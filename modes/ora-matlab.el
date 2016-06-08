@@ -62,6 +62,12 @@
   (push (comint-get-old-input-default) ora-matlab-shell-history)
   (setq ora-matlab-shell-history (delete-dups ora-matlab-shell-history))
   (comint-send-input))
+
+(defun ora-matlab-cd ()
+  (interactive)
+  (ivy-read "cd: " 'read-file-name-internal
+            :action (lambda (x) (matlab-eval (format "cd %s" x)))))
+
 (defun ora-matlab-history ()
   (interactive)
   (ivy-read "cmd: " ora-matlab-shell-history
