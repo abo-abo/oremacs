@@ -4,6 +4,7 @@
 (define-key matlab-mode-map (kbd "<f5>") 'matlab-run-file)
 (define-key matlab-mode-map (kbd "θ") 'ora-single-quotes)
 (define-key matlab-mode-map (kbd "β") 'counsel-matlab)
+(define-key matlab-mode-map (kbd "C-,") 'matlab-kill-at-point)
 (define-key matlab-mode-map (kbd "C-'") (lambda()(interactive)(insert "'")))
 (define-key matlab-mode-map (kbd "C-c C-z")
   (lambda ()
@@ -104,5 +105,19 @@
       (matlab-shell-send-string (format "addpath('%s');\n"
                                         dir)))
     (matlab-shell-save-and-go)))
+
+(defun matlab-kill-at-point ()
+  (interactive)
+  (if (lispy--in-comment-p)
+      (let (beg)
+        (beginning-of-line 1)
+        (while (looking-at "^ *%")
+          (beginning-of-line 0))
+        (forward-line 1)
+        (setq beg (point))
+        (while (progn (beginning-of-line 2)
+                      (looking-at "^ *%")))
+        (kill-region beg (1- (point))))
+      (lispy-kill-at-point)))
 
 (setq matlab-fill-code nil)
