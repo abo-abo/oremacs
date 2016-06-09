@@ -270,24 +270,25 @@
               (projectile-relevant-known-projects))))))
 (use-package ace-link
     :config (ace-link-setup-default))
-(require 'define-word)
-(use-package slime
-    :commands slime
-    :init
-    (require 'slime-autoloads)
-    (setq slime-contribs '(slime-fancy))
-    (setq inferior-lisp-program "/usr/bin/sbcl"))
 (use-package compile
     :diminish compilation-in-progress
     :config
     (setq compilation-ask-about-save nil))
 (ace-popup-menu-mode)
-(run-with-idle-timer
- 3 nil
- (lambda () (require 'ora-org)))
 (use-package htmlize
     :commands htmlize-buffer)
 (lispy-mode)
 (require 'personal/init nil t)
+(unless (bound-and-true-p ora-barebones)
+  (run-with-idle-timer
+   3 nil
+   (lambda () (require 'ora-org)))
+  (require 'define-word)
+  (use-package slime
+      :commands slime
+      :init
+      (require 'slime-autoloads)
+      (setq slime-contribs '(slime-fancy))
+      (setq inferior-lisp-program "/usr/bin/sbcl")))
 (require 'server)
 (or (server-running-p) (server-start))
