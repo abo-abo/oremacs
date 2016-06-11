@@ -13,7 +13,6 @@
   (semantic-mode -1)
   (add-to-list 'ac-sources 'ac-source-javascript)
   (auto-complete-mode 1)
-  (electric-spacing-mode 1)
   (ignore-errors
     (moz-minor-mode 1)))
 
