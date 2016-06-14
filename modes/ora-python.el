@@ -26,6 +26,7 @@
 (define-key python-mode-map (kbd "β") 'counsel-jedi)
 (define-key python-mode-map (kbd "C-M-j") 'py-jump-local)
 (define-key python-mode-map (kbd "C-c C-v") nil)
+(define-key python-mode-map (kbd "C-c C-r") nil)
 (define-key inferior-python-mode-map (kbd "C-c M-o") 'comint-kill-region)
 
 (defun py-slurp (arg)
