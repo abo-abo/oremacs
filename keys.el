@@ -102,7 +102,7 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 ;;* C-c shortcuts
-(global-set-key (kbd "C-c D") 'ora-insert-date-from)
+(global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c d") 'counsel-descbinds)
 (global-set-key (kbd "C-c f") 'find-file-in-project)
 (global-set-key (kbd "C-c g") 'counsel-git)
@@ -120,6 +120,7 @@
 (global-set-key (kbd "C-c m") 'counsel-linux-app)
 (global-set-key (kbd "C-c o") 'hydra-org-objects/body)
 (global-set-key (kbd "C-c v") 'vc-ediff)
+(global-set-key (kbd "C-c D") 'ora-insert-date-from)
 
 ;;* C-x shortcuts
 (global-set-key (kbd "C-x C-r") (lambda () (interactive) (revert-buffer nil t)))
