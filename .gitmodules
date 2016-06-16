@@ -40,9 +40,9 @@
 [submodule "git/org-pomodoro"]
 	path = git/org-pomodoro
         url = https://github.com/abo-abo/org-pomodoro
-[submodule "git/org-mode"]
-	path = git/org-mode
-	url = git://orgmode.org/org-mode.git
 [submodule "git/lpy"]
 	path = git/lpy
 	url = https://github.com/abo-abo/lpy
+[submodule "git/org-mode"]
+	path = git/org-mode
+	url = git://orgmode.org/org-mode.git
