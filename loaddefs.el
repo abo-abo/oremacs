@@ -137,6 +137,11 @@ Handle a function bookmark BOOKMARK.
 
 \(fn BOOKMARK)" nil nil)
 
+(autoload 'ora-org-to-html-to-clipboard "auto" "\
+Export region to HTML, and copy it to the clipboard.
+
+\(fn)" t nil)
+
 (autoload 'ora-eval-other-window "auto" "\
 Eval current expression in the context of other window.
 Expression has to be of type (setq X BODY)

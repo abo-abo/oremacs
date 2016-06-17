@@ -383,6 +383,16 @@ If called with a prefix, prompts for flags to pass to ag."
 
 ;;* Utility
 ;;;###autoload
+(defun ora-org-to-html-to-clipboard ()
+  "Export region to HTML, and copy it to the clipboard."
+  (interactive)
+  (org-export-to-file 'html "/tmp/org.html")
+  (apply
+   'start-process "xclip" "*xclip*"
+   (split-string
+    "xclip -verbose -i /tmp/org.html -t text/html -selection clipboard" " ")))
+
+;;;###autoload
 (defun ora-eval-other-window (arg123)
   "Eval current expression in the context of other window.
 Expression has to be of type (setq X BODY)
