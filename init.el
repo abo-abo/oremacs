@@ -99,6 +99,7 @@
       '(("melpa" . "http://melpa.org/packages/")
         ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")))
+(setq package-pinned-packages '((yasnippet . "gnu")))
 (require 'use-package)
 ;;* Modes
 ;;** global minor modes
