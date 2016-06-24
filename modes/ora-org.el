@@ -1,5 +1,6 @@
 ;;* Requires
 (setq org-export-backends '(html latex))
+(setq org-export-with-sub-superscripts nil)
 (require 'org)
 (require 'org-fu)
 (require 'org-weather)
