@@ -383,6 +383,15 @@ If called with a prefix, prompts for flags to pass to ag."
 
 ;;* Utility
 ;;;###autoload
+(defun ora-ediff-buffers ()
+  (interactive)
+  (if (= 2 (length (window-list)))
+      (ediff-buffers (window-buffer (nth 1 (window-list)))
+                     (current-buffer))
+    (call-interactively 'ediff-buffers)))
+
+
+;;;###autoload
 (defun ora-org-to-html-to-clipboard ()
   "Export region to HTML, and copy it to the clipboard."
   (interactive)
