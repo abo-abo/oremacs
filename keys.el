@@ -104,6 +104,7 @@
 ;;* C-c shortcuts
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c d") 'counsel-descbinds)
+(global-set-key (kbd "C-c e") 'mu4e)
 (global-set-key (kbd "C-c f") 'find-file-in-project)
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
