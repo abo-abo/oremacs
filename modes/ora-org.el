@@ -12,7 +12,6 @@
 (require 'org-download)
 (org-download-enable)
 (require 'org-pomodoro)
-(modify-syntax-entry ?\. "w" org-mode-syntax-table)
 (setq org-attach-file-list-property nil)
 (setq org-reveal-hlevel 2)
 
