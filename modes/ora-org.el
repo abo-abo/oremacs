@@ -26,8 +26,7 @@
   (org-indent-mode)
   (add-to-list 'prettify-symbols-alist
                '(":PROPERTIES:" . ":"))
-  (prettify-symbols-mode)
-  (flyspell-mode -1))
+  (prettify-symbols-mode))
 
 ;;;###autoload
 (defun ora-org-agenda-hook ())

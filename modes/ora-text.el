@@ -2,5 +2,6 @@
 
 ;;;###autoload
 (defun ora-text-hook ()
-  (unless (eq system-type 'windows-nt)
-    (flyspell-mode)))
+  ;; (unless (eq system-type 'windows-nt)
+  ;;   (flyspell-mode))
+  )
