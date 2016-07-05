@@ -16,8 +16,8 @@
 (define-key gnus-summary-mode-map "v" 'gnus-summary-scroll-up)
 (define-key gnus-summary-mode-map (kbd "DEL") 'gnus-summary-clear-mark-backward)
 ;;* group
-(define-key gnus-group-mode-map "k" 'gnus-group-prev-unread-group)
-(define-key gnus-group-mode-map "j" 'gnus-group-next-unread-group)
+(define-key gnus-group-mode-map "k" 'gnus-group-prev-group)
+(define-key gnus-group-mode-map "j" 'gnus-group-next-group)
 (define-key gnus-group-mode-map "p" 'gnus-group-jump-to-group)
 (define-key gnus-group-mode-map "v" (lambda () (interactive) (gnus-group-select-group t)))
 (define-key gnus-group-mode-map (kbd "C-o") 'ora-list-subscribed-groups)
