@@ -1,5 +1,6 @@
 (require 'gnus)
 (require 'gnus-group)
+(require 'ora-message)
 (setq nnmail-treat-duplicates t)
 ;;* article
 (define-key gnus-article-mode-map "\C-h" nil)
@@ -52,3 +53,5 @@
   "List all subscribed groups with or without un-read messages"
   (interactive)
   (gnus-group-list-all-groups 5))
+
+(provide 'ora-gnus)
