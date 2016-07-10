@@ -244,7 +244,7 @@
 (use-package projectile
     :diminish projectile-mode
     :init
-    ;; (projectile-global-mode)
+    (projectile-global-mode)
     (setq projectile-completion-system 'ivy)
     (setq projectile-indexing-method 'alien)
     (setq projectile-enable-caching nil)
