@@ -398,6 +398,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
          (org-agenda-redo)
          (message "Display now includes inactive timestamps as well")))
   ("q" (message "Abort") :exit t)
+  ("x" org-agenda-exit :exit t)
   ("v" nil))
 
 (setq org-pomodoro-ask-upon-killing nil)
