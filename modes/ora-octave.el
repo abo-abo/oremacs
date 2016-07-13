@@ -10,7 +10,7 @@
 
 ;;;###autoload
 (defun ora-octave-hook ()
-  (electric-spacing-mode 1)
+  ;; (electric-spacing-mode 1)
   (auto-complete-mode 1))
 
 ;;;###autoload
