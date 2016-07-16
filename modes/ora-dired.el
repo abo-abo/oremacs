@@ -21,11 +21,12 @@
         ("\\.\\(?:xcf\\)\\'" "gimp")
         ("\\.csv\\'" "libreoffice")
         ("\\.tex\\'" "pdflatex" "latex")
-        ("\\.\\(?:mp4\\|mkv\\|avi\\|flv\\|ogv\\|ifo\\|m4v\\)\\(?:\\.part\\)?\\'"
+        ("\\.\\(?:mp4\\|mkv\\|avi\\|flv\\|ogv\\|ifo\\|m4v\\|wmv\\)\\(?:\\.part\\)?\\'"
          "vlc")
         ("\\.\\(?:mp3\\|flac\\|wv\\)\\'" "rhythmbox")
         ("\\.html?\\'" "firefox")
-        ("\\.cue?\\'" "audacious")))
+        ("\\.cue?\\'" "audacious")
+        ("\\.pptx\\'" "libreoffice")))
 ;;* advice
 (defadvice dired-advertised-find-file (around ora-dired-subst-directory activate)
   "Replace current buffer if file is a directory."
