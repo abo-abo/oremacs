@@ -119,8 +119,8 @@
 (global-set-key (kbd "C-c r") 'isearch-backward)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "C-c m") 'counsel-linux-app)
-(global-set-key (kbd "C-c o") 'hydra-org-objects/body)
 (global-set-key (kbd "C-c v") 'vc-ediff)
+(global-set-key (kbd "C-c o") nil)
 (global-set-key (kbd "C-c w") 'ora-org-to-html-to-clipboard)
 (global-set-key (kbd "C-c D") 'ora-insert-date-from)
 
