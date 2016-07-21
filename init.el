@@ -249,7 +249,10 @@
     (setq projectile-indexing-method 'alien)
     (setq projectile-enable-caching nil)
     (setq projectile-verbose nil)
-    (setq projectile-do-log nil))
+    (setq projectile-do-log nil)
+    (setq projectile-switch-project-action
+          (lambda ()
+            (dired (projectile-project-root)))))
 (use-package find-file-in-project
     :commands find-file-in-project)
 (use-package magit
