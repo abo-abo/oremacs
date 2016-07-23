@@ -123,6 +123,7 @@
 (global-set-key (kbd "C-c o") nil)
 (global-set-key (kbd "C-c w") 'ora-org-to-html-to-clipboard)
 (global-set-key (kbd "C-c D") 'ora-insert-date-from)
+(global-set-key (kbd "C-c C-j") 'avy-resume)
 
 ;;* C-x shortcuts
 (global-set-key (kbd "C-x C-r") (lambda () (interactive) (revert-buffer nil t)))
