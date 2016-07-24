@@ -13,7 +13,7 @@
 (setq company-backends
       '(company-elisp
         ;; company-semantic
-        ;; company-capf
+        company-capf
         (company-dabbrev-code company-gtags company-etags
          company-keywords)
         company-files
