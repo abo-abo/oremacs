@@ -103,9 +103,21 @@ Number of marked items: %(length (dired-get-marked-files))
 "
   ("m" dired-mark "mark"))
 
+(defun ora-ediff-files ()
+  (interactive)
+  (let ((files (dired-get-marked-files)))
+    (if (= 2 (length files))
+        (let ((file1 (car files))
+              (file2 (cadr files)))
+          (if (file-newer-than-file-p file1 file2)
+              (ediff-files file2 file1)
+            (ediff-files file1 file2)))
+      (error "two files should be marked"))))
+
 ;;* bind and hook
 (define-key dired-mode-map "r" 'ora-dired-start-process)
-(define-key dired-mode-map "e" 'ediff-files)
+(define-key dired-mode-map "e" 'ora-ediff-files)
+
 (define-key dired-mode-map (kbd "C-t") nil)
 (define-key dired-mode-map "i" 'counsel-find-file)
 (define-key dired-mode-map "j" 'dired-next-line)
