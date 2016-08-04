@@ -358,7 +358,8 @@ If called with a prefix, prompts for flags to pass to ag."
   "Bookmark for *scratch*."
   (interactive)
   (switch-to-buffer
-   (get-buffer-create "*scratch*")))
+   (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode))
 
 ;;;###autoload
 (defun bmk/function (bookmark)
