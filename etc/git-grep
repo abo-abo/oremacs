@@ -1,0 +1,36 @@
+#!/usr/bin/python
+"""This script will grep for a regex in ./site-lisp and ./site-lisp/git/*.
+Prints the matches relative to ./site-lisp."""
+
+import os
+import sys
+from elisp import *
+
+def git_grep (regex):
+    return "git --no-pager grep --full-name -n --no-color -i -e %s" % regex
+
+def git_p (f):
+    if file_directory_p (f):
+        return file_exists_p (expand_file_name (".git", f))
+
+def print_git (cmd, d = ''):
+    try:
+        res = shell_command_to_string (cmd)[:-1]
+        for match in res.split ("\n"):
+            print d + match
+    except:
+        pass
+
+regex = sys.argv[1]
+cmd = git_grep (regex)
+
+base_dir = "/home/oleh/Dropbox/source/site-lisp"
+git_dir = expand_file_name ("git", base_dir)
+dirs = [expand_file_name (f, git_dir) for f in directory_files (git_dir)]
+dirs = filter (git_p, dirs)
+dirs = [abbreviate_file_name (d, base_dir) for d in dirs]
+os.chdir (base_dir)
+print_git (cmd)
+for d in dirs:
+    os.chdir (expand_file_name (d, base_dir))
+    print_git (cmd, d + '/')
