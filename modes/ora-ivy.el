@@ -36,6 +36,10 @@
  '(("I" ivy-insert-action "insert")))
 
 (setq counsel-git-grep-projects-alist
-      '(("/home/oleh/Dropbox/source/site-lisp/" . "/home/oleh/Dropbox/source/site-lisp/etc/git-grep %S")))
+      (list
+       (cons "/home/oleh/Dropbox/source/site-lisp/"
+             (concat "/home/oleh/Dropbox/source/site-lisp/etc/git-grep %S "
+                     "/home/oleh/Dropbox/source/site-lisp "
+                     "git/*"))))
 
 (provide 'ora-ivy)

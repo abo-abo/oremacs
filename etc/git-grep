@@ -1,13 +1,26 @@
 #!/usr/bin/python
-"""This script will grep for a regex in ./site-lisp and ./site-lisp/git/*.
-Prints the matches relative to ./site-lisp."""
+"""
+Usage: git-grep REGEX BASE-DIR DIRS...
 
+Grep for REGEX in BASE-DIR, printing the matches relative to BASE-DIR.
+Additionally grep in DIRS, also printing the matches relative to BASE-DIR.
+
+Example for this repo:
+
+etc/git-grep '\(prin\).*\(git\)' `pwd` git/*
+"""
+
+#* Imports
 import os
 import sys
+import re
 from elisp import *
 
+# print sys.argv[1:]; exit (0)
+
+#* Functions
 def git_grep (regex):
-    return "git --no-pager grep --full-name -n --no-color -i -e %s" % regex
+    return "git --no-pager grep --full-name -n --no-color -i -I -e " + regex
 
 def git_p (f):
     if file_directory_p (f):
@@ -21,16 +34,30 @@ def print_git (cmd, d = ''):
     except:
         pass
 
-regex = sys.argv[1]
-cmd = git_grep (regex)
+def git_files_in (d):
+    r = [expand_file_name (f, d) for f in directory_files (d)]
+    return filter (git_p, r)
 
-base_dir = "/home/oleh/Dropbox/source/site-lisp"
-git_dir = expand_file_name ("git", base_dir)
-dirs = [expand_file_name (f, git_dir) for f in directory_files (git_dir)]
-dirs = filter (git_p, dirs)
-dirs = [abbreviate_file_name (d, base_dir) for d in dirs]
+def expand_globs (dirs_and_globs):
+    dirs = []
+    for glob in dirs_and_globs:
+        m = re.match ("(.*)/\*$", glob)
+        if m:
+            for x in git_files_in (expand_file_name (m.group (1), base_dir)):
+                dirs.append (abbreviate_file_name (x, base_dir))
+        else:
+            dirs.append (glob)
+    return dirs
+
+#* Assign args
+regex = sys.argv[1]
+base_dir = sys.argv[2]
+dirs_and_globs = sys.argv[3:]
+
+#* Do work
 os.chdir (base_dir)
+cmd = git_grep (regex)
 print_git (cmd)
-for d in dirs:
+for d in expand_globs (dirs_and_globs):
     os.chdir (expand_file_name (d, base_dir))
     print_git (cmd, d + '/')
