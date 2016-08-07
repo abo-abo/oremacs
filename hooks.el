@@ -134,8 +134,7 @@
 
 (defun conditionally-enable-lispy ()
   (when (eq this-command 'eval-expression)
-    (lispy-mode 1)
-    (local-set-key "β" 'counsel-el)))
+    (lispy-mode 1)))
 
 (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
 
