@@ -153,6 +153,11 @@ Number of marked items: %(length (dired-get-marked-files))
     (setq mis-recipes-directory
           (expand-file-name
            "git/make-it-so/recipes/" emacs-d)))
+(add-to-list 'dired-compress-file-suffixes
+             '("\\.rar\\'" "" "unrar x '%i'"))
+(add-to-list 'dired-compress-file-suffixes
+             '("\\.7z\\'" "" "7z x '%i'"))
+
 (eval-after-load 'tramp-sh
   '(progn
     (setq tramp-sh-file-name-handler-alist
