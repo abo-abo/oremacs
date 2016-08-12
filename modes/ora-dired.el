@@ -130,10 +130,16 @@ Number of marked items: %(length (dired-get-marked-files))
 (define-key dired-mode-map (kbd "M-o") 'dired-omit-mode)
 (define-key dired-mode-map (kbd "`") 'ora-dired-open-term)
 (define-key dired-mode-map (kbd "'") 'eshell-this-dir)
-(define-key dired-mode-map "a" (lambda () (interactive) (find-alternate-file "..")))
+(define-key dired-mode-map "a" 'ora-dired-up-directory)
 (define-key dired-mode-map "!" 'sudired)
 (define-key dired-mode-map "h" nil)
 
+(defun ora-dired-up-directory ()
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (dired-up-directory)
+    (unless (equal buffer (current-buffer))
+      (kill-buffer buffer))))
 
 (use-package make-it-so
     :commands make-it-so mis-mode
