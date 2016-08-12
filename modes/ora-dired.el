@@ -153,6 +153,10 @@ Number of marked items: %(length (dired-get-marked-files))
     (setq mis-recipes-directory
           (expand-file-name
            "git/make-it-so/recipes/" emacs-d)))
+(eval-after-load 'tramp-sh
+  '(progn
+    (setq tramp-sh-file-name-handler-alist
+     (assq-delete-all 'vc-registered tramp-sh-file-name-handler-alist))))
 
 ;;;###autoload
 (defun ora-dired-hook ()
