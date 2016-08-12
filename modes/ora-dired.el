@@ -133,6 +133,11 @@ Number of marked items: %(length (dired-get-marked-files))
 (define-key dired-mode-map "a" 'ora-dired-up-directory)
 (define-key dired-mode-map "!" 'sudired)
 (define-key dired-mode-map "h" nil)
+(define-key dired-mode-map "O" 'ora-dired-other-window)
+(defun ora-dired-other-window ()
+  (interactive)
+  (save-selected-window
+    (dired-find-file-other-window)))
 
 (defun ora-dired-up-directory ()
   (interactive)
