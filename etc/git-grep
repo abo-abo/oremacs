@@ -51,7 +51,9 @@ def expand_globs (dirs_and_globs):
 
 #* Assign args
 regex = sys.argv[1]
-base_dir = sys.argv[2]
+
+base_dir = expand_file_name (sys.argv[2])
+
 dirs_and_globs = sys.argv[3:]
 
 #* Do work

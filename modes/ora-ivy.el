@@ -38,7 +38,7 @@
 (setq counsel-git-grep-projects-alist
       (list
        (cons "/home/oleh/Dropbox/source/site-lisp/"
-             (concat "/home/oleh/Dropbox/source/site-lisp/etc/git-grep %S "
+             (concat "/home/oleh/Dropbox/source/site-lisp/etc/git-grep '%s' "
                      "/home/oleh/Dropbox/source/site-lisp "
                      "git/*"))))
 

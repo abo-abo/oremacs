@@ -22,7 +22,7 @@ def abbreviate_file_name (f, d):
 def expand_file_name (f, directory = None):
     if not directory:
         directory = os.getcwd ()
-    return os.path.join (directory, f)
+    return os.path.realpath (os.path.join (directory, f))
 
 def directory_files (d):
     return os.listdir (d)
