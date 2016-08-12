@@ -170,7 +170,6 @@
    (lisp . t)
    (latex . t)
    (calc . t)))
-(require 'j-font-lock)
 (add-to-list 'org-src-lang-modes '("J" . j))
 
 (eval-when-compile
@@ -411,7 +410,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
         (org-save-all-org-buffers))
     (org-pomodoro)))
 
-(require 'org-mu4e)
+(require 'org-mu4e nil t)
 (setq org-mu4e-link-query-in-headers-mode nil)
 
 (provide 'ora-org)
