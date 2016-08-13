@@ -47,6 +47,14 @@
 (define-key org-src-mode-map (kbd "C-c C-c") 'org-edit-src-exit)
 (define-key org-mode-map (kbd "C-c C-v") nil)
 (define-key org-mode-map (kbd "C-c C-q") 'counsel-org-tag)
+(define-key org-agenda-mode-map (kbd "<backspace>") 'ora-org-agenda-unmark-backward)
+
+(defun ora-org-agenda-unmark-backward ()
+  (interactive)
+  (forward-line -1)
+  (org-agenda-bulk-unmark)
+  (forward-line -1))
+
 ;; (define-key org-mode-map (kbd "$") 'ora-dollars)
 
 ;;** org-agenda-mode-map
