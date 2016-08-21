@@ -9,6 +9,7 @@
 ;; (global-set-key "\C-g" 'keyboard-quit)                ; default
 ;; (global-set-key "\C-h" nil)                           ; 'help-command
 ;; (global-set-key "\C-i" 'indent-for-tab-command)       ; default
+(global-set-key (kbd "C-i") 'indent-for-tab-command)
 ;; (global-set-key "\C-j" 'newline)                      ; default
 ;; (global-set-key "\C-k" 'kill-line)                    ; default
 ;; (global-set-key "\C-l" 'recenter-top-bottom)          ; default
@@ -112,11 +113,11 @@
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
 (global-set-key (kbd "C-c k") 'counsel-ag)
 (global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-c r") 'isearch-backward)
 (global-set-key (kbd "C-c m") 'counsel-linux-app)
 (global-set-key (kbd "C-c o") 'counsel-outline)
+(global-set-key (kbd "C-c r") 'isearch-backward)
+(global-set-key (kbd "C-c s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-c u") 'swiper-all)
 (global-set-key (kbd "C-c v") 'ivy-push-view)
 (global-set-key (kbd "C-c V") 'ivy-pop-view)
 (global-set-key (kbd "C-c w") 'ora-org-to-html-to-clipboard)
