@@ -124,6 +124,7 @@
 (ivy-mode 1)
 (blink-cursor-mode -1)
 (add-to-list 'auto-mode-alist '("\\.tex\\'" . TeX-latex-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(?:a\\|so\\)\\'" . elf-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
 (add-to-list 'auto-mode-alist '("\\.cache\\'" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(h\\|inl\\)\\'" . c++-mode))
