@@ -88,6 +88,7 @@
 ;;** Rest
 (csetq browse-url-browser-function 'browse-url-firefox)
 (csetq browse-url-firefox-program "firefox")
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 ;;* Bootstrap
 ;;** autoloads
 (load (concat emacs-d "loaddefs.el") nil t)
