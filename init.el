@@ -70,6 +70,8 @@
 (setq byte-compile--use-old-handlers nil)
 ;; http://debbugs.gnu.org/cgi/bugreport.cgi?bug=16737
 (setq x-selection-timeout 10)
+;; improves copying from a ssh -X Emacs.
+(setq x-selection-timeout 100)
 (csetq lpr-command "gtklp")
 ;;** internals
 (csetq gc-cons-threshold (* 10 1024 1024))
