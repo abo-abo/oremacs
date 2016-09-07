@@ -35,6 +35,10 @@
  t
  '(("I" ivy-insert-action "insert")))
 
+(setq ivy-switch-buffer-faces-alist
+      '((emacs-lisp-mode . swiper-match-face-1)
+        (dired-mode . ivy-subdir)
+        (org-mode . org-level-4)))
 (setq counsel-git-grep-projects-alist
       (list
        (cons "/home/oleh/Dropbox/source/site-lisp/"
