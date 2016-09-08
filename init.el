@@ -129,6 +129,7 @@
 (add-to-list 'auto-mode-alist '("\\.tex\\'" . TeX-latex-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(?:a\\|so\\)\\'" . elf-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
+(autoload 'matlab-mode "matlab")
 (add-to-list 'auto-mode-alist '("\\.cache\\'" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(h\\|inl\\)\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.cl\\'" . lisp-mode))
