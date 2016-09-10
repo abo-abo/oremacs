@@ -39,6 +39,11 @@
       '((emacs-lisp-mode . swiper-match-face-1)
         (dired-mode . ivy-subdir)
         (org-mode . org-level-4)))
+
+(setq counsel-git-grep-cmd-default
+      (concat "git --no-pager grep --full-name -n --no-color -i -e '%s' -- './*' "
+              (mapconcat (lambda (x) (format "':!*.%s'" x))
+                         '("htm") " ")))
 (setq counsel-git-grep-projects-alist
       (list
        (cons "/home/oleh/Dropbox/source/site-lisp/"
