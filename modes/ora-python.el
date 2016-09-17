@@ -40,7 +40,7 @@
     (jedi:setup)
     (add-to-list 'company-backends 'company-jedi))
   (electric-indent-mode -1)
-  (auto-complete-mode 1)
+  (auto-complete-mode -1)
   (company-mode)
   (remove-hook 'post-command-hook 'jedi:handle-post-command t)
   (setq lispy-no-space t)
