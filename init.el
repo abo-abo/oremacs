@@ -251,6 +251,8 @@
     :diminish projectile-mode
     :init
     (projectile-global-mode)
+    (setq projectile-project-root-files-bottom-up
+          '(".git" ".projectile"))
     (setq projectile-completion-system 'ivy)
     (setq projectile-indexing-method 'alien)
     (setq projectile-enable-caching nil)
