@@ -305,5 +305,9 @@
       (require 'slime-autoloads)
       (setq slime-contribs '(slime-fancy))
       (setq inferior-lisp-program "/usr/bin/sbcl")))
+(use-package elf-mode
+    :commands elf-mode
+    :init
+    (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
 (require 'server)
 (or (server-running-p) (server-start))
