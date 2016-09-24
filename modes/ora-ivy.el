@@ -27,13 +27,9 @@
     (user-error
      "Not completing files currently")))
 
-(defun ivy-insert-action (x)
-  (with-ivy-window
-    (insert x)))
-
 (ivy-set-actions
  t
- '(("I" ivy-insert-action "insert")))
+ '(("I" insert "insert")))
 
 (setq ivy-switch-buffer-faces-alist
       '((emacs-lisp-mode . swiper-match-face-1)
