@@ -3,6 +3,7 @@ import sys
 import os
 import re
 import getpass
+import shlex
 
 #* Functional
 def cl_position_if (pred, lst):
@@ -75,7 +76,7 @@ def barf (f, s):
 
 #* Shell
 def shell_command_to_string (cmd):
-    return subprocess.check_output (cmd.split (" "))
+    return subprocess.check_output (shlex.split (cmd))
 
 def shell_command_to_list (cmd):
     cmd_output = shell_command_to_string (cmd)
