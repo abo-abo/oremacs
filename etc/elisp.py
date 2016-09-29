@@ -31,12 +31,15 @@ def default_directory ():
     return os.getcwd ()
 
 def cd (directory):
-    os.chdir (directory)
+    os.chdir (expand_file_name (directory))
 
 def expand_file_name (f, directory = None):
     if not directory:
         directory = os.getcwd ()
-    return os.path.realpath (os.path.join (directory, f))
+    if re.match ("^~", f):
+        return os.path.expanduser (f)
+    else:
+        return os.path.realpath (os.path.join (directory, f))
 
 def file_name_directory (f):
     return os.path.dirname (f)
