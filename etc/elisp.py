@@ -44,6 +44,9 @@ def expand_file_name (f, directory = None):
 def file_name_directory (f):
     return os.path.dirname (f)
 
+def file_name_nondirectory (f):
+    return os.path.basename (f)
+
 def file_exists_p (f):
     return os.path.exists (f)
 
