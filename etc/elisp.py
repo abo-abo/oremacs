@@ -1,4 +1,5 @@
 import subprocess
+import sys
 import os
 import re
 import getpass
@@ -19,6 +20,9 @@ def mapconcat (func, lst, sep):
         return sep.join (lst)
 
 #* OS
+def addpath (path):
+    sys.path.append (path)
+
 def user_login_name ():
     return getpass.getuser()
 
