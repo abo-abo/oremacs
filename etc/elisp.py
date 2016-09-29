@@ -30,6 +30,9 @@ def user_login_name ():
 def default_directory ():
     return os.getcwd ()
 
+def cd (directory):
+    os.chdir (directory)
+
 def expand_file_name (f, directory = None):
     if not directory:
         directory = os.getcwd ()
