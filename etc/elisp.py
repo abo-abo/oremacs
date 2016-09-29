@@ -27,6 +27,10 @@ def addpath (path):
 def user_login_name ():
     return getpass.getuser()
 
+def eval (s):
+    out = subprocess.check_output (["emacsclient", "-e", s])
+    return out[:-1]
+
 #* File names
 def default_directory ():
     return os.getcwd ()
