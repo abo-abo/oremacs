@@ -26,7 +26,7 @@
         ("\\.\\(?:mp3\\|flac\\|wv\\)\\'" "rhythmbox")
         ("\\.html?\\'" "firefox")
         ("\\.cue?\\'" "audacious")
-        ("\\.pptx\\'" "libreoffice")))
+        ("\\.\\(?:pptx?\\|odt\\|xlsx?\\|docx?\\)\\'" "libreoffice")))
 ;;* advice
 (defadvice dired-advertised-find-file (around ora-dired-subst-directory activate)
   "Replace current buffer if file is a directory."
