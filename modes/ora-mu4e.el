@@ -23,3 +23,6 @@
 ;;;###autoload
 (defun ora-mu4e-headers-hook ())
 
+(define-key mu4e-view-mode-map (kbd "C--") nil)
+
+(provide 'ora-mu4e)
