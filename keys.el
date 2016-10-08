@@ -104,6 +104,7 @@
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 ;;* C-c shortcuts
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c y") 'pam-drill)
 (global-set-key (kbd "C-c d") 'counsel-descbinds)
 (global-set-key (kbd "C-c e") 'mu4e)
 (global-set-key (kbd "C-c f") 'find-file-in-project)
