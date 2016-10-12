@@ -140,7 +140,7 @@
 ;;** HTML
 (require 'ox-html)
 (setq org-html-validation-link nil)
-(setq org-html-postamble nil)
+(setq org-html-postamble "<enddoc>End.</enddoc>")
 (setq org-html-text-markup-alist
       '((bold . "<b>%s</b>")
         (code . "<kbd>%s</kbd>")
