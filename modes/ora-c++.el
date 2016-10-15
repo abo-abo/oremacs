@@ -10,6 +10,7 @@
 (require 'cc-chainsaw)
 (require 'auto-yasnippet)
 (require 'auto-complete)
+(csetq c-hanging-semi&comma-criteria nil)
 (setq-local ac-delay 0.1)
 (setq-default c-basic-offset 4)
 
