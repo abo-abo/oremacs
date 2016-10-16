@@ -26,7 +26,8 @@
   (org-indent-mode)
   (add-to-list 'prettify-symbols-alist
                '(":PROPERTIES:" . ":"))
-  (prettify-symbols-mode))
+  (prettify-symbols-mode)
+  (setq completion-at-point-functions '(org-completion-refs t)))
 
 ;;;###autoload
 (defun ora-org-agenda-hook ())
@@ -421,4 +422,19 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 (require 'org-mu4e nil t)
 (setq org-mu4e-link-query-in-headers-mode nil)
 
+(defun org-completion-refs ()
+  (when (looking-back "\\\\\\(?:ref\\|label\\){\\([^\n{}]\\)*")
+    (let (cands beg end)
+      (save-excursion
+        (goto-char (point-min))
+        (while (re-search-forward "\\label{\\([^}]+\\)}" nil t)
+          (push (match-string-no-properties 1) cands)))
+      (save-excursion
+        (up-list)
+        (setq end (1- (point)))
+        (backward-list)
+        (setq beg (1+ (point))))
+      (list beg end
+            (delete (buffer-substring-no-properties beg end)
+                    (nreverse cands))))))
 (provide 'ora-org)
