@@ -158,6 +158,8 @@ Number of marked items: %(length (dired-get-marked-files))
              '("\\.rar\\'" "" "unrar x '%i'"))
 (add-to-list 'dired-compress-file-suffixes
              '("\\.7z\\'" "" "7z x '%i'"))
+(add-to-list 'dired-compress-file-suffixes
+             '("\\.tgz\\'" "" "gzip -dc %i | tar -xv"))
 
 (eval-after-load 'tramp-sh
   '(progn
