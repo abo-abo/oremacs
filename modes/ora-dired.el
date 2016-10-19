@@ -169,3 +169,13 @@ Number of marked items: %(length (dired-get-marked-files))
 ;;;###autoload
 (defun ora-dired-hook ()
   (mis-mode 1))
+
+(defun ora-dired-utf8-unix ()
+  (interactive)
+  (let ((files (dired-get-marked-files)))
+    (dolist (file files)
+      (find-file file)
+      (set-buffer-file-coding-system 'utf-8-unix)
+      (delete-trailing-whitespace)
+      (save-buffer)
+      (kill-buffer))))
