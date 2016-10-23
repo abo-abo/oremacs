@@ -62,6 +62,7 @@
 (add-hook 'eww-mode-hook 'ora-eww-hook)
 (add-hook 'nxml-mode-hook 'ora-nxml-hook)
 (add-hook 'tar-mode-hook 'ora-tar-hook)
+(add-hook 'ibuffer-mode-hook 'ora-ibuffer-hook)
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 (eval-after-load 'helm '(require 'ora-helm))
 (eval-after-load 'image-mode '(require 'ora-image))
