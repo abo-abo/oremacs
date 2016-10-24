@@ -20,39 +20,40 @@
 (defun counsel-bbdb-cands (&optional str)
   (setq str (or str ""))
   (bbdb-buffer)
-  (let (all-completions
-        dwim-completions)
-    (all-completions str bbdb-hashtable
-                     (lambda (sym)
-                       (push sym all-completions)))
-    (dolist (sym all-completions)
-      (setq sname (symbol-name sym))
-      (dolist (record (symbol-value sym))
+  (let* ((all-completions (all-completions str bbdb-hashtable
+                                           'bbdb-completion-predicate))
+         (records (delete-dups
+                   (apply 'append (mapcar (lambda (compl)
+                                            (gethash compl bbdb-hashtable))
+                                          all-completions))))
+         dwim-completions)
+    (dolist (key all-completions)
+      (dolist (record (gethash key bbdb-hashtable))
         (let ((mails (bbdb-record-mail record))
               accept)
           (when mails
             (dolist (field '(fl-name lf-name mail aka organization))
               (cond ((eq field 'fl-name)
-                     (if (bbdb-string= sname (bbdb-record-name record))
+                     (if (bbdb-string= key (bbdb-record-name record))
                          (push (car mails) accept)))
                     ((eq field 'lf-name)
-                     (if (bbdb-string= sname (bbdb-cache-lf-name
-                                              (bbdb-record-cache record)))
+                     (if (bbdb-string= key (bbdb-cache-lf-name
+                                            (bbdb-record-cache record)))
                          (push (car mails) accept)))
                     ((eq field 'aka)
-                     (if (member-ignore-case sname (bbdb-record-field
-                                                    record 'aka-all))
+                     (if (member-ignore-case key (bbdb-record-field
+                                                  record 'aka-all))
                          (push (car mails) accept)))
                     ((eq field 'organization)
-                     (if (member-ignore-case sname (bbdb-record-organization
-                                                    record))
+                     (if (member-ignore-case key (bbdb-record-organization
+                                                  record))
                          (push (car mails) accept)))
                     ((eq field 'primary)
-                     (if (bbdb-string= sname (car mails))
+                     (if (bbdb-string= key (car mails))
                          (push (car mails) accept)))
                     ((eq field 'mail)
                      (dolist (mail mails)
-                       (if (bbdb-string= sname mail)
+                       (if (bbdb-string= key mail)
                            (push mail accept))))))
             (dolist (mail (delete-dups accept))
               (push (bbdb-dwim-mail record mail) dwim-completions))))))
