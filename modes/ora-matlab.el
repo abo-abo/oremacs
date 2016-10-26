@@ -6,12 +6,12 @@
 (define-key matlab-mode-map (kbd "β") 'counsel-matlab)
 (define-key matlab-mode-map (kbd "C-,") 'matlab-kill-at-point)
 (define-key matlab-mode-map (kbd "C-'") (lambda()(interactive)(insert "'")))
-(define-key matlab-mode-map (kbd "C-c C-z")
-  (lambda ()
-    (interactive)
-    (delete-other-windows)
-    (split-window-below)
-    (matlab-shell)))
+(define-key matlab-mode-map (kbd "C-c C-z") 'ora-matlab-switch-to-shell)
+
+(defun ora-matlab-switch-to-shell ()
+  (interactive)
+  (other-window 1)
+  (matlab-shell))
 
 ;;;###autoload
 (defun ora-matlab-shell-hook ()
