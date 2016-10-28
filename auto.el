@@ -235,14 +235,16 @@ If called with a prefix, prompts for flags to pass to ag."
     (dolist (file files)
       (setq tmtxt/rsync-command
             (concat tmtxt/rsync-command
-                    (shell-quote-argument file)
-                    " ")))
+                    (if (string-match "^/ssh:\\(.*\\)$" file)
+                        (format " -e ssh %s" (match-string 1 file))
+                      (shell-quote-argument file)) " ")))
     ;; append the destination
     (setq tmtxt/rsync-command
           (concat tmtxt/rsync-command
                   (shell-quote-argument dest)))
     ;; run the async shell command
-    (async-shell-command tmtxt/rsync-command "*rsync*")
+    (let ((default-directory (file-name-directory dest)))
+      (async-shell-command tmtxt/rsync-command))
     ;; finally, switch to that window
     (other-window 1)))
 
