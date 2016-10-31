@@ -123,6 +123,7 @@
     (setq xref-pulse-on-jump nil)
     (setq xref-after-return-hook nil)))
 (add-hook 'ido-setup-hook 'ora-ido-hook)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (require 'ora-ivy)
 (ivy-mode 1)
 (blink-cursor-mode -1)
