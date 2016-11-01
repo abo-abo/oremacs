@@ -17,7 +17,6 @@
 (defun ora-matlab-shell-hook ()
   (setcar font-lock-defaults '(matlab-font-lock-keywords
                                matlab-gaudy-font-lock-keywords))
-  (define-key matlab-shell-mode-map (kbd "β") 'counsel-matlab)
   (define-key matlab-shell-mode-map (kbd "<tab>") 'complete-symbol)
   (define-key matlab-shell-mode-map (kbd "RET") 'ora-matlab-ret)
   (define-key matlab-shell-mode-map (kbd "C-r") 'ora-matlab-history)
