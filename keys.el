@@ -177,6 +177,7 @@
   ("v" recenter-top-bottom "recenter")
   ("q" nil "quit"))
 (global-set-key (kbd "M-g g") 'avy-goto-line)
+(global-set-key (kbd "C-M-g") 'avy-goto-line)
 (global-set-key (kbd "M-g e") 'avy-goto-word-0)
 (global-set-key (kbd "M-g w") 'avy-goto-word-1)
 (global-set-key (kbd "M-g s") 'avy-goto-subword-0)
