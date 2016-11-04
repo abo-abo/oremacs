@@ -284,7 +284,7 @@
          (split-window-below)
          (windmove-down))
        "horz")
-  ("t" transpose-frame "'")
+  ("t" transpose-frame "'" :exit t)
   ("o" delete-other-windows "one" :exit t)
   ("a" ace-window "ace")
   ("s" ace-swap-window "swap")
