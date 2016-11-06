@@ -53,6 +53,7 @@
 ;; (global-set-key (kbd "C-_") 'undo)                          ; [u]
 (global-set-key (kbd "C-:") 'dired-jump)                       ; [d]
 (global-set-key (kbd "C-φ") 'lispy-parens-down)                ; [f]
+(global-set-key (kbd "C-M-d") 'dired-jump)
 (global-set-key (kbd "C->") 'upcase-word-toggle)               ; [g]
 (global-set-key (kbd "C-η") 'switch-to-buffer-other-window)    ; [h]
 (global-set-key (kbd "C-;") 'tiny-expand)                      ; [j]
