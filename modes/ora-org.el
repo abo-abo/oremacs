@@ -471,7 +471,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
                  "\\[\\[.*?\\]\\[\\(.*?\\)\\]\\]" "\\1"
                  (match-string-no-properties 4)))
       (mapconcat (lambda (s) (substring s 0 1))
-                 (split-string str "[- ]+")
+                 (split-string str "[- =]+")
                  ""))))
 (setq org-clock-heading-function #'ora-org-clock-heading)
 
