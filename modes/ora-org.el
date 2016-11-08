@@ -463,6 +463,18 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 (require 'org-mu4e nil t)
 (setq org-mu4e-link-query-in-headers-mode nil)
 
+(defun ora-org-clock-heading ()
+  (let ((str (nth 4 (org-heading-components))))
+    (if (not (stringp str))
+        (error "Not on a heading")
+      (setq str (replace-regexp-in-string
+                 "\\[\\[.*?\\]\\[\\(.*?\\)\\]\\]" "\\1"
+                 (match-string-no-properties 4)))
+      (mapconcat (lambda (s) (substring s 0 1))
+                 (split-string str "[- ]+")
+                 ""))))
+(setq org-clock-heading-function #'ora-org-clock-heading)
+
 (defun org-completion-refs ()
   (when (looking-back "\\\\\\(?:ref\\|label\\){\\([^\n{}]\\)*")
     (let (cands beg end)
