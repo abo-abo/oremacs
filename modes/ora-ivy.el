@@ -29,7 +29,8 @@
 
 (ivy-set-actions
  t
- '(("I" insert "insert")))
+ '(("i" insert "insert")
+   ("w" kill-new "copy")))
 
 (setq ivy-switch-buffer-faces-alist
       '((emacs-lisp-mode . swiper-match-face-1)
