@@ -15,7 +15,7 @@
 (add-to-list 'load-path emacs-d)
 (add-to-list 'load-path (expand-file-name "modes/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
-(add-to-list 'load-path (expand-file-name "git/cedet/lisp/cedet/" emacs-d))
+;; (add-to-list 'load-path (expand-file-name "git/cedet/lisp/cedet/" emacs-d))
 (setq enable-local-variables :safe)
 ;;* Theme
 (if (display-graphic-p)
