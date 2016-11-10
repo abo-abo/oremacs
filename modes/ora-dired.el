@@ -45,11 +45,13 @@
       (kill-buffer buffer))))
 
 ;;* rest
+(defvar du-program-name "/usr/bin/du")
+
 (defun ora-dired-get-size ()
   (interactive)
   (let ((files (dired-get-marked-files)))
     (with-temp-buffer
-      (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
+      (apply 'call-process du-program-name nil t nil "-sch" files)
       (message
        "Size of all marked files: %s"
        (progn
