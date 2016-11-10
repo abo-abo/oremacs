@@ -54,7 +54,9 @@
   (define-key matlab-mode-map k 'soap-command))
 
 ;;;###autoload
-(defun ora-matlab-hook ())
+(defun ora-matlab-hook ()
+  (setcar font-lock-defaults '(matlab-font-lock-keywords
+                               matlab-gaudy-font-lock-keywords)))
 (defvar ora-matlab-shell-history nil)
 
 (defun ora-matlab-ret ()
