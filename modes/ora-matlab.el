@@ -82,17 +82,7 @@
                         (with-ivy-window
                           (comint-delete-input))))))
 
-(defun ora-matlab-completion-at-point ()
-  (let ((bnd (bounds-of-thing-at-point 'symbol)))
-    (when bnd
-      (let* ((beg (car bnd))
-             (end (cdr bnd))
-             (sym (buffer-substring-no-properties beg end))
-             (res (matlab-shell-completion-list sym)))
-        ;; (sit-for 0.1)
-        (list (car bnd) (cdr bnd) res)))))
-
-;; (setq matlab-really-gaudy-font-lock-keywords nil)
+(setq matlab-really-gaudy-font-lock-keywords nil)
 
 (defun matlab-run-file ()
   (interactive)
