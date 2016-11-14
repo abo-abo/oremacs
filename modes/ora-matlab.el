@@ -59,10 +59,21 @@
                                matlab-gaudy-font-lock-keywords)))
 (defvar ora-matlab-shell-history nil)
 
+(defvar ora-matlab-needs-rehash nil)
+(defun ora-matlab-after-save ()
+  (when (eq major-mode 'matlab-mode)
+    (setq ora-matlab-needs-rehash t)))
+
+(when (eq system-type 'windows-nt)
+  (add-hook 'after-save-hook 'ora-matlab-after-save))
+
 (defun ora-matlab-ret ()
   (interactive)
   (push (comint-get-old-input-default) ora-matlab-shell-history)
   (setq ora-matlab-shell-history (delete-dups ora-matlab-shell-history))
+  (when ora-matlab-needs-rehash
+    (setq ora-matlab-needs-rehash nil)
+    (matlab-eval "rehash"))
   (comint-send-input))
 
 (defun ora-matlab-cd ()
