@@ -136,6 +136,7 @@
 (setq-default org-tags-column -96)
 (setq org-completion-use-ido t)
 (setq org-clock-out-remove-zero-time-clocks t)
+(setq org-clock-string-limit 30)
 (setq org-clock-sound "/usr/local/share/tngchime.wav")
 (setq org-latex-create-formula-image-program 'dvipng)
 (plist-put org-format-latex-options :scale 1.5)
@@ -470,9 +471,9 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
       (setq str (replace-regexp-in-string
                  "\\[\\[.*?\\]\\[\\(.*?\\)\\]\\]" "\\1"
                  (match-string-no-properties 4)))
-      (mapconcat (lambda (s) (substring s 0 1))
+      (mapconcat (lambda (s) (substring s 0 2))
                  (split-string str "[- =]+")
-                 ""))))
+                 "-"))))
 (setq org-clock-heading-function #'ora-org-clock-heading)
 
 (defun org-completion-refs ()
