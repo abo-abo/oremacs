@@ -66,11 +66,11 @@
    (let ((files (dired-get-marked-files
                  t current-prefix-arg)))
      (list
-      (unless (eq system-type 'windows-nt)
+      (unless (memq system-type '(windows-nt cygwin))
         (dired-read-shell-command "& on %s: "
                                   current-prefix-arg files))
       files)))
-  (if (eq system-type 'windows-nt)
+  (if (memq system-type '(windows-nt cygwin))
       (dolist (file file-list)
         (w32-shell-execute "open" (expand-file-name file)))
     (let (list-switch)
