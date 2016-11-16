@@ -282,6 +282,7 @@ If called with a prefix, prompts for flags to pass to ag."
                       (buffer-substring-no-properties (point-min) (point))
                       'utf-8))))
             (file-name (buffer-file-name)))
+        (save-buffer)
         (kill-buffer (current-buffer))
         (find-file-literally file-name)
         (goto-char pt)))))
