@@ -299,6 +299,11 @@ a sound to be played"
   (insert str)
   (org-try-structure-completion))
 
+(defun org-insert-env (env)
+  (insert "\\begin{" env "}\n")
+  (save-excursion
+    (insert "\n\\end{" env "}")))
+
 (defhydra hydra-org-template (:color blue :hint nil)
   "
 _c_enter  _q_uote    _L_aTeX:
@@ -321,6 +326,7 @@ _h_tml    ^ ^        _A_SCII:
   ("H" (hot-expand "<H"))
   ("A" (hot-expand "<A"))
   ("t" (hot-expand "<t"))
+  ("u" (org-insert-env "equation"))
   ("<" self-insert-command "ins")
   ("o" nil "quit"))
 
