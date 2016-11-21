@@ -10,8 +10,12 @@
 
 (defun ora-matlab-switch-to-shell ()
   (interactive)
-  (other-window 1)
-  (matlab-shell))
+  (let ((wnd (cl-find-if (lambda (w) (string= "*MATLAB*" (buffer-name (window-buffer w))))
+                         (window-list))))
+    (if wnd
+        (select-window wnd)
+      (other-window 1)
+      (matlab-shell))))
 
 ;;;###autoload
 (defun ora-matlab-shell-hook ()
