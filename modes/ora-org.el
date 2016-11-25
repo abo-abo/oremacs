@@ -27,7 +27,9 @@
   (add-to-list 'prettify-symbols-alist
                '(":PROPERTIES:" . ":"))
   (prettify-symbols-mode)
-  (setq completion-at-point-functions '(org-completion-refs t)))
+  (setq completion-at-point-functions '(org-completion-refs
+                                        ora-dabbrev-completion-at-point
+                                        t)))
 
 ;;;###autoload
 (defun ora-org-agenda-hook ())
