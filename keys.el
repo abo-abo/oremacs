@@ -202,7 +202,8 @@
 (defhydra hydra-k (:color blue
                    :idle 0.5)
   "k"
-  ("a" dired-jump "dired")
+  ("a" orfu-agenda-day "agenda")
+  ("j" dired-jump "dired")
   ("b" hydra-launcher/body "browse")
   ("d" define-word-at-point "def")
   ("e" eval-expression "eval")
