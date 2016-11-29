@@ -70,9 +70,11 @@
         (dired-read-shell-command "& on %s: "
                                   current-prefix-arg files))
       files)))
-  (if (memq system-type '(windows-nt cygwin))
+  (if (eq system-type 'windows-nt)
       (dolist (file file-list)
         (w32-shell-execute "open" (expand-file-name file)))
+    (when (eq system-type 'cygwin)
+      (setq cmd "cygstart"))
     (let (list-switch)
       (start-process
        cmd nil shell-file-name
