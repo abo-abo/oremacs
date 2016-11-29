@@ -20,6 +20,13 @@ def mapconcat (func, lst, sep):
     else:
         return sep.join (lst)
 
+def flatten (seq):
+    """Flatten a list of lists into a list."""
+    return [item for sublist in seq for item in sublist]
+
+def partition (n, seq):
+    return [seq[i:i + n] for i in range (0, len (seq), n)]
+
 #* OS
 def addpath (path):
     sys.path.append (path)
