@@ -105,3 +105,9 @@ def match_beginning (group):
 def match_end (group):
     global match_data
     return match_data.end (group)
+
+def re_filter (regex, seq):
+    return filter (lambda (s): re.search (regex, s), seq)
+
+def re_seq (regex, s):
+    return re.findall (regex, s)
