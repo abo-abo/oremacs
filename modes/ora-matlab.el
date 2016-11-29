@@ -142,3 +142,4 @@
      (lispy-kill-at-point))))
 
 (setq matlab-fill-code nil)
+(provide 'ora-matlab)
