@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: map
+# key: m
+# --
+map (@(x) $0, $1)
