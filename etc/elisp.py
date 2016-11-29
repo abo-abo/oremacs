@@ -78,6 +78,9 @@ def directory_files (d, full = False, match = False):
         fl = map (lambda (f): expand_file_name (f, d), fl)
     return fl
 
+def delete_file (f):
+    return os.remove (f)
+
 #* File read/write
 def slurp (f):
     fh = open (f, 'r')
