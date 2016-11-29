@@ -197,7 +197,8 @@
     (setq powerline-display-mule-info nil)
     (setq powerline-display-hud nil)
     (when (display-graphic-p)
-      (powerline-default-theme))))
+      (powerline-default-theme)
+      (remove-hook 'focus-out-hook 'powerline-unset-selected-window))))
 (use-package uniquify
     :init
   (setq uniquify-buffer-name-style 'reverse)
