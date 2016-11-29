@@ -72,7 +72,7 @@
   (when (eq major-mode 'matlab-mode)
     (setq ora-matlab-needs-rehash t)))
 
-(when (eq system-type 'windows-nt)
+(when (memq system-type '(windows-nt cygwin))
   (add-hook 'after-save-hook 'ora-matlab-after-save))
 
 (defun ora-matlab-ret ()
