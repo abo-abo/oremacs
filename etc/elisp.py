@@ -31,7 +31,7 @@ def eval (s):
     out = subprocess.check_output (["emacsclient", "-e", s])
     return out[:-1]
 
-#* File names
+#* Files
 def default_directory ():
     return os.getcwd ()
 
@@ -63,8 +63,13 @@ def abbreviate_file_name (f, d):
     if m:
         return f[m.end () + 1:]
 
-def directory_files (d):
-    return os.listdir (d)
+def directory_files (d, full = False, match = False):
+    fl = os.listdir (d)
+    if match:
+        fl = filter (lambda (f):  None != string_match (match, f), fl)
+    if full:
+        fl = map (lambda (f): expand_file_name (f, d), fl)
+    return fl
 
 #* File read/write
 def slurp (f):
