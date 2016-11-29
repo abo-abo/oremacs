@@ -6,6 +6,11 @@
 (define-key matlab-mode-map (kbd "β") 'counsel-matlab)
 (define-key matlab-mode-map (kbd "C-,") 'matlab-kill-at-point)
 (define-key matlab-mode-map (kbd "C-c C-z") 'ora-matlab-switch-to-shell)
+(require 'ob-matlab)
+
+(defun org-babel-execute:matlab (body params)
+  "Execute a block of matlab code with Babel."
+  (matlab-eval body))
 
 (defun ora-matlab-switch-to-shell ()
   (interactive)
