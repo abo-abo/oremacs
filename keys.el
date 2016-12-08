@@ -104,6 +104,8 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 (global-set-key (kbd "M-o") 'ace-link)
+(global-set-key (kbd "M-u") 'universal-argument)
+
 ;;* C-c shortcuts
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c y") 'pam-drill)
