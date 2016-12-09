@@ -1,8 +1,9 @@
 (require 'cc-mode)
+(require 'cc-chainsaw)
 (setq compilation-read-command nil)
 
 (define-key java-mode-map [C-f5] 'java-eval-nofocus)
-(define-key java-mode-map [f5] 'ant-compile)
+(define-key java-mode-map [f5] 'ccc-run)
 (define-key java-mode-map (kbd "<f2> h") 'hs-toggle-hiding)
 (define-key java-mode-map (kbd "M-<f5>") (lambda ()(interactive)(antify)(ant-compile)))
 (define-key java-mode-map (kbd "χ") 'java-attr)
