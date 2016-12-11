@@ -16,7 +16,6 @@
 
 ;;;###autoload
 (defun ora-java-hook ()
-  (text-scale-set -1)
   (hs-minor-mode)
   (setq c-basic-offset 2)
   (abbrev-mode 1))
