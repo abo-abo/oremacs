@@ -125,6 +125,7 @@
 (global-set-key (kbd "C-c u") 'swiper-all)
 (global-set-key (kbd "C-c v") 'ivy-push-view)
 (global-set-key (kbd "C-c V") 'ivy-pop-view)
+(global-set-key (kbd "C-c b") 'counsel-bookmark)
 (global-set-key (kbd "C-c w") 'ora-org-to-html-to-clipboard)
 (global-set-key (kbd "C-c t") 'counsel-load-theme)
 (global-set-key (kbd "C-c E") 'vc-ediff)
@@ -194,12 +195,12 @@
   ("1" (text-scale-set 0) nil :bind nil :exit t))
 
 (defhydra hydra-launcher (:color blue :columns 2)
-   "Launch"
-   ("h" man "man")
-   ("r" (browse-url "http://www.reddit.com/r/emacs/") "reddit")
-   ("w" (browse-url "http://www.emacswiki.org/") "emacswiki")
-   ("s" shell "shell")
-   ("q" nil "cancel"))
+  "Launch"
+  ("h" man "man")
+  ("r" (browse-url "http://www.reddit.com/r/emacs/") "reddit")
+  ("w" (browse-url "http://www.emacswiki.org/") "emacswiki")
+  ("s" shell "shell")
+  ("q" nil "cancel"))
 
 (defhydra hydra-k (:color blue
                    :idle 0.5)
