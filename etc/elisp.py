@@ -1,3 +1,4 @@
+#* Imports
 import subprocess
 import sys
 import os
@@ -26,6 +27,9 @@ def flatten (seq):
 
 def partition (n, seq):
     return [seq[i:i + n] for i in range (0, len (seq), n)]
+
+def delete (element, lst):
+    return [x for x in lst if x != element]
 
 #* OS
 def addpath (path):
