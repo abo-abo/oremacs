@@ -144,5 +144,6 @@
   (company-mode 1))
 
 (defalias 'tt 'ora-terminal)
+(defalias 'sc 'shell-command-to-string)
 (defalias 'cal 'calendar)
 (provide 'hooks)
