@@ -3,4 +3,4 @@
 # condition: (> aya-invokation-point 10)
 # key: p
 # --
-System.out.println($0);
+System.out.println ($0);
