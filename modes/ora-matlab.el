@@ -3,9 +3,22 @@
 (define-key matlab-mode-map (kbd "C-M-i") nil)
 (define-key matlab-mode-map (kbd "<f5>") 'matlab-run-file)
 (define-key matlab-mode-map (kbd "θ") 'ora-single-quotes)
+(define-key matlab-mode-map (kbd "φ") 'matlab-parens)
 (define-key matlab-mode-map (kbd "β") 'counsel-matlab)
 (define-key matlab-mode-map (kbd "C-,") 'matlab-kill-at-point)
 (define-key matlab-mode-map (kbd "C-c C-z") 'ora-matlab-switch-to-shell)
+
+(defun matlab-parens ()
+  (interactive)
+  (cond ((region-active-p)
+         (lispy--surround-region "(" ")"))
+
+        (t
+         (unless (equal "0" (matlab-eval (format "fboundp('%s')" (thing-at-point 'symbol t))))
+           (just-one-space))
+         (insert "()")
+         (backward-char))))
+
 (require 'ob-matlab)
 
 (defun org-babel-execute:matlab (body params)
