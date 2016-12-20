@@ -37,6 +37,8 @@
   ;; (define-key message-mode-map (kbd "<tab>") 'bbdb-complete-mail)
   )
 
+(define-key message-mode-map (kbd "C-c C-v") nil)
+
 ;;;###autoload
 (defun ora-gnus-article-hook ())
 
