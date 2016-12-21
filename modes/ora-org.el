@@ -119,7 +119,9 @@
 
 ;;* Basic settings
 (setq-default org-todo-keywords
-              '((sequence "TODO" ;; "NEXT"
+              '((sequence "TODO"
+                 "WAITING"
+                 ;; "NEXT"
                  "|" "DONE" "CANCELLED")))
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "red" :weight bold))
