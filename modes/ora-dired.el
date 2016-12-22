@@ -67,8 +67,13 @@
                  t current-prefix-arg)))
      (list
       (unless (memq system-type '(windows-nt cygwin))
-        (dired-read-shell-command "& on %s: "
-                                  current-prefix-arg files))
+        (let ((prog (dired-guess-default files)))
+          (if (consp prog)
+              (car prog)
+            prog))
+        ;; (dired-read-shell-command "& on %s: "
+        ;;                           current-prefix-arg files)
+        )
       files)))
   (if (eq system-type 'windows-nt)
       (dolist (file file-list)
