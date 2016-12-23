@@ -89,6 +89,8 @@
 ;;** Rest
 (csetq browse-url-browser-function 'browse-url-firefox)
 (csetq browse-url-firefox-program "firefox")
+;;*** Backups
+(setq backup-by-copying t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 ;;* Bootstrap
 ;;** autoloads
