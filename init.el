@@ -92,6 +92,7 @@
 ;;*** Backups
 (setq backup-by-copying t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq delete-old-versions t)
 ;;* Bootstrap
 ;;** autoloads
 (load (concat emacs-d "loaddefs.el") nil t)
