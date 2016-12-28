@@ -94,6 +94,7 @@
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (setq delete-old-versions t)
 (setq version-control t)
+(setq create-lockfiles nil)
 ;;* Bootstrap
 ;;** autoloads
 (load (concat emacs-d "loaddefs.el") nil t)
