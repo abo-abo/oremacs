@@ -136,7 +136,7 @@
 (add-to-list 'auto-mode-alist '("\\.\\(?:a\\|so\\)\\'" . elf-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
 (autoload 'matlab-mode "matlab")
-(autoload 'matlab-shell "matlab")
+(autoload 'matlab-shell "matlab" nil t)
 (autoload 'mu4e "ora-mu4e")
 (add-to-list 'auto-mode-alist '("\\.cache\\'" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(h\\|inl\\)\\'" . c++-mode))
