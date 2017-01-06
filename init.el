@@ -259,6 +259,7 @@
 (use-package projectile
     :diminish projectile-mode
     :init
+    (setq projectile-mode-line nil)
     (projectile-global-mode)
     (setq projectile-project-root-files-bottom-up
           '(".git" ".projectile"))
