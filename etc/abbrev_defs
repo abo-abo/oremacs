@@ -104,7 +104,6 @@
       ("ioe" "IOException" nil 3)
       ("ioobe" "IndexOutOfBoundsException" nil 1)
       ("ipfe" "InvalidPropertiesFormatException" nil 1)
-      ("is" "InputStream" nil 2)
       ("isa" "InetSocketAddress" nil 2)
       ("ise" "IllegalStateException" nil 1)
       ("isr" "InputStreamReader" nil 2)
