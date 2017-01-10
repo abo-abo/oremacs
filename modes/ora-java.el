@@ -3,6 +3,8 @@
 (setq compilation-read-command nil)
 
 (define-key java-mode-map [C-f5] 'java-eval-nofocus)
+(define-key java-mode-map (kbd "C-c C-l") 'java-eval-buffer)
+(define-key java-mode-map (kbd "C-c C-z") 'java-switch-to-repl)
 (define-key java-mode-map [f5] 'ccc-run)
 (define-key java-mode-map (kbd "<f2> h") 'hs-toggle-hiding)
 (define-key java-mode-map (kbd "M-<f5>") (lambda ()(interactive)(antify)(ant-compile)))
@@ -289,3 +291,29 @@
   (interactive)
   (re-search-backward "\\(\\w+\\)\\s-*)\\s-*{")
   (match-string 1))
+
+(defun java-eval-process ()
+  (let ((name "*java-repl*")
+        buf process)
+    (if (and (setq buf (get-buffer name))
+             (setq process (get-buffer-process buf))
+             (process-live-p process))
+        process
+      (save-window-excursion
+        (comint-run "java-repl")
+        (get-buffer-process (current-buffer))))))
+
+(defun java-eval-buffer ()
+  (interactive)
+  (process-send-string (java-eval-process)
+                       (concat (if (region-active-p)
+                                   (buffer-substring-no-properties
+                                    (region-beginning)
+                                    (region-end))
+                                 (buffer-string))
+                               "\n")))
+
+(defun java-switch-to-repl ()
+  (interactive)
+  (pop-to-buffer
+   (process-buffer (java-eval-process))))
