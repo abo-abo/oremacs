@@ -86,7 +86,6 @@ and <code>...</code>."
 (define-key c++-mode-map (kbd "β") 'moo-complete)
 (define-key c++-mode-map (kbd "M-q") 'ccc-align-function-arguments)
 (define-key c++-mode-map (kbd "C-M-g") 'hydra-gud/body)
-(define-key c++-mode-map (kbd "M-.") 'semantic-ia-fast-jump)
 (define-key c++-mode-map (kbd "C-2") 'fa-show)
 ;; (define-key c++-mode-map (kbd "κ c") 'ccc-ensure-public)
 ;; (define-key c++-mode-map (kbd "κ e") 'ccc-ensure-private)
