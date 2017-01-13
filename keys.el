@@ -300,6 +300,22 @@
   ("q" nil "cancel")
   ("u" (progn (winner-undo) (setq this-command 'winner-undo)) "undo")
   ("f" nil))
+
+(defhydra hydra-apropos (:color blue
+                         :hint nil)
+  "
+_m_an              _c_ommand
+_a_propos          _l_ibrary
+_d_ocumentation    _u_ser-option
+_v_ariable     valu_e_"
+  ("m" man)
+  ("a" apropos)
+  ("d" apropos-documentation)
+  ("v" apropos-variable)
+  ("c" apropos-command)
+  ("l" apropos-library)
+  ("u" apropos-user-option)
+  ("e" apropos-value))
 (global-set-key (kbd "C-M-o") 'hydra-window/body)
 ;; (global-set-key (kbd "C-M-k") 'hydra-pause-resume)
 (global-set-key (kbd "C-M-k") 'ora-kill-current-buffer)
