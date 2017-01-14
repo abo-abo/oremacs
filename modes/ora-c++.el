@@ -1,3 +1,4 @@
+;; (require 'cedet-devel-load)
 (require 'subword)
 (diminish 'subword-mode)
 
