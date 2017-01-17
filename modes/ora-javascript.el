@@ -11,10 +11,12 @@
 ;;;###autoload
 (defun ora-javascript-hook ()
   (semantic-mode -1)
-  (add-to-list 'ac-sources 'ac-source-javascript)
+  ;; (add-to-list 'ac-sources 'ac-source-javascript)
+  (setq-local avy-subword-extra-word-chars nil)
   (auto-complete-mode 1)
-  (ignore-errors
-    (moz-minor-mode 1)))
+  ;; (ignore-errors
+  ;;   (moz-minor-mode 1))
+  )
 
 (defvar keyword-function
   '(("\\(function\\)\\>" (0 (prog1 ()
