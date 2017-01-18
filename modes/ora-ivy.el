@@ -48,4 +48,29 @@
                      "/home/oleh/Dropbox/source/site-lisp "
                      "git/*"))))
 
+(defun ivy-view-backtrace ()
+  (interactive)
+  (switch-to-buffer "*ivy-backtrace*")
+  (delete-region (point-min) (point-max))
+  (fundamental-mode)
+  (insert ivy-old-backtrace)
+  (goto-char (point-min))
+  (forward-line 1)
+  (let (part parts)
+    (while (< (point) (point-max))
+      (condition-case nil
+          (progn
+            (setq part (read (current-buffer)))
+            (push part parts)
+            (delete-region (point-min) (point)))
+        (error
+         (progn
+           (ignore-errors (up-list))
+           (delete-region (point-min) (point)))))))
+  (goto-char (point-min))
+  (dolist (part parts)
+    (lispy--insert part)
+    (lispy-alt-multiline)
+    (insert "\n")))
+
 (provide 'ora-ivy)
