@@ -23,6 +23,18 @@
 
 (defun org-babel-execute:matlab (body params)
   "Execute a block of matlab code with Babel."
+  (let ((vars (cdr (assoc :var params))))
+    (when (symbolp (car vars))
+      (let ((name (symbol-name (car vars))))
+        (setq body
+              (concat
+               (format "%s = [];\n" name)
+               (mapconcat (lambda (x)
+                            (format "%s(end+1,:) = [%s];" name
+                                    (mapconcat #'number-to-string x " ")))
+                          (cdr vars)
+                          "\n")
+               "\n" body)))))
   (matlab-eval body))
 
 (defun ora-matlab-switch-to-shell ()
