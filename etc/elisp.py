@@ -77,9 +77,9 @@ def abbreviate_file_name (f, d):
 def directory_files (d, full = False, match = False):
     fl = os.listdir (d)
     if match:
-        fl = filter (lambda (f):  None != string_match (match, f), fl)
+        fl = filter (lambda f:  None != string_match (match, f), fl)
     if full:
-        fl = map (lambda (f): expand_file_name (f, d), fl)
+        fl = map (lambda f: expand_file_name (f, d), fl)
     return fl
 
 def delete_file (f):
@@ -126,7 +126,7 @@ def match_end (group):
     return match_data.end (group)
 
 def re_filter (regex, seq):
-    return filter (lambda (s): re.search (regex, s), seq)
+    return filter (lambda s: re.search (regex, s), seq)
 
 def re_seq (regex, s):
     return re.findall (regex, s)
