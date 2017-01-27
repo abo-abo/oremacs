@@ -25,6 +25,25 @@
       (back-to-indentation)
     (beginning-of-line)))
 
+;;;###autoload
+(defun ora-open-file-at-point (event)
+  (interactive "e")
+  (posn-set-point (event-end event))
+  (require 'ffap)
+  (let ((f (ffap-guesser))
+        (w (cl-find-if (lambda (w)
+                         (with-current-buffer (window-buffer w)
+                           (eq major-mode 'image-mode)))
+                       (window-list)))
+        b)
+    (when f
+      (setq b (find-file-noselect (expand-file-name f)))
+      (if w
+          (progn
+            (select-window w)
+            (switch-to-buffer b))
+        (pop-to-buffer b)))))
+
 (defun ora-backward-delete-whitespace ()
   (interactive)
   (save-match-data
