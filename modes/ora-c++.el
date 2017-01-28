@@ -9,7 +9,6 @@
 (define-key function-args-mode-map (kbd "M-i") nil)
 (define-key function-args-mode-map (kbd "C-2") 'fa-show)
 (require 'cc-chainsaw)
-(require 'auto-yasnippet)
 (require 'auto-complete)
 (csetq c-hanging-semi&comma-criteria nil)
 (setq-local ac-delay 0.1)
@@ -47,6 +46,9 @@ and <code>...</code>."
 
 ;;* Configure semantic
 (require 'semantic/bovine/c)
+(when (require 'semintic/idle nil t)
+  (csetq semantic-idle-scheduler-idle-time nil)
+  (csetq semantic-idle-scheduler-work-idle-time nil))
 (dolist (x (list "/home/oleh/git/gnu-emacs/src/config.h"
                  "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h"))
   (add-to-list 'semantic-lex-c-preprocessor-symbol-file x))
