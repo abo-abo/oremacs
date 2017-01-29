@@ -10,7 +10,7 @@
 (setq directory-free-space-args "-Pmh")
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
-(setq dired-omit-files "\\(?:.*\\.\\(?:aux\\|log\\|synctex\\.gz\\|run\\.xml\\|bcf\\|am\\|in\\|blx\\.bib\\)\\'\\)\\|compile_commands.json")
+(setq dired-omit-files "\\(?:.*\\.\\(?:aux\\|log\\|synctex\\.gz\\|run\\.xml\\|bcf\\|am\\|in\\|blx\\.bib\\)\\'\\)\\|compile_commands.json\\|__pycache__")
 (setq dired-omit-verbose nil)
 (setq dired-garbage-files-regexp
       "\\.idx\\|\\.run\\.xml$\\|\\.bbl$\\|\\.bcf$\\|.blg$\\|-blx.bib$\\|.nav$\\|.snm$\\|.out$\\|.synctex.gz$\\|\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|pyg\\)\\)\\'")
