@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: load_file
+# key: lf
+# --
+exec (open ('${0:`(ora-get-py-fname)`}').read(), globals ())

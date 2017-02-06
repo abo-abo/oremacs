@@ -49,6 +49,18 @@
   (setq completion-at-point-functions '(lispy-python-completion-at-point t))
   (setf (symbol-function #'jedi:handle-post-command) (lambda nil nil)))
 
+(defun ora-get-py-fname ()
+  "Get the file name of a visibile `python-mode' buffer."
+  (let ((b (window-buffer
+            (cl-find-if (lambda (w)
+                          (with-current-buffer (window-buffer w)
+                            (eq major-mode 'python-mode)))
+                        (window-list)))))
+    (if b
+        (file-name-nondirectory
+         (buffer-file-name b))
+      "")))
+
 (defun ora-python-switch-to-shell ()
   (interactive)
   (let ((buffer (process-buffer (lispy--python-proc))))
