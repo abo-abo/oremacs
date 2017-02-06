@@ -46,7 +46,8 @@
   (setq lispy-no-space t)
   (setq forward-sexp-function 'ora-c-forward-sexp-function)
   (lpy-mode)
-  (setq completion-at-point-functions '(lispy-python-completion-at-point t)))
+  (setq completion-at-point-functions '(lispy-python-completion-at-point t))
+  (setf (symbol-function #'jedi:handle-post-command) (lambda nil nil)))
 
 (defun ora-python-switch-to-shell ()
   (interactive)
