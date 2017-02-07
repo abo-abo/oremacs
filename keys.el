@@ -165,7 +165,7 @@
 (global-set-key [f11] 'ora-org-clock-out)
 (global-set-key [C-f11] 'org-clock-goto)
 (global-set-key [f12] 'orfu-agenda-day)
-(global-set-key [C-f12] 'org-agenda)
+(global-set-key [C-f12] 'orfu-agenda-quick)
 (global-set-key (kbd "C-<f1>") (lambda () (interactive) (shell-command "setxkbmap ua")))
 (global-set-key (kbd "C-<f2>") (lambda () (interactive) (shell-command "setxkbmap us;xmodmap ~/.Xmodmap")))
 ;;* Misc shortcuts
