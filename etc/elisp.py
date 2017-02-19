@@ -7,6 +7,18 @@ import getpass
 import shlex
 
 #* Functional
+def apply (function, arguments):
+    """Call FUNCTION with ARGUMENTS, return the result."""
+    return function (*arguments)
+
+def mapcar (func, lst):
+    """Compatibility function for Python3.
+
+    In Python2 `map' returns a list, as expected.  But in Python3
+    `map' returns a map object that can be converted to a list.
+    """
+    return list (map (func, lst))
+
 def cl_position_if (pred, lst):
     pos = 0
     for item in lst:
