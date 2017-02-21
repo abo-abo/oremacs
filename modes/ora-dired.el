@@ -18,7 +18,7 @@
 (setq dired-guess-shell-alist-user
       '(("\\.pdf\\'" "evince" "okular")
         ("\\.\\(?:djvu\\|eps\\)\\'" "evince")
-        ("\\.\\(?:jpg\\|jpeg\\|png\\|gif\\|xpm\\|bmp\\)\\'" "eog")
+        ("\\.\\(?:jpg\\|jpeg\\|png\\|svg\\|gif\\|xpm\\|bmp\\)\\'" "eog")
         ("\\.\\(?:xcf\\)\\'" "gimp")
         ("\\.csv\\'" "libreoffice")
         ("\\.tex\\'" "pdflatex" "latex")
