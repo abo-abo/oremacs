@@ -56,7 +56,7 @@
 (csetq indent-tabs-mode nil)
 (csetq truncate-lines t)
 (setq ring-bell-function 'ignore)
-(csetq highlight-nonselected-windows t)
+(csetq highlight-nonselected-windows nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq kill-buffer-query-functions nil)
 (add-hook 'server-switch-hook 'raise-frame)

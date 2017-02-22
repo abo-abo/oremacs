@@ -233,6 +233,24 @@
   ("t" toggle-truncate-lines "truncate")
   ("w" whitespace-mode "whitespace")
   ("q" nil "cancel"))
+(defhydra hydra-toggle (:color pink :hint nil)
+  "
+_a_ abbrev-mode:       %`abbrev-mode
+_d_ debug-on-error:    %`debug-on-error
+_f_ auto-fill-mode:    %`auto-fill-function
+_h_ highlight          %`highlight-nonselected-windows
+_t_ truncate-lines:    %`truncate-lines
+_w_ whitespace-mode:   %`whitespace-mode
+_l_ org link display:  %`org-descriptive-links
+"
+  ("a" abbrev-mode)
+  ("d" toggle-debug-on-error)
+  ("f" auto-fill-mode)
+  ("h" (setq highlight-nonselected-windows (not highlight-nonselected-windows)))
+  ("t" toggle-truncate-lines)
+  ("w" whitespace-mode)
+  ("l" org-toggle-link-display)
+  ("q" nil "quit"))
 
 (defhydra hydra-vi (:pre (set-cursor-color "#e52b50")
                     :post (set-cursor-color "#ffffff")
@@ -267,6 +285,7 @@
   ("C-n" (forward-line 1) nil :exit t)
   ("C-p" (forward-line -1) nil :exit t))
 (global-set-key (kbd "C-v") 'hydra-vi/body)
+(global-set-key (kbd "C-c C-v") 'hydra-toggle/body)
 
 (defhydra hydra-window (:color red
                         :columns nil)
