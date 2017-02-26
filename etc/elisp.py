@@ -54,6 +54,10 @@ def eval (s):
     out = subprocess.check_output (["emacsclient", "-e", s])
     return out[:-1]
 
+def load_file (f):
+    "Load a Python file into the REPL."
+    exec (open (f).read(), globals ())
+
 #* Files
 def default_directory ():
     return os.getcwd ()
@@ -68,6 +72,9 @@ def expand_file_name (f, directory = None):
         return os.path.expanduser (f)
     else:
         return os.path.realpath (os.path.join (directory, f))
+
+def file_name_sans_extension (f):
+    return os.path.splitext (f)[0]
 
 def file_name_directory (f):
     return os.path.dirname (f)
@@ -112,6 +119,7 @@ def barf (f, s):
 #* Shell
 def shell_command_to_string (cmd):
     return subprocess.check_output (shlex.split (cmd))
+    # return subprocess.getoutput (cmd)
 
 def shell_command_to_list (cmd):
     cmd_output = shell_command_to_string (cmd)
