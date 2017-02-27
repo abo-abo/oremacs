@@ -453,7 +453,10 @@ If called with a prefix, prompts for flags to pass to ag."
 (defun ora-org-to-html-to-clipboard ()
   "Export region to HTML, and copy it to the clipboard."
   (interactive)
-  (org-export-to-file 'html "/tmp/org.html")
+  (let ((org-html-xml-declaration nil)
+        (org-html-postamble nil)
+        (org-html-preamble nil))
+    (org-export-to-file 'html "/tmp/org.html"))
   (apply
    'start-process "xclip" "*xclip*"
    (split-string
