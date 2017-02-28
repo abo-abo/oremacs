@@ -921,24 +921,38 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
                         :history 'ora-custom-setq-history)))
         sym-type
         cands)
-    (when (and (boundp sym)
-               (setq sym-type (get sym 'custom-type)))
-      (cond
-        ((and (consp sym-type)
-              (memq (car sym-type) '(choice radio)))
-         (setq cands (delq nil (mapcar #'lispy--setq-doconst (cdr sym-type)))))
-        ((eq sym-type 'boolean)
-         (setq cands
-               '(("nil" . nil) ("t" . t))))
-        (t
-         (error "Unrecognized custom type")))
-      (let ((res (ivy-read (format "Set (%S): " sym) cands)))
-        (when res
-          (setq res
-                (if (assoc res cands)
-                    (cdr (assoc res cands))
-                  (read res)))
-          (eval `(setq ,sym ,res)))))))
+    (if (and (boundp sym)
+             (setq sym-type (get sym 'custom-type))
+             (cond
+               ((and (consp sym-type)
+                     (memq (car sym-type) '(choice radio)))
+                (setq cands (delq nil (mapcar #'lispy--setq-doconst (cdr sym-type)))))
+               ((eq sym-type 'boolean)
+                (setq cands '(("nil" . nil) ("t" . t))))
+               (t nil)))
+        (let ((res (ivy-read (format "Set (%S): " sym)
+                             cands
+                             :preselect (symbol-name (symbol-value sym)))))
+          (when res
+            (setq res
+                  (if (assoc res cands)
+                      (cdr (assoc res cands))
+                    (read res)))
+            (eval `(setq ,sym ,res))))
+      (setq this-command 'eval-expression)
+      (let* ((minibuffer-completing-symbol t)
+             (expr (minibuffer-with-setup-hook
+                       (lambda ()
+                         (add-hook 'completion-at-point-functions #'elisp-completion-at-point nil t)
+                         (run-hooks 'eval-expression-minibuffer-setup-hook)
+                         (goto-char (minibuffer-prompt-end))
+                         (forward-char 6)
+                         (insert (format "%S " sym)))
+                     (read-from-minibuffer "Eval: " (format "(setq '%S)"
+                                                            (symbol-value sym))
+                                           read-expression-map t
+                                           'read-expression-history))))
+        (eval-expression expr)))))
 
 ;;;###autoload
 (defun ora-quote-github-issues ()
