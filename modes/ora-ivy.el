@@ -27,10 +27,23 @@
     (user-error
      "Not completing files currently")))
 
+(defun ora-insert (x)
+  (with-ivy-window
+    (insert
+     (if (stringp x)
+         x
+       (car x)))))
+
+(defun ora-kill-new (x)
+  (kill-new
+   (if (stringp x)
+       x
+     (car x))))
+
 (ivy-set-actions
  t
- '(("i" insert "insert")
-   ("w" kill-new "copy")))
+ '(("i" ora-insert "insert")
+   ("w" ora-kill-new "copy")))
 
 (setq ivy-switch-buffer-faces-alist
       '((emacs-lisp-mode . swiper-match-face-1)
