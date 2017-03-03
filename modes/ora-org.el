@@ -488,7 +488,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
       (setq str (replace-regexp-in-string
                  "\\[\\[.*?\\]\\[\\(.*?\\)\\]\\]" "\\1"
                  (match-string-no-properties 4)))
-      (mapconcat (lambda (s) (substring s 0 2))
+      (mapconcat (lambda (s) (substring s 0 (min (length s) 2)))
                  (split-string str "[- =]+")
                  "-"))))
 (setq org-clock-heading-function #'ora-org-clock-heading)
