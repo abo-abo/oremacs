@@ -215,29 +215,33 @@
   ("b" hydra-launcher/body "browse")
   ("d" define-word-at-point "def")
   ("e" eval-expression "eval")
-  ("f" find-file-in-project "file")
   ("r" counsel-recoll "recoll")
-  ("g" (lambda ()
-         (interactive)
-         (let ((current-prefix-arg 4))
-           (call-interactively #'magit-status)))
-       "git")
-  ("l" helm-locate "locate")
-  ;; ("h" helm-google-suggest "google")
+  ("g" ora-project "project")
+  ("n" ora-open-wikitionary "wikitionary")
+  ("N" ora-open-google-translate "google-translate")
+  ("f" (if (region-active-p)
+           (vimish-fold (region-beginning) (region-end))
+         (hydra-vimish-fold/body)) "fold")
   ("w" plain-org-wiki "wiki")
   ("q" nil "quit"))
 
-(global-set-key (kbd "C-c C-v") 'hydra-toggle/body)
+(defhydra hydra-vimish-fold (:color blue
+                             :columns 3)
+  "fold"
+  ("a" vimish-fold-avy "avy")
+  ("d" vimish-fold-delete "del")
+  ("D" vimish-fold-delete-all "del-all")
+  ("u" vimish-fold-unfold "undo")
+  ("U" vimish-fold-unfold-all "undo-all")
+  ("f" vimish-fold "fold")
+  ("r" vimish-fold-refold "refold")
+  ("R" vimish-fold-refold-all "refold-all")
+  ("t" vimish-fold-toggle "toggle" :exit nil)
+  ("T" vimish-fold-toggle-all "toggle-all" :exit nil)
+  ("j" vimish-fold-next-fold "down" :exit nil)
+  ("k" vimish-fold-previous-fold "up" :exit nil)
+  ("q" nil "quit"))
 
-(defhydra hydra-vi-toggle (:color blue
-                           :post hydra-vi/body)
-  "vi-toggle"
-  ("a" abbrev-mode "abbrev")
-  ("d" toggle-debug-on-error "debug")
-  ("f" auto-fill-mode "fill")
-  ("t" toggle-truncate-lines "truncate")
-  ("w" whitespace-mode "whitespace")
-  ("q" nil "cancel"))
 (defhydra hydra-toggle (:color pink :hint nil)
   "
 _a_ abbrev-mode:       %`abbrev-mode
@@ -257,39 +261,6 @@ _l_ org link display:  %`org-descriptive-links
   ("l" org-toggle-link-display)
   ("q" nil "quit"))
 
-(defhydra hydra-vi (:pre (set-cursor-color "#e52b50")
-                    :post (set-cursor-color "#ffffff")
-                    :color pink)
-  "vi"
-  ;; movement
-  ("w" forward-word)
-  ("b" backward-word)
-  ;; scrolling
-  ("C-v" scroll-up-command nil)
-  ("M-v" scroll-down-command nil)
-  ("v" recenter-top-bottom)
-  ;; arrows
-  ("h" backward-char)
-  ("j" next-line)
-  ("k" previous-line)
-  ("l" forward-char)
-  ;; delete
-  ("x" delete-char)
-  ("d" hydra-vi-del/body "del" :exit t)
-  ("u" undo)
-  ;; should be generic "open"
-  ("r" push-button "open")
-  ("." hydra-repeat)
-  ;; bad
-  ("m" set-mark-command "mark")
-  ("a" move-beginning-of-line "beg")
-  ("e" move-end-of-line "end")
-  ("y" kill-ring-save "yank" :exit t)
-  ;; exit points
-  ("q" nil "ins")
-  ("C-n" (forward-line 1) nil :exit t)
-  ("C-p" (forward-line -1) nil :exit t))
-(global-set-key (kbd "C-v") 'hydra-vi/body)
 (global-set-key (kbd "C-c C-v") 'hydra-toggle/body)
 
 (defhydra hydra-window (:color red
