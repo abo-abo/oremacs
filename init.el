@@ -308,7 +308,7 @@
 (use-package htmlize
     :commands htmlize-buffer)
 (lispy-mode)
-(require 'personal/init nil t)
+(require 'personal-init nil t)
 (unless (bound-and-true-p ora-barebones)
   (run-with-idle-timer
    3 nil

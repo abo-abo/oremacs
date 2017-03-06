@@ -43,4 +43,4 @@
          "http://endlessparentheses.com/atom.xml"
          "http://oremacs.com/atom.xml"))
 
-(provide 'personal/init)
+(provide 'personal-init)
