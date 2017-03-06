@@ -51,7 +51,7 @@ make install
 
 # Personal customization
 
-If you want to track my upstream without difficulties, put your changes into `./oleh/personal/init.el`.  I have another git repository inside `./oleh/personal/` tracking stuff like my email address etc.
+If you want to track my upstream without difficulties, put your changes into `./personal/init.el`.  I have another git repository inside `./personal/` tracking stuff like my email address etc.
 
 # Perks
 
