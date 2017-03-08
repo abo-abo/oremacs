@@ -233,6 +233,12 @@
    (calc . t)))
 (add-to-list 'org-src-lang-modes '("J" . j))
 
+(setq org-babel-default-header-args:C++
+      '((:results . "verbatim")
+        (:main . "no")
+        (:flags . "-std=c++11")
+        (:cache . "yes")))
+
 (eval-when-compile
   (require 'ob-C)
   (require 'ob-ruby)
