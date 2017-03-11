@@ -14,6 +14,8 @@
 (require 'ciao nil t)
 
 (require 'lpy)
+;; when set to nil, completions to functions end with "(", very annoying
+(setq python-shell-completion-native-enable t)
 (define-key python-mode-map (kbd "C-.") nil)
 (define-key python-mode-map (kbd "C-x C-p") 'jedi:goto-definition)
 (define-key python-mode-map (kbd "C-?") 'jedi:show-doc)
