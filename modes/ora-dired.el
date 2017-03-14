@@ -1,4 +1,4 @@
-;;* require
+;;* require -*- lexical-binding: t -*-
 (require 'dired-x)
 (require 'dired-aux)
 (require 'term)
@@ -45,18 +45,15 @@
       (kill-buffer buffer))))
 
 ;;* rest
-(defvar du-program-name "/usr/bin/du")
-
 (defun ora-dired-get-size ()
   (interactive)
-  (let ((files (dired-get-marked-files)))
-    (with-temp-buffer
-      (apply 'call-process du-program-name nil t nil "-sch" files)
-      (message
-       "Size of all marked files: %s"
-       (progn
-         (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
-         (match-string 1))))))
+  (let* ((cmd (concat "du -sch "
+                      (mapconcat #'file-name-nondirectory
+                                 (dired-get-marked-files) " ")))
+         (res (shell-command-to-string cmd)))
+    (if (string-match "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$" res)
+        (message (match-string 1 res))
+      (error "unexpected output %s" res))))
 
 (defvar ora-dired-filelist-cmd
   '(("vlc" "-L")))
