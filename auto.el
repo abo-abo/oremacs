@@ -260,10 +260,11 @@ If called with a prefix, prompts for flags to pass to ag."
     ;; append the destination
     (setq tmtxt/rsync-command
           (concat tmtxt/rsync-command
-                  (shell-quote-argument dest)))
+                  (if (string-match "^/ssh:\\(.*\\)$" dest)
+                      (format " -e ssh %s" (match-string 1 dest))
+                    (shell-quote-argument dest))))
     ;; run the async shell command
-    (let ((default-directory (file-name-directory dest)))
-      (async-shell-command tmtxt/rsync-command))
+    (async-shell-command tmtxt/rsync-command)
     ;; finally, switch to that window
     (other-window 1)))
 
