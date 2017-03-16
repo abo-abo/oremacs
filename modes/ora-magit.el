@@ -24,6 +24,7 @@
 (define-key magit-status-mode-map "v" (lambda () (interactive) (magit-visit-item t)))
 (define-key magit-status-mode-map "V" 'projectile-find-file)
 (define-key magit-status-mode-map "h" 'ora-magit-find-main-file)
+(define-key magit-status-mode-map "ox" 'ora-magit-simple-commit)
 ;;** Log
 (define-key magit-log-mode-map "j" 'magit-goto-next-section)
 (define-key magit-log-mode-map "k" 'magit-goto-previous-section)
@@ -196,6 +197,16 @@
 (defun ora-magit-visit-item-other-window ()
   (interactive)
   (magit-visit-item t))
+
+(defun ora-magit-simple-commit ()
+  (interactive)
+  (save-window-excursion
+    (let ((item (elt (magit-current-section) 2)))
+      (ignore-errors (magit-stage-item))
+      (search-forward item)
+      (ora-magit-commit-add-log)
+      (insert "Update")
+      (git-commit-commit))))
 
 ;; (add-hook 'magit-mode-hook #'endless/add-PR-fetch)
 
