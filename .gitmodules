@@ -4,9 +4,6 @@
 [submodule "git/abel"]
 	path = git/abel
 	url = https://github.com/abo-abo/abel
-[submodule "git/cedet"]
-	path = git/cedet
-	url = https://github.com/abo-abo/cedet
 [submodule "git/eltex"]
 	path = git/eltex
 	url = https://github.com/abo-abo/eltex
