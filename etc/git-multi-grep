@@ -14,9 +14,8 @@ etc/git-grep '\(prin\).*\(git\)' `pwd` git/*
 import os
 import sys
 import re
+sys.path.append ("/home/oleh/git/site-python")
 from elisp import *
-
-# print sys.argv[1:]; exit (0)
 
 #* Functions
 def git_grep (regex):
@@ -30,6 +29,9 @@ def print_git (cmd, d = ''):
     try:
         res = shell_command_to_string (cmd)[:-1]
         for match in res.split ("\n"):
+            l = len (match)
+            if l > 200:
+                match = match[:200] + "..."
             print d + match
     except:
         pass
@@ -44,22 +46,32 @@ def expand_globs (dirs_and_globs):
         m = re.match ("(.*)/\*$", glob)
         if m:
             for x in git_files_in (expand_file_name (m.group (1), base_dir)):
-                dirs.append (abbreviate_file_name (x, base_dir))
+                dirs.append (os.path.relpath (x))
+        elif glob == "*":
+            for x in git_files_in (base_dir):
+                dirs.append (os.path.relpath (x))
         else:
             dirs.append (glob)
     return dirs
 
 #* Assign args
-regex = sys.argv[1]
-
+regex = re.sub (r"\\", "\\\\\\\\", sys.argv[1])
 base_dir = expand_file_name (sys.argv[2])
-
 dirs_and_globs = sys.argv[3:]
 
+# print ("looking for '%s' in %s" % (regex, base_dir))
+# print sys.argv[1:]
+# exit (0)
+
 #* Do work
-os.chdir (base_dir)
 cmd = git_grep (regex)
-print_git (cmd)
-for d in expand_globs (dirs_and_globs):
-    os.chdir (expand_file_name (d, base_dir))
-    print_git (cmd, d + '/')
+os.chdir (base_dir)
+
+for d in [""] + expand_globs (dirs_and_globs):
+    ed = expand_file_name (d, base_dir)
+    if git_p (ed):
+        os.chdir (ed)
+        if len (d) > 1:
+            if d[-1] != "/":
+                d = d + "/"
+        print_git (cmd, d)

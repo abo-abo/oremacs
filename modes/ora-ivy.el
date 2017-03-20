@@ -1,5 +1,6 @@
 ;; -*- lexical-binding: t -*-
 (require 'ivy)
+(require 'ivy-hydra)
 (require 'counsel)
 (csetq ivy-display-style 'fancy)
 ;; (csetq ivy-count-format "(%d/%d) ")
@@ -57,9 +58,11 @@
 (setq counsel-git-grep-projects-alist
       (list
        (cons "/home/oleh/Dropbox/source/site-lisp/"
-             (concat "/home/oleh/Dropbox/source/site-lisp/etc/git-grep '%s' "
-                     "/home/oleh/Dropbox/source/site-lisp "
-                     "git/*"))))
+             (concat "/home/oleh/Dropbox/source/site-lisp/etc/git-multi-grep '%s' "
+                     "/home/oleh/Dropbox/source/site-lisp 'git/*'"))
+       (cons "/home/oleh/git/ivy-dependencies/"
+             (concat "/home/oleh/Dropbox/source/site-lisp/etc/git-multi-grep '%s' "
+                     "/home/oleh/git/ivy-dependencies '*'"))))
 
 (defun ivy-view-backtrace ()
   (interactive)
