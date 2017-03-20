@@ -89,9 +89,11 @@ def file_directory_p (f):
     return os.path.isdir (f)
 
 def abbreviate_file_name (f, d):
+    if not d[-1] == "/":
+        d = d + "/"
     m = re.match (d, f)
     if m:
-        return f[m.end () + 1:]
+        return f[m.end ():]
 
 def directory_files (d, full = False, match = False):
     fl = os.listdir (d)
