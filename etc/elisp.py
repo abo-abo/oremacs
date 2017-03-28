@@ -105,9 +105,9 @@ def abbreviate_file_name (f, d):
 def directory_files (d, full = False, match = False):
     fl = os.listdir (d)
     if match:
-        fl = filter (lambda f:  None != string_match (match, f), fl)
+        fl = cl_remove_if_not (lambda f:  None != string_match (match, f), fl)
     if full:
-        fl = map (lambda f: expand_file_name (f, d), fl)
+        fl = mapcar (lambda f: expand_file_name (f, d), fl)
     return fl
 
 def delete_file (f):
