@@ -14,7 +14,6 @@ etc/git-grep '\(prin\).*\(git\)' `pwd` git/*
 import os
 import sys
 import re
-sys.path.append ("/home/oleh/git/site-python")
 from elisp import *
 
 #* Functions
