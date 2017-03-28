@@ -97,6 +97,10 @@ def abbreviate_file_name (f, d):
     m = re.match (d, f)
     if m:
         return f[m.end ():]
+    else:
+        m = re.match (f, d)
+        if m:
+            return ".".join (["../"]* (d[m.end ():].count ("/") - 1))
 
 def directory_files (d, full = False, match = False):
     fl = os.listdir (d)
