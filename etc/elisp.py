@@ -19,6 +19,9 @@ def mapcar (func, lst):
     """
     return list (map (func, lst))
 
+def cl_remove_if_not (pred, lst):
+    return list (filter (pred, lst))
+
 def cl_position_if (pred, lst):
     pos = 0
     for item in lst:
