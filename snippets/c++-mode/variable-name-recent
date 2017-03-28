@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: recent var
-# key: r
-# --
-`(insert (with-current-buffer aya-invokation-buffer (ccc-get-recent-var)))`

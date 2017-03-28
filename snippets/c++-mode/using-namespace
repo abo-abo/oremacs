@@ -2,5 +2,4 @@
 # name: using namespace
 # key: un
 # --
-using namespace $1;
-$0
+using namespace $0;
