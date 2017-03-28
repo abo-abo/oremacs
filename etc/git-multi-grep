@@ -7,7 +7,7 @@ Additionally grep in DIRS, also printing the matches relative to BASE-DIR.
 
 Example for this repo:
 
-etc/git-grep '\(prin\).*\(git\)' `pwd` git/*
+etc/git-multi-grep 'ivy.*re' . git/*
 """
 
 #* Imports
