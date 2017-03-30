@@ -22,7 +22,7 @@
         ("\\.\\(?:xcf\\)\\'" "gimp")
         ("\\.csv\\'" "libreoffice")
         ("\\.tex\\'" "pdflatex" "latex")
-        ("\\.\\(?:mp4\\|mkv\\|avi\\|flv\\|ogv\\|ifo\\|m4v\\|wmv\\)\\(?:\\.part\\)?\\'"
+        ("\\.\\(?:mp4\\|mkv\\|avi\\|flv\\|ogv\\|ifo\\|m4v\\|wmv\\|webm\\)\\(?:\\.part\\)?\\'"
          "vlc")
         ("\\.\\(?:mp3\\|flac\\|wv\\)\\'" "rhythmbox")
         ("\\.html?\\'" "firefox")
