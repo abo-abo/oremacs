@@ -48,7 +48,7 @@
 (defun ora-dired-get-size ()
   (interactive)
   (let* ((cmd (concat "du -sch "
-                      (mapconcat #'file-name-nondirectory
+                      (mapconcat (lambda (x) (shell-quote-argument (file-name-nondirectory x)))
                                  (dired-get-marked-files) " ")))
          (res (shell-command-to-string cmd)))
     (if (string-match "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$" res)
