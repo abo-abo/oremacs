@@ -15,7 +15,6 @@
 (add-to-list 'load-path emacs-d)
 (add-to-list 'load-path (expand-file-name "modes/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
-;; (add-to-list 'load-path (expand-file-name "git/cedet/lisp/cedet/" emacs-d))
 (setq enable-local-variables :safe)
 ;;* Theme
 (if (display-graphic-p)
@@ -190,7 +189,8 @@
       (require 'auto-complete-config)
       (setq ac-delay 0.4)
       (define-key ac-complete-mode-map "\C-j" 'newline-and-indent)
-      (define-key ac-complete-mode-map [return] nil)))
+      (define-key ac-complete-mode-map [return] nil)
+      (define-key ac-complete-mode-map (kbd "M-TAB") nil)))
 (require 'ora-company)
 ;;** keys
 (use-package centimacro
