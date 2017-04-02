@@ -212,6 +212,7 @@
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+(setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
 
 ;;* Files
 (setq org-archive-location "archive/gtd.org_archive::")
