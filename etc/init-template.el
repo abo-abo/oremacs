@@ -1,6 +1,6 @@
 ;;* Personal config
-(csetq user-full-name "John Galt")
-(csetq user-mail-address "john.galt@gnu.org")
+(csetq user-full-name "John Smith")
+(csetq user-mail-address "john.smith@gnu.org")
 
 ;;* Org mode
 (defvar ora-org-basedir
@@ -30,7 +30,6 @@
          "http://feeds.feedburner.com/GotEmacs?format=xml"
          "http://www.wisdomandwonder.com/tag/emacs/feed"
          "http://irreal.org/blog/?tag=emacs&feed=rss2"
-         "http://feeds.feedburner.com/tuxicity-emacs?format=xml"
          "http://jbm.io/categories/emacs/atom.xml"
          "https://www.blogger.com/feeds/4394570295456001999/posts/default/-/Emacs"
          "http://dialectical-computing.de/blog/emacs.xml"
