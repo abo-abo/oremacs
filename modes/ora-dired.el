@@ -142,6 +142,7 @@ Number of marked items: %(length (dired-get-marked-files))
 
 (define-key dired-mode-map (kbd "C-t") nil)
 (define-key dired-mode-map "i" 'counsel-find-file)
+(define-key dired-mode-map "I" 'dired-insert-subdir)
 (define-key dired-mode-map "j" 'dired-next-line)
 (define-key dired-mode-map "k" 'dired-previous-line)
 (define-key dired-mode-map "h" 'dired-do-shell-command)
