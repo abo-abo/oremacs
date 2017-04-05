@@ -67,17 +67,17 @@
 
 (defun ora-dired-start-process (cmd &optional file-list)
   (interactive
-   (let ((files (dired-get-marked-files
-                 t current-prefix-arg)))
+   (let ((files (dired-get-marked-files t nil)))
      (list
-      (unless (memq system-type '(windows-nt cygwin))
-        (let ((prog (dired-guess-default files)))
-          (if (consp prog)
-              (car prog)
-            prog))
-        ;; (dired-read-shell-command "& on %s: "
-        ;;                           current-prefix-arg files)
-        )
+      (cond ((memq system-type '(windows-nt cygwin))
+             nil)
+            (current-prefix-arg
+             (dired-read-shell-command "& on %s: " nil files))
+            (t
+             (let ((prog (dired-guess-default files)))
+               (if (consp prog)
+                   (car prog)
+                 prog))))
       files)))
   (if (eq system-type 'windows-nt)
       (dolist (file file-list)
