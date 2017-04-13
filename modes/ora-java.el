@@ -2,10 +2,10 @@
 (require 'cc-chainsaw)
 (setq compilation-read-command nil)
 
-(define-key java-mode-map [C-f5] 'java-eval-nofocus)
+(define-key java-mode-map [C-f5] 'ccc-run)
 (define-key java-mode-map (kbd "C-c C-l") 'java-eval-buffer)
 (define-key java-mode-map (kbd "C-c C-z") 'java-switch-to-repl)
-(define-key java-mode-map [f5] 'ccc-run)
+(define-key java-mode-map [f5] 'helm-make-projectile)
 (define-key java-mode-map (kbd "<f2> h") 'hs-toggle-hiding)
 (define-key java-mode-map (kbd "M-<f5>") (lambda ()(interactive)(antify)(ant-compile)))
 (define-key java-mode-map (kbd "χ") 'java-attr)
@@ -21,22 +21,6 @@
   (hs-minor-mode)
   (setq c-basic-offset 2)
   (abbrev-mode 1))
-
-(defun java-eval-nofocus ()
-  "Run current Java file."
-  (interactive)
-  (save-buffer)
-  (let* ((source (file-name-nondirectory buffer-file-name))
-         (out (file-name-sans-extension source))
-         (class (concat out ".class")))
-    (setenv "CLASSPATH" default-directory)
-    (shell-command (format "rm -f %s && javac %s" class source))
-    (if (file-exists-p class)
-        (message (shell-command-to-string (format "java %s" out)))
-      (progn
-        (set (make-local-variable 'compile-command)
-             (format "javac %s" source))
-        (command-execute 'compile)))))
 
 (defun java-compile ()
   (interactive)
