@@ -2,6 +2,13 @@
 (require 'cc-chainsaw)
 (setq compilation-read-command nil)
 
+(defun ora-java-current-defun-name ()
+  (save-excursion
+    (beginning-of-defun)
+    (re-search-forward "(")
+    (backward-char 2)
+    (thing-at-point 'symbol t)))
+
 (define-key java-mode-map [C-f5] 'ccc-run)
 (define-key java-mode-map (kbd "C-c C-l") 'java-eval-buffer)
 (define-key java-mode-map (kbd "C-c C-z") 'java-switch-to-repl)
@@ -20,6 +27,7 @@
 (defun ora-java-hook ()
   (hs-minor-mode)
   (setq c-basic-offset 2)
+  (setq add-log-current-defun-function 'ora-java-current-defun-name)
   (abbrev-mode 1))
 
 (defun java-compile ()
