@@ -150,7 +150,7 @@
            (goto-char (point-max))
            (forward-comment -1000)
            (if (= (point) 1)
-               (if (> (length file) 20)
+               (if (> (length file) 40)
                    (insert (file-name-nondirectory file))
                  (insert file))
              (insert (format "\n\n* %s" file)))
