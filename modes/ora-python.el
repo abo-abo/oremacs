@@ -94,3 +94,29 @@
                                     (region-end))
     (ora-python-shell-send-region (point-min)
                                   (point-max))))
+
+;;* Jython stuff
+(setq python-shell-completion-setup-code
+      "
+def __PYTHON_EL_get_completions(text):
+    import readline
+    comps = []
+    completer = readline.get_completer()
+    try:
+        if getattr(completer, 'PYTHON_EL_WRAPPED', False):
+            completer.print_mode = False
+        i = 0
+        while True:
+            completion = completer(text, i)
+            if not completion:
+                break
+            i += 1
+            comps.append(completion)
+    finally:
+        if getattr(completer, 'PYTHON_EL_WRAPPED', False):
+            completer.print_mode = True
+    comps.remove('0__dummy_completion__')
+    comps.remove('1__dummy_completion__')
+    seen = set()
+    seen_add = seen.add
+    return [x for x in comps if not (x in seen or seen_add(x))]")
