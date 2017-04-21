@@ -1,4 +1,6 @@
 (require 'ruby-mode)
+(setq inf-ruby-implementations
+      '(("ruby" . "irb --prompt simple --noreadline -r irb/completion")))
 
 (define-key ruby-mode-map [C-f5] 'ora-ruby-compile)
 (define-key ruby-mode-map [f5] 'ora-ruby-send-file)
