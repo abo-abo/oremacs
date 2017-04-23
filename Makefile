@@ -9,7 +9,6 @@ profile:
 	-f profile-dotemacs
 
 install: upgrade
-	cd git/cedet && make 2>&1 | tee -a ../../etc/log
 	cd git/org-mode && make compile 2>&1 | tee -a ../../etc/log
 	cd $(BASEDIR) && mkdir -p personal
 	yes n | cp -i etc/init-template.el personal/personal-init.el

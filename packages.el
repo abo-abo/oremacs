@@ -35,6 +35,7 @@
     hideshowvis
     j-mode
     jedi
+    ivy-hydra
     lispy
     magit
     make-it-so
