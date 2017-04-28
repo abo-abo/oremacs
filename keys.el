@@ -208,14 +208,15 @@
   ("q" nil "cancel"))
 
 (defhydra hydra-k (:color blue
-                   :idle 0.5)
+                   :idle 0.8)
   "k"
   ("a" orfu-agenda-day "agenda")
   ("j" dired-jump "dired")
   ("b" hydra-launcher/body "browse")
   ("d" define-word-at-point "def")
   ("e" eval-expression "eval")
-  ("r" counsel-recoll "recoll")
+  ("m" hydra-pam/body "pamparam")
+  ("R" counsel-recoll "recoll")
   ("g" ora-project "project")
   ("n" ora-open-wikitionary "wikitionary")
   ("N" ora-open-google-translate "google-translate")
