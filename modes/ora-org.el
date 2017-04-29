@@ -228,6 +228,7 @@
    (latex . t)
    (C . t)
    (J . t)
+   (java . t)
    (scheme . t)
    (lisp . t)
    (latex . t)
@@ -238,6 +239,9 @@
       '((:results . "verbatim")
         (:main . "no")
         (:flags . "-std=c++11")
+        (:cache . "yes")))
+(setq org-babel-default-header-args:java
+      '((:results . "verbatim")
         (:cache . "yes")))
 
 (eval-when-compile
