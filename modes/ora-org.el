@@ -159,7 +159,8 @@
         ("\\.pdf\\'" . "evince \"%s\"")
         ("\\.gif\\'" . "eog \"%s\"")
         ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1")
-        ("\\.pdf.xoj" . "xournal %s")))
+        ("\\.mp4\\'" . "vlc \"%s\"")
+        ("\\.mkv" . "vlc \"%s\"")))
 (setq system-time-locale "C")
 (setq appt-display-diary nil)
 
