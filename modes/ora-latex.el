@@ -28,7 +28,7 @@
 (define-key LaTeX-mode-map (kbd "C-c C-w") 'latex-wrap-region)
 (define-key LaTeX-mode-map (kbd "C-c C-o") 'latex-insert-block)
 (define-key LaTeX-mode-map (kbd "$") 'insert-pair)
-(define-key LaTeX-mode-map (kbd "|") (lambda () (interactive) (insert "\\| \\| ") (backward-char 3)))
+(define-key LaTeX-mode-map (kbd "|") 'self-insert-command)
 (define-key LaTeX-mode-map (kbd "C-M-i") 'iedit-mode)
 (define-key LaTeX-mode-map (kbd "C-c ~") 'LaTeX-math-mode)
 
