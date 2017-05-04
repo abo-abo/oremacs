@@ -490,6 +490,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
         (org-save-all-org-buffers))
     (org-pomodoro)))
 
+(setq org-clock-idle-time 60)
 (require 'org-mu4e nil t)
 (setq org-mu4e-link-query-in-headers-mode nil)
 
