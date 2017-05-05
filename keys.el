@@ -223,6 +223,7 @@
   ("f" (if (region-active-p)
            (vimish-fold (region-beginning) (region-end))
          (hydra-vimish-fold/body)) "fold")
+  ("t" tea-time "tea")
   ("w" plain-org-wiki "wiki")
   ("q" nil "quit"))
 
