@@ -225,6 +225,7 @@
          (hydra-vimish-fold/body)) "fold")
   ("t" tea-time "tea")
   ("w" plain-org-wiki "wiki")
+  ("W" ora-open-wikipedia "wikipedia")
   ("q" nil "quit"))
 
 (defhydra hydra-vimish-fold (:color blue
