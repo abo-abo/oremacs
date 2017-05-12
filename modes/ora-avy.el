@@ -2,12 +2,14 @@
 (require 'ace-window)
 (csetq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (csetq aw-background nil)
+
 (csetq aw-flip-keys '("n" "ν"))
 (add-to-list 'aw-dispatch-alist '(?ν aw-flip-window))
 
 ;;* Avy
 (avy-setup-default)
-(csetq avy-all-windows nil)
+(csetq avy-all-windows t)
+(csetq avy-all-windows-alt nil)
 (csetq avy-styles-alist '((avy-goto-char-2 . post)
                           (ivy-avy . pre)
                           (avy-goto-line . pre)))
