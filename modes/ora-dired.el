@@ -11,7 +11,7 @@
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
 (setq dired-omit-files
-      (format "\\(?:\\.%s\\'\\)\\|%s\\|\\`\\.[^.]"
+      (format "\\(?:\\.%s\\'\\)\\|%s\\|\\`\\.[^.]\\|\\`_minted"
               (regexp-opt
                '("aux" "log" "pickle" "synctex.gz" "run.xml" "bcf" "am" "in" "blx.bib"
                  "vrb" "opt" "nav" "snm" "out"))
