@@ -3,7 +3,8 @@
       '(("ruby" . "/usr/bin/irb --prompt simple --noreadline -r irb/completion")))
 
 (define-key ruby-mode-map [C-f5] 'ora-ruby-compile)
-(define-key ruby-mode-map [f5] 'ora-ruby-send-file)
+(define-key ruby-mode-map [f5] nil)
+(define-key ruby-mode-map (kbd "C-c C-l") 'ora-ruby-send-file)
 (define-key ruby-mode-map "χ" 'ora-ruby-up)
 (define-key ruby-mode-map "]" 'ora-ruby-forward)
 (define-key ruby-mode-map "[" 'ora-ruby-backward)
