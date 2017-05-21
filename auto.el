@@ -109,6 +109,20 @@
    :action #'find-file))
 
 ;;* Regex
+(defun re-seq (regexp string)
+  "Return a list of matches to REGEXP in STRING."
+  (save-match-data
+    (let ((start 0)
+          res)
+      (while (string-match regexp string start)
+        (push (let ((n-matches (/ (length (match-data)) 2)))
+                (mapcar (lambda (i)
+                          (match-string i string))
+                        (number-sequence 0 (1- n-matches))))
+              res)
+        (setq start (match-end 0)))
+      (nreverse res))))
+
 ;;;###autoload
 (defun ora-occur ()
   "Call `occur' with a sane default."
