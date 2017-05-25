@@ -120,3 +120,25 @@ def __PYTHON_EL_get_completions(text):
     seen = set()
     seen_add = seen.add
     return [x for x in comps if not (x in seen or seen_add(x))]")
+
+;;;###autoload
+(defun ora-inferior-python-hook ()
+  (setq next-error-function 'ora-comint-next-error-function))
+
+(defun ora-comint-next-error-function (n &optional reset)
+  (interactive "p")
+  (when reset
+    (setq compilation-current-error nil))
+  (let* ((msg (compilation-next-error (or n 1) nil
+                                      (or compilation-current-error
+                                          compilation-messages-start
+                                          (point-min))))
+         (loc (compilation--message->loc msg))
+         (file (caar (compilation--loc->file-struct loc)))
+         (buffer (find-file-noselect file)))
+    (pop-to-buffer buffer)
+    (goto-char (point-min))
+    (forward-line (1- (cadr loc)))
+    (back-to-indentation)
+    (unless (bolp)
+      (backward-char))))
