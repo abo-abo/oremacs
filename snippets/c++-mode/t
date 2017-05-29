@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: cout1
+# key: t
+# --
+std::cout << "$1: " << $1 << "\n";
