@@ -55,10 +55,7 @@
   "Compile .tex file and show .pdf file."
   (interactive)
   (save-buffer)
-  (if (file-exists-p (expand-file-name "Makefile"))
-      ;; (compile "make")
-      (TeX-command "make" 'TeX-master-file -1)
-    (TeX-command "LaTeX" 'TeX-master-file -1)))
+  (TeX-command "LaTeX" 'TeX-master-file -1))
 
 (eval-after-load 'font-latex
   '(add-to-list 'font-latex-match-function-keywords
