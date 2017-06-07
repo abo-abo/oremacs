@@ -50,7 +50,8 @@ and <code>...</code>."
   (csetq semantic-idle-scheduler-idle-time nil)
   (csetq semantic-idle-scheduler-work-idle-time nil))
 (dolist (x (list "/home/oleh/git/gnu-emacs/src/config.h"
-                 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h"))
+                 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h"
+                 "/usr/local/include/boost/test/unit_test_suite.hpp"))
   (add-to-list 'semantic-lex-c-preprocessor-symbol-file x))
 
 (dolist (x (list "/home/usr/local/trilinos/include/"
@@ -65,12 +66,8 @@ and <code>...</code>."
 ;;** Base
 (define-key c-mode-base-map "\C-c\C-c" nil)
 (define-key c-mode-base-map (kbd "C-/") nil)
-(define-key c-mode-base-map (kbd "C-x C-p")
-  (lambda ()
-    (interactive)
-    (ring-insert find-tag-marker-ring (point-marker))
-    (call-interactively 'semantic-ia-fast-jump)))
-(define-key c-mode-base-map (kbd "C-M-h") 'hs-toggle-hiding)
+(define-key c-mode-base-map (kbd "C-M-h") 'moo-jump-local)
+(define-key c-mode-base-map (kbd "C-M-j") 'moo-jump-directory)
 (define-key c-mode-base-map "σ" 'ora-braces-c++)
 (define-key c-mode-base-map "3"
   (lambda ()
