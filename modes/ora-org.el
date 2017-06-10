@@ -233,6 +233,7 @@
    (scheme . t)
    (lisp . t)
    (latex . t)
+   (R . t)
    (calc . t)))
 (add-to-list 'org-src-lang-modes '("J" . j))
 
