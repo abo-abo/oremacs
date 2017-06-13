@@ -16,6 +16,8 @@
            (char-displayable-p ?🙒))
   (diminish 'ivy-mode " 🙒"))
 
+(ivy-set-display-transformer 'counsel-describe-function nil)
+
 (defun ivy-dired ()
   (interactive)
   (if ivy--directory
