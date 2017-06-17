@@ -22,6 +22,7 @@
 (add-hook 'matlab-mode-hook 'ora-matlab-hook)
 (add-hook 'matlab-shell-mode-hook 'ora-matlab-shell-hook)
 (add-hook 'octave-mode-hook 'ora-octave-hook)
+(add-hook 'sml-mode-hook 'ora-sml-hook)
 (add-hook 'org-mode-hook 'ora-org-hook)
 (add-hook 'org-agenda-mode-hook 'ora-org-agenda-hook)
 (add-hook 'emacs-lisp-mode-hook 'ora-emacs-lisp-hook)
