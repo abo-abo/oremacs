@@ -45,6 +45,7 @@
 (add-hook 'diff-mode-hook 'ora-diff-hook)
 (add-hook 'package-menu-mode-hook 'ora-package-menu-hook)
 (add-hook 'mu4e-headers-mode-hook 'ora-mu4e-headers-hook)
+(add-hook 'mu4e-compose-mode-hook 'ora-mu4e-compose-hook)
 (add-hook 'gnus-article-mode-hook 'ora-gnus-article-hook)
 (add-hook 'gnus-summary-mode-hook 'ora-gnus-summary-hook)
 (add-hook 'gnus-group-mode-hook 'ora-gnus-group-hook)

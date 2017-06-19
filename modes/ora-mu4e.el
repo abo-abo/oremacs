@@ -24,5 +24,11 @@
 (defun ora-mu4e-headers-hook ())
 
 (define-key mu4e-view-mode-map (kbd "C--") nil)
+(define-key mu4e-compose-mode-map (kbd "C-M-i") nil)
+
+;;;###autoload
+(defun ora-mu4e-compose-hook ()
+  (setq completion-at-point-functions
+        '(mu4e~compose-complete-contact t)))
 
 (provide 'ora-mu4e)
