@@ -1,4 +1,5 @@
 (require 'python)
+;; python-shell-first-prompt-hook
 (csetq python-indent-guess-indent-offset nil)
 (defvar ora-no-pip
   (string-match "Command not found\\|no pip in"
@@ -14,6 +15,11 @@
 (require 'ciao nil t)
 
 (require 'lpy)
+(setq python-shell-prompt-detect-enabled nil)
+(require 'warnings)
+(add-to-list 'warning-suppress-log-types
+             '(python python-shell-completion-native-turn-on-maybe))
+(setq python-shell-prompt-detect-failure-warning nil)
 ;; when set to nil, completions to functions end with "(", very annoying
 (setq python-shell-completion-native-enable t)
 (define-key python-mode-map (kbd "C-.") nil)
