@@ -27,7 +27,6 @@
 (define-key python-mode-map (kbd "C-?") 'jedi:show-doc)
 (define-key python-mode-map (kbd "RET") 'newline-and-indent)
 (define-key python-mode-map (kbd "C-c C-l") 'ora-python-send)
-(define-key python-mode-map (kbd "C-c C-z") 'ora-python-switch-to-shell)
 (define-key python-mode-map (kbd "θ") 'lpy-quotes)
 (define-key python-mode-map (kbd "β") 'counsel-jedi)
 (define-key python-mode-map (kbd "C-M-j") 'lpy-goto)
@@ -68,14 +67,6 @@
         (file-name-nondirectory
          (buffer-file-name b))
       "")))
-
-(defun ora-python-switch-to-shell ()
-  (interactive)
-  (let ((buffer (process-buffer (lispy--python-proc))))
-    (if buffer
-        (pop-to-buffer buffer)
-      (run-python "python")
-      (pop-to-buffer "*Python*"))))
 
 (defun ora-python-shell-send-region (start end &optional nomain)
   "Send the region delimited by START and END to inferior Python process."
