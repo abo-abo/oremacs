@@ -30,6 +30,7 @@
   (worf-mode)
   (org-bullets-mode)
   (org-indent-mode)
+  (auto-fill-mode)
   (add-to-list 'prettify-symbols-alist
                '(":PROPERTIES:" . ":"))
   (prettify-symbols-mode)
