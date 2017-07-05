@@ -2,6 +2,7 @@
 (require 'diff-mode)
 (csetq ediff-window-setup-function 'ediff-setup-windows-plain)
 (csetq ediff-split-window-function 'split-window-horizontally)
+(csetq ediff-diff-options "--text")
 (csetq ediff-diff-options "-w --text")
 (defun ora-ediff-prepare-buffer ()
   (when (memq major-mode '(org-mode emacs-lisp-mode))
