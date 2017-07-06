@@ -112,6 +112,7 @@
 ;;* Modes
 ;;** global minor modes
 (global-auto-revert-mode 1)
+(setq auto-revert-verbose nil)
 (when (fboundp 'global-eldoc-mode) (global-eldoc-mode -1))
 (show-paren-mode 1)
 (winner-mode 1)
