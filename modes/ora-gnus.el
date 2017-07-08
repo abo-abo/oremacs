@@ -3,7 +3,7 @@
 (require 'message)
 (require 'bbdb)
 (setq bbdb-complete-mail nil)
-(define-key message-mode-map (kbd "C-M-i") 'counsel-bbdb-mail)
+;; (define-key message-mode-map (kbd "C-M-i") 'counsel-bbdb-mail)
 
 
 (setq nnmail-treat-duplicates t)
@@ -73,8 +73,12 @@
 
 (defun counsel-bbdb-mail ()
   (interactive)
-  (ivy-read "email: " (counsel-bbdb-cands (ivy-set-completion-bounds))
-            :action #'ivy-completion-in-region-action))
+  (if (boundp 'mu4e~contacts)
+      (ivy-read "email: " mu4e~contacts
+                :initial-input (ivy-set-completion-bounds)
+                :action #'ivy-completion-in-region-action)
+    (ivy-read "email: " (counsel-bbdb-cands (ivy-set-completion-bounds))
+              :action #'ivy-completion-in-region-action)))
 
 (defun counsel-bbdb-cands (&optional str)
   (setq str (or str ""))
