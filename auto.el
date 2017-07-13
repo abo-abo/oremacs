@@ -435,6 +435,32 @@ If called with a prefix, prompts for flags to pass to ag."
          bookmark-alist)))
 
 ;;* Utility
+;;;###autoload
+(defun ora-flyspell-previous-word ()
+  "Correct the first misspelled word that occurs before point.
+But don't look beyond what's visible on the screen."
+  (interactive)
+  (save-excursion
+    (save-restriction
+      (narrow-to-region (window-start) (window-end))
+      (overlay-recenter (point))
+      (let ((overlay-list (overlays-in (point-min) (point)))
+            (new-overlay 'dummy-value))
+        ;; search for previous (new) flyspell overlay
+        (while (and new-overlay
+                    (or (not (flyspell-overlay-p new-overlay))
+                        ;; check if its face has changed
+                        ;; (not (eq (get-char-property
+                        ;;           (overlay-start new-overlay) 'face)
+                        ;;          '(flyspell-incorrect flyspell-duplicate)))
+                        ))
+          (setq new-overlay (car-safe overlay-list))
+          (setq overlay-list (cdr-safe overlay-list)))
+        ;; if nothing new exits new-overlay should be nil
+        (when new-overlay
+          (goto-char (overlay-start new-overlay))
+          (flyspell-correct-word-before-point))))))
+
 (defun ora-dabbrev-completion-at-point ()
   (ignore-errors
     (require 'dabbrev)
