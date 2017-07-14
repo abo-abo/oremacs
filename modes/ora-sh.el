@@ -6,5 +6,7 @@
     (executable-interpret
      (buffer-file-name))))
 
+(define-key sh-mode-map (kbd "C-c C-r") nil)
+
 ;;;###autoload
 (defun ora-sh-hook ())
