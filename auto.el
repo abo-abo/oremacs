@@ -739,7 +739,10 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
          (proc (get-buffer-process (ansi-term "/bin/bash"))))
     (term-send-string
      proc
-     (concat "cd ~/Downloads && youtube-dl -f mp4 " str "\n"))))
+     (concat "cd ~/Downloads && youtube-dl "
+             (if (string-match "https://www.npo.nl/" str) "" "-f mp4 ")
+             str
+             "\n"))))
 
 ;;;###autoload
 (defun ora-directory-parent (dir)
