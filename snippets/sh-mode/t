@@ -2,4 +2,4 @@
 # name: trace
 # key: t
 # --
-std::cout << "$1: " << $1 << "\n";
+echo "$1=$$1"
