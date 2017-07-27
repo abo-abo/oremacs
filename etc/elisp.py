@@ -22,6 +22,9 @@ def mapcar (func, lst):
 def cl_remove_if_not (pred, lst):
     return list (filter (pred, lst))
 
+def cl_remove_if (pred, lst):
+    return [x for x in lst if not pred(x)]
+
 def cl_position_if (pred, lst):
     pos = 0
     for item in lst:
@@ -29,6 +32,10 @@ def cl_position_if (pred, lst):
             return pos
         else:
             pos += 1
+
+def cl_set_difference(lst1, lst2):
+    s = set(lst2)
+    return [x for x in lst1 if x not in s]
 
 def mapconcat (func, lst, sep):
     if func:
