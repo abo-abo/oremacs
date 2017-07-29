@@ -53,6 +53,22 @@ def partition (n, seq):
 def delete (element, lst):
     return [x for x in lst if x != element]
 
+#* Sys
+
+def top_level ():
+    f = sys._getframe ()
+    while f.f_back:
+        f = f.f_back
+    return f
+
+def crash ():
+    tf = top_level ()
+    f = sys._getframe ().f_back
+    tf.f_globals["lnames"] = f.f_locals.keys ()
+    for (k, v) in f.f_locals.items ():
+        tf.f_globals[k] = v
+    raise RuntimeError ("locals stored to globals")
+
 #* OS
 def addpath (path):
     sys.path.append (path)
