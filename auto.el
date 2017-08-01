@@ -1071,3 +1071,28 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
    cmd nil shell-file-name
    shell-command-switch
    (format "nohup 1>/dev/null 2>/dev/null %s" cmd)))
+
+(defun ora-remove-blocks (re-beg re-end)
+  (let (beg)
+    (goto-char (point-min))
+    (while (re-search-forward re-beg nil t)
+      (setq beg (match-beginning 0))
+      (unless (re-search-forward re-end)
+        (error "unmatched"))
+      (delete-region beg (point)))))
+
+(defun ora-replace-all (from to)
+  (goto-char (point-min))
+  (while (re-search-forward from nil t)
+    (replace-match to)))
+
+(defun ora-clean-up-pandoc ()
+  (interactive)
+  (ora-remove-blocks "\n?#\\+begin_html" "^#\\+end_html")
+  (ora-replace-all "^-  " "- ")
+  (ora-replace-all "^   " "  ")
+  (ora-replace-all "\n\\{3,\\}" "\n\n")
+  (goto-char (point-min))
+  (while (eq (forward-paragraph) 0)
+    (fill-paragraph))
+  (save-buffer))
