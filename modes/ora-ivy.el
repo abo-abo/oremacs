@@ -36,11 +36,13 @@
         (org-mode . org-level-4)))
 
 (setq counsel-grep-base-command "grep -niE '%s' %s")
+(setq counsel-grep-base-command
+      "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
 
 (setq counsel-git-grep-cmd-default
       (concat "git --no-pager grep --full-name -n --no-color -i -e '%s' -- './*' "
               (mapconcat (lambda (x) (format "':!*.%s'" x))
-                         '("htm") " ")))
+                         '("htm" "so" "a" "TTC" "NDS" "png" "md5") " ")))
 (setq counsel-git-grep-projects-alist
       (list
        (cons "/home/oleh/Dropbox/source/site-lisp/"
