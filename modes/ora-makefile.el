@@ -5,7 +5,8 @@
 (define-key makefile-mode-map (kbd "C-M-i") nil)
 
 ;;;###autoload
-(defun ora-makefile-hook ())
+(defun ora-makefile-hook ()
+  (semantic-mode -1))
 
 (defun save-and-compile ()
   (interactive)
