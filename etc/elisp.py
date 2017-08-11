@@ -150,8 +150,7 @@ def barf (f, s):
 
 #* Shell
 def shell_command_to_string (cmd):
-    return subprocess.check_output (shlex.split (cmd))
-    # return subprocess.getoutput (cmd)
+    return subprocess.check_output (["bash", "-c", cmd]).decode()
 
 def shell_command_to_list (cmd):
     cmd_output = shell_command_to_string (cmd)
