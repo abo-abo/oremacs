@@ -34,7 +34,9 @@
   (add-to-list 'prettify-symbols-alist
                '(":PROPERTIES:" . ":"))
   (prettify-symbols-mode)
-  (setq completion-at-point-functions '(org-completion-refs
+  (setq completion-at-point-functions '(org-completion-symbols
+                                        ora-cap-filesystem
+                                        org-completion-refs
                                         ora-dabbrev-completion-at-point
                                         t)))
 
@@ -524,4 +526,17 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
       (list beg end
             (delete (buffer-substring-no-properties beg end)
                     (nreverse cands))))))
+
+(defun org-completion-symbols ()
+  (when (looking-back "=[a-zA-Z]+")
+    (let (cands)
+      (save-match-data
+        (save-excursion
+          (goto-char (point-min))
+          (while (re-search-forward "=\\([a-zA-Z]+\\)=" nil t)
+            (cl-pushnew (match-string-no-properties 0) cands :test 'equal))
+          cands))
+      (when cands
+        (list (match-beginning 0) (match-end 0) cands)))))
+
 (provide 'ora-org)
