@@ -177,7 +177,36 @@ def match_end (group):
     return match_data.end (group)
 
 def re_filter (regex, seq):
-    return filter (lambda s: re.search (regex, s), seq)
+    return list (filter (lambda s: re.search (regex, s), seq))
 
 def re_seq (regex, s):
     return re.findall (regex, s)
+
+def re_match(regex):
+    return lambda s: re.search(regex, s)
+
+def replace_regexp_in_string (regexp, rep, string):
+    return re.sub (regexp, rep, string)
+
+def spit(x, fname):
+    with open(fname, "w") as f:
+        if type(x) is str:
+            f.write(x)
+        elif type(x) is list and type(x[0]) is str:
+            if re.search("\n", x[0]):
+                sep = ""
+            else:
+                sep = "\n"
+            f.write(sep.join(x))
+        else:
+            raise RuntimeError("Unexpected object", x)
+
+def re_split(regex, lst):
+    l1 = []
+    l2 = []
+    for x in lst:
+        if re.search(regex, x):
+            l1.append(x)
+        else:
+            l2.append(x)
+    return (l1, l2)
