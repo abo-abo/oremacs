@@ -211,6 +211,7 @@
                    :idle 0.8)
   "k"
   ("a" orfu-agenda-day "agenda")
+  ("c" ora-flyspell-previous-word "correct")
   ("j" dired-jump "dired")
   ("b" hydra-launcher/body "browse")
   ("d" define-word-at-point "def")
