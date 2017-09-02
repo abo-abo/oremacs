@@ -244,7 +244,7 @@
 (setq org-babel-default-header-args:C++
       '((:results . "verbatim")
         (:main . "no")
-        (:flags . "-std=c++11")
+        (:flags . "-std=c++14")
         (:cache . "yes")))
 (setq org-babel-default-header-args:java
       '((:results . "verbatim")
