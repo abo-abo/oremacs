@@ -25,6 +25,8 @@
 (define-key magit-status-mode-map "V" 'projectile-find-file)
 (define-key magit-status-mode-map "h" 'ora-magit-find-main-file)
 (define-key magit-status-mode-map "ox" 'ora-magit-simple-commit)
+(define-key magit-status-mode-map "od" 'ora-magit-difftool)
+
 ;;** Log
 (define-key magit-log-mode-map "j" 'magit-goto-next-section)
 (define-key magit-log-mode-map "k" 'magit-goto-previous-section)
@@ -38,7 +40,8 @@
 (define-key magit-commit-mode-map "k" 'magit-goto-previous-section)
 (define-key magit-commit-mode-map "n" 'ora-magit-copy-item-as-kill)
 (define-key magit-commit-mode-map "C" 'ora-magit-commit-add-log)
-(define-key magit-commit-mode-map "o" 'ora-magit-visit-item-other-window)
+(define-key magit-commit-mode-map "od" 'ora-magit-difftool)
+
 ;;** Diff
 (define-key magit-diff-mode-map "i" 'magit-toggle-section)
 (define-key magit-diff-mode-map "j" 'magit-goto-next-section)
@@ -203,12 +206,18 @@
 (defun ora-magit-simple-commit ()
   (interactive)
   (save-window-excursion
-    (let ((item (elt (magit-current-section) 2)))
+    (let ((item (magit-section-info (magit-current-section))))
       (ignore-errors (magit-stage-item))
       (search-forward item)
       (ora-magit-commit-add-log)
       (insert "Update")
       (git-commit-commit))))
+
+(defun ora-magit-difftool ()
+  (interactive)
+  (let ((item (magit-section-info (magit-current-section))))
+    (ora-dired-start-process
+     "git difftool" (list item))))
 
 ;; (add-hook 'magit-mode-hook #'endless/add-PR-fetch)
 
