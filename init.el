@@ -160,6 +160,7 @@
 ;;** expansion
 (use-package tiny
     :commands tiny-expand)
+(require 'warnings)
 (use-package yasnippet
     :diminish yas-minor-mode
     :config
@@ -170,7 +171,8 @@
       (setq yas-verbosity 0)
       (setq yas-snippet-dirs (list (concat emacs-d "snippets/")))
       (define-key yas-minor-mode-map [(tab)] nil)
-      (define-key yas-minor-mode-map (kbd "TAB") nil)))
+      (define-key yas-minor-mode-map (kbd "TAB") nil)
+      (add-to-list 'warning-suppress-types '(yasnippet backquote-change))))
 (use-package auto-yasnippet
     :commands aya-create aya-open-line)
 (use-package abel)
