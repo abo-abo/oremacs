@@ -65,6 +65,12 @@
 (defun ora-magit-diff-hook ())
 ;;;###autoload
 (defun ora-magit-branch-manager-hook ())
+
+;;;###autoload
+(defun ora-git-commit-hook ()
+  (setq fill-column 120))
+
+
 ;;* Functions
 (defun ora-magit-find-main-file ()
   "Open the main file of the repo."
