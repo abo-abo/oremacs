@@ -147,10 +147,10 @@ Take care of nested C++ templates."
 (defun ora-angles ()
   (interactive)
   "Insert <>."
-  (cond ((memq major-mode '(c++-mode c-mode))
-         (ora-angles-c++))
-        ((region-active-p)
+  (cond ((region-active-p)
          (lispy--surround-region "<" ">"))
+        ((memq major-mode '(c++-mode c-mode))
+         (ora-angles-c++))
         (t
          (insert "<>")
          (backward-char))))
