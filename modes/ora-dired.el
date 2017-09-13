@@ -7,6 +7,12 @@
       (if (eq system-type 'windows-nt)
           "-alh"
         "-laGh1v --group-directories-first"))
+(advice-add 'dired-internal-noselect :filter-args 'ora-dired-internal-noselect)
+(defun ora-dired-internal-noselect (args)
+  (cl-destructuring-bind (dir-or-list &optional switches mode) args
+    (when (file-remote-p dir-or-list)
+      (setq switches "-alh"))
+    (list dir-or-list switches mode)))
 (setq directory-free-space-args "-Pmh")
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
