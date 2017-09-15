@@ -156,6 +156,10 @@ def shell_command_to_list (cmd):
     cmd_output = shell_command_to_string (cmd)
     return [s for s in cmd_output.split ("\n") if s]
 
+#* String
+def lformat (string):
+    return string.format(**sys._getframe().f_back.f_locals)
+
 #* Regex
 def string_match (regexp, string):
     global match_data
