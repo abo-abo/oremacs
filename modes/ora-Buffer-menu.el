@@ -37,6 +37,10 @@ _~_: modified      ^ ^                ^ ^                ^^                     
 (define-key bookmark-bmenu-mode-map "j" 'next-line)
 (define-key bookmark-bmenu-mode-map "s" 'bookmark-bmenu-save)
 
+(setq Buffer-menu-name-width 30)
+(setq Buffer-menu-size-width 12)
+(setq Buffer-menu-mode-width 18)
+
 ;;;###autoload
 (defun ora-Buffer-menu-hook ())
 
