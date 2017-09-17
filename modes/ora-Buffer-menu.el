@@ -46,3 +46,14 @@ _~_: modified      ^ ^                ^ ^                ^^                     
 
 ;;;###autoload
 (defun ora-bmenu-hook ())
+
+(defun list-buffers--format-default (size)
+  (if (> size 1000000)
+      (let* ((rest (mod size 1000))
+             (thousands (/ size 1000))
+             (millions (/ thousands 1000))
+             (thousands-rest (mod thousands 1000)))
+        (format "%d,%03d,%03d" millions thousands-rest rest))
+    (number-to-string size)))
+
+(setq list-buffers-buffer-size-function 'list-buffers--format-default)
