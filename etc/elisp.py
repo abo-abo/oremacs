@@ -5,6 +5,7 @@ import os
 import re
 import getpass
 import shlex
+from datetime import datetime
 
 #* Functional
 def apply (function, arguments):
@@ -214,3 +215,14 @@ def re_split(regex, lst):
         else:
             l2.append(x)
     return (l1, l2)
+
+#* Time
+def timestamp():
+    t = datetime.now()
+    year = t.year
+    month = t.month
+    day = t.day
+    hour = t.hour
+    minute = t.minute
+    dow = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][t.weekday()]
+    return lformat("<{year}-{month:02d}-{day:02d} {dow} {hour:02d}:{minute:02d}>")
