@@ -191,7 +191,7 @@ def re_match(regex):
     return lambda s: re.search(regex, s)
 
 def replace_regexp_in_string (regexp, rep, string):
-    return re.sub (regexp, rep, string)
+    return re.sub (re.compile(regexp, re.MULTILINE), rep, string)
 
 def spit(x, fname):
     with open(fname, "w") as f:
