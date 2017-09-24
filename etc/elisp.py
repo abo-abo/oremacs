@@ -157,6 +157,12 @@ def shell_command_to_list (cmd):
     cmd_output = shell_command_to_string (cmd)
     return [s for s in cmd_output.split ("\n") if s]
 
+def bash(cmd):
+    if type(cmd) is list:
+        cmd = "\n".join(cmd)
+    print("Run: ", cmd)
+    return subprocess.run(["/bin/bash", "-e", "-c", cmd]).check_returncode()
+
 #* String
 def lformat (string):
     return string.format(**sys._getframe().f_back.f_locals)
