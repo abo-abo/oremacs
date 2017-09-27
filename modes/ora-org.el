@@ -539,4 +539,6 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
       (when cands
         (list (match-beginning 0) (match-end 0) cands)))))
 
+(add-to-list 'safe-local-variable-values
+             '(org-todo-keywords (sequence "TODO" "REVIEW" "|" "DONE")))
 (provide 'ora-org)
