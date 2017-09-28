@@ -113,6 +113,7 @@
 (global-set-key (kbd "C-c d") 'counsel-descbinds)
 (global-set-key (kbd "C-c e") 'mu4e)
 (global-set-key (kbd "C-c f") 'find-file-in-project)
+(global-set-key (kbd "C-c F") 'counsel-org-file)
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c h") 'hydra-apropos/body)
 (global-set-key (kbd "C-c i") 'counsel-imenu)
