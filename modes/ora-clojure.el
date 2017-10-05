@@ -8,8 +8,6 @@
 (use-package cider
     :load-path "~/git/cider")
 (require 'cider-interaction)
-(add-to-list 'load-path "~/git/clojure-semantic")
-(load "~/git/clojure-semantic/clojure.el")
 
 (define-key clojure-mode-map (kbd "C-:") nil)
 (define-key clojure-mode-map (kbd "β") 'counsel-clj)
