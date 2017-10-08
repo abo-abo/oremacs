@@ -132,7 +132,7 @@
 (global-set-key (kbd "C-c v") 'ivy-push-view)
 (global-set-key (kbd "C-c w") 'ora-org-to-html-to-clipboard)
 (global-set-key (kbd "C-c x") nil)
-(global-set-key (kbd "C-c y") 'pam-drill)
+(global-set-key (kbd "C-c y") 'pamparam-drill)
 (global-set-key (kbd "C-c E") 'vc-ediff)
 (global-set-key (kbd "C-c L") 'counsel-git-log)
 (global-set-key (kbd "C-c D") 'ora-insert-date-from)
