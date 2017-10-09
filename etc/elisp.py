@@ -166,7 +166,12 @@ def bash(cmd):
     if type(cmd) is list:
         cmd = "\n".join(cmd)
     print("Run: ", cmd)
-    return subprocess.run(["/bin/bash", "-e", "-c", cmd]).check_returncode()
+    sys.stdout.flush()
+    if hasattr(subprocess, "run"):
+        return subprocess.run(["/bin/bash", "-e", "-c", cmd]).check_returncode()
+    else:
+        p = subprocess.Popen(["/bin/bash", "-e", "-c", cmd])
+        return p.communicate()
 
 #* String
 def lformat (string):
