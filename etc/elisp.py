@@ -38,6 +38,11 @@ def cl_set_difference(lst1, lst2):
     s = set(lst2)
     return [x for x in lst1 if x not in s]
 
+def cl_find_if (pred, lst):
+    for item in lst:
+        if pred (item):
+            return item
+
 def mapconcat (func, lst, sep):
     if func:
         return sep.join (map (func, lst))
