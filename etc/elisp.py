@@ -29,7 +29,7 @@ def cl_remove_if (pred, lst):
 def cl_position_if (pred, lst):
     pos = 0
     for item in lst:
-        if pred (item) is not None:
+        if pred (item):
             return pos
         else:
             pos += 1
