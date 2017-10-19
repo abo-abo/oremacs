@@ -25,10 +25,10 @@
     counsel
     define-word
     eclipse-theme
-    elfeed
     function-args
     geiser
     google-c-style
+    gtk-pomodoro-indicator
     which-key
     headlong
     helm-make

@@ -240,22 +240,12 @@
           "-laGh1v --group-directories-first"))
 (use-package dired-x
     :commands dired-jump)
-(use-package elfeed
-    :commands elfeed)
 (use-package helm-j-cheatsheet
     :commands helm-j-cheatsheet)
 (use-package helm-make
     :commands (helm-make helm-make-projectile)
     :init (defalias 'hm 'helm-make)
     :config (setq helm-make-completion-method 'ivy))
-(use-package ispell
-    :config
-  (setq ispell-program-name "hunspell")
-  (setq ispell-dictionary "en_US,nl_NL")
-  (setq ispell-personal-dictionary
-        (concat emacs-d "personal/ispell_dict"))
-  (ispell-set-spellchecker-params)
-  (ispell-hunspell-add-multi-dic "en_US,nl_NL"))
 (setq abbrev-file-name
       (concat emacs-d "personal/abbrev_defs"))
 (use-package flyspell

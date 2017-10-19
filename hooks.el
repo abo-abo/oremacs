@@ -1,7 +1,5 @@
 (add-hook 'compilation-mode-hook 'ora-compilation-hook)
 (add-hook 'ert-results-mode-hook 'ora-ert-results-hook)
-(add-hook 'elfeed-search-mode-hook 'ora-elfeed-search-hook)
-(add-hook 'elfeed-show-mode-hook 'ora-elfeed-show-hook)
 (add-hook 'dired-mode-hook 'ora-dired-hook)
 (add-hook 'proced-mode-hook 'ora-proced-hook)
 (add-hook 'c-mode-common-hook 'ora-c-common-hook)
