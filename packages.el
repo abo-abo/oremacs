@@ -35,6 +35,7 @@
     hideshowvis
     j-mode
     jedi
+    company-jedi
     ivy-hydra
     lispy
     magit
