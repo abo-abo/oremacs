@@ -35,9 +35,9 @@
         (dired-mode . ivy-subdir)
         (org-mode . org-level-4)))
 
-(setq counsel-grep-base-command "grep -niE '%s' %s")
+(setq counsel-grep-base-command "grep -niE %s %s")
 (setq counsel-grep-base-command
-      "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+      "rg -i -M 120 --no-heading --line-number --color never %s %s")
 (setq counsel-rg-base-command
       "rg -i -M 120 --no-heading --line-number --color never %s .")
 
