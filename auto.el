@@ -110,7 +110,7 @@
     (append
      (ora-dirs-in (expand-file-name "git/" emacs-d))
      (ora-dirs-in "~/git/")))
-   :action #'find-file))
+   :action (lambda (x) (find-file (cdr x)))))
 
 ;;* Regex
 (defun re-seq (regexp string)
