@@ -1,4 +1,5 @@
 (require 'python)
+(setq-default python-shell-interpreter "python3")
 ;; python-shell-first-prompt-hook
 (csetq python-indent-guess-indent-offset nil)
 (defvar ora-no-pip
