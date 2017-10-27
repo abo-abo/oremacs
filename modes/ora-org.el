@@ -24,6 +24,7 @@
 (require 'org-bullets)
 (setcdr org-bullets-bullet-map nil)
 (setq org-hide-emphasis-markers t)
+(put 'org-hide-emphasis-markers 'safe-local-variable 'identity)
 
 ;;;###autoload
 (defun ora-org-hook ()
