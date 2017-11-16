@@ -122,7 +122,7 @@
 (global-set-key (kbd "C-c k") 'counsel-rg)
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c m") 'counsel-linux-app)
-(global-set-key (kbd "C-c n") nil)
+(global-set-key (kbd "C-c n") 'counsel-fzf)
 (global-set-key (kbd "C-c o") 'counsel-outline)
 (global-set-key (kbd "C-c q") nil)
 (global-set-key (kbd "C-c r") 'isearch-backward)
