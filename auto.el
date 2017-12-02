@@ -1104,8 +1104,3 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
   (while (eq (forward-paragraph) 0)
     (fill-paragraph))
   (save-buffer))
-
-(defun slurp (f)
-  (with-temp-buffer
-    (insert-file-contents f)
-    (buffer-string)))
