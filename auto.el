@@ -1104,3 +1104,14 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
   (while (eq (forward-paragraph) 0)
     (fill-paragraph))
   (save-buffer))
+
+(defun ora-ediff-dwim ()
+  (interactive)
+  (when (looking-at "AssertionError: \\(.*\\) != \\(.*\\)")
+    (lispy--ediff-regions
+     (cons (match-beginning 1)
+           (match-end 1))
+     (cons (match-beginning 2)
+           (match-end 2))
+     nil nil "-actual-" "-expected-")))
+
