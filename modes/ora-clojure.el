@@ -1,4 +1,5 @@
 (require 'clojure-mode)
+(csetq clojure-indent-style :align-arguments)
 
 ;;;###autoload
 (defun ora-clojure-hook ()
