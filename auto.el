@@ -1115,3 +1115,26 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
            (match-end 2))
      nil nil "-actual-" "-expected-")))
 
+(defun ora-recompile-startup-warnings ()
+  (let (ws)
+    (with-current-buffer "*Messages*"
+      (goto-char (point-min))
+      (while (re-search-forward
+              "Source file `\\([^']+\\)' newer than byte-compiled file"
+              nil t)
+        (push (match-string 1) ws))
+      ws)))
+
+;;;###autoload
+(defun ora-recompile-startup ()
+  "Fix byte-compilation warnings emitted by lread.c."
+  (interactive)
+  (let ((ws (ora-recompile-startup-warnings)))
+    (dolist (w ws)
+      (let ((default-directory (file-name-directory w)))
+        (if (file-exists-p "Makefile")
+            (progn
+              (message "cd %S && make compile" default-directory)
+              (sc "make compile"))
+          (message "(byte-compile-file %S)" w)
+          (byte-compile-file w t))))))
