@@ -327,21 +327,31 @@ Set a custom variable, with completion.
 
 \(fn CMD)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("ora-" "char-upcasep" "re-seq")))
+(autoload 'git-shortlog "auto" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-recompile-startup "auto" "\
+Fix byte-compilation warnings emitted by lread.c.
+
+\(fn)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("ora-" "show-message" "char-upcasep" "re-seq")))
 
 ;;;***
 
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '("conditionally-enable-lispy" "cal" "ora-" "lisp--match-hidden-arg")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("conditionally-enable-lispy" 0 1 (face font-lock-function-name-face fontified nil) 1 26 (fontified nil face font-lock-function-name-face)) #("cal" 0 1 (face font-lock-function-name-face fontified nil) 1 3 (face font-lock-function-name-face fontified nil)) #("ora-" 0 4 (fontified nil face font-lock-function-name-face)) #("lisp--match-hidden-arg" 0 22 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (face font-lock-function-name-face fontified nil)) #("csetq" 0 4 (face font-lock-function-name-face fontified nil) 4 5 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '("emacs-d" "eldoc-mode" "yes-or-no-p" "csetq")))
 
 ;;;***
 
@@ -399,7 +409,7 @@ Threat is as function body when from endline before )
 ;;;### (autoloads nil "keys" "keys.el" (0 0 0 0))
 ;;; Generated autoloads from keys.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '("hydra-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '("lispy-insert-prev-outline-body" "hydra-" "ora-open-line")))
 
 ;;;***
 
@@ -502,7 +512,15 @@ Log in to http://www.4clojure.com.
 
 \(fn USER PWD)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("clojure-ampersand")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("ora-clojure-" "clojure-ampersand" "add-classpath")))
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-company" "modes/ora-company.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-company.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-company" '("ora-company-number")))
 
 ;;;***
 
@@ -528,6 +546,11 @@ Log in to http://www.4clojure.com.
 
 \(fn)" nil nil)
 
+(autoload 'ora-dired-jump "modes/ora-dired" "\
+
+
+\(fn)" t nil)
+
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '("oda-dired-terminal" "ora-" "hydra-marked-items")))
 
 ;;;***
@@ -543,8 +566,8 @@ Log in to http://www.4clojure.com.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-ediff" "modes/ora-ediff.el" (22801
-;;;;;;  64348 0 0))
+;;;### (autoloads nil "modes/ora-ediff" "modes/ora-ediff.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-ediff.el
 
 (autoload 'ora-ediff-hook "modes/ora-ediff" "\
@@ -556,6 +579,8 @@ Log in to http://www.4clojure.com.
 
 
 \(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ediff" '("ora-ediff-" "max-line-width")))
 
 ;;;***
 
@@ -717,14 +742,16 @@ Call `j-console' and setup shortcuts.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-java" "modes/ora-java.el" (22767
-;;;;;;  28800 0 0))
+;;;### (autoloads nil "modes/ora-java" "modes/ora-java.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from modes/ora-java.el
 
 (autoload 'ora-java-hook "modes/ora-java" "\
 
 
 \(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-java" '("java-" "get-single-argument-name" ">-by-length" "reductions" "upcase-first-letter" "downcase-first-letter" "ant" "ora-java-current-defun-name")))
 
 ;;;***
 
@@ -854,11 +881,6 @@ MATLAB completion at point.
 ;;;### (autoloads nil "modes/ora-mu4e" "modes/ora-mu4e.el" (0 0 0
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-mu4e.el
-
-(autoload 'ora-toggle-email-from "modes/ora-mu4e" "\
-
-
-\(fn)" t nil)
 
 (autoload 'ora-mu4e-headers-hook "modes/ora-mu4e" "\
 
@@ -1127,8 +1149,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-company.el" "modes/ora-elisp-style-guide.el"
-;;;;;;  "modes/ora-helm.el" "modes/ora-projectile.el") (0 0 0 0))
+;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-helm.el"
+;;;;;;  "modes/ora-projectile.el") (0 0 0 0))
 
 ;;;***
 
