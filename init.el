@@ -175,7 +175,6 @@
       (add-to-list 'warning-suppress-types '(yasnippet backquote-change))))
 (use-package auto-yasnippet
     :commands aya-create aya-open-line)
-(use-package abel)
 (use-package iedit
     :commands iedit-mode
     :config (progn
@@ -291,6 +290,9 @@
                 (unless (file-remote-p project)
                   (file-directory-p (concat project "/.git/"))))
               (projectile-relevant-known-projects))))))
+(use-package tea-time
+    :config
+  (setq tea-time-sound-command "play %s"))
 (use-package ace-link
     :config (ace-link-setup-default))
 (use-package compile
