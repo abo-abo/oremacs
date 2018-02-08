@@ -130,7 +130,7 @@
 (global-set-key (kbd "C-c t") 'counsel-load-theme)
 (global-set-key (kbd "C-c u") 'swiper-all)
 (global-set-key (kbd "C-c v") 'ivy-push-view)
-(global-set-key (kbd "C-c w") 'ora-org-to-html-to-clipboard)
+(global-set-key (kbd "C-c w") 'counsel-wmctrl)
 (global-set-key (kbd "C-c x") nil)
 (global-set-key (kbd "C-c y") 'pamparam-drill)
 (global-set-key (kbd "C-c E") 'vc-ediff)
