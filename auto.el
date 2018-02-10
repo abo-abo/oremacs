@@ -288,7 +288,7 @@ If called with a prefix, prompts for flags to pass to ag."
       (setq tmtxt/rsync-command
             (concat tmtxt/rsync-command
                     (if (string-match "^/ssh:\\(.*:\\)\\(.*\\)$" file)
-                        (concat " -e ssh "
+                        (format " -e ssh \"%s%s\""
                                 (match-string 1 file)
                                 (shell-quote-argument (match-string 2 file)))
                       (shell-quote-argument file)) " ")))
