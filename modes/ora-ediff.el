@@ -6,7 +6,9 @@
 (csetq ediff-diff-options "-w --text")
 (defun ora-ediff-prepare-buffer ()
   (when (memq major-mode '(org-mode emacs-lisp-mode))
-    (outline-show-all)))
+    (outline-show-all))
+  (when (> (max-line-width) 150)
+    (visual-line-mode)))
 
 (add-hook 'ediff-prepare-buffer-hook 'ora-ediff-prepare-buffer)
 
