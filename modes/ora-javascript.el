@@ -2,6 +2,7 @@
 (require 'auto-complete)
 
 (csetq js2-basic-offset 2)
+(csetq js-indent-level 2)
 
 (define-key js-mode-map (kbd "'") 'ora-single-quotes)
 (define-key js-mode-map (kbd "C-'") (lambda()(interactive)(insert "'")))
