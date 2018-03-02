@@ -23,6 +23,7 @@
                  "vrb" "opt" "nav" "snm" "out"))
               (regexp-opt
                '("compile_commands.json"
+                 "TAGS"
                  "__pycache__"))))
 (setq dired-omit-verbose nil)
 (setq dired-garbage-files-regexp
