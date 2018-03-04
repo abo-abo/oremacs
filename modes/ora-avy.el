@@ -13,7 +13,7 @@
 (csetq avy-styles-alist '((avy-goto-char-2 . post)
                           (ivy-avy . pre)
                           (avy-goto-line . pre)))
-(advice-add 'swiper :before 'avy-push-mark)
+;; (advice-add 'swiper :before 'avy-push-mark)
 ;; (advice-remove 'swiper 'avy-push-mark)
 
 ;;* Lispy
