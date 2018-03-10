@@ -34,7 +34,7 @@
 (define-key python-mode-map (kbd "C-c C-v") nil)
 (define-key python-mode-map (kbd "C-c C-r") nil)
 (define-key python-mode-map (kbd "C-m") 'newline)
-(define-key inferior-python-mode-map (kbd "C-c M-o") 'comint-kill-region)
+(define-key inferior-python-mode-map (kbd "C-c M-o") 'comint-clear-buffer)
 
 (require 'le-python)
 (require 'flyspell)
