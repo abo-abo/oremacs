@@ -54,6 +54,7 @@
        (cons "/home/oleh/git/ivy-dependencies/"
              (concat "/home/oleh/Dropbox/source/site-lisp/etc/git-multi-grep '%s' "
                      "/home/oleh/git/ivy-dependencies '*'"))))
+(setq counsel-git-cmd "rg --files")
 
 (defun ivy-view-backtrace ()
   (interactive)
