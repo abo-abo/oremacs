@@ -21,11 +21,19 @@
     (require 'eclipse-theme)
   (require 'eclipse-theme))
 ;;** Font
-(condition-case nil
-    (set-frame-font "DejaVu Sans Mono")
-  (error
-   (set-frame-font "Lucida Sans Typewriter")))
-(set-face-attribute 'default (selected-frame) :height 113)
+(defun ora-set-font (&optional frame)
+  (when frame
+    (select-frame frame))
+  (condition-case nil
+      (set-frame-font
+       "DejaVu Sans Mono")
+    (error
+     (set-frame-font
+      "Lucida Sans Typewriter"))))
+(ora-set-font)
+(set-face-attribute 'default nil :height 113)
+(add-hook 'after-make-frame-functions 'ora-set-font)
+
 ;; ;;* Customize
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
