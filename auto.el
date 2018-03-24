@@ -1105,15 +1105,49 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
     (fill-paragraph))
   (save-buffer))
 
-(defun ora-ediff-dwim ()
+(defun show-message (str)
+  (switch-to-buffer (get-buffer-create "*lispy-message*"))
+  (special-mode)
+  (let ((inhibit-read-only t))
+    (delete-region (point-min) (point-max))
+    (insert str)
+    (goto-char (point-min))))
+
+;;;###autoload
+(defun git-shortlog ()
   (interactive)
-  (when (looking-at "AssertionError: \\(.*\\) != \\(.*\\)")
-    (lispy--ediff-regions
-     (cons (match-beginning 1)
-           (match-end 1))
-     (cons (match-beginning 2)
-           (match-end 2))
-     nil nil "-actual-" "-expected-")))
+  (let* ((fmt (mapconcat #'identity '("%h" "%s" "%an" "%ad") "%x09"))
+         (out (shell-command-to-string
+               (format
+                "git log --pretty=format:'%s' -n 100 --date=relative" fmt)))
+         (commits
+          (mapcar (lambda (s) (split-string s "\t" t))
+                  (split-string out "\n" t)))
+         (ws
+          (reduce
+           (lambda (a b)
+             (list (max (nth 0 a) (length (nth 0 b)))
+                   (max (nth 1 a) (length (nth 1 b)))
+                   (max (nth 2 a) (length (nth 2 b)))
+                   (max (nth 3 a) (length (nth 3 b)))))
+           commits
+           :initial-value '(0 0 0 0)))
+         (ww (window-width))
+         (mw (- ww 3
+                (nth 0 ws)
+                18
+                (nth 3 ws))))
+    (show-message
+     (mapconcat (lambda (x)
+                  (destructuring-bind (h m a d) x
+                    (concat
+                     h " "
+                     (truncate-string-to-width m mw nil ?\  t) " "
+                     (truncate-string-to-width a 18 nil ?\  t) " "
+                     d)))
+                commits
+                "\n"))))
+(global-set-key (kbd "C-c S") 'git-shortlog)
 
 (defun ora-recompile-startup-warnings ()
   (let (ws)
