@@ -20,7 +20,7 @@
       (format "\\(?:\\.%s\\'\\)\\|%s\\|\\`\\.[^.]\\|\\`_minted"
               (regexp-opt
                '("aux" "log" "pickle" "synctex.gz" "run.xml" "bcf" "am" "in" "blx.bib"
-                 "vrb" "opt" "nav" "snm" "out"))
+                 "vrb" "opt" "nav" "snm" "out" "ass"))
               (regexp-opt
                '("compile_commands.json"
                  "TAGS"
