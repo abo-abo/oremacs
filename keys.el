@@ -139,6 +139,7 @@
 (global-set-key (kbd "C-c V") 'ivy-pop-view)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "C-c C-j") 'avy-resume)
+(global-set-key (kbd "C-c n") 'counsel-fzf)
 
 ;;* C-x shortcuts
 (global-set-key (kbd "C-x C-r") (lambda () (interactive) (revert-buffer nil t)))
