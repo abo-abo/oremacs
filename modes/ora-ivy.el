@@ -90,4 +90,8 @@
               default-directory
             d))))
 
+(setq counsel-linux-apps-directories
+      '("/usr/local/share/applications/"
+        "/usr/share/applications/"))
+
 (provide 'ora-ivy)
