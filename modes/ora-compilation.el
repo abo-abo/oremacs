@@ -22,3 +22,21 @@
     (beginning-of-line)
     (save-selected-window
       (compile-goto-error))))
+
+(defface compilation-info-modeline
+  '((((class color) (background light))
+     :foreground "#bb77cc" :weight bold
+     :underline t))
+  "Face used by `compile' in the mode line.")
+
+(setq compilation-mode-line-errors
+      '(" [" (:propertize (:eval (int-to-string compilation-num-errors-found))
+              face compilation-error
+              help-echo "Number of errors so far")
+        " " (:propertize (:eval (int-to-string compilation-num-warnings-found))
+             face compilation-warning
+             help-echo "Number of warnings so far")
+        " " (:propertize (:eval (int-to-string compilation-num-infos-found))
+             face compilation-info-modeline
+             help-echo "Number of informational messages so far")
+        "]"))
