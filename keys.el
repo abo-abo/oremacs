@@ -162,7 +162,7 @@
 (global-set-key (kbd "<f2> j") 'counsel-set-variable)
 (global-set-key [f5] 'helm-make)
 (global-set-key [C-f5] 'compile)
-(global-set-key [f6] 'ivy-resume)
+(global-set-key [f6] 'cook)
 (global-set-key [f7] 'winner-undo)
 (global-set-key [C-f7] 'winner-redo)
 (global-set-key [f8] 'bookmark-bmenu-list)
