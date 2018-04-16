@@ -95,7 +95,7 @@
 (csetq smtpmail-smtp-service 587)
 ;;** Rest
 (csetq browse-url-browser-function 'browse-url-firefox)
-(csetq browse-url-firefox-program "firefox")
+(csetq browse-url-firefox-program "firefox-esr")
 ;;*** Backups
 (setq backup-by-copying t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
