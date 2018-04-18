@@ -167,6 +167,12 @@ Number of marked items: %(length (dired-get-marked-files))
 (define-key dired-mode-map "!" 'sudired)
 (define-key dired-mode-map "h" nil)
 (define-key dired-mode-map "O" 'ora-dired-other-window)
+(define-key dired-mode-map "T" 'ora-dired-terminal)
+
+(defun ora-dired-terminal ()
+  (interactive)
+  (ora-dired-start-process "gnome-terminal"))
+
 (defun ora-dired-other-window ()
   (interactive)
   (save-selected-window
