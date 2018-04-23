@@ -75,6 +75,15 @@ and <code>...</code>."
     (if (region-active-p)
         (call-interactively 'ccc-align-function-arguments)
       (self-insert-command 1))))
+(define-key c-mode-base-map (kbd "TAB") 'ora-cc-magic-tab)
+;;;###autoload
+(defun ora-cc-magic-tab ()
+  (interactive)
+  (if (looking-at "#ifn?def")
+      (if (get-char-property (line-end-position) 'invisible)
+          (show-ifdef-block)
+        (hide-ifdef-block))
+    (call-interactively 'c-indent-line-or-region)))
 (define-key c-mode-base-map (kbd "DEL") 'ccc-electric-del)
 ;;** C
 (define-key c-mode-base-map [f5] 'ccc-run)
