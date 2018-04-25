@@ -50,6 +50,7 @@
 (define-key org-mode-map (kbd "C-'") nil)
 (define-key org-mode-map (kbd "C-TAB") nil)
 (define-key org-mode-map (kbd "C-M-i") nil)
+(define-key org-mode-map (kbd "C-m") 'newline)
 (define-key org-mode-map (kbd "C-c C-r") nil)
 (define-key org-mode-map [C-tab] nil)
 (define-key org-mode-map (kbd "<f2> a") 'org-archive)
