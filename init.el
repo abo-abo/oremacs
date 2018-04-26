@@ -329,5 +329,6 @@
     :commands elf-mode
     :init
     (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
+(use-package groovy-mode)
 (require 'server)
 (or (server-running-p) (server-start))
