@@ -17,6 +17,7 @@
 (define-key java-mode-map (kbd "M-<f5>") (lambda ()(interactive)(antify)(ant-compile)))
 (define-key java-mode-map (kbd "χ") 'java-attr)
 (define-key java-mode-map (kbd "C-/") 'java-toggle-map)
+(define-key java-mode-map (kbd "C-M-j") 'lispy-goto-local)
 (require 'soap)
 (require 'abbrev)
 (read-abbrev-file nil t)
