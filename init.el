@@ -330,5 +330,6 @@
     :init
     (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
 (use-package groovy-mode)
+(add-to-list 'warning-suppress-types '(undo discard-info))
 (require 'server)
 (or (server-running-p) (server-start))
