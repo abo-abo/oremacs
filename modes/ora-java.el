@@ -29,6 +29,7 @@
   (hs-minor-mode)
   (setq c-basic-offset 2)
   (setq add-log-current-defun-function 'ora-java-current-defun-name)
+  (function-args-mode -1)
   (abbrev-mode 1))
 
 (defun java-compile ()
