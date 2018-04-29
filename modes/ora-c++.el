@@ -1,11 +1,9 @@
 ;; (require 'cedet-devel-load)
 (require 'subword)
 (diminish 'subword-mode)
-
-(use-package function-args
-    :init
-  (fa-config-default)
-  (setq fa-insert-method 'name-space-parens))
+(require 'function-args)
+(fa-config-default)
+(setq fa-insert-method 'name-space-parens)
 (define-key function-args-mode-map (kbd "M-i") nil)
 (define-key function-args-mode-map (kbd "C-2") 'fa-show)
 (require 'cc-chainsaw)
