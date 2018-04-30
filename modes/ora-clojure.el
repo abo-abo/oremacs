@@ -1,4 +1,6 @@
 (require 'clojure-mode)
+(csetq clojure-indent-style :always-align)
+(csetq clojure-indent-style :always-indent)
 (csetq clojure-indent-style :align-arguments)
 
 ;;;###autoload
