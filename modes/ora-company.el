@@ -27,8 +27,10 @@ In that case, insert the number."
   (interactive)
   (let* ((k (this-command-keys))
          (re (concat "^" company-prefix k)))
-    (if (cl-find-if (lambda (s) (string-match re s))
-                    company-candidates)
+    (if (or (cl-find-if (lambda (s) (string-match re s))
+                        company-candidates)
+            (> (string-to-number k)
+               (length company-candidates)))
         (self-insert-command 1)
       (company-complete-number
        (if (equal k "0")
