@@ -4,6 +4,17 @@
 (csetq ediff-split-window-function 'split-window-horizontally)
 (csetq ediff-diff-options "--text")
 (csetq ediff-diff-options "-w --text")
+
+(defun max-line-width ()
+  (let (res)
+    (save-excursion
+      (goto-char (point-min))
+      (end-of-line)
+      (setq res (current-column))
+      (while (end-of-line 2)
+        (setq res (max res (current-column))))
+      res)))
+
 (defun ora-ediff-prepare-buffer ()
   (when (memq major-mode '(org-mode emacs-lisp-mode))
     (outline-show-all))
