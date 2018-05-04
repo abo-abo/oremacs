@@ -116,7 +116,7 @@
 (global-set-key (kbd "C-c F") 'counsel-org-file)
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c h") 'hydra-apropos/body)
-(global-set-key (kbd "C-c i") 'counsel-imenu)
+(global-set-key (kbd "C-c i") 'counsel-semantic)
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
 (global-set-key (kbd "C-c k") 'counsel-ag)
 (global-set-key (kbd "C-c k") 'counsel-rg)
