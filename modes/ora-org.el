@@ -219,6 +219,20 @@
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 (setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
+(setq org-latex-default-packages-alist
+      '(("AUTO" "inputenc" t ("pdflatex"))
+        ("T1" "fontenc" t ("pdflatex"))
+        ("" "graphicx" t)
+        ("" "grffile" t)
+        ("" "longtable" nil)
+        ("" "wrapfig" nil)
+        ("" "rotating" nil)
+        ("normalem" "ulem" t)
+        ("" "amsmath" t)
+        ("" "textcomp" t)
+        ("" "amssymb" t)
+        ("" "capt-of" nil)
+        ("hidelinks" "hyperref" nil)))
 
 ;;* Files
 (setq org-archive-location "archive/gtd.org_archive::")
