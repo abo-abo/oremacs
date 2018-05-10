@@ -307,8 +307,9 @@
     :diminish compilation-in-progress
     :config
     (setq compilation-ask-about-save nil)
-    (setq compilation-scroll-output 'next-error)
-    (setq compilation-skip-threshold 2))
+    ;; (setq compilation-scroll-output 'next-error)
+    ;; (setq compilation-skip-threshold 2)
+    )
 (ace-popup-menu-mode)
 (use-package htmlize
     :commands htmlize-buffer)
