@@ -135,7 +135,7 @@
     (company-mode)
     (set (make-local-variable 'company-backends)
          '((company-elisp :with company-dabbrev-code)))
-    (abel-mode)
+    ;; (abel-mode)
     (diminish 'abbrev-mode)
     ;; (yas-minor-mode-on)
     (auto-compile-mode 1)
