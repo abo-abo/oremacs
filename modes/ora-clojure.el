@@ -2,6 +2,20 @@
 (csetq clojure-indent-style :always-align)
 (csetq clojure-indent-style :always-indent)
 (csetq clojure-indent-style :align-arguments)
+(defun add-classpath (&rest files)
+  (let* ((cp (getenv "CLASSPATH"))
+         (paths (when (stringp cp)
+                  (nreverse (split-string cp ":" t)))))
+    (dolist (file files)
+      (cl-pushnew (expand-file-name file) paths
+                  :test #'equal))
+    (setq cp (mapconcat #'identity (nreverse paths) ":"))
+    (setenv "CLASSPATH" cp)))
+
+(add-classpath
+ "~/git/java/clojure-1.8.0-sources"
+ "~/git/java/openjvm-8-src")
+
 
 ;;;###autoload
 (defun ora-clojure-hook ()
