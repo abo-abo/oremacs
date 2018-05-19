@@ -15,7 +15,7 @@
 (add-to-list 'load-path emacs-d)
 (add-to-list 'load-path (expand-file-name "modes/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
-(setq enable-local-variables :safe)
+(setq enable-local-variables :all)
 ;;* Theme
 (if (display-graphic-p)
     (require 'eclipse-theme)
