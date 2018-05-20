@@ -326,6 +326,7 @@
       (require 'slime-autoloads)
       (setq slime-contribs '(slime-fancy))
       (setq inferior-lisp-program "/usr/bin/sbcl")))
+(require 'cook)
 (use-package elf-mode
     :commands elf-mode
     :init
