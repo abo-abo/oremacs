@@ -35,6 +35,15 @@
 ;;;###autoload
 (defun ora-diff-hook ())
 
+
+(defmacro ediff-save-windows (&rest forms)
+  `(let ((wnd (current-window-configuration)))
+     ,@forms
+     (add-hook 'ediff-after-quit-hook-internal
+               `(lambda ()
+                  (setq ediff-after-quit-hook-internal nil)
+                  (set-window-configuration ,wnd)))))
+
 (mapc
  (lambda (k)
    (define-key diff-mode-map k
