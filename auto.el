@@ -1033,7 +1033,7 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
 ;;;###autoload
 (defun ora-quote-github-issues ()
   (interactive)
-  (let ((base "https://github.com/abo-abo/avy/issues/"))
+  (let ((base "https://github.com/abo-abo/swiper/issues/"))
     (goto-char (point-min))
     (while (re-search-forward "\\([^[]\\)#\\([0-9]+\\)" nil t)
       (replace-match
