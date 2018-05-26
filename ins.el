@@ -114,6 +114,11 @@ Threat is as function body when from endline before )"
          (indent-according-to-mode)
          (forward-line -1)
          (indent-according-to-mode))
+        ((looking-back "\\(^class\\|struct\\) .*")
+         (insert " {\n\n};")
+         (backward-char 3)
+         (indent-according-to-mode))
+
         ((region-active-p)
          (let ((beg (region-beginning))
                (end (region-end)))
