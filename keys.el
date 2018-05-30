@@ -321,6 +321,7 @@ _v_ariable     valu_e_"
 (global-set-key (kbd "C-M-o") 'hydra-window/body)
 (global-set-key (kbd "C-M-k") 'hydra-pause-resume)
 (global-set-key (kbd "C-M-k") 'ora-kill-current-buffer)
+(global-set-key (kbd "C-M-y") 'counsel-hydra-heads)
 (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
 (global-set-key (kbd "<deletechar>") 'avy-goto-char)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
