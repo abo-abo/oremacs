@@ -324,7 +324,6 @@ _v_ariable     valu_e_"
 (global-set-key (kbd "C-M-y") 'counsel-hydra-heads)
 (global-set-key (kbd "C-M-j") 'counsel-semantic)
 (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
-(global-set-key (kbd "<deletechar>") 'avy-goto-char)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-t") 'counsel-M-x)
 (global-set-key (kbd "<down-mouse-3>") 'ora-open-file-at-point)
