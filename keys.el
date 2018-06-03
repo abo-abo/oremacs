@@ -329,5 +329,8 @@ _v_ariable     valu_e_"
 (global-set-key (kbd "C-SPC") 'hydra-set-mark)
 (global-set-key (kbd "C-SPC") 'set-mark-command)
 (global-set-key (kbd "<down-mouse-3>") 'ora-open-file-at-point)
+;; unbind 'mouse-buffer-menu
+(global-set-key [C-down-mouse-1] 'ignore)
+
 
 (provide 'keys)
