@@ -90,7 +90,7 @@ and <code>...</code>."
 (define-key c-mode-map (kbd "β") 'moo-complete)
 
 ;;** C++
-(define-key c++-mode-map (kbd "β") 'moo-complete)
+(define-key c++-mode-map (kbd "β") 'counsel-company)
 (define-key c++-mode-map (kbd "M-q") 'ccc-align-function-arguments)
 (define-key c++-mode-map (kbd "C-M-g") 'hydra-gud/body)
 (define-key c++-mode-map (kbd "C-2") 'fa-show)
