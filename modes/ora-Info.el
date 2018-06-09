@@ -1,5 +1,8 @@
 (require 'info)
-(setq Info-additional-directory-list (list (expand-file-name "etc/info/" emacs-d)))
+(setq Info-additional-directory-list
+      (list (expand-file-name "etc/info/" emacs-d)))
+
+(add-to-list 'Info-directory-list "/usr/local/share/info/")
 
 (define-key Info-mode-map "j" 'ora-para-down)
 (define-key Info-mode-map "k" 'ora-para-up)
