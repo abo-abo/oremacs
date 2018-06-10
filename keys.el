@@ -332,5 +332,20 @@ _v_ariable     valu_e_"
 ;; unbind 'mouse-buffer-menu
 (global-set-key [C-down-mouse-1] 'ignore)
 
+(defun hydra-set-mark ()
+  (interactive)
+  (if (region-active-p)
+      (progn
+        (deactivate-mark)
+        (hydra-keyboard-quit))
+    (call-interactively 'set-mark-command)
+    (hydra-region/body)))
+
+(defhydra hydra-region ()
+  ("E" forward-sentence)
+  ("f" forward-word)
+  ("b" backward-word)
+  ("w" kill-region :exit t))
+
 
 (provide 'keys)
