@@ -101,6 +101,7 @@ and <code>...</code>."
 (define-key c++-mode-map (kbd "C-x C-n") 'ccc-jump-to-definition)
 (define-key c++-mode-map (kbd "C-c C-z") 'ora-c++-to-gud)
 (define-key c++-mode-map (kbd "C-M-q") nil)
+(define-key c++-mode-map (kbd "C-c n") 'hydra-moo-generate/body)
 (define-key c++-mode-map "." 'ccc-smart-dot)
 (define-key ivy-minibuffer-map
     "υ" (lambda ()
