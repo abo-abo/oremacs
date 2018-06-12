@@ -59,6 +59,7 @@
 (define-key org-mode-map (kbd "C-a") 'ora-move-beginning-of-line)
 (define-key org-mode-map (kbd "M-r") 'org-ctrl-c-ctrl-c)
 (define-key org-src-mode-map (kbd "C-c C-c") 'org-edit-src-exit)
+(advice-add 'org-edit-src-exit :after (lambda (&rest _) (save-buffer)))
 (define-key org-mode-map (kbd "C-c C-v") nil)
 (define-key org-mode-map (kbd "C-c C-q") 'counsel-org-tag)
 (define-key org-agenda-mode-map (kbd "<backspace>") 'ora-org-agenda-unmark-backward)
