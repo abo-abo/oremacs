@@ -20,7 +20,11 @@
 ;;;###autoload
 (defun ora-clojure-hook ()
   (lispy-mode 1)
-  (company-mode 1))
+  (company-mode 1)
+  (setq company-backends
+        '(company-capf company-dabbrev-code company-keywords company-files))
+  (setq add-log-current-defun-function
+        #'lisp-current-defun-name))
 
 (use-package cider
     :load-path "~/git/cider")
