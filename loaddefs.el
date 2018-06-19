@@ -344,7 +344,7 @@ Fix byte-compilation warnings emitted by lread.c.
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '("conditionally-enable-lispy" "cal" "ora-" "lisp--match-hidden-arg")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("conditionally-enable-lispy" 0 1 (fontified nil face font-lock-function-name-face) 1 26 (face font-lock-function-name-face fontified nil)) #("cal" 0 1 (fontified nil face font-lock-function-name-face) 1 3 (fontified nil face font-lock-function-name-face)) #("ora-" 0 4 (face font-lock-function-name-face fontified nil)) #("lisp--match-hidden-arg" 0 22 (fontified nil face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -355,7 +355,7 @@ Fix byte-compilation warnings emitted by lread.c.
 
 ;;;***
 
-;;;### (autoloads nil "ins" "ins.el" (22966 43645 358429 797000))
+;;;### (autoloads nil "ins" "ins.el" (0 0 0 0))
 ;;; Generated autoloads from ins.el
 
 (autoload 'ora-quotes "ins" "\
@@ -551,7 +551,7 @@ Log in to http://www.4clojure.com.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '("ora-" "hydra-marked-items")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '(#("ora-" 0 4 (fontified nil face font-lock-function-name-face)) #("hydra-marked-items" 0 18 (face font-lock-type-face fontified nil)))))
 
 ;;;***
 
@@ -560,6 +560,17 @@ Log in to http://www.4clojure.com.
 ;;; Generated autoloads from modes/ora-doc-view.el
 
 (autoload 'ora-doc-view-hook "modes/ora-doc-view" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-dockerfile" "modes/ora-dockerfile.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-dockerfile.el
+
+(autoload 'ora-dockerfile-hook "modes/ora-dockerfile" "\
 
 
 \(fn)" nil nil)
@@ -731,8 +742,7 @@ Open or move eshell in `default-directory'.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-j" "modes/ora-j.el" (22242 57802
-;;;;;;  0 0))
+;;;### (autoloads nil "modes/ora-j" "modes/ora-j.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-j.el
 
 (autoload 'j-setup-shortcuts "modes/ora-j" "\
@@ -749,6 +759,8 @@ Hook for J modes.
 Call `j-console' and setup shortcuts.
 
 \(fn)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-j" '(#("j-" 0 2 (fontified nil face font-lock-function-name-face)))))
 
 ;;;***
 
