@@ -59,6 +59,16 @@
     (when buffer
       (kill-buffer buffer))))
 
+(defun ora-dired-sort ()
+  "Sort dired listings with directories first."
+  (when (file-remote-p default-directory)
+    (save-excursion
+      (let (buffer-read-only)
+        ;; beyond dir. header
+        (forward-line 2)
+        (sort-regexp-fields t "^.*$" "[ ]*." (point) (point-max)))
+      (set-buffer-modified-p nil))))
+
 ;;* rest
 (defun ora-dired-get-size ()
   (interactive)
