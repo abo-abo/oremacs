@@ -69,6 +69,11 @@
         (sort-regexp-fields t "^.*$" "[ ]*." (point) (point-max)))
       (set-buffer-modified-p nil))))
 
+(defadvice dired-readin
+  (after dired-after-updating-hook first () activate)
+  "Sort dired listings with directories first before adding marks."
+  (ora-dired-sort))
+
 ;;* rest
 (defun ora-dired-get-size ()
   (interactive)
