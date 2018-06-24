@@ -44,6 +44,26 @@
                   (setq ediff-after-quit-hook-internal nil)
                   (set-window-configuration ,wnd)))))
 
+;;;###autoload
+(defun ora-ediff-dwim ()
+  (interactive)
+  (cond ((looking-at "AssertionError: \\(.*\\) != \\(.*\\)")
+         (lispy--ediff-regions
+          (cons (match-beginning 1)
+                (match-end 1))
+          (cons (match-beginning 2)
+                (match-end 2))
+          nil nil "-actual-" "-expected-"))
+        ((eq major-mode 'magit-status-mode)
+         (magit-diff '("refs/remotes/origin/master" . "master")))
+        ((looking-at "^--- \"?\\([^\t\"]+\\)\"?\t.*\n\\+\\+\\+ \"?\\([^\t\"]+\\)")
+         (let ((f1 (match-string-no-properties 1))
+               (f2 (match-string-no-properties 2)))
+           (ediff-save-windows
+            (ediff-files f1 f2))))
+        (t
+         (message "No context for auto-ediff detected :/"))))
+
 (mapc
  (lambda (k)
    (define-key diff-mode-map k
