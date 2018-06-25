@@ -64,6 +64,19 @@
         (t
          (message "No context for auto-ediff detected :/"))))
 
+;;;###autoload
+(defun ora-ediff-in-frame (file1 file2)
+  (let ((wnd (current-window-configuration))
+        (frame (make-frame)))
+    (select-frame frame)
+    (ediff-files file1 file2)
+    (add-hook 'ediff-after-quit-hook-internal
+              `(lambda ()
+                 (setq ediff-after-quit-hook-internal nil)
+                 (delete-frame ,frame)
+                 (set-window-configuration ,wnd)))
+    nil))
+
 (mapc
  (lambda (k)
    (define-key diff-mode-map k
