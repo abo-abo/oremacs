@@ -25,6 +25,7 @@
         '(company-capf company-dabbrev-code company-keywords company-files))
   (setq add-log-current-defun-function
         #'lisp-current-defun-name))
+(setq cider-font-lock-dynamically nil)
 
 (use-package cider
     :load-path "~/git/cider")
