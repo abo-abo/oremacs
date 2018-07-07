@@ -29,14 +29,16 @@
 
 (use-package cider
     :load-path "~/git/cider")
-(require 'cider-interaction)
+;; (require 'cider-interaction)
+(require 'clojure-semantic)
 
 (define-key clojure-mode-map (kbd "C-:") nil)
 (define-key clojure-mode-map (kbd "β") 'counsel-clj)
 (define-key clojure-mode-map (kbd "&") 'clojure-ampersand)
 (define-key clojure-mode-map (kbd "C-c C-l") 'cider-load-file)
 (define-key clojure-mode-map (kbd "C-c C-z") 'cider-switch-to-repl-buffer)
-(define-key cider-mode-map (kbd "M-TAB") 'iedit-mode)
+(define-key clojure-mode-map (kbd "C-c C-r") nil)
+(define-key cider-mode-map (kbd "C-c C-v") nil)
 
 (defun clojure-ampersand ()
   (interactive)
