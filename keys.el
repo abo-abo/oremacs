@@ -347,5 +347,24 @@ _v_ariable     valu_e_"
   ("b" backward-word)
   ("w" kill-region :exit t))
 
+(defun lispy-insert-prev-outline-body ()
+  (interactive)
+  (save-excursion
+    (insert
+     (save-excursion
+       (zo-up 1)
+       (mapconcat
+        'identity
+        (cl-remove-if
+         (lambda (s)
+           (string-match-p "^;;" s))
+         (split-string
+          (string-trim
+           (lispy--string-dwim
+            (worf--bounds-subtree)))
+          "\n"
+          t))
+        "\n")))))
+
 
 (provide 'keys)
