@@ -1,5 +1,6 @@
 (add-hook 'archive-mode-hook 'ora-archive-hook)
 (add-hook 'compilation-mode-hook 'ora-compilation-hook)
+(add-hook 'cmake-mode-hook 'ora-cmake-hook)
 (add-hook 'ert-results-mode-hook 'ora-ert-results-hook)
 (add-hook 'dired-mode-hook 'ora-dired-hook)
 (add-hook 'proced-mode-hook 'ora-proced-hook)

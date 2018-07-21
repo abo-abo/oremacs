@@ -344,7 +344,7 @@ Fix byte-compilation warnings emitted by lread.c.
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("conditionally-enable-lispy" 0 1 (fontified nil face font-lock-function-name-face) 1 26 (face font-lock-function-name-face fontified nil)) #("cal" 0 1 (fontified nil face font-lock-function-name-face) 1 3 (fontified nil face font-lock-function-name-face)) #("ora-" 0 4 (face font-lock-function-name-face fontified nil)) #("lisp--match-hidden-arg" 0 22 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("conditionally-enable-lispy" 0 1 (fontified nil) 1 26 (fontified nil)) #("cal" 0 1 (fontified nil) 1 3 (fontified nil)) #("ora-" 0 4 (fontified nil)) #("lisp--match-hidden-arg" 0 22 (fontified nil)))))
 
 ;;;***
 
@@ -487,8 +487,8 @@ Threat is as function body when from endline before )
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-cider" "modes/ora-cider.el" (22079
-;;;;;;  50170 0 0))
+;;;### (autoloads nil "modes/ora-cider" "modes/ora-cider.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-cider.el
 
 (autoload 'ora-cider-hook "modes/ora-cider" "\
@@ -512,7 +512,20 @@ Log in to http://www.4clojure.com.
 
 \(fn USER PWD)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("ora-clojure-" "clojure-ampersand" "add-classpath")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '(#("ora-clojure-" 0 12 (fontified nil face font-lock-function-name-face)) #("clojure-ampersand" 0 17 (face font-lock-function-name-face fontified nil)) #("add-classpath" 0 13 (face font-lock-function-name-face fontified nil)))))
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-cmake" "modes/ora-cmake.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from modes/ora-cmake.el
+
+(autoload 'ora-cmake-hook "modes/ora-cmake" "\
+
+
+\(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-cmake" '(#("cmake-indent" 0 12 (fontified nil face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -551,7 +564,7 @@ Log in to http://www.4clojure.com.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '(#("ora-" 0 4 (fontified nil face font-lock-function-name-face)) #("hydra-marked-items" 0 18 (face font-lock-type-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '("ora-" "hydra-marked-items")))
 
 ;;;***
 
