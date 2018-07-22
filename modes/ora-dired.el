@@ -124,14 +124,36 @@
   "Open an `ansi-term' that corresponds to current directory."
   (interactive)
   (let ((current-dir (dired-current-directory)))
-    (term-send-string
-     (ora-terminal)
-     (if (file-remote-p current-dir)
-         (let ((v (tramp-dissect-file-name current-dir t)))
-           (format "ssh %s@%s\n"
-                   (aref v 1) (aref v 2)))
-       (format "cd '%s'\n" current-dir)))
+    (if (file-remote-p current-dir)
+        (let* ((v (tramp-dissect-file-name current-dir t))
+               (user (if (arrayp v) (aref v 1) (tramp-file-name-user v)))
+               (host (if (arrayp v) (aref v 2) (tramp-file-name-host v)))
+               (addr (concat (if user (concat user "@") "") host))
+               (dir (if (arrayp v) (aref v 3) (tramp-file-name-localname v)))
+               (name (format "*shell  %s*" host))
+               (shell (when (assoc name (mash-shell-list))
+                        (get-buffer name))))
+          (unless shell
+            (setq shell (mash-make-shell host 'mash-new-shell))
+            (if (string= addr "root@target")
+                (term-send-string (get-buffer-process shell) "sshpass -proot ssh -t root@target\n")
+              (message (concat "ssh -t " addr "\n"))))
+          (comint-send-string (get-buffer-process shell)
+                              (format "cd %s\n" (shell-quote-argument dir)))
+          (pop-to-buffer shell)
+          (comint-send-input))
+      (let ((buf (mash-get "def" 'mash-new-shell)))
+        (switch-to-buffer buf)
+        (goto-char (point-max))
+        (delete-region (comint-line-beginning-position) (point))
+        (insert (format "cd %s" (shell-quote-argument current-dir)))
+        (call-interactively 'comint-send-input))
+      ;; (term-send-string
+      ;;  (ora-terminal)
+      ;;  (format "cd '%s'\n" current-dir))
+      )
     (setq default-directory current-dir)))
+
 
 (require 'hydra)
 (defhydra hydra-marked-items (dired-mode-map "")
