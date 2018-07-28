@@ -127,6 +127,9 @@ Threat is as function body when from endline before )"
            (insert "{")
            (goto-char (1+ end))
            (insert "}")))
+        ((looking-back ")\\(?: ?const\\)? ")
+         (insert "{  }")
+         (backward-char 2))
         (t
          (insert "{}")
          (indent-according-to-mode)
