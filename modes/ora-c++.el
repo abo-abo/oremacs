@@ -87,6 +87,11 @@ and <code>...</code>."
 (define-key c-mode-base-map [f5] 'ccc-run)
 (define-key c-mode-base-map (kbd "M-r") 'ccc-run)
 (require 'ycmd)
+(let ((cfg (expand-file-name "etc/ycm_extra_conf.py" emacs-d)))
+  (when (file-exists-p cfg)
+    (setq ycmd-extra-conf-whitelist (list cfg))
+    (setq ycmd-global-config cfg)))
+(setq ycmd-server-command `("python" ,(expand-file-name "~/git/cpp/ycmd/ycmd")))
 
 (define-key c-mode-base-map (kbd "C-M-.") 'ycmd-goto)
 (define-key c-mode-map (kbd "β") 'moo-complete)
