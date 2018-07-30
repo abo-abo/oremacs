@@ -242,6 +242,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((ruby . t)
+   (groovy .t)
    (shell . t)
    (python . t)
    (emacs-lisp . t)
