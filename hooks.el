@@ -59,6 +59,7 @@
 (add-hook 'term-exec-hook 'ora-term-exec-hook)
 (add-hook 'term-mode-hook 'ora-term-hook)
 (add-hook 'shell-mode-hook 'ora-shell-hook)
+(add-hook 'comint-mode-hook 'ora-comint-hook)
 (add-hook 'eshell-mode-hook 'ora-eshell-hook)
 (add-hook 'makefile-mode-hook 'ora-makefile-hook)
 (add-hook 'makefile-gmake-mode-hook 'ora-makefile-hook)
