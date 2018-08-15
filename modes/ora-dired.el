@@ -210,6 +210,7 @@ Number of marked items: %(length (dired-get-marked-files))
 (define-key dired-mode-map "h" nil)
 (define-key dired-mode-map "O" 'ora-dired-other-window)
 (define-key dired-mode-map "T" 'ora-dired-terminal)
+(define-key dired-mode-map "&" 'ora-dired-do-async-shell-command)
 
 (defun ora-dired-terminal ()
   (interactive)
@@ -259,4 +260,12 @@ Number of marked items: %(length (dired-get-marked-files))
       (delete-trailing-whitespace)
       (save-buffer)
       (kill-buffer))))
+
+(defun ora-dired-do-async-shell-command ()
+  "Wrap `dired-do-async-shell-command' without popup windows."
+  (interactive)
+  (advice-add 'shell-command-sentinel :override #'ora-shell-command-sentinel)
+  (save-window-excursion
+    (call-interactively 'dired-do-async-shell-command)))
+
 (provide 'ora-dired)
