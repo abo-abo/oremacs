@@ -218,8 +218,11 @@ Number of marked items: %(length (dired-get-marked-files))
 
 (defun ora-dired-other-window ()
   (interactive)
-  (save-selected-window
-    (dired-find-file-other-window)))
+  (if (string= (buffer-name) "*Find*")
+      (find-file-other-window
+       (file-name-directory (dired-get-file-for-visit)))
+    (save-selected-window
+      (dired-find-file-other-window))))
 
 (defun ora-dired-up-directory ()
   (interactive)
