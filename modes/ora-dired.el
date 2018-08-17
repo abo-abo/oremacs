@@ -226,9 +226,15 @@ Number of marked items: %(length (dired-get-marked-files))
 
 (defun ora-dired-up-directory ()
   (interactive)
-  (let ((buffer (current-buffer)))
+  (let ((this-directory default-directory)
+        (buffer (current-buffer)))
     (dired-up-directory)
-    (unless (equal buffer (current-buffer))
+    (unless (cl-find-if
+             (lambda (w)
+               (with-selected-window w
+                 (and (eq major-mode 'dired-mode)
+                      (equal default-directory this-directory))))
+             (delete (selected-window) (window-list)))
       (kill-buffer buffer))))
 
 (use-package make-it-so
