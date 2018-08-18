@@ -249,6 +249,8 @@ Number of marked items: %(length (dired-get-marked-files))
              '("\\.7z\\'" "" "7z x '%i'"))
 (add-to-list 'dired-compress-file-suffixes
              '("\\.tgz\\'" "" "gzip -dc %i | tar -xv"))
+(add-to-list 'dired-compress-file-suffixes
+             '("\\.tar\\'" "" "tar -xf %i"))
 
 (eval-after-load 'tramp-sh
   '(progn
