@@ -251,6 +251,8 @@ Number of marked items: %(length (dired-get-marked-files))
              '("\\.tgz\\'" "" "gzip -dc %i | tar -xv"))
 (add-to-list 'dired-compress-file-suffixes
              '("\\.tar\\'" "" "tar -xf %i"))
+(add-to-list 'dired-compress-file-suffixes
+             '("\\.tar.xz\\'" "" "tar -xpvf %i"))
 
 (eval-after-load 'tramp-sh
   '(progn
