@@ -255,9 +255,10 @@ Number of marked items: %(length (dired-get-marked-files))
              '("\\.tar.xz\\'" "" "tar -xpvf %i"))
 
 (eval-after-load 'tramp-sh
-  '(progn
-    (setq tramp-sh-file-name-handler-alist
-     (assq-delete-all 'vc-registered tramp-sh-file-name-handler-alist))))
+                 '(progn
+                   (setq tramp-sh-file-name-handler-alist
+                    (assq-delete-all 'vc-registered tramp-sh-file-name-handler-alist))))
+
 
 ;;;###autoload
 (defun ora-dired-hook ()
