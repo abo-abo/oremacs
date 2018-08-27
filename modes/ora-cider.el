@@ -1,6 +1,7 @@
-(require 'ac-cider)
-(add-to-list 'ac-modes 'cider-mode)
+;; (require 'ac-cider)
+;; (add-to-list 'ac-modes 'cider-mode)
 (require 'cider)
+(setq cider-default-repl-command "lein")
 (setq cider-auto-mode nil)
 
 (define-key cider-mode-map (kbd "C-:") nil)
