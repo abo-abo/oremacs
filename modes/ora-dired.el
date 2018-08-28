@@ -42,7 +42,8 @@
         ("\\.html?\\'" "firefox")
         ("\\.cue?\\'" "audacious")
         ("\\.\\(?:pptx?\\|odt\\|xlsx?\\|docx?\\)\\'" "libreoffice")
-        ("\\.\\(?:zip\\|tgz\\)\\'" "file-roller")))
+        ("\\.\\(?:zip\\|tgz\\)\\'" "file-roller")
+        ("\\.\\'" "nautilus")))
 ;;* advice
 (defadvice dired-advertised-find-file (around ora-dired-subst-directory activate)
   "Replace current buffer if file is a directory."
