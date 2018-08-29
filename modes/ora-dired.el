@@ -260,6 +260,8 @@ Number of marked items: %(length (dired-get-marked-files))
                    (setq tramp-sh-file-name-handler-alist
                     (assq-delete-all 'vc-registered tramp-sh-file-name-handler-alist))))
 
+(autoload 'org-download-enable "org-download")
+(add-hook 'dired-mode-hook 'org-download-enable)
 
 ;;;###autoload
 (defun ora-dired-hook ()
