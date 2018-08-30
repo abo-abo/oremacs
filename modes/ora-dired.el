@@ -278,6 +278,20 @@ Number of marked items: %(length (dired-get-marked-files))
       (save-buffer)
       (kill-buffer))))
 
+;;;###autoload
+(defun ora-dired-jump ()
+  (interactive)
+  (let* ((file (buffer-file-name))
+         (archive-file
+          (when (and file (string-match "\\`\\(.*jar\\|.*zip\\):" file))
+            (match-string 1 file))))
+    (with-no-warnings
+      (ring-insert find-tag-marker-ring (point-marker)))
+    (if (null archive-file)
+        (dired-jump nil file)
+      (dired-jump nil archive-file)
+      (dired-find-file))))
+
 (defun ora-dired-do-async-shell-command ()
   "Wrap `dired-do-async-shell-command' without popup windows."
   (interactive)
