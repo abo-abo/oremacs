@@ -43,6 +43,7 @@
         ("\\.cue?\\'" "audacious")
         ("\\.\\(?:pptx?\\|odt\\|xlsx?\\|docx?\\)\\'" "libreoffice")
         ("\\.\\(?:zip\\|tgz\\)\\'" "file-roller")
+        ("\\.epub\\'" "calibre")
         ("\\.\\'" "nautilus")))
 ;;* advice
 (defadvice dired-advertised-find-file (around ora-dired-subst-directory activate)
