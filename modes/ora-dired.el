@@ -44,6 +44,7 @@
         ("\\.\\(?:pptx?\\|odt\\|xlsx?\\|docx?\\)\\'" "libreoffice")
         ("\\.\\(?:zip\\|tgz\\)\\'" "file-roller")
         ("\\.epub\\'" "calibre")
+        ("\\.json\\'" "python -m json.tool > indented.json")
         ("\\.\\'" "nautilus")))
 ;;* advice
 (defadvice dired-advertised-find-file (around ora-dired-subst-directory activate)
