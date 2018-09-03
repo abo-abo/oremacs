@@ -30,7 +30,6 @@
 ;;** Log
 (define-key magit-log-mode-map "j" 'magit-goto-next-section)
 (define-key magit-log-mode-map "k" 'magit-goto-previous-section)
-(define-key magit-log-mode-map (kbd "M-w") 'ora-magit-copy-item-as-kill)
 (define-key magit-log-mode-map "n" 'ora-magit-copy-item-as-kill)
 (define-key magit-log-mode-map "v" 'ora-magit-visit)
 (define-key magit-log-mode-map "o" 'ora-magit-visit-item-other-window)
