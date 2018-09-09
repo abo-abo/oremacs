@@ -340,6 +340,23 @@ a sound to be played"
   ;; (setq appt-time-msg-list nil)
   (org-agenda-to-appt))
 
+(setq org-structure-template-alist
+      '(("s" "#+begin_src ?\n\n#+end_src")
+        ("e" "#+begin_example\n?\n#+end_example")
+        ("q" "#+begin_quote\n?\n#+end_quote")
+        ("v" "#+begin_verse\n?\n#+end_verse")
+        ("V" "#+begin_verbatim\n?\n#+end_verbatim")
+        ("c" "#+begin_center\n?\n#+end_center")
+        ("C" "#+begin_comment\n?\n#+end_comment")
+        ("l" "#+begin_export latex\n?\n#+end_export")
+        ("L" "#+latex: ")
+        ("h" "#+begin_export html\n?\n#+end_export")
+        ("H" "#+html: ")
+        ("a" "#+begin_export ascii\n?\n#+end_export")
+        ("A" "#+ascii: ")
+        ("i" "#+index: ?")
+        ("I" "#+include: %file ?")))
+
 (defun hot-expand (str)
   "Expand org template."
   (insert str)
