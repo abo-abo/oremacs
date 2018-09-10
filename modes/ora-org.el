@@ -49,7 +49,7 @@
 (define-key org-mode-map (kbd "C-,") nil)
 (define-key org-mode-map (kbd "C-'") nil)
 (define-key org-mode-map (kbd "C-TAB") nil)
-(define-key org-mode-map (kbd "C-M-i") nil)
+(define-key org-mode-map (kbd "C-M-i") 'ora-org-complete-symbol)
 (define-key org-mode-map (kbd "C-m") 'newline)
 (define-key org-mode-map (kbd "C-c C-r") nil)
 (define-key org-mode-map [C-tab] nil)
@@ -577,4 +577,20 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 
 (add-to-list 'safe-local-variable-values
              '(org-todo-keywords (sequence "TODO" "REVIEW" "|" "DONE")))
+
+(defun ora-org-complete-symbol ()
+  (interactive)
+  (let* ((element (save-excursion (beginning-of-line) (org-element-at-point)))
+         (type (org-element-type element)))
+    (if (and (eq type 'src-block)
+             (> (line-beginning-position)
+                (org-element-property :post-affiliated element))
+             (< (line-beginning-position)
+                (org-with-wide-buffer
+                 (goto-char (org-element-property :end element))
+                 (skip-chars-backward " \r\t\n")
+                 (line-beginning-position))))
+        (org-babel-do-key-sequence-in-edit-buffer (kbd "TAB"))
+      (completion-at-point))))
+
 (provide 'ora-org)
