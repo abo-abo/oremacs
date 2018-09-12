@@ -2,6 +2,8 @@
 (csetq clojure-indent-style :always-align)
 (csetq clojure-indent-style :always-indent)
 (csetq clojure-indent-style :align-arguments)
+(setq cider-default-repl-command "lein")
+
 (defun add-classpath (&rest files)
   (let* ((cp (getenv "CLASSPATH"))
          (paths (when (stringp cp)
