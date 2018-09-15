@@ -197,6 +197,7 @@
 ;;* Export settings
 (setq org-export-with-timestamps nil)
 (setq org-src-preserve-indentation t)
+(setq org-edit-src-content-indentation 0)
 
 ;;** HTML
 (require 'ox-html)
