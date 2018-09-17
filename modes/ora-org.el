@@ -570,7 +570,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
       (save-match-data
         (save-excursion
           (goto-char (point-min))
-          (while (re-search-forward "=\\([a-zA-Z]+\\)=" nil t)
+          (while (re-search-forward "=\\([a-zA-Z._]+\\)=" nil t)
             (cl-pushnew (match-string-no-properties 0) cands :test 'equal))
           cands))
       (when cands
