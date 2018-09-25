@@ -591,6 +591,38 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 (setq org-directory pow-directory)
 (csetq org-agenda-window-setup 'current-window)
 
+;;** insert snippets
+(require 'org-parser)
+
+(defvar ora-snippet-alist
+  '((sh-mode . "~/Dropbox/org/wiki/bash.org")))
+
+(defun ora-insert-snippet-action (x)
+  (let ((body (cdr x)))
+    (if (string-match "\\`#\\+begin_src.*\n\\([^\0]+\\)#\\+end_src\\'" body)
+        (insert (match-string 1 body))
+      (error "Unexpected snippet: %s" body)))
+  (message x))
+
+(defun ora-insert-snippet ()
+  (interactive)
+  (let ((file (cdr (assoc major-mode ora-snippet-alist))))
+    (if (not (file-exists-p file))
+        (error "No snippets for `%S'" major-mode)
+      (let* ((parse-tree (org-parser-parse-file file))
+             (snippet-heading
+              (cl-find-if (lambda (x) (equal '("Snippets") (gethash :text x)))
+                          parse-tree))
+             (snippets
+              (gethash :children snippet-heading))
+             (snippet-names-bodies
+              (mapcar (lambda (x)
+                        (cons
+                         (car (gethash :text x))
+                         (caar (gethash :body x))))
+                      snippets)))
+        (ivy-read "snippet: " snippet-names-bodies
+                  :action 'ora-insert-snippet-action)))))
 
 (defun ora-org-complete-symbol ()
   (interactive)
