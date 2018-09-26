@@ -94,4 +94,5 @@
       '("/usr/local/share/applications/"
         "/usr/share/applications/"))
 
+(define-key ivy-switch-buffer-map (kbd "C-k") 'ivy-switch-buffer-kill)
 (provide 'ora-ivy)
