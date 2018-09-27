@@ -47,22 +47,26 @@
 ;;;###autoload
 (defun ora-ediff-dwim ()
   (interactive)
-  (cond ((looking-at "AssertionError: \\(.*\\) != \\(.*\\)")
-         (lispy--ediff-regions
-          (cons (match-beginning 1)
-                (match-end 1))
-          (cons (match-beginning 2)
-                (match-end 2))
-          nil nil "-actual-" "-expected-"))
-        ((eq major-mode 'magit-status-mode)
-         (magit-diff '("refs/remotes/origin/master" . "master")))
-        ((looking-at "^--- \"?\\([^\t\"]+\\)\"?\t.*\n\\+\\+\\+ \"?\\([^\t\"]+\\)")
-         (let ((f1 (match-string-no-properties 1))
-               (f2 (match-string-no-properties 2)))
-           (ediff-save-windows
-            (ediff-files f1 f2))))
-        (t
-         (message "No context for auto-ediff detected :/"))))
+  (let ((str (buffer-substring-no-properties (line-beginning-position) (line-end-position))))
+    (cond ((with-temp-buffer
+             (insert str)
+             (goto-char (point-min))
+             (when (looking-at "AssertionError: \\(.*\\) != \\(.*\\)")
+               (lispy--ediff-regions
+                (cons (match-beginning 1)
+                      (match-end 1))
+                (cons (match-beginning 2)
+                      (match-end 2))
+                nil nil "-actual-" "-expected-"))))
+          ((eq major-mode 'magit-status-mode)
+           (magit-diff '("refs/remotes/origin/master" . "master")))
+          ((looking-at "^--- \"?\\([^\t\"]+\\)\"?\t.*\n\\+\\+\\+ \"?\\([^\t\"]+\\)")
+           (let ((f1 (match-string-no-properties 1))
+                 (f2 (match-string-no-properties 2)))
+             (ediff-save-windows
+              (ediff-files f1 f2))))
+          (t
+           (message "No context for auto-ediff detected :/")))))
 
 ;;;###autoload
 (defun ora-ediff-in-frame (file1 file2)
