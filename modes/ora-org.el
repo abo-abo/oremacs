@@ -587,6 +587,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
                ("REVIEW" . 114)
                ("DONE" . 100)
                (:endgroup)))
+(put 'python-shell-interpreter 'safe-local-variable 'identity)
 (require 'plain-org-wiki)
 (setq org-directory pow-directory)
 (csetq org-agenda-window-setup 'current-window)
