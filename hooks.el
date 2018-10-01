@@ -2,6 +2,7 @@
 (add-hook 'compilation-mode-hook 'ora-compilation-hook)
 (add-hook 'cmake-mode-hook 'ora-cmake-hook)
 (add-hook 'ert-results-mode-hook 'ora-ert-results-hook)
+(add-hook 'erc-mode-hook 'ora-erc-hook)
 (add-hook 'dired-mode-hook 'ora-dired-hook)
 (add-hook 'proced-mode-hook 'ora-proced-hook)
 (add-hook 'c-mode-common-hook 'ora-c-common-hook)
