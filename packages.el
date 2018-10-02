@@ -14,29 +14,29 @@
 (defconst ora-packages
   '(ac-cider
     ace-link
-    ace-window
     ace-popup-menu
+    ace-window
     alert
+    auctex
     auto-compile
     auto-yasnippet
-    auctex
     cmake-mode
     company
+    company-jedi
     counsel
     define-word
     eclipse-theme
+    find-file-in-project
     function-args
     geiser
     google-c-style
     gtk-pomodoro-indicator
-    which-key
     headlong
     helm-make
     hideshowvis
+    ivy-hydra
     j-mode
     jedi
-    company-jedi
-    ivy-hydra
     lispy
     magit
     make-it-so
@@ -46,9 +46,9 @@
     org-download
     powerline
     projectile
-    find-file-in-project
     rainbow-mode
     request
+    rust-mode
     slime
     smex
     swiper
@@ -56,6 +56,7 @@
     use-package
     vimish-fold
     wgrep
+    which-key
     worf
     yaml-mode)
   "List of packages that I like.")
