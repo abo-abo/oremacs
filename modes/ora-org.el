@@ -588,6 +588,10 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
                ("DONE" . 100)
                (:endgroup)))
 (put 'python-shell-interpreter 'safe-local-variable 'identity)
+(put 'org-archive-location 'safe-local-variable 'identity)
+(add-to-list 'safe-local-variable-values
+             '(lisp-indent-function . lisp-indent-function))
+
 (require 'plain-org-wiki)
 (setq org-directory pow-directory)
 (csetq org-agenda-window-setup 'current-window)
