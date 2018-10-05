@@ -644,4 +644,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
         (org-babel-do-key-sequence-in-edit-buffer (kbd "TAB"))
       (completion-at-point))))
 
+;; work-around for "L" key being sent on Firefox 60
+(add-to-list 'org-capture-templates (cons "L" (cdr (assoc "l" org-capture-templates))))
+
 (provide 'ora-org)
