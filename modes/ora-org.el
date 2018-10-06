@@ -35,6 +35,7 @@
   (add-to-list 'prettify-symbols-alist
                '(":PROPERTIES:" . ":"))
   (prettify-symbols-mode)
+  (setq-local tab-always-indent 'complete)
   (setq completion-at-point-functions '(org-completion-symbols
                                         ora-cap-filesystem
                                         org-completion-refs
