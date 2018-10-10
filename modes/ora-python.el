@@ -44,6 +44,8 @@
 ;;;###autoload
 (defun ora-python-hook ()
   (setq-local company-backends '(company-dabbrev-code company-keywords))
+  (setq python-environment-virtualenv
+        '("virtualenv" "--system-site-packages" "--quiet" "--python" "/usr/bin/python3"))
   (unless ora-no-pip
     (jedi:setup)
     (add-to-list 'company-backends 'company-jedi))
