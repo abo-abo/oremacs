@@ -76,6 +76,18 @@
     ;; ("`\\([^\n']+\\)'" 1 font-lock-constant-face prepend)
     ))
 
+(defun ora-clojure-outline-comment-highlight (limit)
+  (catch 'done
+    (while (re-search-forward "^;;\\(?:[^*\n]\\)" limit t)
+      (let* ((pt (point))
+             (success (save-excursion
+                        (and (re-search-backward "^;;\\*" nil t)
+                             (null (re-search-forward "^[^;]" pt t))))))
+        (when success
+          (set-match-data (list (line-beginning-position) (line-end-position)
+                                (point) (line-end-position)))
+          (end-of-line)
+          (throw 'done t))))))
 (font-lock-remove-keywords 'clojure-mode ora-clojure-font-lock-keywords)
 (font-lock-add-keywords 'clojure-mode ora-clojure-font-lock-keywords)
 
