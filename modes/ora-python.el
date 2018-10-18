@@ -33,8 +33,17 @@
 (define-key python-mode-map (kbd "C-M-j") 'lpy-goto)
 (define-key python-mode-map (kbd "C-c C-v") nil)
 (define-key python-mode-map (kbd "C-c C-r") nil)
-(define-key python-mode-map (kbd "C-m") 'newline)
+(define-key python-mode-map (kbd "C-m") 'python-newline-dedent)
 (define-key inferior-python-mode-map (kbd "C-c M-o") 'comint-clear-buffer)
+
+(defun python-newline-dedent ()
+  (interactive)
+  (if (bolp)
+      (newline)
+    (newline-and-indent)
+    (unless (or (bolp)
+                (lispy--in-string-p))
+      (python-indent-dedent-line-backspace 1))))
 
 (require 'le-python)
 (require 'flyspell)
