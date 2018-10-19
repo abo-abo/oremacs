@@ -57,6 +57,10 @@
         '("virtualenv" "--system-site-packages" "--quiet" "--python" "/usr/bin/python3"))
   (unless ora-no-pip
     (jedi:setup)
+    (setq jedi:environment-root "jedi")
+    (setq jedi:environment-virtualenv
+          (append python-environment-virtualenv
+                  '("--python" "/usr/bin/python3")))
     (add-to-list 'company-backends 'company-jedi))
   (electric-indent-mode -1)
   (auto-complete-mode -1)
