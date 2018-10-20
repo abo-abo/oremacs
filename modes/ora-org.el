@@ -281,8 +281,8 @@
 (setq org-babel-default-header-args:ruby '((:results . "pp output")))
 (setq org-confirm-babel-evaluate nil)
 ;; for expanding <s
-(setcdr (assoc "s" org-structure-template-alist)
-        '("#+begin_src ?\n\n#+end_src" "<src lang=\"?\">\n\n</src>"))
+;; (setcdr (assoc ?s org-structure-template-alist)
+;;         '("#+begin_src ?\n\n#+end_src" "<src lang=\"?\">\n\n</src>"))
 (require 'htmlfontify)
 (setq org-src-fontify-natively t)
 (csetq org-babel-clojure-backend 'cider)
