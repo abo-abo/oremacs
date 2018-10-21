@@ -1,8 +1,12 @@
 (add-to-list 'load-path "~/git/mu/mu4e")
 (require 'mu4e)
+(setq mu4e-maildir "~/Work")
 (setq mu4e-drafts-folder "/[Gmail].Drafts")
 (setq mu4e-sent-folder   "/[Gmail].Sent Mail")
 (setq mu4e-trash-folder  "/[Gmail].Trash")
+(setq mu4e-drafts-folder "/Drafts")
+(setq mu4e-sent-folder   "/Sent Items")
+(setq mu4e-trash-folder  "/Trash")
 (setq mu4e-headers-skip-duplicates t)
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
