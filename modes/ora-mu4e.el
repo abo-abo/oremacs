@@ -24,9 +24,14 @@
         ("/[Gmail].All Mail" . ?a)
         ("/[asml].All Mail" . ?m)))
 
+;; TODO
+;; (define-key mu4e-view-mode-map "j" 'forward-paragraph)
+;; (define-key mu4e-view-mode-map "k" 'backward-paragraph)
+;; (define-key mu4e-headers-mode-map "h" 'mu4e-headers-prev)
+(require 'smtpmail)
+
 ;;;###autoload
 (defun ora-mu4e-headers-hook ())
-
 (define-key mu4e-view-mode-map (kbd "C--") nil)
 (define-key mu4e-compose-mode-map (kbd "C-M-i") nil)
 
