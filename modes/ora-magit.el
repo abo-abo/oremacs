@@ -59,7 +59,9 @@
 ;;;###autoload
 (defun ora-magit-log-hook ())
 ;;;###autoload
-(defun ora-magit-commit-hook ())
+(defun ora-magit-commit-hook ()
+  (setq magit-ignore-huge-commits nil))
+
 ;;;###autoload
 (defun ora-magit-diff-hook ())
 ;;;###autoload
