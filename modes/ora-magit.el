@@ -64,13 +64,13 @@
 
 ;;;###autoload
 (defun ora-magit-diff-hook ())
+
 ;;;###autoload
 (defun ora-magit-branch-manager-hook ())
 
 ;;;###autoload
 (defun ora-git-commit-hook ()
-  (setq fill-column 120))
-
+  (setq fill-column 70))
 
 ;;* Functions
 (defun ora-magit-find-main-file ()
