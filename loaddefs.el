@@ -344,14 +344,14 @@ Fix byte-compilation warnings emitted by lread.c.
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("conditionally-enable-lispy" 0 1 (fontified nil face font-lock-function-name-face) 1 26 (face font-lock-function-name-face fontified nil)) #("cal" 0 1 (fontified nil face font-lock-function-name-face) 1 3 (fontified nil face font-lock-function-name-face)) #("ora-" 0 4 (face font-lock-function-name-face fontified nil)) #("lisp--match-hidden-arg" 0 22 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("conditionally-enable-lispy" 0 1 (face font-lock-function-name-face) 1 26 (face font-lock-function-name-face)) #("cal" 0 1 (face font-lock-function-name-face) 1 3 (face font-lock-function-name-face)) #("ora-" 0 4 (face font-lock-function-name-face)) #("lisp--match-hidden-arg" 0 22 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '("emacs-d" "eldoc-mode" "yes-or-no-p" "csetq" "ora-set-font")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
@@ -512,7 +512,7 @@ Log in to http://www.4clojure.com.
 
 \(fn USER PWD)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '(#("ora-clojure-" 0 12 (fontified nil face font-lock-function-name-face)) #("clojure-ampersand" 0 17 (face font-lock-function-name-face fontified nil)) #("add-classpath" 0 13 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("ora-clojure-" "clojure-ampersand" "add-classpath")))
 
 ;;;***
 
@@ -637,6 +637,23 @@ Log in to http://www.4clojure.com.
 
 
 \(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-erc" "modes/ora-erc.el" (0 0 0 0))
+;;; Generated autoloads from modes/ora-erc.el
+
+(autoload 'ora-erc-hook "modes/ora-erc" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'bitlbee "modes/ora-erc" "\
+
+
+\(fn)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-erc" '("ora-pcomplete-erc-all-nicks")))
 
 ;;;***
 
@@ -1095,6 +1112,17 @@ MATLAB completion at point.
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-rust" "modes/ora-rust.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from modes/ora-rust.el
+
+(autoload 'ora-rust-hook "modes/ora-rust" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-scheme" "modes/ora-scheme.el" (22753
 ;;;;;;  1116 0 0))
 ;;; Generated autoloads from modes/ora-scheme.el
@@ -1166,14 +1194,16 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-text" "modes/ora-text.el" (22395
-;;;;;;  32024 0 0))
+;;;### (autoloads nil "modes/ora-text" "modes/ora-text.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from modes/ora-text.el
 
 (autoload 'ora-text-hook "modes/ora-text" "\
 
 
 \(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-text" '("ora-move-line-")))
 
 ;;;***
 
@@ -1195,8 +1225,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-erc.el"
-;;;;;;  "modes/ora-helm.el" "modes/ora-projectile.el") (0 0 0 0))
+;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-helm.el"
+;;;;;;  "modes/ora-projectile.el") (0 0 0 0))
 
 ;;;***
 

@@ -77,6 +77,7 @@
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 (eval-after-load 'helm '(require 'ora-helm))
 (add-hook 'image-mode-hook 'ora-image-hook)
+(add-hook 'rust-mode-hook 'ora-rust-hook)
 (eval-after-load 'grep
   '(define-key grep-mode-map (kbd "C-x C-q") 'wgrep-change-to-wgrep-mode))
 (eval-after-load 'wgrep
