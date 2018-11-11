@@ -142,7 +142,9 @@ and <code>...</code>."
 (defun ora-c++-hook ()
   (auto-complete-mode 1)
   (c-toggle-auto-newline)
-  (hs-minor-mode))
+  (setq c-electric-flag nil)
+  (electric-indent-mode -1))
+
 
 ;;* gud
 (require 'gud)
