@@ -15,4 +15,11 @@
       (ispell-change-dictionary (cadr fly))
       (flyspell-mode 1))))
 
+;;;###autoload
+(defun bitlbee ()
+  (interactive)
+  (erc
+   :server "localhost"
+   :nick "oleh"))
+
 (provide 'ora-erc)
