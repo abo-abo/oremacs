@@ -15,6 +15,17 @@
       (ispell-change-dictionary (cadr fly))
       (flyspell-mode 1))))
 
+;; don't change the modeline every time someone goes online/offline
+(defun erc-modified-channels-object (strings)
+  "Generate a new `erc-modified-channels-object' based on STRINGS."
+  (if strings
+      (concat (if (eq erc-track-position-in-mode-line 'after-modes)
+                  "[" " [")
+              (mapconcat 'identity (nreverse (delete "&" strings)) ",")
+              (if (eq erc-track-position-in-mode-line 'before-modes)
+                  "] " "]"))
+    ""))
+
 ;;;###autoload
 (defun bitlbee ()
   (interactive)
