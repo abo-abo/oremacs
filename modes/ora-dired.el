@@ -4,7 +4,7 @@
 (require 'term)
 ;;* set
 (setq dired-listing-switches
-      (if (eq system-type 'windows-nt)
+      (if (memq system-type '(windows-nt darwin))
           "-alh"
         "-laGh1v --group-directories-first"))
 (advice-add 'dired-internal-noselect :filter-args 'ora-dired-internal-noselect)
