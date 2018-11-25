@@ -24,7 +24,11 @@
               (regexp-opt
                '("compile_commands.json"
                  "TAGS"
-                 "__pycache__"))))
+                 "__pycache__"
+                 ;; OSv deployments
+                 "Capstanfile"
+                 ;; Heroku deployments
+                 "Procfile"))))
 (setq dired-omit-verbose nil)
 (setq dired-garbage-files-regexp
       "\\.idx\\|\\.run\\.xml$\\|\\.bbl$\\|\\.bcf$\\|.blg$\\|-blx.bib$\\|.nav$\\|.snm$\\|.out$\\|.synctex.gz$\\|\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|pyg\\)\\)\\'")
