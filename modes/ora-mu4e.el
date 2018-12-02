@@ -2,6 +2,9 @@
 (require 'mu4e)
 (setq mu4e-maildir "~/mail/gmail")
 (setq mu4e-maildir "~/mail/work")
+
+(setq mu4e-html2text-command "w3m -T text/html")
+
 (setq mu4e-drafts-folder "/Drafts")
 (setq mu4e-sent-folder   "/Sent Items")
 (setq mu4e-trash-folder  "/Trash")
