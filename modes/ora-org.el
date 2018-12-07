@@ -294,6 +294,7 @@
       '((:results . "verbatim")))
 (setq org-babel-default-header-args:bash
       '((:results . "verbatim")))
+(setq org-babel-python-command "python3")
 
 ;;* misc functions
 (font-lock-add-keywords
