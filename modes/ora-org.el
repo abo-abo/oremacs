@@ -410,7 +410,13 @@ _h_tml    ^ ^        _A_SCII:
 (defhydra hydra-org-objects (:exit t)
   "org-objects"
   ("t" hydra-org-timer/body "timer")
-  ("c" hydra-org-clock/body "clock"))
+  ("c" hydra-org-clock/body "clock")
+  ("a" ora-org-add-to-agenda "add to agenda")
+  ("p" org-pomodoro "pomodoro"))
+(unless (member (buffer-file-name)
+                (mapcar #'expand-file-name org-agenda-files))
+  (add-to-list 'org-agenda-files (buffer-file-name)))
+
 
 ;;** Timer
 (defhydra hydra-org-timer (:exit t
