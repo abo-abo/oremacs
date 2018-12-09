@@ -12,7 +12,9 @@
     (setq jedi:use-shortcuts nil)
     (setq jedi:complete-on-dot t)
     (setq jedi:setup-function nil)
-    (setq jedi:mode-function nil)))
+    (setq jedi:mode-function nil)
+    (setcar jedi:install-server--command "pip3")
+    (setq jedi:server-command (list "python3" jedi:server-script))))
 (require 'ciao nil t)
 
 (require 'lpy)
