@@ -5,6 +5,7 @@
 (defvar ora-no-pip
   (string-match "Command not found\\|no pip in"
                 (shell-command-to-string "which pip")))
+
 (unless ora-no-pip
   (use-package jedi
       :config
@@ -60,9 +61,7 @@
   (unless ora-no-pip
     (jedi:setup)
     (setq jedi:environment-root "jedi")
-    (setq jedi:environment-virtualenv
-          (append python-environment-virtualenv
-                  '("--python" "/usr/bin/python3")))
+    (setq jedi:environment-virtualenv python-environment-virtualenv)
     (add-to-list 'company-backends 'company-jedi))
   (electric-indent-mode -1)
   (auto-complete-mode -1)
