@@ -106,7 +106,6 @@
       (insert prefix))
     (counsel-el)))
 
-(define-key lisp-mode-shared-map "β" 'counsel-el)
 (define-key lisp-mode-shared-map (kbd "C-β") 'ora-package-symbol)
 (define-key lisp-mode-shared-map (kbd "C-c C-z")
   (lambda ()
