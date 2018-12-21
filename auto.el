@@ -282,7 +282,7 @@ If called with a prefix, prompts for flags to pass to ag."
   ;; store all selected files into "files" list
   (let ((files (dired-get-marked-files nil current-prefix-arg))
         ;; the rsync command
-        (tmtxt/rsync-command "rsync -arvz --progress "))
+        (tmtxt/rsync-command "rsync -arvzu --delete --progress "))
     ;; add all selected file names as arguments to the rsync command
     (dolist (file files)
       (setq tmtxt/rsync-command
