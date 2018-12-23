@@ -13,7 +13,6 @@
 ;;;###autoload
 (defun ora-ruby-hook ()
   (setq-local tab-width 2)
-  ;; (electric-spacing-mode 1)
   (add-hook 'local-write-file-hooks
             (lambda ()
               (save-excursion
