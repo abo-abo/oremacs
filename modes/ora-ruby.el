@@ -12,12 +12,7 @@
 
 ;;;###autoload
 (defun ora-ruby-hook ()
-  (setq-local tab-width 2)
-  (add-hook 'local-write-file-hooks
-            (lambda ()
-              (save-excursion
-                (untabify (point-min) (point-max))
-                (delete-trailing-whitespace)))))
+  (setq-local tab-width 2))
 
 (defun ora-ruby-send-file ()
   (interactive)
