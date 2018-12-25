@@ -11,7 +11,7 @@
 (setq mu4e-headers-skip-duplicates t)
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
-(setq mu4e-get-mail-command "offlineimap")
+(setq mu4e-get-mail-command "mbsync -a")
 (setq message-kill-buffer-on-exit t)
 
 ;; setup some handy shortcuts
