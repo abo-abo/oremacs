@@ -13,6 +13,7 @@
 (setq mu4e-sent-messages-behavior 'delete)
 (setq mu4e-get-mail-command "mbsync -a")
 (setq message-kill-buffer-on-exit t)
+(setq mu4e-confirm-quit nil)
 
 ;; setup some handy shortcuts
 ;; you can quickly switch to your Inbox -- press ``ji''
