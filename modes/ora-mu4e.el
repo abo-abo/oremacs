@@ -14,6 +14,7 @@
 (setq mu4e-get-mail-command "mbsync -a")
 (setq message-kill-buffer-on-exit t)
 (setq mu4e-confirm-quit nil)
+(setq mu4e-headers-date-format "%d-%m-%Y %H:%M")
 
 ;; setup some handy shortcuts
 ;; you can quickly switch to your Inbox -- press ``ji''
