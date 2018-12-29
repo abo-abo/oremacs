@@ -20,6 +20,7 @@
         (:flags . 6)
         (:from . 22)
         (:subject . nil)))
+(setq mu4e-compose-format-flowed t)
 
 ;; setup some handy shortcuts
 ;; you can quickly switch to your Inbox -- press ``ji''
