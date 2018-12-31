@@ -22,6 +22,8 @@
         (:subject . nil)))
 (setq mu4e-compose-format-flowed t)
 (setq mu4e-view-show-addresses t)
+;; needed for mbsync
+(setq mu4e-change-filenames-when-moving t)
 
 ;; setup some handy shortcuts
 ;; you can quickly switch to your Inbox -- press ``ji''
