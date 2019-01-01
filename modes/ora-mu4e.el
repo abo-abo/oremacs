@@ -24,6 +24,7 @@
 (setq mu4e-view-show-addresses t)
 ;; needed for mbsync
 (setq mu4e-change-filenames-when-moving t)
+(setq message-sendmail-f-is-evil nil)
 
 ;; setup some handy shortcuts
 ;; you can quickly switch to your Inbox -- press ``ji''
