@@ -95,4 +95,11 @@
         "/usr/share/applications/"))
 
 (define-key ivy-switch-buffer-map (kbd "C-k") 'ivy-switch-buffer-kill)
+(defun ora-toggle-ivy-posframe ()
+  (interactive)
+  (require 'ivy-posframe)
+  (if (assoc t ivy-display-functions-alist)
+      (setq ivy-display-functions-alist
+            (assq-delete-all t ivy-display-functions-alist))
+    (add-to-list 'ivy-display-functions-alist '(t . ivy-posframe-display-at-frame-center))))
 (provide 'ora-ivy)
