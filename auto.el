@@ -1173,3 +1173,7 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
               (sc "make compile"))
           (message "(byte-compile-file %S)" w)
           (byte-compile-file w t))))))
+
+(defun ora-pid-class (key)
+  (let ((classes '(:none "0" :realtime "1" :best-effort "2" :idle "3")))
+    (plist-get classes key)))
