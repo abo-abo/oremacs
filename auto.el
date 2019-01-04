@@ -1177,3 +1177,13 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
 (defun ora-pid-class (key)
   (let ((classes '(:none "0" :realtime "1" :best-effort "2" :idle "3")))
     (plist-get classes key)))
+
+;;;###autoload
+(defun ora-firefox-io-idle ()
+  "Make sure Firefox doesn't use too much IO resulting in audio lag."
+  (interactive)
+  (let* ((pids (split-string (sc "pidof firefox")))
+         (ppid (car (last pids)))
+         (curr (string-trim (sc (format "ionice -p %s" ppid)))))
+    (counsel--run "ionice" "-p" ppid "-c" (ora-pid-class :idle))
+    (message "last status: %s" curr)))
