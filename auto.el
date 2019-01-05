@@ -1187,3 +1187,11 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
          (curr (string-trim (sc (format "ionice -p %s" ppid)))))
     (counsel--run "ionice" "-p" ppid "-c" (ora-pid-class :idle))
     (message "last status: %s" curr)))
+
+;;;###autoload
+(defun ora-rhythmbox-io-best ()
+  (interactive)
+  (let ((pid (string-trim (sc "pidof rhythmbox")))
+        (curr (string-trim (sc (format "ionice -p %s" pid)))))
+    (counsel--run "ionice" "-p" pid "-c" (ora-pid-class :best-effort) "-n" "0")
+    (message "last status: %s" curr)))
