@@ -155,6 +155,7 @@
 (add-to-list 'auto-mode-alist '("\\.org_archive\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("trace.txt\\'" . compilation-mode))
 (add-to-list 'auto-mode-alist '("user.txt\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("tmp_github.com" . markdown-mode))
 ;;** major modes
 (use-package cmake-mode
     :mode "CMakeLists\\.txt\\'")
