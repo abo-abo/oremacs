@@ -246,7 +246,9 @@
     :commands dired
     :init
     (setq dired-listing-switches
-          "-laGh1v --group-directories-first"))
+          (if (memq system-type '(windows-nt darwin))
+              "-alh"
+            "-laGh1v --group-directories-first")))
 (use-package dired-x
     :commands dired-jump)
 (use-package helm-j-cheatsheet
