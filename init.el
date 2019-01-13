@@ -282,7 +282,8 @@
     (setq projectile-do-log nil)
     (setq projectile-switch-project-action
           (lambda ()
-            (dired (projectile-project-root)))))
+            (dired (projectile-project-root))))
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 (use-package find-file-in-project
     :commands find-file-in-project)
 (use-package magit
