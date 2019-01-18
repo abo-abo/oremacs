@@ -15,7 +15,7 @@
 ;; (global-set-key "\C-l" 'recenter-top-bottom)          ; default
 ;; (global-set-key "\C-m" 'newline-and-indent)           ; default
 ;; (global-set-key "\C-n" 'next-line)                    ; default
-(global-set-key "\C-o" 'aya-open-line)                   ; 'open-line
+(global-set-key "\C-o" 'ora-open-line)                   ; 'open-line
 (keyboard-translate ?\C-h ?\C-p)                         ; swap
 (keyboard-translate ?\C-p ?\C-h)                         ; swap
 ;; (global-set-key "\C-q" 'quoted-insert)                ; default
