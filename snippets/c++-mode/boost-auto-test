@@ -14,9 +14,9 @@
 
 using namespace std;
 
-BOOST_AUTO_TEST_SUITE (`(boost-test-name)`)
+BOOST_AUTO_TEST_SUITE (`(ccc-boost-test-name)`)
 
-BOOST_AUTO_TEST_CASE (`(boost-test-name)`) {
+BOOST_AUTO_TEST_CASE (`(ccc-boost-test-name)`) {
   BOOST_TEST (1 == 1);$0
 }
 
