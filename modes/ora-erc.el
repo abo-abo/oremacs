@@ -30,6 +30,9 @@
 ;;;###autoload
 (defun bitlbee ()
   (interactive)
+  (let ((b (get-buffer "localhost:6667")))
+    (when b
+      (kill-buffer b)))
   (erc
    :server "localhost"
    :nick "oleh"))
