@@ -359,7 +359,7 @@ If called with a prefix, prompts for flags to pass to ag."
   (require 'async)
   (async-start
    (lambda () (shell-command-to-string
-               "emacs --batch --eval \"
+          "emacs --batch --eval \"
 (condition-case e
     (progn
       (load \\\"~/.emacs\\\")
@@ -1046,8 +1046,14 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
                (match-string 2)
                (match-string 2)))
       (goto-char (match-end 0))
-      (when (and (eolp) (not (eq (char-before) ?\.)))
-        (insert ".")))))
+      (when (and (eolp) (not (eq (char-before) ?.)))
+        (insert ".")))
+    (goto-char (point-min))
+    ;; (while (re-search-forward "\\*\\*\\* " nil t)
+    ;;   (unless (looking-back "-----\n\\** ?")
+    ;;     (end-of-line 0)
+    ;;     (insert "\n-----")))
+    ))
 
 ;;;###autoload
 (defun ora-rename-pdf-bibtex ()
