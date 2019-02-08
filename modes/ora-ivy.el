@@ -102,4 +102,6 @@
       (setq ivy-display-functions-alist
             (assq-delete-all t ivy-display-functions-alist))
     (add-to-list 'ivy-display-functions-alist '(t . ivy-posframe-display-at-frame-center))))
+(setq ivy-posframe-font "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1")
+(setq ivy-posframe-width 80)
 (provide 'ora-ivy)
