@@ -20,6 +20,7 @@
     auctex
     auto-compile
     auto-yasnippet
+    clipmon
     cmake-mode
     company
     company-jedi
