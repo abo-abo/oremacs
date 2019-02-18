@@ -128,8 +128,6 @@
 (font-lock-add-keywords 'emacs-lisp-mode
                         '(("^;;;###[-a-z]*autoload.*$" 0 'shadow t))
                         'end)
-(font-lock-add-keywords 'emacs-lisp-mode
-                        '(("=\\([^=\n]+\\)=" 1 font-lock-string-face prepend)))
 
 (when (version< emacs-version "24.4")
   (defun prettify-symbols-mode ()))
