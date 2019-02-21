@@ -35,6 +35,8 @@
 (setq dired-dwim-target t)
 (setq dired-guess-shell-alist-user
       '(("\\.pdf\\'" "evince" "okular")
+        ("\\.xml\\'"
+         (format "xmllint --format %s --output %s" file file))
         ("\\.\\(?:djvu\\|eps\\)\\'" "evince")
         ("\\.\\(?:jpg\\|jpeg\\|png\\|svg\\|gif\\|tiff\\|xpm\\|bmp\\)\\'" "eog")
         ("\\.\\(?:xcf\\)\\'" "gimp")
