@@ -47,7 +47,7 @@
         ("\\.\\(?:mp3\\|flac\\|wv\\)\\'" "rhythmbox")
         ("\\.html?\\'" "firefox")
         ("\\.cue?\\'" "audacious")
-        ("\\.\\(?:pptx?\\|odt\\|xls[xbm]?\\|docx?\\)\\'" "libreoffice")
+        ("\\.\\(?:pptx?\\|od[ts]\\|xls[xbm]?\\|docx?\\)\\'" "libreoffice")
         ("\\.\\(?:zip\\|tgz\\|tar.gz\\)\\'" "file-roller")
         ("\\.epub\\'" "calibre")
         ("\\.json\\'" "python -m json.tool > indented.json")
