@@ -51,7 +51,9 @@
         ("\\.\\(?:zip\\|tgz\\|tar.gz\\)\\'" "file-roller")
         ("\\.epub\\'" "calibre")
         ("\\.json\\'" "python -m json.tool > indented.json")
-        ("\\.\\'" "nautilus")))
+        ("\\.\\'" "nautilus")
+        ("\\.py\\'" "autopep8 -i")))
+
 ;;* advice
 (defadvice dired-advertised-find-file (around ora-dired-subst-directory activate)
   "Replace current buffer if file is a directory."
