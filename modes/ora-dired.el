@@ -80,12 +80,19 @@
         (sort-regexp-fields t "^.*$" "[ ]*." (point) (point-max)))
       (set-buffer-modified-p nil))))
 
-(defadvice dired-readin
-  (after dired-after-updating-hook first () activate)
+(defadvice dired-readin (after dired-after-updating-hook first () activate)
   "Sort dired listings with directories first before adding marks."
   (ora-dired-sort))
 
 ;;* rest
+(defun ora-dired-show-octal-permissions ()
+  "Show current item premissons, e.g. for later use in chmod."
+  (interactive)
+  (let ((r (shell-command-to-string
+            (concat "stat -c \"%a %n\" "
+                    (shell-quote-argument (car (dired-get-marked-files)))))))
+    (message (car (split-string r " ")))))
+
 (defun ora-dired-get-size ()
   (interactive)
   (let* ((cmd (concat "du -sch "
@@ -220,6 +227,7 @@ Number of marked items: %(length (dired-get-marked-files))
 (define-key dired-mode-map "!" 'sudired)
 (define-key dired-mode-map "h" nil)
 (define-key dired-mode-map "O" 'ora-dired-other-window)
+(define-key dired-mode-map "P" 'ora-dired-show-octal-permissions)
 (define-key dired-mode-map "T" 'ora-dired-terminal)
 (define-key dired-mode-map "&" 'ora-dired-do-async-shell-command)
 
