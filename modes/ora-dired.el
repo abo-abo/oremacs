@@ -88,9 +88,7 @@
 (defun ora-dired-show-octal-permissions ()
   "Show current item premissons, e.g. for later use in chmod."
   (interactive)
-  (let ((r (shell-command-to-string
-            (concat "stat -c \"%a %n\" "
-                    (shell-quote-argument (car (dired-get-marked-files)))))))
+  (let ((r (counsel--call "stat" "-c" "%a %n" (car (dired-get-marked-files)))))
     (message (car (split-string r " ")))))
 
 (defun ora-dired-get-size ()
