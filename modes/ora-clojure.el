@@ -1,8 +1,42 @@
+;;* Clojure
 (require 'clojure-mode)
+(require 'clojure-semantic)
 (csetq clojure-indent-style :always-align)
 (csetq clojure-indent-style :always-indent)
 (csetq clojure-indent-style :align-arguments)
-(setq cider-default-repl-command "lein")
+
+;;;###autoload
+(defun ora-clojure-hook ()
+  (lispy-mode 1)
+  (company-mode 1)
+  (setq company-backends
+        '(company-capf company-dabbrev-code company-keywords company-files))
+  (setq add-log-current-defun-function
+        #'lisp-current-defun-name))
+
+(define-key clojure-mode-map (kbd "C-:") nil)
+(define-key clojure-mode-map (kbd "β") 'counsel-clj)
+(define-key clojure-mode-map (kbd "&") 'clojure-ampersand)
+(define-key clojure-mode-map (kbd "C-c C-l") 'cider-load-file)
+(define-key clojure-mode-map (kbd "C-c C-z") 'cider-switch-to-repl-buffer)
+(define-key clojure-mode-map (kbd "C-c C-r") nil)
+(define-key cider-mode-map (kbd "C-c C-v") nil)
+
+;;* CIDER
+(require 'cider)
+(setq cider-font-lock-dynamically nil)
+(csetq cider-jack-in-default 'lein)
+(defun ora-sesman-current-session (&rest args)
+  "Use a single REPL for everything.
+Avoid having to `cider-connect' every single thing."
+  (car (hash-table-values sesman-sessions-hashmap)))
+(advice-add 'sesman-current-session :around 'ora-sesman-current-session)
+
+
+(setq cider-jdk-src-paths
+      (mapcar #'expand-file-name
+              '("~/git/java/openjvm-8-src"
+                "~/git/java/clojure-1.8.0-sources")))
 
 (defun add-classpath (&rest files)
   (let* ((cp (getenv "CLASSPATH"))
@@ -14,33 +48,9 @@
     (setq cp (mapconcat #'identity (nreverse paths) ":"))
     (setenv "CLASSPATH" cp)))
 
-(add-classpath
- "~/git/java/clojure-1.8.0-sources"
- "~/git/java/openjvm-8-src")
-
-
-;;;###autoload
-(defun ora-clojure-hook ()
-  (lispy-mode 1)
-  (company-mode 1)
-  (setq company-backends
-        '(company-capf company-dabbrev-code company-keywords company-files))
-  (setq add-log-current-defun-function
-        #'lisp-current-defun-name))
-(setq cider-font-lock-dynamically nil)
-
-(use-package cider
-    :load-path "~/git/cider")
-;; (require 'cider-interaction)
-(require 'clojure-semantic)
-
-(define-key clojure-mode-map (kbd "C-:") nil)
-(define-key clojure-mode-map (kbd "β") 'counsel-clj)
-(define-key clojure-mode-map (kbd "&") 'clojure-ampersand)
-(define-key clojure-mode-map (kbd "C-c C-l") 'cider-load-file)
-(define-key clojure-mode-map (kbd "C-c C-z") 'cider-switch-to-repl-buffer)
-(define-key clojure-mode-map (kbd "C-c C-r") nil)
-(define-key cider-mode-map (kbd "C-c C-v") nil)
+;; (add-classpath
+;;  "~/git/java/clojure-1.8.0-sources"
+;;  "~/git/java/openjvm-8-src")
 
 (defun clojure-ampersand ()
   (interactive)
@@ -51,20 +61,6 @@
   (if (looking-back "%")
       (insert "&")
     (insert "& ")))
-
-(require 'request)
-(declare-function request "ext:request")
-
-;;;###autoload
-(defun 4clojure-login (user pwd)
-  "Log in to http://www.4clojure.com."
-  (interactive (list (read-string "username:")
-                     (read-string "password:")))
-  (message "%s"
-           (request
-            "http://www.4clojure.com/login?location=%%2F"
-            :type "POST"
-            :data `(("user" . ,user) ("pwd" . ,pwd)))))
 
 (defvar ora-clojure-font-lock-keywords
   '(("^;; ?\\(\\*[^*\n]?.*\\)$" 1 'org-level-1 prepend)
