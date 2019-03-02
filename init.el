@@ -343,5 +343,7 @@
 (use-package groovy-mode)
 (add-to-list 'warning-suppress-types '(undo discard-info))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+
+(advice-add 'semantic-idle-scheduler-function :around #'ignore)
 (require 'server)
 (or (server-running-p) (server-start))
