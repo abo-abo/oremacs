@@ -84,6 +84,8 @@
   '(define-key grep-mode-map (kbd "C-c C-c") 'wgrep-finish-edit))
 (eval-after-load 'erc
   '(require 'ora-erc))
+(eval-after-load 'elfeed-search
+  '(require 'ora-elfeed))
 (add-hook 'command-history-hook 'lispy-mode)
 
 (require 'ora-elisp-style-guide)
