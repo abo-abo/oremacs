@@ -337,6 +337,16 @@ Fix byte-compilation warnings emitted by lread.c.
 
 \(fn)" t nil)
 
+(autoload 'ora-firefox-io-idle "auto" "\
+Make sure Firefox doesn't use too much IO resulting in audio lag.
+
+\(fn)" t nil)
+
+(autoload 'ora-rhythmbox-io-best "auto" "\
+
+
+\(fn)" t nil)
+
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("ora-" "show-message" "char-upcasep" "re-seq")))
 
 ;;;***
@@ -344,14 +354,14 @@ Fix byte-compilation warnings emitted by lread.c.
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("conditionally-enable-lispy" 0 1 (face font-lock-function-name-face) 1 26 (face font-lock-function-name-face)) #("cal" 0 1 (face font-lock-function-name-face) 1 3 (face font-lock-function-name-face)) #("ora-" 0 4 (face font-lock-function-name-face)) #("lisp--match-hidden-arg" 0 22 (face font-lock-function-name-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("conditionally-enable-lispy" 0 1 (face font-lock-function-name-face fontified nil) 1 26 (fontified nil face font-lock-function-name-face)) #("cal" 0 1 (face font-lock-function-name-face fontified nil) 1 3 (face font-lock-function-name-face fontified nil)) #("ora-" 0 4 (fontified nil face font-lock-function-name-face)) #("lisp--match-hidden-arg" 0 22 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (face font-lock-function-name-face fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (face font-lock-function-name-face fontified nil) 1 10 (face font-lock-function-name-face fontified nil)) #("yes-or-no-p" 0 11 (face font-lock-function-name-face fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
@@ -409,12 +419,12 @@ Threat is as function body when from endline before )
 ;;;### (autoloads nil "keys" "keys.el" (0 0 0 0))
 ;;; Generated autoloads from keys.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '("lispy-insert-prev-outline-body" "hydra-" "ora-open-line")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '(#("hydra-" 0 6 (fontified nil face font-lock-type-face)) #("lispy-insert-prev-outline-body" 0 30 (face font-lock-function-name-face fontified nil)) #("ora-open-line" 0 13 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-Buffer-menu" "modes/ora-Buffer-menu.el"
-;;;;;;  (22951 58495 391626 76000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-Buffer-menu.el
 
 (autoload 'ora-Buffer-menu-hook "modes/ora-Buffer-menu" "\
@@ -426,6 +436,8 @@ Threat is as function body when from endline before )
 
 
 \(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-Buffer-menu" '("list-buffers--format-default" "hydra-buffer-menu")))
 
 ;;;***
 
@@ -460,33 +472,6 @@ Threat is as function body when from endline before )
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-c++" "modes/ora-c++.el" (0 0 0 0))
-;;; Generated autoloads from modes/ora-c++.el
-
-(autoload 'ora-cc-magic-tab "modes/ora-c++" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-c-common-hook "modes/ora-c++" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-c-hook "modes/ora-c++" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-c++-hook "modes/ora-c++" "\
-
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-c++" '("boost-test-name" "hydra-gud" "ora-c" "semantic-" "tomtom-set-c-style" "emacs-src-dir")))
-
-;;;***
-
 ;;;### (autoloads nil "modes/ora-cider" "modes/ora-cider.el" (0 0
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-cider.el
@@ -512,7 +497,7 @@ Log in to http://www.4clojure.com.
 
 \(fn USER PWD)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("ora-clojure-" "clojure-ampersand" "add-classpath")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("ora-" "clojure-ampersand" "add-classpath")))
 
 ;;;***
 
@@ -525,7 +510,7 @@ Log in to http://www.4clojure.com.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-cmake" '(#("cmake-indent" 0 12 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-cmake" '("cmake-indent")))
 
 ;;;***
 
@@ -561,6 +546,33 @@ Log in to http://www.4clojure.com.
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-cpp" "modes/ora-cpp.el" (0 0 0 0))
+;;; Generated autoloads from modes/ora-cpp.el
+
+(autoload 'ora-cc-magic-tab "modes/ora-cpp" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-c-common-hook "modes/ora-cpp" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'ora-c-hook "modes/ora-cpp" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'ora-c++-hook "modes/ora-cpp" "\
+
+
+\(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-cpp" '(#("boost-test-name" 0 15 (face font-lock-function-name-face fontified nil)) #("hydra-gud" 0 9 (face font-lock-type-face fontified nil)) #("ora-c" 0 5 (fontified nil face font-lock-function-name-face)) #("semantic-" 0 9 (fontified nil face font-lock-function-name-face)) #("tomtom-set-c-style" 0 18 (face font-lock-function-name-face fontified nil)) #("emacs-src-dir" 0 13 (face font-lock-variable-name-face fontified nil)))))
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-dired" "modes/ora-dired.el" (0 0
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-dired.el
@@ -580,13 +592,15 @@ Log in to http://www.4clojure.com.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-doc-view" "modes/ora-doc-view.el"
-;;;;;;  (22781 51118 0 0))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-doc-view.el
 
 (autoload 'ora-doc-view-hook "modes/ora-doc-view" "\
 
 
 \(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-doc-view" '("doc-view-evince")))
 
 ;;;***
 
@@ -629,8 +643,8 @@ Log in to http://www.4clojure.com.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-eltex" "modes/ora-eltex.el" (22079
-;;;;;;  50170 0 0))
+;;;### (autoloads nil "modes/ora-eltex" "modes/ora-eltex.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-eltex.el
 
 (autoload 'ora-eltex-hook "modes/ora-eltex" "\
@@ -653,12 +667,11 @@ Log in to http://www.4clojure.com.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-erc" '("ora-pcomplete-erc-all-nicks")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-erc" '(#("ora-" 0 4 (fontified nil)))))
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-ert" "modes/ora-ert.el" (22079 50170
-;;;;;;  0 0))
+;;;### (autoloads nil "modes/ora-ert" "modes/ora-ert.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ert.el
 
 (autoload 'ora-ert-results-hook "modes/ora-ert" "\
@@ -668,8 +681,8 @@ Log in to http://www.4clojure.com.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-eshell" "modes/ora-eshell.el" (22928
-;;;;;;  41656 348654 97000))
+;;;### (autoloads nil "modes/ora-eshell" "modes/ora-eshell.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-eshell.el
 
 (autoload 'ora-eshell-hook "modes/ora-eshell" "\
@@ -682,10 +695,11 @@ Open or move eshell in `default-directory'.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eshell" '("eshell-completion-at-point")))
+
 ;;;***
 
-;;;### (autoloads nil "modes/ora-eww" "modes/ora-eww.el" (22323 15688
-;;;;;;  0 0))
+;;;### (autoloads nil "modes/ora-eww" "modes/ora-eww.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-eww.el
 
 (autoload 'ora-eww-hook "modes/ora-eww" "\
@@ -693,10 +707,12 @@ Open or move eshell in `default-directory'.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eww" '("eww-view-ace")))
+
 ;;;***
 
-;;;### (autoloads nil "modes/ora-gnus" "modes/ora-gnus.el" (22781
-;;;;;;  51118 0 0))
+;;;### (autoloads nil "modes/ora-gnus" "modes/ora-gnus.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from modes/ora-gnus.el
 
 (autoload 'ora-gnus-group-hook "modes/ora-gnus" "\
@@ -719,6 +735,8 @@ Open or move eshell in `default-directory'.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-gnus" '("counsel-bbdb-" "ivy-set-completion-bounds" "ora-list-subscribed-groups")))
+
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-groovy" "modes/ora-groovy.el" (0
@@ -732,8 +750,16 @@ Open or move eshell in `default-directory'.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-help" "modes/ora-help.el" (22293
-;;;;;;  7028 0 0))
+;;;### (autoloads nil "modes/ora-helm" "modes/ora-helm.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from modes/ora-helm.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-helm" '("helm-")))
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-help" "modes/ora-help.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from modes/ora-help.el
 
 (autoload 'ora-help-hook "modes/ora-help" "\
@@ -743,8 +769,7 @@ Open or move eshell in `default-directory'.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-hy" "modes/ora-hy.el" (22323 17238
-;;;;;;  0 0))
+;;;### (autoloads nil "modes/ora-hy" "modes/ora-hy.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-hy.el
 
 (autoload 'ora-hy-hook "modes/ora-hy" "\
@@ -755,7 +780,7 @@ Open or move eshell in `default-directory'.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-ibuffer" "modes/ora-ibuffer.el"
-;;;;;;  (22540 26546 0 0))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ibuffer.el
 
 (autoload 'ora-ibuffer-hook "modes/ora-ibuffer" "\
@@ -765,8 +790,8 @@ Open or move eshell in `default-directory'.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-image" "modes/ora-image.el" (22781
-;;;;;;  51118 0 0))
+;;;### (autoloads nil "modes/ora-image" "modes/ora-image.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-image.el
 
 (autoload 'ora-image-hook "modes/ora-image" "\
@@ -774,12 +799,14 @@ Open or move eshell in `default-directory'.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-image" '("image-view")))
+
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-ivy" "modes/ora-ivy.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ivy.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '("ivy-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '("ora-toggle-ivy-posframe" "ivy-")))
 
 ;;;***
 
@@ -801,7 +828,7 @@ Call `j-console' and setup shortcuts.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-j" '(#("j-" 0 2 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-j" '("j-")))
 
 ;;;***
 
@@ -831,14 +858,16 @@ Call `j-console' and setup shortcuts.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-latex" "modes/ora-latex.el" (22781
-;;;;;;  51118 0 0))
+;;;### (autoloads nil "modes/ora-latex" "modes/ora-latex.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-latex.el
 
 (autoload 'ora-latex-hook "modes/ora-latex" "\
 
 
 \(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-latex" '("font-lock-simple-face" "ora-")))
 
 ;;;***
 
@@ -850,6 +879,13 @@ Call `j-console' and setup shortcuts.
 
 
 \(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-lsp" "modes/ora-lsp.el" (0 0 0 0))
+;;; Generated autoloads from modes/ora-lsp.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-lsp" '("lsp-mode-line")))
 
 ;;;***
 
@@ -892,7 +928,7 @@ Call `j-console' and setup shortcuts.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-makefile" "modes/ora-makefile.el"
-;;;;;;  (22904 26664 297746 883000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-makefile.el
 
 (autoload 'ora-makefile-hook "modes/ora-makefile" "\
@@ -900,10 +936,12 @@ Call `j-console' and setup shortcuts.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-makefile" '("save-and-compile")))
+
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-markdown" "modes/ora-markdown.el"
-;;;;;;  (22242 57802 0 0))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-markdown.el
 
 (autoload 'ora-markdown-hook "modes/ora-markdown" "\
@@ -915,6 +953,8 @@ Call `j-console' and setup shortcuts.
 Transform Elisp-style code references to Markdown-style.
 
 \(fn)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-markdown" '("ora-")))
 
 ;;;***
 
@@ -958,7 +998,7 @@ MATLAB completion at point.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-nextmagit" "modes/ora-nextmagit.el"
-;;;;;;  (22242 57802 0 0))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-nextmagit.el
 
 (autoload 'ora-nextmagit-status-hook "modes/ora-nextmagit" "\
@@ -986,10 +1026,12 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-nextmagit" '("ora-m" "endless/add-PR-fetch")))
+
 ;;;***
 
-;;;### (autoloads nil "modes/ora-nxml" "modes/ora-nxml.el" (22344
-;;;;;;  9168 0 0))
+;;;### (autoloads nil "modes/ora-nxml" "modes/ora-nxml.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from modes/ora-nxml.el
 
 (autoload 'ora-nxml-hook "modes/ora-nxml" "\
@@ -999,8 +1041,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-occur" "modes/ora-occur.el" (22079
-;;;;;;  50172 0 0))
+;;;### (autoloads nil "modes/ora-occur" "modes/ora-occur.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-occur.el
 
 (autoload 'ora-occur-mode-hook "modes/ora-occur" "\
@@ -1015,8 +1057,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-octave" "modes/ora-octave.el" (22378
-;;;;;;  40663 342591 422000))
+;;;### (autoloads nil "modes/ora-octave" "modes/ora-octave.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-octave.el
 
 (autoload 'ora-octave-hook "modes/ora-octave" "\
@@ -1028,6 +1070,8 @@ MATLAB completion at point.
 
 
 \(fn)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-octave" '("octave-")))
 
 ;;;***
 
@@ -1049,7 +1093,7 @@ MATLAB completion at point.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-package-menu" "modes/ora-package-menu.el"
-;;;;;;  (22079 50170 0 0))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-package-menu.el
 
 (autoload 'ora-package-menu-hook "modes/ora-package-menu" "\
@@ -1060,7 +1104,7 @@ MATLAB completion at point.
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-pdf-view" "modes/ora-pdf-view.el"
-;;;;;;  (22245 43522 0 0))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-pdf-view.el
 
 (autoload 'ora-pdf-view-hook "modes/ora-pdf-view" "\
@@ -1070,14 +1114,22 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-proced" "modes/ora-proced.el" (22121
-;;;;;;  31400 0 0))
+;;;### (autoloads nil "modes/ora-proced" "modes/ora-proced.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-proced.el
 
 (autoload 'ora-proced-hook "modes/ora-proced" "\
 
 
 \(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-projectile" "modes/ora-projectile.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-projectile.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-projectile" '("hydra-projectile")))
 
 ;;;***
 
@@ -1123,8 +1175,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-scheme" "modes/ora-scheme.el" (22753
-;;;;;;  1116 0 0))
+;;;### (autoloads nil "modes/ora-scheme" "modes/ora-scheme.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-scheme.el
 
 (autoload 'ora-scheme-hook "modes/ora-scheme" "\
@@ -1132,10 +1184,11 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-scheme" '("scheme-completion-at-point")))
+
 ;;;***
 
-;;;### (autoloads nil "modes/ora-sh" "modes/ora-sh.el" (22893 47882
-;;;;;;  634573 926000))
+;;;### (autoloads nil "modes/ora-sh" "modes/ora-sh.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-sh.el
 
 (autoload 'ora-sh-hook "modes/ora-sh" "\
@@ -1145,8 +1198,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-shell" "modes/ora-shell.el" (23005
-;;;;;;  52835 905978 515000))
+;;;### (autoloads nil "modes/ora-shell" "modes/ora-shell.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-shell.el
 
 (autoload 'ora-shell-hook "modes/ora-shell" "\
@@ -1156,8 +1209,7 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-sml" "modes/ora-sml.el" (22781 51118
-;;;;;;  0 0))
+;;;### (autoloads nil "modes/ora-sml" "modes/ora-sml.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-sml.el
 
 (autoload 'ora-sml-hook "modes/ora-sml" "\
@@ -1167,8 +1219,7 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-tar" "modes/ora-tar.el" (22079 50170
-;;;;;;  0 0))
+;;;### (autoloads nil "modes/ora-tar" "modes/ora-tar.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-tar.el
 
 (autoload 'ora-tar-hook "modes/ora-tar" "\
@@ -1178,8 +1229,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-term" "modes/ora-term.el" (22427
-;;;;;;  30434 0 0))
+;;;### (autoloads nil "modes/ora-term" "modes/ora-term.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from modes/ora-term.el
 
 (autoload 'ora-term-exec-hook "modes/ora-term" "\
@@ -1207,8 +1258,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-vc-dir" "modes/ora-vc-dir.el" (22348
-;;;;;;  29176 0 0))
+;;;### (autoloads nil "modes/ora-vc-dir" "modes/ora-vc-dir.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-vc-dir.el
 
 (autoload 'ora-vc-dir-hook "modes/ora-vc-dir" "\
@@ -1225,8 +1276,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-helm.el"
-;;;;;;  "modes/ora-projectile.el") (0 0 0 0))
+;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "perf.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
