@@ -128,13 +128,13 @@
        cmd nil shell-file-name
        shell-command-switch
        (format
-        "nohup 1>/dev/null 2>/dev/null %s \"%s\""
+        "nohup 1>/dev/null 2>/dev/null %s %s"
         (if (and (> (length file-list) 1)
                  (setq list-switch
                        (cadr (assoc cmd ora-dired-filelist-cmd))))
             (format "%s %s" cmd list-switch)
           cmd)
-        (mapconcat #'expand-file-name file-list "\" \""))))))
+        (mapconcat #'shell-quote-argument file-list " "))))))
 
 (defun ora-dired-open-term ()
   "Open an `ansi-term' that corresponds to current directory."
