@@ -86,6 +86,8 @@
   '(require 'ora-erc))
 (eval-after-load 'elfeed-search
   '(require 'ora-elfeed))
+(eval-after-load 'epa-hook
+  '(require 'ora-epa))
 (add-hook 'command-history-hook 'lispy-mode)
 
 (require 'ora-elisp-style-guide)
