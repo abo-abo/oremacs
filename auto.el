@@ -1204,3 +1204,18 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
         (curr (string-trim (sc (format "ionice -p %s" pid)))))
     (counsel--run "ionice" "-p" pid "-c" (ora-pid-class :best-effort) "-n" "0")
     (message "last status: %s" curr)))
+
+(defmacro dbg (f)
+  "Debug a defun."
+  (let* ((args (nth 2 f))
+         (dbgs
+          (mapcar
+           (lambda (arg)
+             `(put 'dbg ',arg ,arg))
+           (delete '&optional (copy-sequence args)))))
+    (if (stringp (nth 3 f))
+        (setcdr (nthcdr 3 f)
+                (append dbgs (nthcdr 4 f)))
+      (setcdr (nthcdr 2 f)
+              (append dbgs (nthcdr 3 f))))
+    f))
