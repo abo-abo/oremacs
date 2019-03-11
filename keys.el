@@ -219,6 +219,7 @@
   ("E" eval-expression "eval")
   ("m" hydra-pamparam/body "pamparam")
   ("R" counsel-recoll "recoll")
+  ("r" (counsel-rhythmbox 1) "rhythmbox")
   ("o" ccc-toggle-header-source "other")
   ("g" ora-github "github")
   ("p" ora-project "project")
