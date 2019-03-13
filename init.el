@@ -261,13 +261,7 @@
       (concat emacs-d "personal/abbrev_defs"))
 (use-package flyspell
     :commands flyspell-mode
-    :config
-    (progn
-      (define-key flyspell-mode-map [(control ?\,)] nil)
-      (define-key flyspell-mode-map [(control ?\;)] nil)
-      (define-key flyspell-mode-map (kbd "C-.") nil)
-      (define-key flyspell-mode-map (kbd "C-M-i") nil)
-      (setq flyspell-auto-correct-binding (kbd "C-M-;"))))
+    :config (require 'ora-flyspell))
 (use-package projectile
     :diminish projectile-mode
     :init
