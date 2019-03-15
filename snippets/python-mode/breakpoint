@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: breakpoint
+# key: b
+# --
+import __main__
+if hasattr(__main__, '__file__'):
+    raise RuntimeError("break")
