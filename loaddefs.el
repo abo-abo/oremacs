@@ -147,12 +147,6 @@ Handle a function bookmark BOOKMARK.
 
 \(fn BOOKMARK)" nil nil)
 
-(autoload 'ora-flyspell-previous-word "auto" "\
-Correct the first misspelled word that occurs before point.
-But don't look beyond what's visible on the screen.
-
-\(fn)" t nil)
-
 (autoload 'ora-ediff-buffers "auto" "\
 
 
@@ -347,21 +341,21 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("ora-" "show-message" "char-upcasep" "re-seq")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("dbg" 0 3 (fontified nil)) #("ora-" 0 4 (fontified nil)) #("show-message" 0 12 (fontified nil)) #("char-upcasep" 0 12 (fontified nil)) #("re-seq" 0 6 (fontified nil)))))
 
 ;;;***
 
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("conditionally-enable-lispy" 0 1 (face font-lock-function-name-face fontified nil) 1 26 (fontified nil face font-lock-function-name-face)) #("cal" 0 1 (face font-lock-function-name-face fontified nil) 1 3 (face font-lock-function-name-face fontified nil)) #("ora-" 0 4 (fontified nil face font-lock-function-name-face)) #("lisp--match-hidden-arg" 0 22 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '("conditionally-enable-lispy" "cal" "ora-" "lisp--match-hidden-arg")))
 
 ;;;***
 
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (face font-lock-function-name-face fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (face font-lock-function-name-face fontified nil) 1 10 (face font-lock-function-name-face fontified nil)) #("yes-or-no-p" 0 11 (face font-lock-function-name-face fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
@@ -419,7 +413,7 @@ Threat is as function body when from endline before )
 ;;;### (autoloads nil "keys" "keys.el" (0 0 0 0))
 ;;; Generated autoloads from keys.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '(#("hydra-" 0 6 (fontified nil face font-lock-type-face)) #("lispy-insert-prev-outline-body" 0 30 (face font-lock-function-name-face fontified nil)) #("ora-open-line" 0 13 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '(#("hydra-" 0 6 (fontified nil)) #("lispy-insert-prev-outline-body" 0 30 (fontified nil)) #("ora-open-line" 0 13 (fontified nil)))))
 
 ;;;***
 
@@ -492,11 +486,6 @@ Threat is as function body when from endline before )
 
 \(fn)" nil nil)
 
-(autoload '4clojure-login "modes/ora-clojure" "\
-Log in to http://www.4clojure.com.
-
-\(fn USER PWD)" t nil)
-
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("ora-" "clojure-ampersand" "add-classpath")))
 
 ;;;***
@@ -549,11 +538,6 @@ Log in to http://www.4clojure.com.
 ;;;### (autoloads nil "modes/ora-cpp" "modes/ora-cpp.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-cpp.el
 
-(autoload 'ora-cc-magic-tab "modes/ora-cpp" "\
-
-
-\(fn)" t nil)
-
 (autoload 'ora-c-common-hook "modes/ora-cpp" "\
 
 
@@ -569,7 +553,13 @@ Log in to http://www.4clojure.com.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-cpp" '(#("boost-test-name" 0 15 (face font-lock-function-name-face fontified nil)) #("hydra-gud" 0 9 (face font-lock-type-face fontified nil)) #("ora-c" 0 5 (fontified nil face font-lock-function-name-face)) #("semantic-" 0 9 (fontified nil face font-lock-function-name-face)) #("tomtom-set-c-style" 0 18 (face font-lock-function-name-face fontified nil)) #("emacs-src-dir" 0 13 (face font-lock-variable-name-face fontified nil)))))
+;;;***
+
+;;;### (autoloads nil "modes/ora-cpp-semantic" "modes/ora-cpp-semantic.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-cpp-semantic.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-cpp-semantic" '(#("semantic-" 0 9 (fontified nil face font-lock-function-name-face)) #("emacs-src-dir" 0 13 (face font-lock-variable-name-face fontified nil)))))
 
 ;;;***
 
@@ -643,6 +633,14 @@ Log in to http://www.4clojure.com.
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-elfeed" "modes/ora-elfeed.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from modes/ora-elfeed.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elfeed" '("ora-elfeed-")))
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-eltex" "modes/ora-eltex.el" (0 0
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-eltex.el
@@ -651,6 +649,13 @@ Log in to http://www.4clojure.com.
 
 
 \(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-epa" "modes/ora-epa.el" (0 0 0 0))
+;;; Generated autoloads from modes/ora-epa.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-epa" '(#("epa-select-keys" 0 15 (face font-lock-function-name-face fontified nil)) #("ora-epa-user-id" 0 15 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
@@ -711,6 +716,20 @@ Open or move eshell in `default-directory'.
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-flyspell" "modes/ora-flyspell.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-flyspell.el
+
+(autoload 'ora-flyspell-previous-word "modes/ora-flyspell" "\
+Correct the first misspelled word that occurs before point.
+But don't look beyond what's visible on the screen.
+
+\(fn)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-flyspell" '(#("flyspell-ignore-http-and-https" 0 30 (face font-lock-function-name-face fontified nil)))))
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-gnus" "modes/ora-gnus.el" (0 0 0
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-gnus.el
@@ -747,6 +766,13 @@ Open or move eshell in `default-directory'.
 
 
 \(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-gud" "modes/ora-gud.el" (0 0 0 0))
+;;; Generated autoloads from modes/ora-gud.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-gud" '("hydra-gud" "ora-c++-to-gud")))
 
 ;;;***
 
@@ -885,7 +911,7 @@ Call `j-console' and setup shortcuts.
 ;;;### (autoloads nil "modes/ora-lsp" "modes/ora-lsp.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-lsp.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-lsp" '("lsp-mode-line")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-lsp" '(#("lsp-mode-line" 0 13 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
