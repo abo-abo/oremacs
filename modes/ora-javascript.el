@@ -8,6 +8,8 @@
 (define-key js-mode-map (kbd "C-'") (lambda()(interactive)(insert "'")))
 (define-key js-mode-map (kbd "<f5>") 'js-f5)
 (define-key js-mode-map (kbd "C-<f5>") 'js-C-f5)
+(define-key js-mode-map (kbd "=") 'soap-command)
+
 
 ;;;###autoload
 (defun ora-javascript-hook ()
