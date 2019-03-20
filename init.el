@@ -237,6 +237,7 @@
 (setq hydra--work-around-dedicated nil)
 (hydra-add-font-lock)
 (require 'hooks)
+(require 'ora-elisp)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
   (lispy-flet (process-list ()) ad-do-it))
