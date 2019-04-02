@@ -484,9 +484,11 @@ If called with a prefix, prompts for flags to pass to ag."
 (defun ora-cap-filesystem ()
   (let (path)
     (when (setq path (ffap-string-at-point))
+      (when (string-match "\\`file:\\(.*\\)\\'" path)
+        (setq path (match-string 1 path)))
       (let ((compl (all-completions path #'read-file-name-internal)))
         (when compl
-          (let ((offset (ivy-completion-common-length (car compl))))
+          (let ((offset 0))
             (list (- (point) offset) (point) compl)))))))
 
 ;;;###autoload
