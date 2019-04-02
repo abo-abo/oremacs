@@ -1,5 +1,6 @@
 (require 'ora-elisp-style-guide)
 
+;;* Misc
 ;;;###autoload
 (defun ora-emacs-lisp-hook ()
   (ignore-errors
@@ -71,4 +72,22 @@
   (lispy-mode 1)
   (company-mode 1))
 
+;;* Add the last eval result to "M-y"
+(defvar ora-last-eval-expression-result "")
+
+(defun ora-last-eval-expression-result ()
+  (list ora-last-eval-expression-result))
+
+(defun ora-eval-expression (orig-fun &rest args)
+  (setq ora-last-eval-expression-result
+        (prin1-to-string
+         (apply orig-fun args))))
+(advice-add 'eval-expression :around #'ora-eval-expression)
+
+(ivy-set-sources
+ 'counsel-yank-pop
+ '((original-source)
+   (ora-last-eval-expression-result)))
+
+;;* Provide
 (provide 'ora-elisp)
