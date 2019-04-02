@@ -481,16 +481,6 @@ If called with a prefix, prompts for flags to pass to ag."
                 (complete-with-action a list s p)))))
       (list beg end (all-completions "" table)))))
 
-(defun ora-cap-filesystem ()
-  (let (path)
-    (when (setq path (ffap-string-at-point))
-      (when (string-match "\\`file:\\(.*\\)\\'" path)
-        (setq path (match-string 1 path)))
-      (let ((compl (all-completions path #'read-file-name-internal)))
-        (when compl
-          (let ((offset 0))
-            (list (- (point) offset) (point) compl)))))))
-
 ;;;###autoload
 (defun ora-ediff-buffers ()
   (interactive)

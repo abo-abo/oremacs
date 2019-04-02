@@ -661,4 +661,22 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 ;; work-around for "L" key being sent on Firefox 60
 (add-to-list 'org-capture-templates (cons "L" (cdr (assoc "l" org-capture-templates))))
 
+(defun ora-cap-filesystem ()
+  (let (path)
+    (when (setq path (ffap-string-at-point))
+      (when (string-match "\\`file:\\(.*\\)\\'" path)
+        (setq path (match-string 1 path)))
+      (let ((compl (all-completions path #'read-file-name-internal)))
+        (when compl
+          (let* ((str (car compl))
+                 (offset
+                  (let ((i 0)
+                        (len (length str)))
+                    (while (and (< i len)
+                                (equal (get-text-property i 'face str)
+                                       'completions-common-part))
+                      (cl-incf i))
+                    i)))
+            (list (- (point) offset) (point) compl)))))))
+
 (provide 'ora-org)
