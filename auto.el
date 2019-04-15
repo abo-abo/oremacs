@@ -238,6 +238,7 @@ If called with a prefix, prompts for flags to pass to ag."
   (if (string= "*Buffer List*" (buffer-name))
       ;; Go to next line. Go to first line if end is reached.
       (progn
+        (delete-other-windows)
         (revert-buffer)
         (if (>= (line-number-at-pos)
                 (count-lines (point-min) (point-max)))
