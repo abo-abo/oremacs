@@ -1196,3 +1196,6 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
         (insert cell)
         (org-table-align)
         (next-line 1)))))
+
+(defun ora-advice-unadvice (sym)
+  (advice-mapc (lambda (advice _props) (advice-remove sym advice)) sym))
