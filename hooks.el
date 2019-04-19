@@ -69,6 +69,7 @@
 (add-hook 'help-mode-hook 'ora-help-hook)
 (add-hook 'eltex-mode-hook 'ora-eltex-hook)
 (add-hook 'Info-mode-hook 'ora-Info-hook)
+(add-hook 'Man-mode-hook 'ora-Man-hook)
 (add-hook 'sh-mode-hook 'ora-sh-hook)
 (add-hook 'eww-mode-hook 'ora-eww-hook)
 (add-hook 'nxml-mode-hook 'ora-nxml-hook)
