@@ -28,4 +28,11 @@
   ("f" counsel-find-file)
   ("q" nil))
 
+(defhydra hydra-avy-cycle ()
+  ("j" avy-next "next")
+  ("k" avy-prev "prev")
+  ("q" nil "quit"))
+
+(global-set-key (kbd "C-M-'") 'hydra-avy-cycle/body)
+
 (provide 'ora-avy)
