@@ -341,21 +341,21 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("dbg" 0 3 (fontified nil)) #("ora-" 0 4 (fontified nil)) #("show-message" 0 12 (fontified nil)) #("char-upcasep" 0 12 (fontified nil)) #("re-seq" 0 6 (fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("ora-" "dbg" "show-message" "char-upcasep" "re-seq")))
 
 ;;;***
 
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '("conditionally-enable-lispy" "cal" "ora-" "lisp--match-hidden-arg")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("cal" 0 3 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (face font-lock-function-name-face fontified nil)) #("csetq" 0 1 (face font-lock-function-name-face fontified nil) 1 5 (fontified nil face font-lock-function-name-face)) #("customize-save-variable" 0 1 (face font-lock-function-name-face fontified nil) 1 23 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
@@ -413,7 +413,7 @@ Threat is as function body when from endline before )
 ;;;### (autoloads nil "keys" "keys.el" (0 0 0 0))
 ;;; Generated autoloads from keys.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '(#("hydra-" 0 6 (fontified nil)) #("lispy-insert-prev-outline-body" 0 30 (fontified nil)) #("ora-open-line" 0 13 (fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '(#("lispy-insert-prev-outline-body" 0 30 (fontified nil)) #("hydra-" 0 6 (fontified nil)) #("ora-open-line" 0 13 (fontified nil)))))
 
 ;;;***
 
@@ -641,6 +641,19 @@ Threat is as function body when from endline before )
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-elisp" "modes/ora-elisp.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from modes/ora-elisp.el
+
+(autoload 'ora-emacs-lisp-hook "modes/ora-elisp" "\
+
+
+\(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elisp" '("ora-" "conditionally-enable-lispy" "lisp--match-hidden-arg")))
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-eltex" "modes/ora-eltex.el" (0 0
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-eltex.el
@@ -672,7 +685,7 @@ Threat is as function body when from endline before )
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-erc" '(#("ora-" 0 4 (fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-erc" '(#("ora-" 0 4 (fontified nil face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -832,7 +845,7 @@ But don't look beyond what's visible on the screen.
 ;;;### (autoloads nil "modes/ora-ivy" "modes/ora-ivy.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ivy.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '("ora-toggle-ivy-posframe" "ivy-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '(#("ora-toggle-ivy-posframe" 0 23 (fontified nil)) #("ivy-" 0 4 (fontified nil face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -1173,7 +1186,7 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-python" '("ora-" "python-newline-dedent")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-python" '("python-" "ora-")))
 
 ;;;***
 
