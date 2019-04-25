@@ -100,6 +100,7 @@
         "/usr/share/applications/"))
 
 (define-key ivy-switch-buffer-map (kbd "C-k") 'ivy-switch-buffer-kill)
+
 (defun ora-toggle-ivy-posframe ()
   (interactive)
   (require 'ivy-posframe)
@@ -107,8 +108,27 @@
       (setq ivy-display-functions-alist
             (assq-delete-all t ivy-display-functions-alist))
     (add-to-list 'ivy-display-functions-alist '(t . ivy-posframe-display-at-frame-center))))
+
 (setq ivy-posframe-font "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1")
 (setq ivy-posframe-width 80)
+
+(when (file-exists-p "/home/.ecryptfs/")
+  (let ((db-fname (expand-file-name "~/.local/mlocate.db")))
+    (setenv "LOCATE_PATH" db-fname)
+
+    (defun ora-counsel-locate ()
+      (interactive)
+      (when (> (time-to-number-of-days
+                (time-subtract
+                 (current-time)
+                 (nth 5 (file-attributes db-fname))))
+               1)
+        (orfu-shell
+         (format "time updatedb -l 0 -o %s -U $HOME" db-fname) "*updatedb*"))
+      (counsel-locate))
+
+    (global-set-key (kbd "C-x l") 'ora-counsel-locate)))
+
 (csetq counsel-org-goto-all-outline-path-prefix 'file-name-nondirectory)
 
 (provide 'ora-ivy)
