@@ -32,6 +32,7 @@
       "Lucida Sans Typewriter"))))
 (ora-set-font)
 (set-face-attribute 'default nil :height (if (eq system-type 'darwin) 120 113))
+(set-fontset-font t nil "Symbola" nil 'append)
 (add-hook 'after-make-frame-functions 'ora-set-font)
 
 ;; ;;* Customize
