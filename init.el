@@ -38,6 +38,7 @@
 ;; ;;* Customize
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
+;; (defun customize-save-variable (_variable value &rest _) value)
 ;;** decorations
 (csetq tool-bar-mode nil)
 (csetq menu-bar-mode nil)
