@@ -15,6 +15,7 @@
 (add-to-list 'load-path emacs-d)
 (add-to-list 'load-path (expand-file-name "modes/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
+(add-to-list 'load-path (expand-file-name "personal/modes/" emacs-d))
 (setq enable-local-variables :all)
 ;;* Theme
 (if (display-graphic-p)
