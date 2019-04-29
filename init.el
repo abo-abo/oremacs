@@ -135,7 +135,7 @@
   (setq recentf-exclude '("COMMIT_MSG" "COMMIT_EDITMSG" "github.*txt$"
                           "[0-9a-f]\\{32\\}-[0-9a-f]\\{32\\}\\.org"
                           ".*png$" ".*cache$"))
-  (setq recentf-max-saved-items 60))
+  (setq recentf-max-saved-items 600))
 (eval-after-load 'xref
   '(progn
     (setq xref-pulse-on-jump nil)
