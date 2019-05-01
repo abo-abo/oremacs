@@ -110,7 +110,7 @@
 (global-set-key (kbd "C-c c") (lambda () (interactive) (org-capture nil "t")))
 (global-set-key (kbd "C-c d") 'counsel-descbinds)
 (global-set-key (kbd "C-c e") 'mu4e)
-(global-set-key (kbd "C-c f") 'find-file-in-project)
+(global-set-key (kbd "C-c f") 'elfeed)
 (global-set-key (kbd "C-c F") 'counsel-org-file)
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c G") 'ora-counsel-git)
