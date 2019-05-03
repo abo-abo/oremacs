@@ -127,6 +127,7 @@
 (global-set-key (kbd "C-c q") nil)
 (global-set-key (kbd "C-c r") 'isearch-backward)
 (global-set-key (kbd "C-c s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-s") 'swiper-isearch)
 (global-set-key (kbd "C-c t") 'counsel-load-theme)
 (global-set-key (kbd "C-c u") 'swiper-all)
 (global-set-key (kbd "C-c v") 'ivy-push-view)
