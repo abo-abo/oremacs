@@ -146,7 +146,7 @@
 (global-set-key (kbd "C-x C-r") (lambda () (interactive) (revert-buffer nil t)))
 (global-set-key (kbd "C-x l") 'counsel-locate)
 (global-set-key (kbd "C-x C-l") 'locate)
-;; (global-set-key (kbd "C-x m") 'mu4e-compose-new)
+(global-set-key (kbd "C-x m") 'mu4e-compose-new)
 (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x p") 'proced)
 (global-set-key (kbd "C-x C-i") 'flyspell-correct-word-before-point)
