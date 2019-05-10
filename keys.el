@@ -266,6 +266,7 @@ _l_ org link display:  %`org-descriptive-links
 "
   ("a" abbrev-mode)
   ("d" toggle-debug-on-error)
+  ("e" evil-mode :exit t)
   ("f" auto-fill-mode)
   ("h" (setq highlight-nonselected-windows (not highlight-nonselected-windows)))
   ("t" toggle-truncate-lines)
