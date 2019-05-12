@@ -341,7 +341,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("ora-" "dbg" "show-message" "char-upcasep" "re-seq")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("ora-" 0 4 (face font-lock-function-name-face fontified nil)) #("dbg" 0 3 (fontified nil face font-lock-function-name-face)) #("show-message" 0 12 (fontified nil face font-lock-function-name-face)) #("char-upcasep" 0 12 (face font-lock-function-name-face fontified nil)) #("re-seq" 0 6 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
@@ -445,6 +445,16 @@ Threat is as function body when from endline before )
 \(fn)" nil nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-Info" '("hydra-info-to" "ora-open-info")))
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-Man" "modes/ora-Man.el" (0 0 0 0))
+;;; Generated autoloads from modes/ora-Man.el
+
+(autoload 'ora-Man-hook "modes/ora-Man" "\
+
+
+\(fn)" nil nil)
 
 ;;;***
 
@@ -668,7 +678,7 @@ Threat is as function body when from endline before )
 ;;;### (autoloads nil "modes/ora-epa" "modes/ora-epa.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-epa.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-epa" '(#("epa-select-keys" 0 15 (face font-lock-function-name-face fontified nil)) #("ora-epa-user-id" 0 15 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-epa" '("epa-select-keys" "ora-epa-user-id")))
 
 ;;;***
 
@@ -685,7 +695,7 @@ Threat is as function body when from endline before )
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-erc" '(#("ora-" 0 4 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-erc" '("ora-")))
 
 ;;;***
 
@@ -739,7 +749,7 @@ But don't look beyond what's visible on the screen.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-flyspell" '(#("flyspell-ignore-http-and-https" 0 30 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-flyspell" '("flyspell-ignore-http-and-https")))
 
 ;;;***
 
@@ -845,7 +855,7 @@ But don't look beyond what's visible on the screen.
 ;;;### (autoloads nil "modes/ora-ivy" "modes/ora-ivy.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ivy.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '(#("ora-toggle-ivy-posframe" 0 23 (fontified nil)) #("ivy-" 0 4 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '(#("ora-" 0 4 (fontified nil)) #("ivy-" 0 4 (fontified nil face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -1034,6 +1044,8 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-mu4e" '("ora-smime-sign")))
+
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-nextmagit" "modes/ora-nextmagit.el"
@@ -1127,7 +1139,7 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org" '("org-" "ora-" "hot-expand" "hydra-org-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org" '(#("org-" 0 2 (face font-lock-function-name-face fontified nil) 2 4 (fontified nil face font-lock-function-name-face)) #("ora-" 0 2 (face font-lock-function-name-face fontified nil) 2 4 (face font-lock-function-name-face fontified nil)) #("hot-expand" 0 1 (fontified nil face font-lock-type-face) 1 10 (fontified nil face font-lock-function-name-face)) #("hydra-org-" 0 1 (fontified nil face font-lock-type-face) 1 10 (fontified nil face font-lock-type-face)))))
 
 ;;;***
 
