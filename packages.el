@@ -12,20 +12,26 @@
 (package-refresh-contents)
 
 (defconst ora-packages
-  '(ac-cider
-    ace-link
+  '(ace-link
     ace-popup-menu
     ace-window
     alert
     auctex
     auto-compile
     auto-yasnippet
-    clipmon
+    bbdb
+    elfeed
+    eglot
+    evil
     cmake-mode
+    command-log-mode
     company
     company-jedi
     counsel
     define-word
+    dockerfile-mode
+    docker
+    docker-tramp
     eclipse-theme
     find-file-in-project
     function-args
@@ -54,6 +60,7 @@
     smex
     swiper
     ukrainian-holidays
+    unicode-fonts
     use-package
     vimish-fold
     wgrep
