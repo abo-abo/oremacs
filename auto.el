@@ -446,42 +446,6 @@ If called with a prefix, prompts for flags to pass to ag."
          bookmark-alist)))
 
 ;;* Utility
-(defun ora-dabbrev-completion-at-point ()
-  (ignore-errors
-    (require 'dabbrev)
-    (dabbrev--reset-global-variables)
-    (let* ((dabbrev-check-other-buffers nil)
-           (dabbrev-check-all-buffers nil)
-           (abbrev (dabbrev--abbrev-at-point))
-           (beg (progn (search-backward abbrev) (point)))
-           (end (progn (search-forward abbrev) (point)))
-           (ignore-case-p (dabbrev--ignore-case-p abbrev))
-           (list 'uninitialized)
-           (table
-            (lambda (s p a)
-              (if (eq a 'metadata)
-                  `(metadata (cycle-sort-function . ,#'identity)
-                             (category . dabbrev))
-                (when (eq list 'uninitialized)
-                  (save-excursion
-                    ;;--------------------------------
-                    ;; New abbreviation to expand.
-                    ;;--------------------------------
-                    (setq dabbrev--last-abbreviation abbrev)
-                    ;; Find all expansion
-                    (let ((completion-list
-                           (dabbrev--find-all-expansions abbrev ignore-case-p))
-                          (completion-ignore-case ignore-case-p))
-                      (or (consp completion-list)
-                          (user-error "No dynamic expansion for \"%s\" found%s"
-                                      abbrev
-                                      (if dabbrev--check-other-buffers
-                                          "" " in this-buffer")))
-                      (setq list
-                            (mapcar #'downcase completion-list)))))
-                (complete-with-action a list s p)))))
-      (list beg end (all-completions "" table)))))
-
 ;;;###autoload
 (defun ora-ediff-buffers ()
   (interactive)

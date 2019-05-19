@@ -4,6 +4,7 @@
 (require 'org)
 (require 'org-fu)
 (require 'org-weather)
+(require 'orly)
 (setq org-weather-location "Eindhoven,NL")
 (setq org-weather-api-key "bfb812a56cff56fe7efeea207643a153")
 (add-to-list 'load-path (expand-file-name "git/org-mode/contrib/lisp/" emacs-d))
@@ -36,11 +37,7 @@
                '(":PROPERTIES:" . ":"))
   (prettify-symbols-mode)
   (setq-local tab-always-indent 'complete)
-  (setq completion-at-point-functions '(org-completion-symbols
-                                        ora-cap-filesystem
-                                        org-completion-refs
-                                        ora-dabbrev-completion-at-point
-                                        t)))
+  (orly-setup-completion))
 
 ;;;###autoload
 (defun ora-org-agenda-hook ())
@@ -562,34 +559,6 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
                  "-"))))
 (setq org-clock-heading-function #'ora-org-clock-heading)
 
-(defun org-completion-refs ()
-  (when (looking-back "\\\\\\(?:ref\\|label\\){\\([^\n{}]\\)*")
-    (let (cands beg end)
-      (save-excursion
-        (goto-char (point-min))
-        (while (re-search-forward "\\label{\\([^}]+\\)}" nil t)
-          (push (match-string-no-properties 1) cands)))
-      (save-excursion
-        (up-list)
-        (setq end (1- (point)))
-        (backward-list)
-        (setq beg (1+ (point))))
-      (list beg end
-            (delete (buffer-substring-no-properties beg end)
-                    (nreverse cands))))))
-
-(defun org-completion-symbols ()
-  (when (looking-back "=[a-zA-Z]+")
-    (let (cands)
-      (save-match-data
-        (save-excursion
-          (goto-char (point-min))
-          (while (re-search-forward "=\\([a-zA-Z._]+\\)=" nil t)
-            (cl-pushnew (match-string-no-properties 0) cands :test 'equal))
-          cands))
-      (when cands
-        (list (match-beginning 0) (match-end 0) cands)))))
-
 (add-to-list 'safe-local-variable-values
              '(org-todo-keywords (sequence "TODO" "REVIEW" "|" "DONE")))
 (add-to-list 'safe-local-variable-values
@@ -661,22 +630,5 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 ;; work-around for "L" key being sent on Firefox 60
 (add-to-list 'org-capture-templates (cons "L" (cdr (assoc "l" org-capture-templates))))
 
-(defun ora-cap-filesystem ()
-  (let (path)
-    (when (setq path (ffap-string-at-point))
-      (when (string-match "\\`file:\\(.*\\)\\'" path)
-        (setq path (match-string 1 path)))
-      (let ((compl (all-completions path #'read-file-name-internal)))
-        (when compl
-          (let* ((str (car compl))
-                 (offset
-                  (let ((i 0)
-                        (len (length str)))
-                    (while (and (< i len)
-                                (equal (get-text-property i 'face str)
-                                       'completions-common-part))
-                      (cl-incf i))
-                    i)))
-            (list (- (point) offset) (point) compl)))))))
 
 (provide 'ora-org)
