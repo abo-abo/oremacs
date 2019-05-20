@@ -38,7 +38,7 @@ In that case, insert the number."
          (string-to-number k))))))
 
 (defun ora--company-good-prefix-p (orig-fn prefix)
-  (unless (string-match-p "\\`[0-9]+\\'" prefix)
+  (unless (and (stringp prefix) (string-match-p "\\`[0-9]+\\'" prefix))
     (funcall orig-fn prefix)))
 (advice-add 'company--good-prefix-p :around #'ora--company-good-prefix-p)
 
