@@ -336,9 +336,6 @@
     :commands elf-mode
     :init
     (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
-(use-package atomic-chrome
-    :config
-  (atomic-chrome-start-server))
 (use-package groovy-mode)
 (add-to-list 'warning-suppress-types '(undo discard-info))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
