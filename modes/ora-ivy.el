@@ -40,7 +40,7 @@
 (setq counsel-grep-base-command
       "rg -i -M 120 --no-heading --line-number --color never %s %s")
 (setq counsel-rg-base-command
-      "rg -i -M 120 --no-heading --line-number --color never %s .")
+      "rg -M 120 --no-heading --line-number --color never %s .")
 
 (setq counsel-git-grep-cmd-default
       (concat "git --no-pager grep --full-name -n --no-color -i -e '%s' -- './*' "
