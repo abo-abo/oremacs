@@ -132,4 +132,7 @@
 
 (csetq counsel-org-goto-all-outline-path-prefix 'file-name-nondirectory)
 
+(define-key isearch-mode-map (kbd "C-c s") 'swiper-isearch-toggle)
+(define-key swiper-map (kbd "C-c s") 'swiper-isearch-toggle)
+
 (provide 'ora-ivy)
