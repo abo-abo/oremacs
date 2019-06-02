@@ -20,11 +20,12 @@
 (define-key clojure-mode-map (kbd "C-c C-l") 'cider-load-file)
 (define-key clojure-mode-map (kbd "C-c C-z") 'cider-switch-to-repl-buffer)
 (define-key clojure-mode-map (kbd "C-c C-r") nil)
-(define-key cider-mode-map (kbd "C-c C-v") nil)
 
 ;;* CIDER
 (require 'cider)
-(setq cider-font-lock-dynamically nil)
+(csetq cider-mode-line-show-connection nil)
+(define-key cider-mode-map (kbd "C-c C-v") nil)
+(csetq cider-font-lock-dynamically nil)
 (csetq cider-jack-in-default 'lein)
 (defun ora-sesman-current-session (&rest args)
   "Use a single REPL for everything.
