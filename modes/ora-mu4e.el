@@ -53,7 +53,45 @@
 (setq mm-7bit-chars "\x20-\x7f\n\r\t\x7\x8\xb\xc\x1f")
 (setq message-send-hook '(ora-smime-sign))
 
+(defun ora--makemime-token (regex)
+  (if (looking-at regex)
+      (prog1 (match-string-no-properties 1)
+        (goto-char (match-end 0)))
+    (error "Expected '%s'" regex)))
+
+(defun ora--makemime ()
+  (let ((boundary (concat "----" "Part_1")))
+    (message-goto-body)
+    (insert
+     (format "Content-Type: multipart/mixed; boundary=\"%s\"" boundary)
+     "\n\n\n")
+    (insert "--" boundary "\n")
+    (insert
+     "Content-Type: text/plain; charset=\"utf-8\""
+     "\n"
+     "Content-Transfer-Encoding: quoted-printable"
+     "\n\n")
+    (while (search-forward "<#part" nil t)
+      (let ((beg (match-beginning 0))
+            type filename disposition)
+        (setq type (ora--makemime-token " *type=\"\\([^\"]+\\)\""))
+        (setq filename (ora--makemime-token " *filename=\"\\([^\"]+\\)\""))
+        (setq disposition (ora--makemime-token " *disposition=\\(attachment\\|inline\\)"))
+        (search-forward "<#/part>")
+        (delete-region beg (point))
+        (insert "--" boundary "\n")
+        (insert
+         (shell-command-to-string
+          (format "makemime -c \"%s\" -a \"Content-Disposition: %s; filename=%s\" -N %s %s"
+                  type disposition filename
+                  (shell-quote-argument (file-name-nondirectory filename))
+                  (shell-quote-argument filename))))
+        (insert "\n")))
+    (insert "--" boundary "--" "\n")
+    (setq message-inhibit-body-encoding t)))
+
 (defun ora-smime-sign ()
+  (ora--makemime)
   (let* ((from (message-field-value "From"))
          (keyfile
           (cadr
@@ -63,9 +101,7 @@
             smime-keys))))
     (when keyfile
       (let ((openssl-args
-             (list "smime" "-sign" "-signer" keyfile
-                   ;; openssl will add "Content-Type: text/plain"
-                   "-text")))
+             (list "smime" "-sign" "-signer" (expand-file-name keyfile))))
         (if (string-match-p "plain.pem$" keyfile)
             (apply #'call-process-region
                    (message-goto-body) (point-max) smime-openssl-program t t nil
