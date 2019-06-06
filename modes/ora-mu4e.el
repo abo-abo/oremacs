@@ -35,12 +35,18 @@
         ("/Trash" . ?t)))
 
 (define-key mu4e-compose-mode-map (kbd "C-M-i") nil)
+(define-key mu4e-compose-mode-map (kbd "C-c C-a") 'ora-mml-attach-file)
 (define-key mu4e-compose-mode-map (kbd "M-q") 'fill-paragraph)
 (define-key mu4e-headers-mode-map "J" 'mu4e-headers-next)
 (define-key mu4e-headers-mode-map "K" 'mu4e-headers-prev)
 (define-key mu4e-view-mode-map "J" 'mu4e-view-headers-next)
 (define-key mu4e-view-mode-map "K" 'mu4e-view-headers-prev)
 (define-key mu4e-view-mode-map (kbd "C--") nil)
+
+(defun ora-mml-attach-file ()
+  (interactive)
+  (let ((current-prefix-arg '(42)))
+    (call-interactively #'mml-attach-file)))
 
 ;;;###autoload
 (defun ora-mu4e-headers-hook ())
