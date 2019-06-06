@@ -60,7 +60,7 @@
     (error "Expected '%s'" regex)))
 
 (defun ora--makemime ()
-  (let ((boundary (concat "----" "Part_1")))
+  (let ((boundary (concat "----" "UNIQUE_BOUNDARY")))
     (message-goto-body)
     (insert
      (format "Content-Type: multipart/mixed; boundary=\"%s\"" boundary)
@@ -80,12 +80,14 @@
         (search-forward "<#/part>")
         (delete-region beg (point))
         (insert "--" boundary "\n")
+        (insert "Content-Type: application/pdf; name=\"" (file-name-nondirectory filename) "\"\n")
+        (insert "Content-Disposition: attachment; filename=" filename "\n")
+        (insert "Content-Transfer-Encoding: base64\n\n")
         (insert
-         (shell-command-to-string
-          (format "makemime -c \"%s\" -a \"Content-Disposition: %s; filename=%s\" -N %s %s"
-                  type disposition filename
-                  (shell-quote-argument (file-name-nondirectory filename))
-                  (shell-quote-argument filename))))
+         (with-temp-buffer
+           (insert-file-contents-literally filename)
+           (base64-encode-region (point-min) (point-max))
+           (buffer-string)))
         (insert "\n")))
     (insert "--" boundary "--" "\n")
     (setq message-inhibit-body-encoding t)))
