@@ -4,6 +4,7 @@
   (file-name-directory
    (file-chase-links load-file-name))
   "The giant turtle on which the world rests.")
+(setq ora-startup-time-tic (current-time))
 (setq package-user-dir
       (expand-file-name "elpa" emacs-d))
 (package-initialize)
@@ -17,10 +18,6 @@
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/modes/" emacs-d))
 (setq enable-local-variables :all)
-;;* Theme
-(if (display-graphic-p)
-    (require 'eclipse-theme)
-  (require 'eclipse-theme))
 ;;** Font
 (defun ora-set-font (&optional frame)
   (when frame
@@ -119,7 +116,10 @@
         ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")))
 (setq package-pinned-packages '((yasnippet . "gnu")))
-(require 'use-package)
+(let ((file-name-handler-alist nil))
+  (require 'eclipse-theme)
+  (require 'use-package)
+  (require 'smex))
 ;;* Modes
 ;;** global minor modes
 (global-auto-revert-mode 1)
@@ -129,7 +129,6 @@
 (show-paren-mode 1)
 (winner-mode 1)
 (remove-hook 'minibuffer-setup-hook 'winner-save-unconditionally)
-(require 'smex)
 (use-package recentf
     :config
   (setq recentf-exclude '("COMMIT_MSG" "COMMIT_EDITMSG" "github.*txt$"
@@ -342,4 +341,7 @@
 
 (advice-add 'semantic-idle-scheduler-function :around #'ignore)
 (require 'server)
+(setq ora-startup-time-toc (current-time))
 (or (server-running-p) (server-start))
+(setq ora-startup-time-seconds
+      (time-to-seconds (time-subtract ora-startup-time-toc ora-startup-time-tic)))
