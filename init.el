@@ -130,7 +130,7 @@
 (winner-mode 1)
 (remove-hook 'minibuffer-setup-hook 'winner-save-unconditionally)
 (use-package recentf
-    :config
+  :config
   (setq recentf-exclude '("COMMIT_MSG" "COMMIT_EDITMSG" "github.*txt$"
                           "[0-9a-f]\\{32\\}-[0-9a-f]\\{32\\}\\.org"
                           ".*png$" ".*cache$"))
@@ -161,63 +161,63 @@
 (add-to-list 'auto-mode-alist '("tmp_github.com" . markdown-mode))
 ;;** major modes
 (use-package cmake-mode
-    :mode "CMakeLists\\.txt\\'")
+  :mode "CMakeLists\\.txt\\'")
 (use-package clojure-mode
-    :mode ("\\.clj\\'" . clojure-mode))
+  :mode ("\\.clj\\'" . clojure-mode))
 (use-package eltex
-    :mode ("\\.elt\\'" . eltex-mode))
+  :mode ("\\.elt\\'" . eltex-mode))
 (use-package j-mode
-    :mode ("\\.j\\'" . j-mode))
+  :mode ("\\.j\\'" . j-mode))
 (use-package octave
-    :interpreter ("octave" . octave-mode))
+  :interpreter ("octave" . octave-mode))
 ;;* Use Package
 ;;** expansion
 (use-package tiny
-    :commands tiny-expand)
+  :commands tiny-expand)
 (require 'warnings)
 (use-package yasnippet
-    :diminish yas-minor-mode
-    :config
-    (progn
-      (setq yas-after-exit-snippet-hook '((lambda () (yas-global-mode -1))))
-      (setq yas-fallback-behavior 'return-nil)
-      (setq yas-triggers-in-field t)
-      (setq yas-verbosity 0)
-      (setq yas-snippet-dirs (list (concat emacs-d "snippets/")))
-      (define-key yas-minor-mode-map [(tab)] nil)
-      (define-key yas-minor-mode-map (kbd "TAB") nil)
-      (add-to-list 'warning-suppress-types '(yasnippet backquote-change))))
+  :diminish yas-minor-mode
+  :config
+  (progn
+    (setq yas-after-exit-snippet-hook '((lambda () (yas-global-mode -1))))
+    (setq yas-fallback-behavior 'return-nil)
+    (setq yas-triggers-in-field t)
+    (setq yas-verbosity 0)
+    (setq yas-snippet-dirs (list (concat emacs-d "snippets/")))
+    (define-key yas-minor-mode-map [(tab)] nil)
+    (define-key yas-minor-mode-map (kbd "TAB") nil)
+    (add-to-list 'warning-suppress-types '(yasnippet backquote-change))))
 (use-package auto-yasnippet
-    :commands aya-create aya-open-line)
+  :commands aya-create aya-open-line)
 (use-package iedit
-    :commands iedit-mode
-    :config (progn
-              (setq iedit-log-level 0)
-              (define-key iedit-mode-keymap "\C-h" nil)
-              (define-key iedit-lib-keymap "\C-s" 'iedit-next-occurrence)
-              (define-key iedit-lib-keymap "\C-r" 'iedit-prev-occurrence))
-    :init (setq iedit-toggle-key-default nil))
+  :commands iedit-mode
+  :config (progn
+            (setq iedit-log-level 0)
+            (define-key iedit-mode-keymap "\C-h" nil)
+            (define-key iedit-lib-keymap "\C-s" 'iedit-next-occurrence)
+            (define-key iedit-lib-keymap "\C-r" 'iedit-prev-occurrence))
+  :init (setq iedit-toggle-key-default nil))
 ;;** completion
 (use-package headlong
-    :defer t)
+  :defer t)
 (use-package auto-complete
-    :commands auto-complete-mode
-    :config
-    (progn
-      (require 'auto-complete-config)
-      (setq ac-delay 0.4)
-      (define-key ac-complete-mode-map "\C-j" 'newline-and-indent)
-      (define-key ac-complete-mode-map [return] nil)
-      (define-key ac-complete-mode-map (kbd "M-TAB") nil)))
+  :commands auto-complete-mode
+  :config
+  (progn
+    (require 'auto-complete-config)
+    (setq ac-delay 0.4)
+    (define-key ac-complete-mode-map "\C-j" 'newline-and-indent)
+    (define-key ac-complete-mode-map [return] nil)
+    (define-key ac-complete-mode-map (kbd "M-TAB") nil)))
 (require 'ora-company)
 ;;** keys
 (use-package centimacro
-    :commands centi-assign)
+  :commands centi-assign)
 (require 'keys)
 ;;** appearance
 (when (image-type-available-p 'xpm)
   (use-package powerline
-      :config
+    :config
     (setq powerline-display-buffer-size nil)
     (setq powerline-display-mule-info nil)
     (setq powerline-display-hud nil)
@@ -225,7 +225,7 @@
       (powerline-default-theme)
       (remove-hook 'focus-out-hook 'powerline-unset-selected-window))))
 (use-package uniquify
-    :init
+  :init
   (setq uniquify-buffer-name-style 'reverse)
   (setq uniquify-separator "/")
   (setq uniquify-ignore-buffers-re "^\\*"))
@@ -247,76 +247,76 @@
 (defadvice custom-theme-load-confirm (around no-query-safe-thme activate)
   t)
 (use-package dired
-    :commands dired
-    :init
-    (setq dired-listing-switches
-          (if (memq system-type '(windows-nt darwin))
-              "-alh"
+  :commands dired
+  :init
+  (setq dired-listing-switches
+        (if (memq system-type '(windows-nt darwin))
+            "-alh"
             "-laGh1v --group-directories-first")))
 (use-package dired-x
-    :commands dired-jump)
+  :commands dired-jump)
 (use-package helm-j-cheatsheet
-    :commands helm-j-cheatsheet)
+  :commands helm-j-cheatsheet)
 (use-package helm-make
-    :commands (helm-make helm-make-projectile)
-    :init (defalias 'hm 'helm-make)
-    :config (setq helm-make-completion-method 'ivy))
+  :commands (helm-make helm-make-projectile)
+  :init (defalias 'hm 'helm-make)
+  :config (setq helm-make-completion-method 'ivy))
 (setq abbrev-file-name
       (concat emacs-d "personal/abbrev_defs"))
 (use-package flyspell
-    :commands flyspell-mode
-    :config (require 'ora-flyspell))
+  :commands flyspell-mode
+  :config (require 'ora-flyspell))
 (use-package projectile
-    :diminish projectile-mode
-    :init
-    (setq projectile-mode-line nil)
-    (projectile-global-mode)
-    (setq projectile-project-root-files-bottom-up
-          '(".git" ".projectile"))
-    (setq projectile-completion-system 'ivy)
-    (setq projectile-indexing-method 'alien)
-    (setq projectile-enable-caching nil)
-    (setq projectile-verbose nil)
-    (setq projectile-do-log nil)
-    (setq projectile-switch-project-action
-          (lambda ()
-            (dired (projectile-project-root))))
-    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+  :diminish projectile-mode
+  :init
+  (setq projectile-mode-line nil)
+  (projectile-global-mode)
+  (setq projectile-project-root-files-bottom-up
+        '(".git" ".projectile"))
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-indexing-method 'alien)
+  (setq projectile-enable-caching nil)
+  (setq projectile-verbose nil)
+  (setq projectile-do-log nil)
+  (setq projectile-switch-project-action
+        (lambda ()
+          (dired (projectile-project-root))))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 (use-package find-file-in-project
-    :commands find-file-in-project)
+  :commands find-file-in-project)
 (use-package magit
-    :commands magit-status
-    :config
-    (progn
-      (ignore-errors
-        (diminish 'magit-auto-revert-mode))
-      (setq magit-completing-read-function 'ivy-completing-read)
-      (setq magit-item-highlight-face 'bold)
-      (setq magit-repo-dirs-depth 1)
-      (setq magit-repo-dirs
-            (mapcar
-             (lambda (dir)
-               (substring dir 0 -1))
-             (cl-remove-if-not
-              (lambda (project)
-                (unless (file-remote-p project)
-                  (file-directory-p (concat project "/.git/"))))
-              (projectile-relevant-known-projects))))))
+  :commands magit-status
+  :config
+  (progn
+    (ignore-errors
+     (diminish 'magit-auto-revert-mode))
+    (setq magit-completing-read-function 'ivy-completing-read)
+    (setq magit-item-highlight-face 'bold)
+    (setq magit-repo-dirs-depth 1)
+    (setq magit-repo-dirs
+          (mapcar
+           (lambda (dir)
+             (substring dir 0 -1))
+           (cl-remove-if-not
+            (lambda (project)
+              (unless (file-remote-p project)
+                (file-directory-p (concat project "/.git/"))))
+            (projectile-relevant-known-projects))))))
 (use-package tea-time
-    :config
+  :config
   (setq tea-time-sound-command "play %s"))
 (use-package ace-link
-    :config (ace-link-setup-default))
+  :config (ace-link-setup-default))
 (use-package compile
-    :diminish compilation-in-progress
-    :config
-    (setq compilation-ask-about-save nil)
-    ;; (setq compilation-scroll-output 'next-error)
-    ;; (setq compilation-skip-threshold 2)
-    )
+  :diminish compilation-in-progress
+  :config
+  (setq compilation-ask-about-save nil)
+  ;; (setq compilation-scroll-output 'next-error)
+  ;; (setq compilation-skip-threshold 2)
+  )
 (ace-popup-menu-mode)
 (use-package htmlize
-    :commands htmlize-buffer)
+  :commands htmlize-buffer)
 (lispy-mode)
 (require 'personal-init nil t)
 (unless (bound-and-true-p ora-barebones)
@@ -325,16 +325,16 @@
    (lambda () (require 'ora-org)))
   (require 'define-word)
   (use-package slime
-      :commands slime
-      :init
-      (require 'slime-autoloads)
-      (setq slime-contribs '(slime-fancy))
-      (setq inferior-lisp-program "/usr/bin/sbcl")))
+    :commands slime
+    :init
+    (require 'slime-autoloads)
+    (setq slime-contribs '(slime-fancy))
+    (setq inferior-lisp-program "/usr/bin/sbcl")))
 (require 'cook)
 (use-package elf-mode
-    :commands elf-mode
-    :init
-    (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
+  :commands elf-mode
+  :init
+  (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
 (use-package groovy-mode)
 (add-to-list 'warning-suppress-types '(undo discard-info))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
