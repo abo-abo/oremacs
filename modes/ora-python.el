@@ -30,7 +30,6 @@
 (define-key python-mode-map (kbd "C-x C-p") 'jedi:goto-definition)
 (define-key python-mode-map (kbd "C-?") 'jedi:show-doc)
 (define-key python-mode-map (kbd "RET") 'newline-and-indent)
-(define-key python-mode-map (kbd "C-c C-l") 'ora-python-send)
 (define-key python-mode-map (kbd "θ") 'lpy-quotes)
 (define-key python-mode-map (kbd "β") 'counsel-jedi)
 (define-key python-mode-map (kbd "C-M-j") 'lpy-goto)
@@ -100,14 +99,6 @@
         (with-current-buffer (process-buffer process)
           (compilation-fake-loc (copy-marker start) temp-file-name
                                 2))))))
-
-(defun ora-python-send ()
-  (interactive)
-  (if (region-active-p)
-      (ora-python-shell-send-region (region-beginning)
-                                    (region-end))
-    (ora-python-shell-send-region (point-min)
-                                  (point-max))))
 
 ;;* Jython stuff
 (setq python-shell-completion-setup-code
