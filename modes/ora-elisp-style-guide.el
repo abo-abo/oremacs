@@ -12,5 +12,7 @@
      (get 'flet 'common-lisp-indent-function))
 (put 'cl-labels 'common-lisp-indent-function
      (get 'labels 'common-lisp-indent-function))
+(put 'use-package 'common-lisp-indent-function 1)
+(put 'eval-after-load 'common-lisp-indent-function 1)
 
 (provide 'ora-elisp-style-guide)
