@@ -6,6 +6,7 @@
 (require 'org-fu)
 (require 'org-weather)
 (require 'orly)
+(require 'ora-org-pomodoro)
 (setq org-weather-location "Eindhoven,NL")
 (setq org-weather-api-key "bfb812a56cff56fe7efeea207643a153")
 (add-to-list 'load-path (expand-file-name "git/org-mode/contrib/lisp/" emacs-d))
@@ -19,7 +20,6 @@
 (setq worf-visit-function 'ora-worf-visit-function)
 (require 'org-download)
 (org-download-enable)
-(require 'org-pomodoro)
 (setq org-attach-file-list-property nil)
 (setq org-reveal-hlevel 2)
 
@@ -100,7 +100,6 @@
   (define-key map "W" 'worf-agenda-widen)
   (define-key map "t" 'worf-todo)
   ;; misc
-  (define-key map "p" 'ora-org-pomodoro)
   (define-key map (kbd "C-j") 'org-open-at-point)
   (define-key map "i" 'org-agenda-clock-in)
   (define-key map "O" 'org-agenda-clock-out)
@@ -533,16 +532,6 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
   ("q" (message "Abort") :exit t)
   ("x" org-agenda-exit :exit t)
   ("v" nil))
-
-(setq org-pomodoro-ask-upon-killing nil)
-
-(defun ora-org-pomodoro ()
-  (interactive)
-  (if (eq major-mode 'org-agenda-mode)
-      (progn
-        (org-pomodoro)
-        (org-save-all-org-buffers))
-    (org-pomodoro)))
 
 (setq org-clock-idle-time 60)
 (require 'org-mu4e nil t)
