@@ -147,3 +147,10 @@ def __PYTHON_EL_get_completions(text):
     (back-to-indentation)
     (unless (bolp)
       (backward-char))))
+
+(defun python-font-lock-syntactic-face-function (state)
+  "Speed up `python-font-lock-syntactic-face-function'.
+Don't call `python-info-docstring-p'."
+  (if (nth 3 state)
+      font-lock-string-face
+    font-lock-comment-face))
