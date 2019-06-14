@@ -17,12 +17,13 @@
     (add-to-list 'completion-at-point-functions 'lispy-complete-fname-at-point)))
 
 (use-package lispy
-    :config
+    :init
+  (setq lispy-key-theme '(oleh special lispy c-digits))
+  :config
   (progn
     (setq lispy-no-permanent-semantic t)
     (setq lispy-delete-backward-recenter nil)
     (setq lispy-helm-columns '(70 100))
-    (lispy-set-key-theme '(oleh special lispy c-digits))
     (setq lispy-avy-style-symbol 'at-full)))
 
 (defun ora-package-symbol ()
