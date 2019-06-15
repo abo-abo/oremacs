@@ -90,5 +90,11 @@
  '((original-source)
    (ora-last-eval-expression-result)))
 
+(defun vs (n strs)
+  "View strings."
+  (cl-subseq
+   (mapcar #'substring-no-properties strs)
+   0 10))
+
 ;;* Provide
 (provide 'ora-elisp)
