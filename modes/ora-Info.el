@@ -18,6 +18,7 @@
 (define-key Info-mode-map "t" 'hydra-info-to/body)
 (define-key Info-mode-map "u" 'Info-history-back)
 (define-key Info-mode-map "c" 'counsel-ace-link)
+(define-key Info-mode-map "H" 'Info-history-back)
 
 ;;;###autoload
 (defun ora-Info-hook ())
