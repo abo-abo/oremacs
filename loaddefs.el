@@ -343,14 +343,14 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("cal" 0 3 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("cal" 0 3 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (face font-lock-function-name-face fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (face font-lock-function-name-face fontified nil) 1 10 (face font-lock-function-name-face fontified nil)) #("yes-or-no-p" 0 11 (face font-lock-function-name-face fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified t face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified t)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
@@ -554,6 +554,17 @@ Threat is as function body when from endline before )
 \(fn)" nil nil)
 
 (autoload 'ora-c++-hook "modes/ora-cpp" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-debugger" "modes/ora-debugger.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-debugger.el
+
+(autoload 'ora-debugger-hook "modes/ora-debugger" "\
 
 
 \(fn)" nil nil)
@@ -896,7 +907,7 @@ Call `j-console' and setup shortcuts.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-latex" '(#("font-lock-simple-face" 0 21 (face font-lock-variable-name-face fontified nil)) #("ora-" 0 4 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-latex" '("font-lock-simple-face" "ora-")))
 
 ;;;***
 
