@@ -56,6 +56,14 @@
       (string-match (car x) (message-field-value "From")))
     smime-keys)))
 
+(defmacro ora-with-smime-pass (keyfile &rest body)
+  (declare (indent 1))
+  `(unwind-protect
+        (progn
+          (setenv "GNUS_SMIME_PASSPHRASE" (smime-ask-passphrase ,keyfile))
+          ,@body)
+     (setenv "GNUS_SMIME_PASSPHRASE" "")))
+
 (defun ora-smime-sign ()
   (setq message-inhibit-body-encoding nil)
   (mml-to-mime)
@@ -68,14 +76,10 @@
             (apply #'call-process-region
                    (message-goto-body) (point-max) smime-openssl-program t t nil
                    openssl-args)
-          (let ((passphrase (smime-ask-passphrase keyfile)))
-            (unwind-protect
-                 (progn
-                   (setenv "GNUS_SMIME_PASSPHRASE" passphrase)
-                   (apply #'call-process-region
-                          (message-goto-body) (point-max) smime-openssl-program t t nil
-                          (append openssl-args '("-passin" "env:GNUS_SMIME_PASSPHRASE"))))
-              (setenv "GNUS_SMIME_PASSPHRASE" "")))))
+          (ora-with-smime-pass keyfile
+            (apply #'call-process-region
+                   (message-goto-body) (point-max) smime-openssl-program t t nil
+                   (append openssl-args '("-passin" "env:GNUS_SMIME_PASSPHRASE"))))))
       ;; we already specify MIME-Version here, don't let
       ;; `message-encode-message-body' mess it up.
       (setq message-inhibit-body-encoding t)
@@ -88,20 +92,29 @@
 
 (defun ora-smime-decrypt ()
   (interactive)
-  (let ((inhibit-read-only t)
-        (keyfile (cadr (assoc user-mail-address smime-keys))))
-    (when (ora-file-matches-p keyfile "-----BEGIN RSA PRIVATE KEY-----")
-      (progn
+  (let ((keyfile (cadr (assoc user-mail-address smime-keys))))
+    (unless keyfile
+      (user-error "`smime-keys' has no entry for `user-mail-address'."))
+    (let* ((no-pass (ora-file-matches-p keyfile "-----BEGIN RSA PRIVATE KEY-----"))
+           (passin-args (if no-pass "" "-passin env:GNUS_SMIME_PASSPHRASE "))
+           (cmd (concat
+                 "openssl cms -decrypt " passin-args
+                 "-in "
+                 (buffer-file-name)
+                 " -inform DER -inkey "
+                 (expand-file-name keyfile)
+                 " | openssl cms -verify 2>/dev/null"
+                 " | sed -r -e 's/=?//g'"
+                 ;; Microsoft's email does style=3D'color:red', why?
+                 " | sed -r -e 's/=3D/=/g'"))
+           (res (if no-pass
+                    (shell-command-to-string cmd)
+                  (ora-with-smime-pass keyfile
+                    (shell-command-to-string cmd)))))
+      (let ((inhibit-read-only t))
         (erase-buffer)
-        (insert
-         (shell-command-to-string
-          (concat
-           "openssl smime -decrypt -in "
-           (buffer-file-name)
-           " -inform DER -inkey "
-           (expand-file-name keyfile)
-           " | openssl smime -verify 2>/dev/null"
-           " | sed -e 's///g'")))
+        (insert res)
+        (goto-char (point-min))
         (set-buffer-modified-p nil)
         (read-only-mode 1)))))
 
