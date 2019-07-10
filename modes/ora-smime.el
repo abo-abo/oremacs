@@ -86,4 +86,26 @@
           (re-search-backward "^--text follows this line--" nil t)
           (insert mime))))))
 
+(defun ora-smime-decrypt ()
+  (interactive)
+  (let ((inhibit-read-only t)
+        (keyfile (cadr (assoc user-mail-address smime-keys))))
+    (when (ora-file-matches-p keyfile "-----BEGIN RSA PRIVATE KEY-----")
+      (progn
+        (erase-buffer)
+        (insert
+         (shell-command-to-string
+          (concat
+           "openssl smime -decrypt -in "
+           (buffer-file-name)
+           " -inform DER -inkey "
+           (expand-file-name keyfile)
+           " | openssl smime -verify 2>/dev/null"
+           " | sed -e 's///g'")))
+        (set-buffer-modified-p nil)
+        (read-only-mode 1)))))
+
+(add-to-list 'auto-mode-alist
+             '("smime.p7m\\'" . ora-smime-decrypt))
+
 (provide 'ora-smime)
