@@ -71,7 +71,7 @@
   (let ((keyfile (ora--smime-keyfile)))
     (when keyfile
       (let ((openssl-args
-             (list "smime" "-sign" "-signer" (expand-file-name keyfile))))
+             (list "cms" "-sign" "-signer" (expand-file-name keyfile))))
         (if (ora-file-matches-p keyfile "-----BEGIN RSA PRIVATE KEY-----")
             (apply #'call-process-region
                    (message-goto-body) (point-max) smime-openssl-program t t nil
