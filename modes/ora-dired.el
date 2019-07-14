@@ -273,6 +273,9 @@ Number of marked items: %(length (dired-get-marked-files))
                  '(progn
                    (setq tramp-sh-file-name-handler-alist
                     (assq-delete-all 'vc-registered tramp-sh-file-name-handler-alist))))
+(add-to-list 'backup-directory-alist
+             `(,tramp-file-name-regexp . nil))
+(setq tramp-chunksize 8192)
 
 (autoload 'org-download-enable "org-download")
 (add-hook 'dired-mode-hook 'org-download-enable)
