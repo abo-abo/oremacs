@@ -66,7 +66,7 @@
 
 (defun ora-smime-sign ()
   (setq message-inhibit-body-encoding nil)
-  (mml-to-mime)
+  ;; (mml-to-mime)
   (ora--makemime)
   (let ((keyfile (ora--smime-keyfile)))
     (when keyfile
