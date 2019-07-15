@@ -32,7 +32,7 @@
         (delete-region beg (point))
         (insert "--" boundary "\n")
         (insert "Content-Type: application/pdf; name=\"" (file-name-nondirectory filename) "\"\n")
-        (insert "Content-Disposition: attachment; filename=" filename "\n")
+        (insert "Content-Disposition: attachment; filename=" (file-name-nondirectory filename) "\n")
         (insert "Content-Transfer-Encoding: base64\n\n")
         (insert
          (with-temp-buffer
