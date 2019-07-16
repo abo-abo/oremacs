@@ -1,5 +1,5 @@
 ;;; oremacs
-;;* Base directory
+;;* Base directory and load-path
 (defvar emacs-d
   (file-name-directory
    (file-chase-links load-file-name))
@@ -18,7 +18,7 @@
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/modes/" emacs-d))
 (setq enable-local-variables :all)
-;;** Font
+;;* Font
 (defun ora-set-font (&optional frame)
   (when frame
     (select-frame frame))
@@ -32,18 +32,18 @@
 (set-face-attribute 'default nil :height (if (eq system-type 'darwin) 120 113))
 (set-fontset-font t nil "Symbola" nil 'append)
 (add-hook 'after-make-frame-functions 'ora-set-font)
-
-;; ;;* Customize
+;;* Customize
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
-;; (defun customize-save-variable (_variable value &rest _) value)
 ;;** decorations
 (csetq tool-bar-mode nil)
 (csetq menu-bar-mode nil)
 (csetq scroll-bar-mode nil)
+(csetq truncate-lines t)
 (csetq inhibit-startup-screen t)
 (csetq initial-scratch-message "")
-(setq text-quoting-style 'grave)
+(csetq text-quoting-style 'grave)
+(csetq line-number-display-limit-width 2000000)
 ;;** navigation within buffer
 (csetq next-screen-context-lines 5)
 (csetq recenter-positions '(top middle bottom))
@@ -61,8 +61,7 @@
 ;;** editor behavior
 (csetq default-input-method "ukrainian-computer")
 (csetq indent-tabs-mode nil)
-(csetq truncate-lines t)
-(setq ring-bell-function 'ignore)
+(csetq ring-bell-function 'ignore)
 (csetq highlight-nonselected-windows nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq kill-buffer-query-functions nil)
@@ -82,8 +81,6 @@
 ;;** internals
 (csetq gc-cons-threshold (* 10 1024 1024))
 (csetq ad-redefinition-action 'accept)
-;; isn't needed in 24.5
-(setq cache-long-scans t)
 ;;** time display
 (csetq display-time-24hr-format t)
 (csetq display-time-default-load-average nil)
