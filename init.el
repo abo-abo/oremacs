@@ -255,6 +255,7 @@
   :commands dired-jump)
 (use-package helm-j-cheatsheet
   :commands helm-j-cheatsheet)
+(autoload 'pamparam-drill "pamparam")
 (use-package helm-make
   :commands (helm-make helm-make-projectile)
   :init (defalias 'hm 'helm-make)
