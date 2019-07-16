@@ -115,6 +115,7 @@
 (setq package-pinned-packages '((yasnippet . "gnu")))
 (let ((file-name-handler-alist nil))
   (require 'eclipse-theme)
+  (load-theme 'eclipse t)
   (require 'use-package)
   (require 'smex))
 ;;* Modes
