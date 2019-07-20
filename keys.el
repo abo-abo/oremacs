@@ -203,21 +203,13 @@
   ("0" (text-scale-set 0) :bind nil :exit t)
   ("1" (text-scale-set 0) nil :bind nil :exit t))
 
-(defhydra hydra-launcher (:color blue :columns 2)
-  "Launch"
-  ("h" man "man")
-  ("r" (browse-url "http://www.reddit.com/r/emacs/") "reddit")
-  ("w" (browse-url "http://www.emacswiki.org/") "emacswiki")
-  ("s" shell "shell")
-  ("q" nil "cancel"))
-
 (defhydra hydra-k (:color blue
                    :idle 0.8)
   "k"
   ("a" orfu-agenda-day "agenda")
   ("c" ora-flyspell-previous-word "correct")
   ("j" dired-jump "dired")
-  ("b" hydra-launcher/body "browse")
+  ("b" winner-undo "browse" :exit nil)
   ("d" define-word-at-point "def")
   ("e" ora-ediff-dwim "ediff")
   ("E" eval-expression "eval")
