@@ -343,7 +343,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("cal" 0 3 (face font-lock-function-name-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("cal" 0 3 (face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -741,6 +741,17 @@ But don't look beyond what's visible on the screen.
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-haskell" "modes/ora-haskell.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-haskell.el
+
+(autoload 'ora-haskell-hook "modes/ora-haskell" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-helm" "modes/ora-helm.el" (0 0 0
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-helm.el
@@ -1038,7 +1049,7 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-mu4e" '("ora-mml-attach-file")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-mu4e" '(#("ora-mml-attach-file" 0 19 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
@@ -1344,8 +1355,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-haskell.el")
-;;;;;;  (0 0 0 0))
+;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el") (0 0
+;;;;;;  0 0))
 
 ;;;***
 
