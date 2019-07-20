@@ -10,37 +10,55 @@
         (goto-char (match-end 0)))
     (error "Expected '%s'" regex)))
 
-(defun ora--makemime ()
-  (let ((boundary (concat "----" "UNIQUE_BOUNDARY")))
+(defun ora--message-parts ()
+  (let (pt res)
     (message-goto-body)
-    (insert
-     (format "Content-Type: multipart/mixed; boundary=\"%s\"" boundary)
-     "\n\n\n")
-    (insert "--" boundary "\n")
-    (insert
-     "Content-Type: text/plain; charset=\"utf-8\"; format=\"flowed\""
-     "\n"
-     "Content-Transfer-Encoding: quoted-printable"
-     "\n\n")
+    (setq pt (point))
     (while (search-forward "<#part" nil t)
-      (let ((beg (match-beginning 0))
+      (let ((mb (match-beginning 0))
             type filename disposition)
         (setq type (ora--makemime-token " *type=\"\\([^\"]+\\)\""))
         (setq filename (ora--makemime-token " *filename=\"\\([^\"]+\\)\""))
         (setq disposition (ora--makemime-token " *disposition=\\(attachment\\|inline\\)"))
         (search-forward "<#/part>")
-        (delete-region beg (point))
-        (insert "--" boundary "\n")
-        (insert "Content-Type: application/pdf; name=\"" (file-name-nondirectory filename) "\"\n")
-        (insert "Content-Disposition: attachment; filename=" (file-name-nondirectory filename) "\n")
-        (insert "Content-Transfer-Encoding: base64\n\n")
-        (insert
-         (with-temp-buffer
-           (insert-file-contents-literally filename)
-           (base64-encode-region (point-min) (point-max))
-           (buffer-string)))
-        (insert "\n")))
-    (goto-char (point-max))
+        (push (list "text/plain" (buffer-substring-no-properties pt mb)) res)
+        (push (list type filename disposition) res)
+        (setq pt (point))))
+    (push (list "text/plain" (string-trim (buffer-substring-no-properties pt (point-max)))) res)
+    (nreverse res)))
+
+(defun ora--makemime ()
+  (let ((parts (ora--message-parts))
+        (boundary (concat "----" "UNIQUE_BOUNDARY")))
+    (message-goto-body)
+    (delete-region (point) (point-max))
+    (insert
+     (format "Content-Type: multipart/mixed; boundary=\"%s\"" boundary)
+     "\n\n\n")
+    (dolist (part parts)
+      (if (equal (car part) "text/plain")
+          (progn
+            (insert "--" boundary "\n")
+            (insert
+             "Content-Type: text/plain; charset=\"utf-8\"; format=\"flowed\""
+             "\n"
+             "Content-Transfer-Encoding: quoted-printable"
+             "\n\n")
+            (insert (nth 1 part)))
+        (let* ((type (nth 0 part))
+               (filename (nth 1 part))
+               (disposition (nth 2 part))
+               (name (file-name-nondirectory filename)))
+          (insert "--" boundary "\n")
+          (insert "Content-Type: " type "; name=\"" name "\"\n")
+          (insert "Content-Disposition: " disposition "; filename=" name "\n")
+          (insert "Content-Transfer-Encoding: base64\n\n")
+          (insert
+           (with-temp-buffer
+             (insert-file-contents-literally filename)
+             (base64-encode-region (point-min) (point-max))
+             (buffer-string)))
+          (insert "\n"))))
     (insert "\n--" boundary "--\n")))
 
 (defun ora-file-matches-p (keyfile regexp)
