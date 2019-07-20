@@ -163,4 +163,4 @@ Take care of nested C++ templates."
          (insert "<>")
          (backward-char))))
 
-(provide 'ins)
+(provide 'ora-ins)

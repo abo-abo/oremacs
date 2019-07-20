@@ -336,7 +336,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("ora-" 0 4 (face font-lock-function-name-face fontified nil)) #("dbg" 0 3 (fontified nil face font-lock-function-name-face)) #("show-message" 0 12 (fontified nil)) #("char-upcasep" 0 12 (fontified nil)) #("re-seq" 0 6 (fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("ora-" 0 4 (fontified nil face font-lock-function-name-face)) #("dbg" 0 3 (face font-lock-function-name-face fontified nil)) #("show-message" 0 12 (face font-lock-function-name-face fontified nil)) #("char-upcasep" 0 12 (face font-lock-function-name-face fontified nil)) #("re-seq" 0 6 (fontified nil)))))
 
 ;;;***
 
@@ -350,58 +350,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified t face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified t)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified t)))))
-
-;;;***
-
-;;;### (autoloads nil "ins" "ins.el" (0 0 0 0))
-;;; Generated autoloads from ins.el
-
-(autoload 'ora-quotes "ins" "\
-
-
-\(fn ARG)" t nil)
-
-(autoload 'ora-single-quotes "ins" "\
-
-
-\(fn ARG)" t nil)
-
-(autoload 'ora-parens "ins" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-dollars "ins" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-brackets "ins" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-braces "ins" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-braces-c++ "ins" "\
-Insert {}.
-Threat is as function body when from endline before )
-
-\(fn)" t nil)
-
-(autoload 'ora-angles-c++ "ins" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-angles "ins" "\
-
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
 
 ;;;***
 
@@ -568,6 +517,8 @@ Threat is as function body when from endline before )
 
 
 \(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-debugger" '("ora-debug-set-frame")))
 
 ;;;***
 
@@ -843,6 +794,58 @@ But don't look beyond what's visible on the screen.
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-insert" "modes/ora-insert.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from modes/ora-insert.el
+
+(autoload 'ora-quotes "modes/ora-insert" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'ora-single-quotes "modes/ora-insert" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'ora-parens "modes/ora-insert" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-dollars "modes/ora-insert" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-brackets "modes/ora-insert" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-braces "modes/ora-insert" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-braces-c++ "modes/ora-insert" "\
+Insert {}.
+Threat is as function body when from endline before )
+
+\(fn)" t nil)
+
+(autoload 'ora-angles-c++ "modes/ora-insert" "\
+
+
+\(fn)" t nil)
+
+(autoload 'ora-angles "modes/ora-insert" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-ivy" "modes/ora-ivy.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ivy.el
 
@@ -1035,7 +1038,7 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-mu4e" '(#("ora-mml-attach-file" 0 19 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-mu4e" '("ora-mml-attach-file")))
 
 ;;;***
 
@@ -1262,6 +1265,8 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-shell" '("ora-a")))
+
 ;;;***
 
 ;;;### (autoloads nil "modes/ora-smime" "modes/ora-smime.el" (0 0
@@ -1339,8 +1344,8 @@ MATLAB completion at point.
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el") (0 0
-;;;;;;  0 0))
+;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-haskell.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
