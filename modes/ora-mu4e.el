@@ -1,7 +1,7 @@
 (require 'whicher)
-(require 'smime)
+(require 'ora-smime)
 (use-package mu4e
-    :load-path "~/git/mu/mu4e")
+  :load-path "~/git/Emacs/mu/mu4e")
 (setq mu4e-maildir "~/mail/work")
 (setq mu4e-html2text-command (whicher "w3m -T text/html"))
 (setq mu4e-drafts-folder "/Drafts")
@@ -37,11 +37,14 @@
 (define-key mu4e-compose-mode-map (kbd "C-M-i") nil)
 (define-key mu4e-compose-mode-map (kbd "C-c C-a") 'ora-mml-attach-file)
 (define-key mu4e-compose-mode-map (kbd "M-q") 'fill-paragraph)
-(define-key mu4e-headers-mode-map "J" 'mu4e-headers-next)
-(define-key mu4e-headers-mode-map "K" 'mu4e-headers-prev)
-(define-key mu4e-view-mode-map "J" 'mu4e-view-headers-next)
-(define-key mu4e-view-mode-map "K" 'mu4e-view-headers-prev)
+(define-key mu4e-headers-mode-map "j" 'mu4e-headers-next)
+(define-key mu4e-headers-mode-map "k" 'mu4e-headers-prev)
+(define-key mu4e-headers-mode-map "J" 'mu4e~headers-jump-to-maildir)
 (define-key mu4e-view-mode-map (kbd "C--") nil)
+(define-key mu4e-view-mode-map "j" 'mu4e-view-headers-next)
+(define-key mu4e-view-mode-map "k" 'mu4e-view-headers-prev)
+
+(set-face-foreground 'mu4e-modeline-face "white")
 
 (defun ora-mml-attach-file ()
   (interactive)
@@ -57,80 +60,6 @@
   (setq completion-at-point-functions
         '(mu4e~compose-complete-contact t)))
 
-(setq mm-7bit-chars "\x20-\x7f\n\r\t\x7\x8\xb\xc\x1f")
-(setq message-send-hook '(ora-smime-sign))
-
-(defun ora--makemime-token (regex)
-  (if (looking-at regex)
-      (prog1 (match-string-no-properties 1)
-        (goto-char (match-end 0)))
-    (error "Expected '%s'" regex)))
-
-(defun ora--makemime ()
-  (let ((boundary (concat "----" "UNIQUE_BOUNDARY")))
-    (message-goto-body)
-    (insert
-     (format "Content-Type: multipart/mixed; boundary=\"%s\"" boundary)
-     "\n\n\n")
-    (insert "--" boundary "\n")
-    (insert
-     "Content-Type: text/plain; charset=\"utf-8\""
-     "\n"
-     "Content-Transfer-Encoding: quoted-printable"
-     "\n\n")
-    (while (search-forward "<#part" nil t)
-      (let ((beg (match-beginning 0))
-            type filename disposition)
-        (setq type (ora--makemime-token " *type=\"\\([^\"]+\\)\""))
-        (setq filename (ora--makemime-token " *filename=\"\\([^\"]+\\)\""))
-        (setq disposition (ora--makemime-token " *disposition=\\(attachment\\|inline\\)"))
-        (search-forward "<#/part>")
-        (delete-region beg (point))
-        (insert "--" boundary "\n")
-        (insert "Content-Type: application/pdf; name=\"" (file-name-nondirectory filename) "\"\n")
-        (insert "Content-Disposition: attachment; filename=" filename "\n")
-        (insert "Content-Transfer-Encoding: base64\n\n")
-        (insert
-         (with-temp-buffer
-           (insert-file-contents-literally filename)
-           (base64-encode-region (point-min) (point-max))
-           (buffer-string)))
-        (insert "\n")))
-    (insert "--" boundary "--" "\n")
-    (setq message-inhibit-body-encoding t)))
-
-(defun ora-smime-sign ()
-  (ora--makemime)
-  (let* ((from (message-field-value "From"))
-         (keyfile
-          (cadr
-           (cl-find-if
-            (lambda (x)
-              (string-match (car x) from))
-            smime-keys))))
-    (when keyfile
-      (let ((openssl-args
-             (list "smime" "-sign" "-signer" (expand-file-name keyfile))))
-        (if (string-match-p "plain.pem$" keyfile)
-            (apply #'call-process-region
-                   (message-goto-body) (point-max) smime-openssl-program t t nil
-                   openssl-args)
-          (let ((passphrase (smime-ask-passphrase keyfile)))
-            (unwind-protect
-                 (progn
-                   (setenv "GNUS_SMIME_PASSPHRASE" passphrase)
-                   (apply #'call-process-region
-                          (message-goto-body) (point-max) smime-openssl-program t t nil
-                          (append openssl-args '("-passin" "env:GNUS_SMIME_PASSPHRASE"))))
-              (setenv "GNUS_SMIME_PASSPHRASE" "")))))
-      ;; we already specify MIME-Version here, don't let
-      ;; `message-encode-message-body' mess it up.
-      (setq message-inhibit-body-encoding t)
-      (message-goto-body)
-      ;; move MIME-Version to headers
-      (when (looking-at "MIME-Version: 1.0\nContent-Type.*\n")
-        (let ((mime (delete-and-extract-region (point) (match-end 0))))
-          (re-search-backward "^--text follows this line--" nil t)
-          (insert mime))))))
+(require 'pora-mu4e nil t)
 
 (provide 'ora-mu4e)
