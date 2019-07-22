@@ -258,7 +258,6 @@
 (autoload 'pamparam-drill "pamparam")
 (use-package helm-make
   :commands (helm-make helm-make-projectile)
-  :init (defalias 'hm 'helm-make)
   :config (setq helm-make-completion-method 'ivy))
 (setq abbrev-file-name
       (concat emacs-d "personal/abbrev_defs"))
