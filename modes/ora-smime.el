@@ -83,11 +83,11 @@
      (setenv "GNUS_SMIME_PASSPHRASE" "")))
 
 (defun ora-smime-sign ()
-  (setq message-inhibit-body-encoding nil)
-  ;; (mml-to-mime)
-  (ora--makemime)
   (let ((keyfile (ora--smime-keyfile)))
     (when keyfile
+      (setq message-inhibit-body-encoding nil)
+      ;; (mml-to-mime)
+      (ora--makemime)
       (let ((openssl-args
              (list "cms" "-sign" "-signer" (expand-file-name keyfile))))
         (if (ora-file-matches-p keyfile "-----BEGIN RSA PRIVATE KEY-----")
@@ -133,6 +133,21 @@
         (erase-buffer)
         (insert res)
         (goto-char (point-min))
+        (when (re-search-forward
+               (mapconcat
+                #'identity
+                '("Content-Type: text/plain;"
+                  "charset=utf-8"
+                  "Content-Transfer-Encoding: base64"
+                  "")
+                "[\r\n \t]+")
+               nil t)
+          (let* ((beg (point))
+                 (end (re-search-forward "\r\n\r"))
+                 (str (buffer-substring beg (- end 3))))
+            (erase-buffer)
+            (insert
+             (decode-coding-string (base64-decode-string str) 'utf-8))))
         (set-buffer-modified-p nil)
         (read-only-mode 1)))))
 
