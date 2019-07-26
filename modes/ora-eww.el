@@ -24,3 +24,19 @@
 
 ;;;###autoload
 (defun ora-eww-hook ())
+
+(csetq shr-width 60)
+
+(defun ora--eww-reader-scale ()
+  (text-scale-set 4)
+  (set-window-margins nil 30)
+  (remove-hook 'eww-after-render-hook 'ora--eww-reader-scale))
+
+;;;###autoload
+(defun ora-eww-reader ()
+  (interactive)
+  (cond ((eq major-mode 'org-mode)
+         (let ((context (org-element-context)))
+           (when (eq (org-element-type context) 'link)
+             (eww (org-element-property :raw-link context))
+             (add-hook 'eww-after-render-hook 'ora--eww-reader-scale))))))
