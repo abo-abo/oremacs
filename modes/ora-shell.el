@@ -1,8 +1,11 @@
+(require 'shell)
 (require 'bash-completion)
 (bash-completion-setup)
 
 ;;;###autoload
 (defun ora-shell-hook ())
+
+(define-key shell-mode-map (kbd "C-r") 'counsel-shell-history)
 
 (advice-add 'ansi-color-apply-on-region :before 'ora-ansi-color-apply-on-region)
 
