@@ -298,8 +298,10 @@ If called with a prefix, prompts for flags to pass to ag."
     ;; append the destination
     (setq tmtxt/rsync-command
           (concat tmtxt/rsync-command
-                  (if (string-match "^/ssh:\\(.*\\)$" dest)
-                      (format " -e ssh %s" (match-string 1 dest))
+                  (if (string-match "^/ssh:\\(.*?\\)\\([^:]+\\)$" dest)
+                      (format " -e ssh %s'\"%s\"'"
+                              (match-string 1 dest)
+                              (match-string 2 dest))
                     (shell-quote-argument dest))))
     ;; run the async shell command
     (let ((default-directory (expand-file-name "~")))
