@@ -1,4 +1,13 @@
 (require 'python)
+(require 'autoinsert)
+(add-to-list 'auto-insert-alist
+             '(python-mode lambda nil (ora-python-auto-insert)))
+(defun ora-python-auto-insert ()
+  (insert "#* Imports\n\n\n")
+  (if (string= "Cookbook.py" (file-name-nondirectory (buffer-file-name)))
+      (insert "#* Recipes")
+    (insert "#* Script"))
+  (insert "\n"))
 (setq-default python-shell-interpreter "python3")
 ;; python-shell-first-prompt-hook
 (csetq python-indent-guess-indent-offset nil)
