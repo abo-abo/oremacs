@@ -96,5 +96,12 @@
    (mapcar #'substring-no-properties strs)
    0 10))
 
+(defun ora-edebug-hook ()
+  ;; (lispy-mode -1)
+  )
+
+(add-hook 'edebug-setup-hook 'ora-edebug-hook)
+
+
 ;;* Provide
 (provide 'ora-elisp)
