@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: trace
+# key: t
+# --
+(message "$1: %S" $1)
