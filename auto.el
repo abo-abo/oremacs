@@ -828,7 +828,8 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
                      (switch-to-buffer "*jekyll*")
                    (ansi-term "/bin/bash" "jekyll")))
          (proc (get-buffer-process buffer)))
-    (term-send-string proc "jekyll serve --limit_posts 1\n")
+    (term-send-string proc
+                      "eval \"$(rbenv init -)\";rbenv local 2.5.1; jekyll serve --limit_posts 1\n")
     (sit-for 3)
     (browse-url "localhost:4000")))
 
