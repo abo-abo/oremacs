@@ -9,7 +9,7 @@
 
 (defun doc-view-evince ()
   (interactive)
-  (ora-dired-start-process "evince" (list (buffer-file-name))))
+  (orly-start "evince" (list (buffer-file-name))))
 
 ;;;###autoload
 (defun ora-doc-view-hook ())
