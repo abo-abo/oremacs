@@ -336,7 +336,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("ora-" 0 4 (fontified nil face font-lock-function-name-face)) #("dbg" 0 3 (face font-lock-function-name-face fontified nil)) #("show-message" 0 12 (face font-lock-function-name-face fontified nil)) #("char-upcasep" 0 12 (face font-lock-function-name-face fontified nil)) #("re-seq" 0 6 (fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("ora-" "dbg" "show-message" "char-upcasep" "re-seq")))
 
 ;;;***
 
@@ -357,7 +357,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;### (autoloads nil "keys" "keys.el" (0 0 0 0))
 ;;; Generated autoloads from keys.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '(#("lispy-insert-prev-outline-body" 0 30 (fontified nil face font-lock-function-name-face)) #("hydra-" 0 6 (face font-lock-type-face fontified nil)) #("ora-open-line" 0 13 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '("lispy-insert-prev-outline-body" "hydra-" "ora-open-line")))
 
 ;;;***
 
@@ -536,7 +536,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '(#("ora-" 0 4 (fontified nil)) #("hydra-marked-items" 0 18 (fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '("ora-" "hydra-marked-items")))
 
 ;;;***
 
@@ -596,7 +596,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-elfeed.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elfeed" '("ora-elfeed-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elfeed" '(#("ora-elfeed-" 0 11 (fontified nil face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -684,7 +684,12 @@ Open or move eshell in `default-directory'.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eww" '("eww-view-ace")))
+(autoload 'ora-eww-reader "modes/ora-eww" "\
+
+
+\(fn)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eww" '(#("ora--eww-reader-scale" 0 21 (face font-lock-function-name-face fontified t)) #("eww-view-ace" 0 12 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
@@ -1144,7 +1149,7 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org" '(#("org-" 0 2 (face font-lock-function-name-face fontified nil) 2 4 (face font-lock-function-name-face fontified nil)) #("ora-" 0 2 (face font-lock-function-name-face fontified nil) 2 4 (face font-lock-function-name-face fontified nil)) #("hot-expand" 0 1 (fontified nil face font-lock-type-face) 1 10 (fontified nil face font-lock-function-name-face)) #("hydra-org-" 0 1 (fontified nil face font-lock-type-face) 1 6 (fontified nil face font-lock-type-face) 6 10 (fontified nil face font-lock-type-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org" '("org-" "ora-" "hot-expand" "hydra-org-")))
 
 ;;;***
 
@@ -1216,7 +1221,7 @@ MATLAB completion at point.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-python" '("python-" "ora-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-python" '(#("python-" 0 2 (face font-lock-function-name-face fontified nil) 2 7 (face font-lock-function-name-face fontified nil)) #("py-enumerate" 0 2 (face font-lock-function-name-face fontified nil) 2 12 (face font-lock-function-name-face fontified nil)) #("ora-" 0 4 (fontified nil face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -1384,6 +1389,6 @@ MATLAB completion at point.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git/org-fu/org-fu" '("orfu-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git/org-fu/org-fu" '(#("orfu-" 0 5 (fontified nil face font-lock-function-name-face)))))
 
 ;;;***
