@@ -305,7 +305,8 @@ If called with a prefix, prompts for flags to pass to ag."
                     (shell-quote-argument dest))))
     ;; run the async shell command
     (let ((default-directory (expand-file-name "~")))
-      (async-shell-command tmtxt/rsync-command))
+      (async-shell-command tmtxt/rsync-command
+                           (format "rsync to %s" dest)))
     (message tmtxt/rsync-command)
     ;; finally, switch to that window
     (other-window 1)))
