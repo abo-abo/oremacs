@@ -62,7 +62,6 @@
     ukrainian-holidays
     unicode-fonts
     use-package
-    vimish-fold
     wgrep
     which-key
     worf
