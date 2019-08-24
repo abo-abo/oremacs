@@ -572,7 +572,8 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 (csetq org-agenda-window-setup 'current-window)
 
 ;;** insert snippets
-(require 'org-parser)
+(use-package org-parser
+  :ensure t)
 
 (defvar ora-snippet-alist
   '((sh-mode . "~/Dropbox/org/wiki/bash.org")))
