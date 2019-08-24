@@ -26,10 +26,6 @@
   :config
   (setcdr org-bullets-bullet-map nil))
 
-(use-package plain-org-wiki
-  :config
-  (setq org-directory pow-directory))
-
 (setq org-reveal-hlevel 2)
 (setq org-attach-file-list-property nil)
 (setq org-hide-emphasis-markers t)
