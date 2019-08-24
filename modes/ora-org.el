@@ -21,6 +21,9 @@
   :config
   (org-download-enable))
 
+(use-package orca
+  :ensure t)
+
 (use-package org-bullets
   :ensure t
   :config
