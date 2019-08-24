@@ -173,6 +173,8 @@
 (use-package tiny
   :commands tiny-expand)
 (require 'warnings)
+(use-package diminish
+  :ensure t)
 (use-package yasnippet
   :diminish yas-minor-mode
   :config
