@@ -303,6 +303,7 @@
                 (file-directory-p (concat project "/.git/"))))
             (projectile-relevant-known-projects))))))
 (use-package tea-time
+  :ensure t
   :config
   (setq tea-time-sound-command "play %s"))
 (use-package ace-link
@@ -336,7 +337,6 @@
   :commands elf-mode
   :init
   (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
-(use-package groovy-mode)
 (add-to-list 'warning-suppress-types '(undo discard-info))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 
