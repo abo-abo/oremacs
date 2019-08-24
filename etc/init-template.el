@@ -17,9 +17,9 @@
 
 ;; org-mode wiki
 (use-package plain-org-wiki
-    :commands plain-org-wiki plain-org-wiki-helm
-    :config
-    (setq pow-directory
-          (ora-org-expand "wiki/")))
+  :commands plain-org-wiki plain-org-wiki-helm
+  :config
+  (setq plain-org-wiki-directory
+        (ora-org-expand "wiki/")))
 
 (provide 'personal-init)
