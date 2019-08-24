@@ -3,28 +3,35 @@
 (setq org-export-with-sub-superscripts nil)
 (setq org-catch-invisible-edits 'smart)
 (require 'org)
-(require 'org-fu)
-(require 'org-weather)
-(require 'orly)
-(require 'ora-org-pomodoro)
-(setq org-weather-location "Eindhoven,NL")
-(setq org-weather-api-key "bfb812a56cff56fe7efeea207643a153")
 (add-to-list 'load-path (expand-file-name "git/org-mode/contrib/lisp/" emacs-d))
 (require 'org-src)
-(require 'worf)
-(defun ora-worf-visit-function (file)
-  (let ((ext (file-name-extension file)))
-    (if (string= ext "pdf")
-        (counsel-locate-action-extern file)
-      (find-file file))))
-(setq worf-visit-function 'ora-worf-visit-function)
-(require 'org-download)
-(org-download-enable)
-(setq org-attach-file-list-property nil)
-(setq org-reveal-hlevel 2)
 
-(require 'org-bullets)
-(setcdr org-bullets-bullet-map nil)
+(use-package worf
+  :ensure t
+  :config
+  (setq worf-visit-function
+        (defun ora-worf-visit-function (file)
+          (let ((ext (file-name-extension file)))
+            (if (string= ext "pdf")
+                (counsel-locate-action-extern file)
+              (find-file file))))))
+
+(use-package org-download
+  :ensure t
+  :config
+  (org-download-enable))
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (setcdr org-bullets-bullet-map nil))
+
+(use-package plain-org-wiki
+  :config
+  (setq org-directory pow-directory))
+
+(setq org-reveal-hlevel 2)
+(setq org-attach-file-list-property nil)
 (setq org-hide-emphasis-markers t)
 (put 'org-hide-emphasis-markers 'safe-local-variable 'identity)
 
@@ -70,8 +77,6 @@
   (forward-line -1)
   (org-agenda-bulk-unmark)
   (forward-line -1))
-
-;; (define-key org-mode-map (kbd "$") 'ora-dollars)
 
 ;;** org-agenda-mode-map
 (require 'org-agenda)
@@ -161,6 +166,7 @@
 ;;* Interactions
 (setq org-file-apps
       '((auto-mode . emacs)
+        (directory . emacs)
         ("\\.x?html?\\'" . "firefox %s")
         ("\\.pdf\\'" . "evince \"%s\"")
         ("\\.gif\\'" . "eog \"%s\"")
@@ -535,8 +541,6 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
   ("v" nil))
 
 (setq org-clock-idle-time 60)
-(require 'org-mu4e nil t)
-(setq org-mu4e-link-query-in-headers-mode nil)
 
 (defun ora-org-clock-heading ()
   (let ((str (nth 4 (org-heading-components))))
@@ -566,8 +570,6 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 (add-to-list 'safe-local-variable-values
              '(lisp-indent-function . lisp-indent-function))
 
-(require 'plain-org-wiki)
-(setq org-directory pow-directory)
 (csetq org-agenda-window-setup 'current-window)
 
 ;;** insert snippets
@@ -621,5 +623,47 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 ;; work-around for "L" key being sent on Firefox 60
 (add-to-list 'org-capture-templates (cons "L" (cdr (assoc "l" org-capture-templates))))
 
+(defun ora-git-refile ()
+  (interactive)
+  (let* ((default-directory "~/Dropbox/org")
+         (ivy-inhibit-action t)
+         (fname (counsel-git "org$"))
+         (org-agenda-files nil)
+         (org-refile-use-cache nil)
+         (org-refile-targets `(((,fname) :maxlevel . 3))))
+    (org-refile)))
+
+(defun ora-org-grep (s)
+  (let ((default-directory emacs-d))
+    (counsel-rg s)))
+
+(let ((inhibit-message t))
+  (org-add-link-type "grep" 'ora-org-grep))
+
+(defun ora-org-done-p ()
+  (save-excursion
+    (org-back-to-heading)
+    (looking-at "\\*+ \\(DONE\\|CANCELLED\\)")))
+
+(defun ora-org-delete-element (&optional context)
+  (setq context (or context (org-element-context)))
+  (delete-region
+   (org-element-property :begin context)
+   (1+ (org-element-property :end context))))
+
+(defun ora-org-cleanup-links ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "^\\[\\[" nil t)
+      (let* ((context (org-element-context))
+             (type (org-element-property :type context))
+             (path (org-link-unescape (org-element-property :path context))))
+        (when (string= type "file")
+          (when (or (not (file-exists-p path))
+                    (ora-org-done-p))
+            (delete-file path)
+            (ora-org-delete-element)))))
+    (save-buffer)))
 
 (provide 'ora-org)
