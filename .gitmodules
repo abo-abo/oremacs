@@ -31,9 +31,6 @@
 [submodule "git/magit"]
 	path = git/magit
 	url = https://github.com/abo-abo/magit
-[submodule "git/org-weather"]
-	path = git/org-weather
-	url = https://github.com/kautsig/org-weather
 [submodule "git/org-pomodoro"]
 	path = git/org-pomodoro
         url = https://github.com/abo-abo/org-pomodoro
