@@ -7,7 +7,7 @@
       (if (memq system-type '(windows-nt darwin))
           "-alh"
         "-laGh1v --group-directories-first"))
-(advice-add 'dired-internal-noselect :filter-args 'ora-dired-internal-noselect)
+(ora-advice-add 'dired-internal-noselect :filter-args 'ora-dired-internal-noselect)
 (defun ora-dired-internal-noselect (args)
   (cl-destructuring-bind (dir-or-list &optional switches mode) args
     (when (file-remote-p dir-or-list)
@@ -318,7 +318,7 @@ Number of marked items: %(length (dired-get-marked-files))
 (defun ora-dired-do-async-shell-command ()
   "Wrap `dired-do-async-shell-command' without popup windows."
   (interactive)
-  (advice-add 'shell-command-sentinel :override #'ora-shell-command-sentinel)
+  (ora-advice-add 'shell-command-sentinel :override #'ora-shell-command-sentinel)
   (save-window-excursion
     (call-interactively 'dired-do-async-shell-command)))
 

@@ -83,7 +83,7 @@
   (setq ora-last-eval-expression-result
         (prin1-to-string
          (apply orig-fun args))))
-(advice-add 'eval-expression :around #'ora-eval-expression)
+(ora-advice-add 'eval-expression :around #'ora-eval-expression)
 
 (ivy-set-sources
  'counsel-yank-pop

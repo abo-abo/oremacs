@@ -37,6 +37,9 @@
 ;;* Customize
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
+(defun ora-advice-add (&rest args)
+  (when (fboundp 'advice-add)
+    (apply #'advice-add args)))
 ;;** decorations
 (csetq tool-bar-mode nil)
 (csetq menu-bar-mode nil)
@@ -341,9 +344,7 @@
   (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
 (add-to-list 'warning-suppress-types '(undo discard-info))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
-
-(when (fboundp 'advice-add)
-  (advice-add 'semantic-idle-scheduler-function :around #'ignore))
+(ora-advice-add 'semantic-idle-scheduler-function :around #'ignore)
 (require 'server)
 (setq ora-startup-time-toc (current-time))
 (or (server-running-p) (server-start))

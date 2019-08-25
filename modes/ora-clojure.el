@@ -9,6 +9,7 @@
 (defun ora-clojure-hook ()
   (lispy-mode 1)
   (company-mode 1)
+  (electric-indent-mode -1)
   (setq company-backends
         '(company-capf company-dabbrev-code company-keywords company-files))
   (setq add-log-current-defun-function
@@ -31,8 +32,7 @@
   "Use a single REPL for everything.
 Avoid having to `cider-connect' every single thing."
   (car (hash-table-values sesman-sessions-hashmap)))
-(advice-add 'sesman-current-session :around 'ora-sesman-current-session)
-
+(ora-advice-add 'sesman-current-session :around 'ora-sesman-current-session)
 
 (setq cider-jdk-src-paths
       (mapcar #'expand-file-name
@@ -92,3 +92,6 @@ Avoid having to `cider-connect' every single thing."
     :config
   (define-key spiral-mode-map (kbd "C-c C-c") nil)
   :disabled)
+
+(require 'pora-clojure nil t)
+(provide 'ora-clojure)
