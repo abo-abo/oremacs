@@ -60,6 +60,7 @@
     slime
     smex
     swiper
+    tea-time
     ukrainian-holidays
     unicode-fonts
     use-package
