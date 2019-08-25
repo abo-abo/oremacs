@@ -29,6 +29,7 @@
     company-jedi
     counsel
     define-word
+    diminish
     dockerfile-mode
     docker
     docker-tramp
