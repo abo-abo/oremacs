@@ -342,7 +342,8 @@
 (add-to-list 'warning-suppress-types '(undo discard-info))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 
-(advice-add 'semantic-idle-scheduler-function :around #'ignore)
+(when (fboundp 'advice-add)
+  (advice-add 'semantic-idle-scheduler-function :around #'ignore))
 (require 'server)
 (setq ora-startup-time-toc (current-time))
 (or (server-running-p) (server-start))
