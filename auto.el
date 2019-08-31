@@ -277,6 +277,13 @@ If called with a prefix, prompts for flags to pass to ag."
       (goto-char (point-min))
       (search-forward str-mode-hook nil t))))
 
+(defcustom ora-dired-rsync-limit nil
+  "Limit rsync transfer rate."
+  :type
+  '(choice
+    (const :tag "None" nil)
+    (integer :tag "500kbps" 500)))
+
 ;;;###autoload
 (defun ora-dired-rsync (dest)
   (interactive
@@ -284,20 +291,25 @@ If called with a prefix, prompts for flags to pass to ag."
           (read-file-name "Rsync to:" (dired-dwim-target-directory)))))
   ;; store all selected files into "files" list
   (let ((files (dired-get-marked-files nil current-prefix-arg))
-        ;; the rsync command
-        (tmtxt/rsync-command "rsync -arvzu --delete --progress "))
+        (rsync-command
+         (concat
+          "rsync"
+          (if ora-dired-rsync-limit
+              (format " --bwlimit=%s" ora-dired-rsync-limit)
+            "")
+          " -arvzu --delete --progress ")))
     ;; add all selected file names as arguments to the rsync command
     (dolist (file files)
-      (setq tmtxt/rsync-command
-            (concat tmtxt/rsync-command
+      (setq rsync-command
+            (concat rsync-command
                     (if (string-match "^/ssh:\\(.*:\\)\\(.*\\)$" file)
                         (format " -e ssh \"%s%s\""
                                 (match-string 1 file)
                                 (shell-quote-argument (match-string 2 file)))
                       (shell-quote-argument file)) " ")))
     ;; append the destination
-    (setq tmtxt/rsync-command
-          (concat tmtxt/rsync-command
+    (setq rsync-command
+          (concat rsync-command
                   (if (string-match "^/ssh:\\(.*?\\)\\([^:]+\\)$" dest)
                       (format " -e ssh %s'\"%s\"'"
                               (match-string 1 dest)
@@ -305,9 +317,9 @@ If called with a prefix, prompts for flags to pass to ag."
                     (shell-quote-argument dest))))
     ;; run the async shell command
     (let ((default-directory (expand-file-name "~")))
-      (async-shell-command tmtxt/rsync-command
+      (async-shell-command rsync-command
                            (format "rsync to %s" dest)))
-    (message tmtxt/rsync-command)
+    (message rsync-command)
     ;; finally, switch to that window
     (other-window 1)))
 
