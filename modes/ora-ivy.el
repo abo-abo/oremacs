@@ -6,6 +6,7 @@
 ;; (csetq ivy-count-format "(%d/%d) ")
 (csetq ivy-use-virtual-buffers t)
 (csetq counsel-find-file-ignore-regexp "\\(?:\\`\\.\\|elc\\|pyc$\\)")
+(csetq ivy-use-selectable-prompt t)
 (define-key ivy-minibuffer-map (kbd "<return>") 'ivy-alt-done)
 (define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
 (define-key ivy-minibuffer-map (kbd "C-:") 'ivy-dired)
