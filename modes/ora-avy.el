@@ -19,10 +19,12 @@
        `((lispy-ace-symbol . ,aw-keys)))
 
 (defhydra hydra-avy (:color teal)
-  ("j" avy-goto-char)
-  ("k" avy-goto-word-1)
-  ("l" avy-goto-line)
-  ("s" avy-goto-char-timer)
+  ("j" avy-goto-char "char")
+  ("w" avy-goto-word-0 "word-0")
+  ("SPC" avy-goto-whitespace-end "ws")
+  ("e" avy-goto-word-1 "word-1")
+  ("l" avy-goto-line "line")
+  ("s" avy-goto-char-timer "timer")
   ("f" counsel-find-file)
   ("q" nil))
 
