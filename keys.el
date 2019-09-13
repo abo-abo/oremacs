@@ -29,6 +29,12 @@
 ;; (global-set-key "\C-y" 'yank)                         ; default
 (global-set-key (kbd "C-z") 'capitalize-word-toggle)     ; capitili[z]e
 (global-set-key (kbd "C-.") 'comment-dwim)
+
+;; alacritty translations
+(keyboard-translate (aref (kbd "‣") 0) (aref (kbd "C-,") 0))
+(keyboard-translate (aref (kbd "•") 0) (aref (kbd "C-.") 0))
+(keyboard-translate (aref (kbd "δ") 0) (aref (kbd "C-:") 0))
+
 (global-set-key (kbd "C-,") 'lispy-kill-at-point)
 (global-set-key (kbd "C-'") 'avy-goto-char-timer)
 (global-set-key (kbd "C-/") 'hydra-org-objects/body)
