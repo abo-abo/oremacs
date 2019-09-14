@@ -7,7 +7,7 @@
 
 (define-key shell-mode-map (kbd "C-r") 'counsel-shell-history)
 
-(advice-add 'ansi-color-apply-on-region :before 'ora-ansi-color-apply-on-region)
+(ora-advice-add 'ansi-color-apply-on-region :before 'ora-ansi-color-apply-on-region)
 
 (defun ora-ansi-color-apply-on-region (begin end)
   "Fix progress bars for e.g. apt(8).
