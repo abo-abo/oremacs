@@ -44,8 +44,7 @@
   (add-to-list 'prettify-symbols-alist
                '(":PROPERTIES:" . ":"))
   (prettify-symbols-mode)
-  (setq-local tab-always-indent 'complete)
-  (orly-setup-completion))
+  (setq-local tab-always-indent 'complete))
 
 ;;;###autoload
 (defun ora-org-agenda-hook ())
@@ -666,4 +665,5 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
             (ora-org-delete-element)))))
     (save-buffer)))
 
+(require 'pora-org nil t)
 (provide 'ora-org)
