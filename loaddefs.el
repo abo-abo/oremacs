@@ -13,35 +13,24 @@
 
 \(fn ARG)" t nil)
 
-(autoload 'ora-move-beginning-of-line "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-move-beginning-of-line "auto" nil t nil)
 
 (autoload 'ora-open-file-at-point "auto" "\
 
 
 \(fn EVENT)" t nil)
 
-(autoload 'ora-open-wikipedia "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-open-wikipedia "auto" nil t nil)
 
 (autoload 'ora-c-forward-sexp-function "auto" "\
 
 
 \(fn ARG)" nil nil)
 
-(autoload 'ora-project "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-project "auto" nil t nil)
 
 (autoload 'ora-occur "auto" "\
-Call `occur' with a sane default.
-
-\(fn)" t nil)
+Call `occur' with a sane default." t nil)
 
 (autoload 'ora-query-replace-regex "auto" "\
 
@@ -68,94 +57,57 @@ If called with a prefix, prompts for flags to pass to ag.
 \(fn STRING DIRECTORY)" t nil)
 
 (autoload 'ora-unfill-paragraph "auto" "\
-Transform a paragraph into a single line.
-
-\(fn)" t nil)
+Transform a paragraph into a single line." t nil)
 
 (autoload 'ora-ctrltab "auto" "\
-List buffers and give it focus.
-
-\(fn)" t nil)
+List buffers and give it focus." t nil)
 
 (autoload 'ora-terminal "auto" "\
-Switch to terminal. Launch if nonexistent.
-
-\(fn)" t nil)
+Switch to terminal. Launch if nonexistent." t nil)
 
 (autoload 'ora-goto-hook-file "auto" "\
-Opens hooks.el at point specific to current `major-mode'
-
-\(fn)" t nil)
+Opens hooks.el at point specific to current `major-mode'" t nil)
 
 (autoload 'ora-dired-rsync "auto" "\
 
 
 \(fn DEST)" t nil)
 
-(autoload 'ora-describe-keys "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-describe-keys "auto" nil t nil)
 
 (autoload 'illiterate "auto" "\
-Useful to completely revert an `org-mode' file.
+Useful to completely revert an `org-mode' file." t nil)
 
-\(fn)" t nil)
+(autoload 'melpa "auto" nil t nil)
 
-(autoload 'melpa "auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-test-emacs "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-test-emacs "auto" nil t nil)
 
 (autoload 'ora-figlet-region "auto" "\
 
 
 \(fn &optional B E)" t nil)
 
-(autoload 'ora-reinit-semantic "auto" "\
+(autoload 'ora-reinit-semantic "auto" nil t nil)
 
+(autoload 'ora-nw-yank "auto" nil t nil)
 
-\(fn)" t nil)
-
-(autoload 'ora-nw-yank "auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-install-gcl "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-install-gcl "auto" nil t nil)
 
 (autoload 'bmk/magit-status "auto" "\
-Bookmark for `magit-status'.
-
-\(fn)" t nil)
+Bookmark for `magit-status'." t nil)
 
 (autoload 'bmk/scratch "auto" "\
-Bookmark for *scratch*.
-
-\(fn)" t nil)
+Bookmark for *scratch*." t nil)
 
 (autoload 'bmk/function "auto" "\
 Handle a function bookmark BOOKMARK.
 
 \(fn BOOKMARK)" nil nil)
 
-(autoload 'ora-ediff-buffers "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-ediff-buffers "auto" nil t nil)
 
 (autoload 'ora-org-to-html-to-clipboard "auto" "\
-Export region to HTML, and copy it to the clipboard.
-
-\(fn)" t nil)
+Export region to HTML, and copy it to the clipboard." t nil)
 
 (autoload 'ora-eval-other-window "auto" "\
 Eval current expression in the context of other window.
@@ -172,15 +124,9 @@ it is displayed along with the global value.
 
 \(fn VARIABLE &optional BUFFER)" t nil)
 
-(autoload 'ora-toggle-window-dedicated "auto" "\
+(autoload 'ora-toggle-window-dedicated "auto" nil t nil)
 
-
-\(fn)" t nil)
-
-(autoload 'update-all-autoloads "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'update-all-autoloads "auto" nil t nil)
 
 (autoload 'align-cols "auto" "\
 Align text between point and mark as columns.
@@ -189,35 +135,20 @@ Prefix arg means align that many columns. (default is all)
 
 \(fn START END MAX-COLS)" t nil)
 
-(autoload 'ora-comment-and-insert "auto" "\
+(autoload 'ora-comment-and-insert "auto" nil t nil)
 
+(autoload 'ora-dired-org-to-pdf "auto" nil t nil)
 
-\(fn)" t nil)
+(autoload 'wmctrl-720p "auto" nil t nil)
 
-(autoload 'ora-dired-org-to-pdf "auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'wmctrl-720p "auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-kill-current-buffer "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-kill-current-buffer "auto" nil t nil)
 
 (autoload 'ora-save-and-switch-buffer "auto" "\
 
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'youtube-dl "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'youtube-dl "auto" nil t nil)
 
 (autoload 'ora-directory-parent "auto" "\
 Return parent of directory DIR.
@@ -225,9 +156,7 @@ Return parent of directory DIR.
 \(fn DIR)" nil nil)
 
 (autoload 'ora-pretty-things "auto" "\
-Compose chars according to `ora-pretty-alist'.
-
-\(fn)" nil nil)
+Compose chars according to `ora-pretty-alist'." nil nil)
 
 (autoload 'ora-fontify-glyph "auto" "\
 
@@ -239,30 +168,18 @@ Jump to the definition of the function (or variable) at point.
 
 \(fn NAME)" t nil)
 
-(autoload 'capitalize-word-toggle "auto" "\
+(autoload 'capitalize-word-toggle "auto" nil t nil)
 
-
-\(fn)" t nil)
-
-(autoload 'upcase-word-toggle "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'upcase-word-toggle "auto" nil t nil)
 
 (autoload 'named-term "auto" "\
 
 
 \(fn NAME)" t nil)
 
-(autoload 'jekyll-serve "auto" "\
+(autoload 'jekyll-serve "auto" nil t nil)
 
-
-\(fn)" t nil)
-
-(autoload 'sudired "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'sudired "auto" nil t nil)
 
 (autoload 'ora-insert-date "auto" "\
 Insert DATE using the current locale.
@@ -280,63 +197,40 @@ Insert date that is DAYS from current.
 \(fn ALPHA-LEVEL)" t nil)
 
 (autoload 'ora-hide-ctrl-M "auto" "\
-Hides the disturbing '^M' showing up in files containing mixed UNIX and DOS line endings.
-
-\(fn)" t nil)
+Hides the disturbing '^M' showing up in files containing mixed UNIX and DOS line endings." t nil)
 
 (autoload 'ora-lookup-key "auto" "\
 
 
 \(fn KEY)" nil nil)
 
-(autoload 'ora-pretty-quote-glyphs "auto" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-pretty-quote-glyphs "auto" nil nil nil)
 
 (defadvice kill-compilation (after ora-disable-compiling-message activate) (setq compilation-in-progress nil))
 
 (autoload 'ora-custom-setq "auto" "\
-Set a custom variable, with completion.
+Set a custom variable, with completion." t nil)
 
-\(fn)" t nil)
+(autoload 'ora-quote-github-issues "auto" nil t nil)
 
-(autoload 'ora-quote-github-issues "auto" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-rename-pdf-bibtex "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-rename-pdf-bibtex "auto" nil t nil)
 
 (autoload 'ora-start-process "auto" "\
 
 
 \(fn CMD)" nil nil)
 
-(autoload 'git-shortlog "auto" "\
-
-
-\(fn)" t nil)
+(autoload 'git-shortlog "auto" nil t nil)
 
 (autoload 'ora-recompile-startup "auto" "\
-Fix byte-compilation warnings emitted by lread.c.
-
-\(fn)" t nil)
+Fix byte-compilation warnings emitted by lread.c." t nil)
 
 (autoload 'ora-firefox-io-idle "auto" "\
-Make sure Firefox doesn't use too much IO resulting in audio lag.
+Make sure Firefox doesn't use too much IO resulting in audio lag." t nil)
 
-\(fn)" t nil)
+(autoload 'ora-rhythmbox-io-best "auto" nil t nil)
 
-(autoload 'ora-rhythmbox-io-best "auto" "\
-
-
-\(fn)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("ora-" "dbg" "show-message" "char-upcasep" "re-seq")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("char-upcasep" "dbg" "ora-" "re-seq" "show-message")))
 
 ;;;***
 
@@ -350,14 +244,14 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified nil face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (fontified nil)) #("csetq" 0 5 (face font-lock-function-name-face fontified nil)) #("ora-set-font" 0 12 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '("csetq" "eldoc-mode" "emacs-d" "ora-" "yes-or-no-p")))
 
 ;;;***
 
 ;;;### (autoloads nil "keys" "keys.el" (0 0 0 0))
 ;;; Generated autoloads from keys.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '("lispy-insert-prev-outline-body" "hydra-" "ora-open-line")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '("hydra-" "lispy-insert-prev-outline-body" "ora-open-line")))
 
 ;;;***
 
@@ -435,12 +329,9 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-clojure.el
 
-(autoload 'ora-clojure-hook "modes/ora-clojure" "\
+(autoload 'ora-clojure-hook "modes/ora-clojure" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("ora-" "clojure-ampersand" "add-classpath")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("add-classpath" "clojure-ampersand" "ora-")))
 
 ;;;***
 
@@ -461,10 +352,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-comint.el
 
-(autoload 'ora-comint-hook "modes/ora-comint" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-comint-hook "modes/ora-comint" nil nil nil)
 
 ;;;***
 
@@ -526,17 +414,11 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-dired.el
 
-(autoload 'ora-dired-hook "modes/ora-dired" "\
+(autoload 'ora-dired-hook "modes/ora-dired" nil nil nil)
 
+(autoload 'ora-dired-jump "modes/ora-dired" nil t nil)
 
-\(fn)" nil nil)
-
-(autoload 'ora-dired-jump "modes/ora-dired" "\
-
-
-\(fn)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '("ora-" "hydra-marked-items")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '("hydra-marked-items" "ora-")))
 
 ;;;***
 
@@ -604,12 +486,9 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-elisp.el
 
-(autoload 'ora-emacs-lisp-hook "modes/ora-elisp" "\
+(autoload 'ora-emacs-lisp-hook "modes/ora-elisp" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elisp" '("ora-" "conditionally-enable-lispy" "lisp--match-hidden-arg")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elisp" '("conditionally-enable-lispy" "lisp--match-hidden-arg" "ora-")))
 
 ;;;***
 
@@ -634,15 +513,9 @@ Make sure Firefox doesn't use too much IO resulting in audio lag.
 ;;;### (autoloads nil "modes/ora-erc" "modes/ora-erc.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-erc.el
 
-(autoload 'ora-erc-hook "modes/ora-erc" "\
+(autoload 'ora-erc-hook "modes/ora-erc" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(autoload 'bitlbee "modes/ora-erc" "\
-
-
-\(fn)" t nil)
+(autoload 'bitlbee "modes/ora-erc" nil t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-erc" '("ora-")))
 
@@ -679,17 +552,11 @@ Open or move eshell in `default-directory'.
 ;;;### (autoloads nil "modes/ora-eww" "modes/ora-eww.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-eww.el
 
-(autoload 'ora-eww-hook "modes/ora-eww" "\
+(autoload 'ora-eww-hook "modes/ora-eww" nil nil nil)
 
+(autoload 'ora-eww-reader "modes/ora-eww" nil t nil)
 
-\(fn)" nil nil)
-
-(autoload 'ora-eww-reader "modes/ora-eww" "\
-
-
-\(fn)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eww" '(#("ora--eww-reader-scale" 0 21 (face font-lock-function-name-face fontified t)) #("eww-view-ace" 0 12 (face font-lock-function-name-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eww" '("eww-view-ace" "ora--eww-reader-scale")))
 
 ;;;***
 
@@ -865,7 +732,7 @@ Threat is as function body when from endline before )
 ;;;### (autoloads nil "modes/ora-ivy" "modes/ora-ivy.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ivy.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '("ora-" "ivy-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '("ivy-" "ora-")))
 
 ;;;***
 
@@ -908,12 +775,9 @@ Call `j-console' and setup shortcuts.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-javascript.el
 
-(autoload 'ora-javascript-hook "modes/ora-javascript" "\
+(autoload 'ora-javascript-hook "modes/ora-javascript" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-javascript" '("javascript-candidates" "js-" "refresh-javascript-candidates" "ac-source-javascript" "keyword-function")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-javascript" '("ac-source-javascript" "javascript-candidates" "js-" "keyword-function" "refresh-javascript-candidates")))
 
 ;;;***
 
@@ -1139,17 +1003,11 @@ MATLAB completion at point.
 ;;;### (autoloads nil "modes/ora-org" "modes/ora-org.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-org.el
 
-(autoload 'ora-org-hook "modes/ora-org" "\
+(autoload 'ora-org-hook "modes/ora-org" nil nil nil)
 
+(autoload 'ora-org-agenda-hook "modes/ora-org" nil nil nil)
 
-\(fn)" nil nil)
-
-(autoload 'ora-org-agenda-hook "modes/ora-org" "\
-
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org" '("org-" "ora-" "hot-expand" "hydra-org-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org" '("hot-expand" "hydra-org-" "ora-" "org-")))
 
 ;;;***
 
@@ -1211,17 +1069,11 @@ MATLAB completion at point.
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-python.el
 
-(autoload 'ora-python-hook "modes/ora-python" "\
+(autoload 'ora-python-hook "modes/ora-python" nil nil nil)
 
+(autoload 'ora-inferior-python-hook "modes/ora-python" nil nil nil)
 
-\(fn)" nil nil)
-
-(autoload 'ora-inferior-python-hook "modes/ora-python" "\
-
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-python" '(#("python-" 0 2 (face font-lock-function-name-face fontified nil) 2 7 (face font-lock-function-name-face fontified nil)) #("py-enumerate" 0 2 (face font-lock-function-name-face fontified nil) 2 12 (face font-lock-function-name-face fontified nil)) #("ora-" 0 4 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-python" '("ora-" "python-")))
 
 ;;;***
 
@@ -1276,10 +1128,7 @@ MATLAB completion at point.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-shell.el
 
-(autoload 'ora-shell-hook "modes/ora-shell" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-shell-hook "modes/ora-shell" nil nil nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-shell" '("ora-a")))
 
@@ -1356,7 +1205,7 @@ MATLAB completion at point.
 ;;;### (autoloads nil "packages" "packages.el" (0 0 0 0))
 ;;; Generated autoloads from packages.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "packages" '(#("ora-packages" 0 12 (face font-lock-variable-name-face fontified nil)) #("emacs-d" 0 7 (face font-lock-variable-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "packages" '("emacs-d" "ora-packages")))
 
 ;;;***
 
@@ -1369,26 +1218,14 @@ MATLAB completion at point.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from git/org-fu/org-fu.el
 
-(autoload 'orfu-agenda-quick "git/org-fu/org-fu" "\
+(autoload 'orfu-agenda-quick "git/org-fu/org-fu" nil t nil)
 
+(autoload 'orfu-agenda-office "git/org-fu/org-fu" nil t nil)
 
-\(fn)" t nil)
+(autoload 'orfu-agenda-day "git/org-fu/org-fu" nil t nil)
 
-(autoload 'orfu-agenda-office "git/org-fu/org-fu" "\
+(autoload 'orfu-agenda-articles "git/org-fu/org-fu" nil t nil)
 
-
-\(fn)" t nil)
-
-(autoload 'orfu-agenda-day "git/org-fu/org-fu" "\
-
-
-\(fn)" t nil)
-
-(autoload 'orfu-agenda-articles "git/org-fu/org-fu" "\
-
-
-\(fn)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git/org-fu/org-fu" '(#("orfu-" 0 5 (fontified nil face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git/org-fu/org-fu" '("orfu-")))
 
 ;;;***
