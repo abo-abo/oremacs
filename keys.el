@@ -130,7 +130,7 @@
 (global-set-key (kbd "C-c m") 'counsel-linux-app)
 (global-set-key (kbd "C-c n") 'counsel-fzf)
 (global-set-key (kbd "C-c o") 'counsel-outline)
-(global-set-key (kbd "C-c q") nil)
+(global-set-key (kbd "C-c P") 'counsel-package)
 (global-set-key (kbd "C-c r") 'isearch-backward)
 (global-set-key (kbd "C-c s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-s") 'swiper-isearch)
