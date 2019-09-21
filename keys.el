@@ -148,6 +148,7 @@
 (global-set-key (kbd "C-c C-j") 'avy-resume)
 (global-set-key (kbd "C-π") 'avy-resume)
 (global-set-key (kbd "C-c .") 'org-time-stamp)
+(global-set-key (kbd "C-c R") 'counsel-register)
 
 ;;* C-x shortcuts
 (global-set-key (kbd "C-x C-r") (lambda () (interactive) (revert-buffer nil t)))
