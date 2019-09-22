@@ -1,6 +1,7 @@
 (require 'comint)
-(require 'bash-completion)
-(bash-completion-setup)
+(use-package bash-completion
+  :ensure t
+  :config (bash-completion-setup))
 
 (define-key comint-mode-map (kbd "<tab>") 'completion-at-point)
 
