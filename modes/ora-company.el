@@ -30,7 +30,8 @@ In that case, insert the number."
     (if (or (cl-find-if (lambda (s) (string-match re s))
                         company-candidates)
             (> (string-to-number k)
-               (length company-candidates)))
+               (length company-candidates))
+            (looking-back "[0-9]+\\.[0-9]*" (line-beginning-position)))
         (self-insert-command 1)
       (company-complete-number
        (if (equal k "0")
