@@ -1,5 +1,5 @@
 (require 'subword)
-(require 'lsp)
+;; (require 'lsp)
 (diminish 'subword-mode)
 (require 'function-args)
 (fa-config-default)
@@ -8,8 +8,6 @@
 (define-key function-args-mode-map (kbd "C-2") 'fa-show)
 (require 'ciao)
 (require 'cc-chainsaw)
-(require 'auto-complete)
-(setq-local ac-delay 0.1)
 (csetq c-hanging-semi&comma-criteria nil)
 (setq-default c-basic-offset 4)
 ;; (require 'oval)
@@ -39,8 +37,9 @@
 
 ;;;###autoload
 (defun ora-c-common-hook ()
+  (company-mode)
   (unless (eq major-mode 'java-mode)
-    (lsp)
+    ;; (lsp)
     (ciao-mode)
     (google-set-c-style)
     (c-set-offset 'access-label -2)
@@ -56,7 +55,6 @@
 
 ;;;###autoload
 (defun ora-c++-hook ()
-  (auto-complete-mode 1)
   (c-toggle-auto-newline)
   (setq c-electric-flag nil)
   (electric-indent-mode -1))
