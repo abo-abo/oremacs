@@ -237,7 +237,7 @@ Make sure Firefox doesn't use too much IO resulting in audio lag." t nil)
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("cal" 0 3 (face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '("cal")))
 
 ;;;***
 
@@ -617,10 +617,9 @@ But don't look beyond what's visible on the screen.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-haskell.el
 
-(autoload 'ora-haskell-hook "modes/ora-haskell" "\
+(autoload 'ora-haskell-hook "modes/ora-haskell" nil nil nil)
 
-
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-haskell" '("ora-haskell-co")))
 
 ;;;***
 
@@ -762,12 +761,9 @@ Call `j-console' and setup shortcuts.
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-java.el
 
-(autoload 'ora-java-hook "modes/ora-java" "\
+(autoload 'ora-java-hook "modes/ora-java" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-java" '("java-" "get-single-argument-name" ">-by-length" "reductions" "upcase-first-letter" "downcase-first-letter" "ant" "ora-java-current-defun-name")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-java" '(">-by-length" "ant" "downcase-first-letter" "get-single-argument-name" "java-" "ora-java-current-defun-name" "reductions" "upcase-first-letter")))
 
 ;;;***
 
