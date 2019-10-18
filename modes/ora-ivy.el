@@ -11,6 +11,8 @@
 (define-key ivy-minibuffer-map (kbd "C-M-h") 'ivy-previous-line-and-call)
 (define-key ivy-minibuffer-map (kbd "C-:") 'ivy-dired)
 (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
+(define-key ivy-minibuffer-map (kbd "C-c C-a") 'ivy-read-action)
+(setq ivy-read-action-function #'ivy-hydra-read-action)
 (let ((key "C-."))
   (when (boundp 'ivy-dispatching-done-hydra-exit-keys)
     (add-to-list 'ivy-dispatching-done-hydra-exit-keys (list key nil "back")))
