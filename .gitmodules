@@ -16,9 +16,6 @@
 [submodule "git/org-fu"]
 	path = git/org-fu
 	url = https://github.com/abo-abo/org-fu
-[submodule "git/soap"]
-	path = git/soap
-	url = https://github.com/abo-abo/soap
 [submodule "git/cc-chainsaw"]
 	path = git/cc-chainsaw
 	url = https://github.com/abo-abo/cc-chainsaw
