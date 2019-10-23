@@ -19,11 +19,14 @@
     auctex
     auto-compile
     auto-yasnippet
+    bash-completion
     bbdb
     elfeed
     eglot
     evil
+    exec-path-from-shell
     cmake-mode
+    cider
     command-log-mode
     company
     company-jedi
@@ -39,6 +42,7 @@
     geiser
     google-c-style
     gtk-pomodoro-indicator
+    haskell-mode
     headlong
     helm-make
     hideshowvis
@@ -52,8 +56,9 @@
     netherlands-holidays
     org-bullets
     org-download
-    powerline
     projectile
+    posframe
+    powerline
     rainbow-mode
     request
     rust-mode
@@ -61,6 +66,7 @@
     smex
     swiper
     tea-time
+    transpose-frame
     ukrainian-holidays
     unicode-fonts
     use-package
