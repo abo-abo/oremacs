@@ -64,7 +64,6 @@
 (minibuffer-depth-indicate-mode 1)
 (csetq read-quoted-char-radix 16)
 ;;** editor behavior
-(csetq default-input-method "ukrainian-computer")
 (csetq indent-tabs-mode nil)
 (csetq ring-bell-function 'ignore)
 (csetq highlight-nonselected-windows nil)
