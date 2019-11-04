@@ -122,7 +122,7 @@
 (global-set-key (kbd "C-c G") 'counsel-git)
 (global-set-key (kbd "C-c g") 'ora-counsel-git)
 (global-set-key (kbd "C-c h") 'hydra-apropos/body)
-(global-set-key (kbd "C-c i") 'counsel-semantic)
+(global-set-key (kbd "C-c i") 'counsel-imenu)
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
 (global-set-key (kbd "C-c J") 'counsel-file-jump)
 (global-set-key (kbd "C-c k") 'counsel-rg)
