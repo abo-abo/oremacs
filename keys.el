@@ -226,7 +226,7 @@
   ("r" (counsel-rhythmbox 1) "rhythmbox")
   ("o" ccc-toggle-header-source "other")
   ("G" ora-github "github")
-  ("g" (counsel-rg "" default-directory) "rg")
+  ("g" counsel-search "incremental search")
   ("p" ora-project "project")
   ("s" hydra-search/body "search")
   ("n" ora-open-wikitionary "wikitionary")
