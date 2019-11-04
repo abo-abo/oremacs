@@ -228,6 +228,7 @@
   ("G" ora-github "github")
   ("g" (counsel-rg "" default-directory) "rg")
   ("p" ora-project "project")
+  ("s" hydra-search/body "search")
   ("n" ora-open-wikitionary "wikitionary")
   ("N" ora-open-google-translate "google-translate")
   ("f" (if (region-active-p)
@@ -237,6 +238,8 @@
   ("w" plain-org-wiki "wiki")
   ("W" ora-open-wikipedia "wikipedia")
   ("q" nil "quit"))
+
+(autoload 'hydra-search/body "ora-search")
 
 (defhydra hydra-vimish-fold (:color blue
                              :columns 3)
