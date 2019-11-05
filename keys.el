@@ -215,11 +215,12 @@
                    :idle 0.8)
   "k"
   ("a" orfu-agenda-day "agenda")
-  ("c" ora-flyspell-previous-word "correct")
-  ("j" dired-jump "dired")
   ("b" winner-undo "browse" :exit nil)
+  ("c" (lambda () (interactive) (cook '(4))) "cook :")
   ("d" define-word-at-point "def")
   ("e" ora-ediff-dwim "ediff")
+  ("f" ora-flyspell-previous-word "flyspell")
+  ("j" dired-jump "dired")
   ("E" eval-expression "eval")
   ("m" hydra-pamparam/body "pamparam")
   ("R" counsel-recoll "recoll")
@@ -231,32 +232,13 @@
   ("s" hydra-search/body "search")
   ("n" ora-open-wikitionary "wikitionary")
   ("N" ora-open-google-translate "google-translate")
-  ("f" (if (region-active-p)
-           (vimish-fold (region-beginning) (region-end))
-         (hydra-vimish-fold/body)) "fold")
   ("t" tea-time "tea")
+  ("y" avy-copy-region "yank region")
   ("w" plain-org-wiki "wiki")
   ("W" ora-open-wikipedia "wikipedia")
   ("q" nil "quit"))
 
 (autoload 'hydra-search/body "ora-search")
-
-(defhydra hydra-vimish-fold (:color blue
-                             :columns 3)
-  "fold"
-  ("a" vimish-fold-avy "avy")
-  ("d" vimish-fold-delete "del")
-  ("D" vimish-fold-delete-all "del-all")
-  ("u" vimish-fold-unfold "undo")
-  ("U" vimish-fold-unfold-all "undo-all")
-  ("f" vimish-fold "fold")
-  ("r" vimish-fold-refold "refold")
-  ("R" vimish-fold-refold-all "refold-all")
-  ("t" vimish-fold-toggle "toggle" :exit nil)
-  ("T" vimish-fold-toggle-all "toggle-all" :exit nil)
-  ("j" vimish-fold-next-fold "down" :exit nil)
-  ("k" vimish-fold-previous-fold "up" :exit nil)
-  ("q" nil "quit"))
 
 (defhydra hydra-toggle (:color pink :hint nil)
   "
@@ -375,6 +357,5 @@ _v_ariable     valu_e_"
           "\n"
           t))
         "\n")))))
-
 
 (provide 'keys)
