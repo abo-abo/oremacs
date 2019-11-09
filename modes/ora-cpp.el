@@ -10,6 +10,7 @@
 (require 'cc-chainsaw)
 (csetq c-hanging-semi&comma-criteria nil)
 (setq-default c-basic-offset 4)
+(use-package ccls)
 ;; (require 'oval)
 
 ;;* Keymaps
