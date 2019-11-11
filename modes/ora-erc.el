@@ -8,6 +8,10 @@
 (defvar ora-erc-buddies nil
   "An alist of buddies with the lanugage that they prefer.")
 
+;; Bitlbee/Hangouts can handle this message length.  The default value
+;; of 440 causes a split even in a simple 100 char Ukrainian message.
+(setq erc-split-line-length 4000)
+
 ;;;###autoload
 (defun ora-erc-hook ()
   (unless (bound-and-true-p flyspell-mode)
