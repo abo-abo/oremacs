@@ -15,3 +15,10 @@
   (lispy-mode)
   (when (bound-and-true-p slime-autodoc-mode)
     (slime-autodoc-mode -1)))
+
+(defun ora-slime-completion-in-region (_fn completions start end)
+  (funcall completion-in-region-function start end completions))
+
+(advice-add
+ 'slime-display-or-scroll-completions
+ :around #'ora-slime-completion-in-region)
