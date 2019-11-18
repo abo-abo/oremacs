@@ -19,7 +19,8 @@
 (use-package org-download
   :ensure t
   :config
-  (org-download-enable))
+  (org-download-enable)
+  (setq org-download-display-inline-images nil))
 
 (use-package orca
   :ensure t)
