@@ -1,4 +1,5 @@
 ;;* Requires
+(require 'ora-org-babel)
 (setq org-export-backends '(html latex))
 (setq org-export-with-sub-superscripts nil)
 (setq org-catch-invisible-edits 'smart)
@@ -244,60 +245,9 @@
 ;;* Files
 (setq org-archive-location "archive/gtd.org_archive::")
 
-;;* Babel
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((ruby . t)
-   (groovy .t)
-   (shell . t)
-   (python . t)
-   (emacs-lisp . t)
-   (matlab . t)
-   (latex . t)
-   (C . t)
-   (J . t)
-   (java . t)
-   (scheme . t)
-   (lisp . t)
-   (latex . t)
-   (R . t)
-   (sql . t)
-   (calc . t)))
-(add-to-list 'org-src-lang-modes '("J" . j))
-
-(setq org-babel-default-header-args:C++
-      '((:results . "verbatim")
-        (:main . "no")
-        (:flags . "-std=c++14")
-        (:cache . "yes")))
-(setq org-babel-default-header-args:java
-      '((:results . "verbatim")
-        (:cache . "yes")))
-
-(eval-when-compile
-  (require 'ob-C)
-  (require 'ob-ruby)
-  (require 'ob-python)
-  (require 'ob-scheme)
-  (require 'ob-clojure))
-(setq org-babel-C-compiler "gcc -std=c99")
-(setq org-babel-default-header-args:ruby '((:results . "pp output")))
-(setq org-confirm-babel-evaluate nil)
-;; for expanding <s
-;; (setcdr (assoc ?s org-structure-template-alist)
-;;         '("#+begin_src ?\n\n#+end_src" "<src lang=\"?\">\n\n</src>"))
+;;* Source blocks
 (require 'htmlfontify)
 (setq org-src-fontify-natively t)
-(csetq org-babel-clojure-backend 'cider)
-(defvar org-babel-default-header-args:clojure
-  '((:results . "value") (:tangle . "yes")))
-(setq org-babel-default-header-args:python
-      '((:results . "output")))
-(setq org-babel-default-header-args:sh
-      '((:results . "verbatim")))
-(setq org-babel-default-header-args:bash
-      '((:results . "verbatim")))
-(setq org-babel-python-command "python3")
 
 ;;* misc functions
 (font-lock-add-keywords
