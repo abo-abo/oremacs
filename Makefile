@@ -9,7 +9,6 @@ profile:
 	-f profile-dotemacs
 
 install: upgrade
-	cd git/org-mode && make compile 2>&1 | tee -a ../../etc/log
 	cd $(BASEDIR) && mkdir -p personal
 	yes n | cp -i etc/init-template.el personal/personal-init.el
 	yes n | cp -i etc/ispell_dict personal/ispell_dict
@@ -19,7 +18,6 @@ install: upgrade
 
 bare:
 	$(emacs) -Q -l etc/bareinit.el
-
 
 pull:
 	echo "-*- mode: compilation -*-" > etc/log
@@ -36,4 +34,4 @@ up: upgrade
 run:
 	$(emacs) -Q -l init.el
 
-.PHONY: profile install install-git upgrade run up pull
+.PHONY: profile install upgrade run up pull

@@ -54,6 +54,7 @@
     make-it-so
     markdown-mode
     netherlands-holidays
+    org
     org-bullets
     org-download
     projectile
