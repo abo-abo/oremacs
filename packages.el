@@ -54,8 +54,10 @@
     make-it-so
     markdown-mode
     netherlands-holidays
+    orca
     org-bullets
     org-download
+    org-parser
     projectile
     plain-org-wiki
     posframe

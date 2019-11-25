@@ -177,8 +177,7 @@
 (use-package tiny
   :commands tiny-expand)
 (require 'warnings)
-(use-package diminish
-  :ensure t)
+(use-package diminish)
 (use-package yasnippet
   :diminish yas-minor-mode
   :config
@@ -307,7 +306,6 @@
                 (file-directory-p (concat project "/.git/"))))
             (projectile-relevant-known-projects))))))
 (use-package tea-time
-  :ensure t
   :config
   (setq tea-time-sound-command "play %s"))
 (use-package ace-link

@@ -8,7 +8,6 @@
 (require 'org-src)
 
 (use-package worf
-  :ensure t
   :config
   (setq worf-visit-function
         (defun ora-worf-visit-function (file)
@@ -18,16 +17,13 @@
               (find-file file))))))
 
 (use-package org-download
-  :ensure t
   :config
   (org-download-enable)
   (setq org-download-display-inline-images nil))
 
-(use-package orca
-  :ensure t)
+(use-package orca)
 
 (use-package org-bullets
-  :ensure t
   :config
   (setcdr org-bullets-bullet-map nil))
 
@@ -522,8 +518,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 (csetq org-agenda-window-setup 'current-window)
 
 ;;** insert snippets
-(use-package org-parser
-  :ensure t)
+(use-package org-parser)
 
 (defvar ora-snippet-alist
   '((sh-mode . "~/Dropbox/org/wiki/bash.org")))
