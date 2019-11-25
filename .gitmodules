@@ -22,9 +22,6 @@
 [submodule "git/smex"]
 	path = git/smex
 	url = https://github.com/abo-abo/smex
-[submodule "git/plain-org-wiki"]
-	path = git/plain-org-wiki
-	url = https://github.com/abo-abo/plain-org-wiki
 [submodule "git/magit"]
 	path = git/magit
 	url = https://github.com/abo-abo/magit

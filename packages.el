@@ -57,6 +57,7 @@
     org-bullets
     org-download
     projectile
+    plain-org-wiki
     posframe
     powerline
     rainbow-mode
