@@ -316,7 +316,7 @@
   (setq compilation-ask-about-save nil)
   ;; (setq compilation-scroll-output 'next-error)
   ;; (setq compilation-skip-threshold 2)
-  )
+  (assq-delete-all 'compilation-in-progress mode-line-modes))
 (ace-popup-menu-mode)
 (use-package htmlize
   :commands htmlize-buffer)
