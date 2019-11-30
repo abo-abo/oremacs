@@ -608,5 +608,10 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
             (ora-org-delete-element)))))
     (save-buffer)))
 
+(setq org-link-abbrev-alist
+      '(("google" . "http://www.google.com/search?q=")
+        ("gmap" . "http://maps.google.com/maps?q=%s")
+        ("omap" . "http://nominatim.openstreetmap.org/search?q=%s&polygon=1")))
+
 (require 'pora-org nil t)
 (provide 'ora-org)
