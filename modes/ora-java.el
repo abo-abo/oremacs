@@ -20,7 +20,7 @@
 (define-key java-mode-map (kbd "C-M-j") 'lispy-goto-local)
 (require 'soap)
 (require 'abbrev)
-(read-abbrev-file nil t)
+(read-abbrev-file (expand-file-name "etc/abbrev_defs" emacs-d) t)
 (dolist (k '("+" "-" "*" "/" "%" "&" "|" "<" "=" ">" ","))
   (define-key java-mode-map (kbd k) 'soap-command))
 
