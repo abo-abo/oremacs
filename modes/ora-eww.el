@@ -29,6 +29,7 @@
 
 (defun ora--eww-reader-scale ()
   (text-scale-set 4)
+  (setq left-margin-width 30)
   (set-window-margins nil 30)
   (remove-hook 'eww-after-render-hook 'ora--eww-reader-scale))
 
