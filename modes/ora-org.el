@@ -6,6 +6,8 @@
 (require 'org)
 (add-to-list 'load-path (expand-file-name "git/org-mode/contrib/lisp/" emacs-d))
 (require 'org-src)
+(use-package alert
+  :defer t)
 
 (use-package worf
   :config

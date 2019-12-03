@@ -142,6 +142,7 @@
     (setq xref-pulse-on-jump nil)
     (setq xref-after-return-hook nil)))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(use-package diminish)
 (require 'ora-ivy)
 (ivy-mode 1)
 (setq hippie-expand-verbose nil)
@@ -177,7 +178,6 @@
 (use-package tiny
   :commands tiny-expand)
 (require 'warnings)
-(use-package diminish)
 (use-package yasnippet
   :diminish yas-minor-mode
   :config
@@ -202,7 +202,7 @@
   :init (setq iedit-toggle-key-default nil))
 ;;** completion
 (use-package headlong
-  :defer t)
+  :commands headlong-bookmark-jump)
 (use-package auto-complete
   :commands auto-complete-mode
   :config
@@ -250,17 +250,13 @@
 (defadvice custom-theme-load-confirm (around no-query-safe-thme activate)
   t)
 (use-package dired
-  :commands dired
-  :init
-  (setq dired-listing-switches
-        (if (memq system-type '(windows-nt darwin))
-            "-alh"
-            "-laGh1v --group-directories-first")))
+  :commands dired)
 (use-package dired-x
   :commands dired-jump)
 (use-package helm-j-cheatsheet
   :commands helm-j-cheatsheet)
-(autoload 'pamparam-drill "pamparam")
+(use-package pamparam
+  :commands pamparam-drill)
 (use-package helm-make
   :commands (helm-make helm-make-projectile)
   :config (setq helm-make-completion-method 'ivy))
@@ -292,7 +288,7 @@
   :config
   (progn
     (ignore-errors
-     (diminish 'magit-auto-revert-mode))
+      (diminish 'magit-auto-revert-mode))
     (setq magit-completing-read-function 'ivy-completing-read)
     (setq magit-item-highlight-face 'bold)
     (setq magit-repo-dirs-depth 1)
@@ -317,7 +313,8 @@
   ;; (setq compilation-scroll-output 'next-error)
   ;; (setq compilation-skip-threshold 2)
   (assq-delete-all 'compilation-in-progress mode-line-modes))
-(ace-popup-menu-mode)
+(use-package ace-popup-menu
+  :config (ace-popup-menu-mode))
 (use-package htmlize
   :commands htmlize-buffer)
 (lispy-mode)

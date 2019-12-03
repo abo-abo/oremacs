@@ -1,5 +1,7 @@
 (require 'python)
 (require 'autoinsert)
+(use-package python-environment)
+(use-package company-jedi)
 (add-to-list 'auto-insert-alist
              '(python-mode lambda nil (ora-python-auto-insert)))
 (defun ora-python-auto-insert ()
@@ -17,7 +19,7 @@
 
 (unless ora-no-pip
   (use-package jedi
-      :config
+    :config
     (define-key jedi-mode-map [C-tab] nil)
     (setq jedi:use-shortcuts nil)
     (setq jedi:complete-on-dot t)
@@ -59,7 +61,6 @@
 (require 'le-python)
 (require 'flyspell)
 (flyspell-delay-command 'python-indent-dedent-line-backspace)
-(require 'company-jedi)
 
 ;;;###autoload
 (defun ora-python-hook ()
@@ -163,3 +164,5 @@ Don't call `python-info-docstring-p'."
   (if (nth 3 state)
       font-lock-string-face
     font-lock-comment-face))
+
+(provide 'ora-python)

@@ -11,6 +11,7 @@
 (csetq c-hanging-semi&comma-criteria nil)
 (setq-default c-basic-offset 4)
 (use-package ccls)
+(use-package google-c-style)
 ;; (require 'oval)
 
 ;;* Keymaps

@@ -1,4 +1,4 @@
-(require 'company)
+(use-package company)
 (require 'company-elisp)
 (csetq company-idle-delay 0.4)
 (csetq company-show-numbers t)
