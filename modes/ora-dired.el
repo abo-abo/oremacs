@@ -2,7 +2,6 @@
 (require 'dired-x)
 (require 'dired-aux)
 (require 'term)
-(use-package async)
 
 ;;* set
 (setq dired-listing-switches

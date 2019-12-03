@@ -1,4 +1,5 @@
 ;;* Requires
+(use-package async)
 (require 'ora-org-babel)
 (setq org-export-backends '(html latex))
 (setq org-export-with-sub-superscripts nil)
