@@ -5,19 +5,23 @@
    (file-chase-links load-file-name))
   "The giant turtle on which the world rests.")
 (setq ora-startup-time-tic (current-time))
-(setq package-user-dir
-      (expand-file-name "elpa" emacs-d))
-(package-initialize)
 (let ((emacs-git (expand-file-name "git/" emacs-d)))
   (mapc (lambda (x)
           (add-to-list 'load-path (expand-file-name x emacs-git)))
-        (delete ".." (directory-files emacs-git))))
+        (delete "." (delete ".." (directory-files emacs-git)))))
 (add-to-list 'load-path (expand-file-name "git/org-mode/lisp/" emacs-d))
 (add-to-list 'load-path emacs-d)
 (add-to-list 'load-path (expand-file-name "modes/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/modes/" emacs-d))
 (setq enable-local-variables :all)
+
+;;* straight.el
+(if t
+    (require 'ora-straight)
+  (setq package-user-dir (expand-file-name "elpa" emacs-d))
+  (package-initialize))
+
 ;;* Font
 (defun ora-set-font (&optional frame)
   (when frame
