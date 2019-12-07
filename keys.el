@@ -248,7 +248,7 @@ _f_ auto-fill-mode:    %`auto-fill-function
 _h_ highlight          %`highlight-nonselected-windows
 _t_ truncate-lines:    %`truncate-lines
 _w_ whitespace-mode:   %`whitespace-mode
-_l_ org link display:  %`org-descriptive-links
+_l_ org link display
 "
   ("a" abbrev-mode)
   ("d" toggle-debug-on-error)
