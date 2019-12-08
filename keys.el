@@ -339,6 +339,34 @@ _v_ariable     valu_e_"
   ("b" backward-word)
   ("w" kill-region :exit t))
 
+(defun ora-open-line ()
+  (interactive)
+  (require 'auto-yasnippet)
+  (unless (cond
+            ((progn
+               (unless yas-global-mode
+                 (yas-global-mode 1))
+               (yas--snippets-at-point))
+             (yas-next-field-or-maybe-expand))
+            ((ignore-errors
+               (setq aya-invokation-point (point))
+               (setq aya-invokation-buffer (current-buffer))
+               (setq aya-tab-position (- (point) (line-beginning-position)))
+               (let ((yas-fallback-behavior 'return-nil))
+                 (yas-expand))))
+            ((funcall 'tiny-expand)))
+    (hydra-o/body)))
+
+(defhydra hydra-o (:exit t)
+  "outl"
+  ("o" aya-open-line)
+  ("j" lispy-insert-outline-below)
+  ;; ("j" zo-insert-outline-below)
+  ("h" lispy-insert-outline-left)
+  ("p" lispy-insert-prev-outline-body)
+  ("C-o" nil nil))
+(hydra-set-property 'hydra-o :verbosity 1)
+
 (defun lispy-insert-prev-outline-body ()
   (interactive)
   (save-excursion
