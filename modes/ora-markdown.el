@@ -1,6 +1,11 @@
 (require 'markdown-mode)
 
-(define-key markdown-mode-map (kbd "C-c C-c") 'server-edit)
+(defun ora-server-edit ()
+  (interactive)
+  (save-buffer)
+  (server-edit))
+
+(define-key markdown-mode-map (kbd "C-c C-c") #'ora-server-edit)
 (define-key markdown-mode-map (kbd "<tab>") nil)
 (define-key markdown-mode-map (kbd "C-;") 'tiny-expand)
 (define-key markdown-mode-map (kbd "C-c r") 'markdown-pre-region)
