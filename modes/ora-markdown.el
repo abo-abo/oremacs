@@ -9,7 +9,7 @@
 (define-key markdown-mode-map (kbd "<tab>") nil)
 (define-key markdown-mode-map (kbd "C-;") 'tiny-expand)
 (define-key markdown-mode-map (kbd "C-c r") 'markdown-pre-region)
-(define-key markdown-mode-map (kbd "C-c s") 'ora-markdown-stack-block)
+(define-key markdown-mode-map (kbd "C-c S") 'ora-markdown-stack-block)
 (define-key markdown-mode-map (kbd "M-p") nil)
 (define-key markdown-mode-map (kbd "C-M-i") nil)
 
