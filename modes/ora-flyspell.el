@@ -13,9 +13,7 @@
   "Function used for `flyspell-generic-check-word-predicate' to ignore stuff starting with \"http\" or \"https\"."
   (save-excursion
     (forward-whitespace -1)
-    (when (looking-at " ")
-      (forward-char)
-      (not (looking-at "https?\\b")))))
+    (not (looking-at "[\t ]+https?\\b"))))
 
 ;;;###autoload
 (defun ora-flyspell-previous-word ()
