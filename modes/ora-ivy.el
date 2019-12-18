@@ -66,7 +66,7 @@
 
 (defun ora-counsel-git ()
   (interactive)
-  (let ((counsel-git-cmd "rg --files"))
+  (let ((counsel-git-cmd "rg -0 --files"))
     (counsel-git)))
 
 (defun ivy-view-backtrace ()
