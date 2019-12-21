@@ -55,14 +55,6 @@
       (concat "git --no-pager grep --full-name -n --no-color -i -e '%s' -- './*' "
               (mapconcat (lambda (x) (format "':!*.%s'" x))
                          '("htm" "so" "a" "TTC" "NDS" "png" "md5") " ")))
-(setq counsel-git-grep-projects-alist
-      (list
-       (cons "/home/oleh/Dropbox/source/site-lisp/"
-             (concat "/home/oleh/Dropbox/source/site-lisp/etc/git-multi-grep '%s' "
-                     "/home/oleh/Dropbox/source/site-lisp 'git/*'"))
-       (cons "/home/oleh/git/ivy-dependencies/"
-             (concat "/home/oleh/Dropbox/source/site-lisp/etc/git-multi-grep '%s' "
-                     "/home/oleh/git/ivy-dependencies '*'"))))
 
 (defun ora-counsel-git ()
   (interactive)
@@ -143,4 +135,6 @@
 (define-key isearch-mode-map (kbd "C-c s") 'swiper-isearch-toggle)
 (define-key swiper-map (kbd "C-c s") 'swiper-isearch-toggle)
 
+
+(require 'pora-ivy nil t)
 (provide 'ora-ivy)
