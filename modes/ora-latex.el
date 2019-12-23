@@ -39,7 +39,8 @@
   (subword-mode)
   (reftex-mode)
   (TeX-source-correlate-mode)
-  (LaTeX-math-mode))
+  (LaTeX-math-mode)
+  (setq TeX-engine 'xetex))
 
 (defun ora-run-bibtex ()
   (interactive)
