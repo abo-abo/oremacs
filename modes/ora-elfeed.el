@@ -7,8 +7,19 @@
 
 (defun ora-elfeed-search-browse-url ()
   (interactive)
-  (save-excursion
-    (elfeed-search-browse-url)))
+  (let* ((entries (elfeed-search-selected))
+         (entry (car entries)))
+    (cl-assert (= (length entries) 1))
+    (elfeed-untag entry 'unread)
+    (elfeed-search-update-entry entry)
+    (let ((link (elfeed-entry-link entry)))
+      (if (string-match-p "https://www.youtube.com" link)
+          (progn
+            (push (list link (elfeed-entry-title entry))
+                  org-stored-links)
+            (org-capture nil "l")
+            (message ""))
+        (browse-url link)))))
 
 (defun ora-elfeed-mark-read ()
   (interactive)
