@@ -213,11 +213,15 @@
 (defun ora-magit-simple-commit ()
   (interactive)
   (save-window-excursion
-    (let ((item (magit-section-info (magit-current-section))))
+    (let ((item (magit-section-info (magit-current-section)))
+          action)
       (ignore-errors (magit-stage-item))
       (search-forward item)
+      (setq action (if (looking-back "^\tNew.*" (line-beginning-position))
+                       "Add"
+                     "Update"))
       (ora-magit-commit-add-log)
-      (insert "Update")
+      (insert action)
       (git-commit-commit))))
 
 (defun ora-magit-difftool ()
