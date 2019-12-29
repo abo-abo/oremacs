@@ -227,7 +227,7 @@
 (defun ora-magit-difftool ()
   (interactive)
   (let ((item (magit-section-info (magit-current-section))))
-    (ora-dired-start-process
+    (orly-start
      "git difftool" (list item))))
 
 ;; (add-hook 'magit-mode-hook #'endless/add-PR-fetch)
