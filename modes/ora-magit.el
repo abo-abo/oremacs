@@ -232,4 +232,24 @@
 
 ;; (add-hook 'magit-mode-hook #'endless/add-PR-fetch)
 
+(defun ora-new-gitlab-project (name)
+  (interactive "sname: ")
+  (unless (file-exists-p "data")
+    (error "Expected ./data/"))
+  (let ((url (format "git@throw-away:throw-away/%s" name)))
+    (sc (concat "cd data && "
+                "git init && "
+                "git checkout -b data &&"
+                "git add . && "
+                "git commit -m 'Initial import' && "
+                "git remote add origin " url))
+    (sc "git init")
+    (sc "git add .")
+    (sc "git rm -r -f --cached data")
+    (sc (concat "git remote add origin " url))
+    (sc (concat "git submodule add -b data " url " data/"))
+    (sc "git commit -m 'Initial import'")
+    (sc "git push -f -u origin master")
+    (sc "cd data && git push -u origin data")))
+
 (provide 'ora-magit)
