@@ -194,18 +194,6 @@
            (when (looking-at ":")
              (forward-char 2))))))
 
-(defun endless/add-PR-fetch ()
-  "If refs/pull is not defined on a GH repo, define it."
-  (interactive)
-  (let ((fetch-address "+refs/pull/*/head:refs/pull/origin/*"))
-    (unless (member fetch-address
-                    (magit-get-all "remote" "origin" "fetch"))
-      (when (string-match
-             "github" (magit-get "remote" "origin" "url"))
-        (magit-git-string
-         "config" "--add" "remote.origin.fetch"
-         fetch-address)))))
-
 (defun ora-magit-visit-item-other-window ()
   (interactive)
   (magit-visit-item t))
@@ -229,8 +217,6 @@
   (let ((item (magit-section-info (magit-current-section))))
     (orly-start
      "git difftool" (list item))))
-
-;; (add-hook 'magit-mode-hook #'endless/add-PR-fetch)
 
 (defun ora-new-gitlab-project (name)
   (interactive "sname: ")
