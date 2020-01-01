@@ -1,4 +1,7 @@
 (require 'lsp-clients)
+(require 'lsp)
+
+(setq lsp-auto-guess-root t)
 
 (defun lsp-mode-line ()
   "Construct the mode line text."
