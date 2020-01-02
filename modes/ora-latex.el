@@ -52,6 +52,8 @@
      (format "bibtex %s" file)
      file)))
 
+(setq TeX-engine 'default)
+(setq-default TeX-engine 'xetex)
 (defun ora-pdflatex-quiet ()
   "Compile .tex file and show .pdf file."
   (interactive)
