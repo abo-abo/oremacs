@@ -57,7 +57,8 @@
 (defun ora-pdflatex-quiet ()
   "Compile .tex file and show .pdf file."
   (interactive)
-  (save-buffer)
+  (dolist (wnd (window-list))
+    (save-buffer (window-buffer wnd)))
   (TeX-command "LaTeX" 'TeX-master-file -1))
 
 (eval-after-load 'font-latex
