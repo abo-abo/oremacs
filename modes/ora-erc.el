@@ -1,5 +1,7 @@
 (require 'erc)
 
+(setq erc-fill-function 'erc-fill-static)
+(setq erc-fill-static-center 22)
 (setq erc-server "localhost")
 (setq erc-nick "oleh")
 (setq erc-port 6667)
