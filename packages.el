@@ -23,6 +23,7 @@
     counsel
     define-word
     diminish
+    dired-rsync
     dockerfile-mode
     docker
     docker-tramp
