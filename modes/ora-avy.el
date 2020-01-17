@@ -6,6 +6,18 @@
 (csetq aw-flip-keys '("n" "ν"))
 (add-to-list 'aw-dispatch-alist '(?ν aw-flip-window))
 
+;;** Display pop-up buffers with `ace-window'
+;; https://github.com/abo-abo/ace-window/pull/187
+(setq display-buffer-base-action '((display-buffer-reuse-window
+                                    ace-display-buffer)))
+(setq display-buffer-alist '(("\\*help\\[R" (display-buffer-reuse-mode-window
+                                             ace-display-buffer))
+                             ("\\*helm"
+                              ;; see also: `helm-split-window-default-fn'
+                              (display-buffer-pop-up-window))
+                             ("magit-diff:" (ace-display-buffer)
+                              (inhibit-same-window . t))))
+
 ;;* Avy
 (avy-setup-default)
 (csetq avy-all-windows t)
