@@ -1178,3 +1178,25 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
 
 (defun ora-advice-unadvice (sym)
   (advice-mapc (lambda (advice _props) (advice-remove sym advice)) sym))
+
+;;;###autoload
+(defun ipinfo (ip)
+  "Return ip info from ipinfo.io for IP."
+  (interactive "sEnter IP to query (blank for own IP): ")
+  (require 'request)
+  (request
+      (concat "https://ipinfo.io/" ip)
+      :headers '(("User-Agent" . "Emacs ipinfo.io Client")
+                 ("Accept" . "application/json")
+                 ("Content-Type" . "application/json;charset=utf-8"))
+      :parser 'json-read
+      :success (cl-function
+                (lambda (&key data &allow-other-keys)
+                  (message
+                   (mapconcat
+                    (lambda (e)
+                      (format "%10s: %s" (capitalize (symbol-name (car e))) (cdr e)))
+                    data "\n"))))
+      :error (cl-function
+              (lambda (&rest args &key error-thrown &allow-other-keys)
+                (message "Can't receive ipinfo. Error %S " error-thrown)))))
