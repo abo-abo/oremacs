@@ -1,6 +1,3 @@
-[submodule "git/htmlize"]
-	path = git/htmlize
-	url = https://github.com/abo-abo/htmlize
 [submodule "git/profile-dotemacs"]
 	path = git/profile-dotemacs
 	url = https://github.com/abo-abo/profile-dotemacs

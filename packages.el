@@ -40,6 +40,7 @@
     headlong
     helm-make
     hideshowvis
+    (htmlize :host github :repo "abo-abo/htmlize")
     ivy-hydra
     j-mode
     jedi
