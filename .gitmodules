@@ -10,9 +10,6 @@
 [submodule "git/magit"]
 	path = git/magit
 	url = https://github.com/abo-abo/magit
-[submodule "git/org-pomodoro"]
-	path = git/org-pomodoro
-        url = https://github.com/abo-abo/org-pomodoro
 [submodule "git/lpy"]
 	path = git/lpy
 	url = https://github.com/abo-abo/lpy

@@ -53,6 +53,7 @@
     org-bullets
     org-download
     org-parser
+    (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
     projectile
     plain-org-wiki
     posframe
