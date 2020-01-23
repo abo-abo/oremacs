@@ -61,7 +61,7 @@
     request
     rust-mode
     slime
-    smex
+    (smex :host github :repo "abo-abo/smex")
     swiper
     tea-time
     transpose-frame
