@@ -12,6 +12,7 @@
     bbdb
     elf-mode
     elfeed
+    (eltex :host github :repo "abo-abo/eltex")
     eglot
     evil
     exec-path-from-shell

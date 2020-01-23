@@ -1,6 +1,3 @@
-[submodule "git/eltex"]
-	path = git/eltex
-	url = https://github.com/abo-abo/eltex
 [submodule "git/htmlize"]
 	path = git/htmlize
 	url = https://github.com/abo-abo/htmlize
