@@ -1,9 +1,3 @@
-[submodule "git/clojure-semantic"]
-	path = git/clojure-semantic
-	url = https://github.com/abo-abo/clojure-semantic
-[submodule "git/abel"]
-	path = git/abel
-	url = https://github.com/abo-abo/abel
 [submodule "git/eltex"]
 	path = git/eltex
 	url = https://github.com/abo-abo/eltex

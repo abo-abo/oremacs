@@ -21,6 +21,7 @@
     company
     company-jedi
     counsel
+    (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
     define-word
     diminish
     dired-rsync
