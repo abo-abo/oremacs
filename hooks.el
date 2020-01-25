@@ -3,6 +3,10 @@
 (add-hook 'cmake-mode-hook 'ora-cmake-hook)
 (add-hook 'ert-results-mode-hook 'ora-ert-results-hook)
 (add-hook 'erc-mode-hook 'ora-erc-hook)
+(setq dired-listing-switches
+      (if (memq system-type '(windows-nt darwin))
+          "-alh"
+        "-laGh1v --group-directories-first"))
 (add-hook 'dired-mode-hook 'ora-dired-hook)
 (add-hook 'proced-mode-hook 'ora-proced-hook)
 (add-hook 'c-mode-common-hook 'ora-c-common-hook)

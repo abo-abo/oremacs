@@ -4,10 +4,6 @@
 (require 'term)
 
 ;;* set
-(setq dired-listing-switches
-      (if (memq system-type '(windows-nt darwin))
-          "-alh"
-        "-laGh1v --group-directories-first"))
 (ora-advice-add 'dired-internal-noselect :filter-args 'ora-dired-internal-noselect)
 (defun ora-dired-internal-noselect (args)
   (cl-destructuring-bind (dir-or-list &optional switches mode) args
