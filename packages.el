@@ -41,6 +41,7 @@
     helm-make
     hideshowvis
     (htmlize :host github :repo "abo-abo/htmlize")
+    (iedit :host github :repo "abo-abo/iedit")
     ivy-hydra
     j-mode
     jedi
@@ -79,7 +80,7 @@
 (setq straight-built-in-pseudo-packages
       '(emacs python uniquify dired dired-x magit cook
         ivy swiper counsel lispy avy ace-window ace-link auto-yasnippet elf-mode
-        eltex tiny iedit centimacro helm-j-cheatsheet htmlize pamparam
+        eltex tiny centimacro helm-j-cheatsheet pamparam
         define-word eclipse-theme function-args gtk-pomodoro-indicator headlong
         ivy-hydra make-it-so orca org-download plain-org-wiki worf))
 
