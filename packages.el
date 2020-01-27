@@ -22,6 +22,7 @@
     company
     company-jedi
     counsel
+    ccls
     (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
     define-word
     diminish
@@ -46,6 +47,7 @@
     j-mode
     jedi
     lispy
+    lsp-mode
     magit
     make-it-so
     markdown-mode
