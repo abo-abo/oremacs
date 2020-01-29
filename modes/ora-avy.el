@@ -10,7 +10,10 @@
 ;; https://github.com/abo-abo/ace-window/pull/187
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     ace-display-buffer)))
-(setq display-buffer-alist '(("\\*help\\[R" (display-buffer-reuse-mode-window
+(setq display-buffer-alist '(("\\*Org Attach\\[R"
+                              ;; see also: `helm-split-window-default-fn'
+                              (display-buffer-pop-up-window))
+                             ("\\*help\\[R" (display-buffer-reuse-mode-window
                                              ace-display-buffer))
                              ("\\*helm"
                               ;; see also: `helm-split-window-default-fn'
