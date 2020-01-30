@@ -28,10 +28,12 @@
 (define-key cider-mode-map (kbd "C-c C-v") nil)
 (csetq cider-font-lock-dynamically nil)
 (csetq cider-jack-in-default 'lein)
-(defun ora-sesman-current-session (&rest args)
+(defun ora-sesman-current-session (orig-fn &rest args)
   "Use a single REPL for everything.
 Avoid having to `cider-connect' every single thing."
-  (car (hash-table-values sesman-sessions-hashmap)))
+  (apply orig-fn args)
+  ;; (car (hash-table-values sesman-sessions-hashmap))
+  )
 (ora-advice-add 'sesman-current-session :around 'ora-sesman-current-session)
 
 (setq cider-jdk-src-paths
