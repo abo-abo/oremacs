@@ -3,6 +3,10 @@
 (setq erc-fill-function 'erc-fill-static)
 (setq erc-fill-static-center 22)
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
+(setq erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
+(setq erc-track-exclude-types '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE"
+                                "324" "329" "332" "333" "353" "477"))
+
 (setq erc-server "localhost")
 (setq erc-nick "oleh")
 (setq erc-port 6667)
