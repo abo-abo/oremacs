@@ -36,6 +36,7 @@
 
 ;;;###autoload
 (defun ora-message-hook ()
+  (setq fill-column 72)
   (flyspell-mode)
   (bbdb-initialize 'message)
   ;; (bbdb-initialize 'gnus)
