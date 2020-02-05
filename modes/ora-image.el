@@ -20,7 +20,7 @@
 
 (defun image-view-eog ()
   (interactive)
-  (ora-dired-start-process "eog" (list (buffer-file-name))))
+  (orly-start "eog" (list (buffer-file-name))))
 
 (define-key image-mode-map "j" (image-view 1))
 (define-key image-mode-map "k" (image-view -1))
