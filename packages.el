@@ -48,6 +48,7 @@
     jedi
     lispy
     lsp-mode
+    lsp-java
     magit
     make-it-so
     markdown-mode
