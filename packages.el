@@ -52,6 +52,7 @@
     magit
     make-it-so
     markdown-mode
+    multiple-cursors
     netherlands-holidays
     orca
     org-bullets
