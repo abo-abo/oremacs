@@ -22,6 +22,7 @@
     company
     company-jedi
     counsel
+    (counsel-keepassxc :host github :repo "tangxinfa/counsel-keepassxc")
     ccls
     (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
     define-word
