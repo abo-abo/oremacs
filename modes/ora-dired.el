@@ -10,6 +10,7 @@
     (when (file-remote-p dir-or-list)
       (setq switches "-alh"))
     (list dir-or-list switches mode)))
+;; not needed since Emacs-27
 (setq directory-free-space-args "-Pmh")
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
