@@ -133,6 +133,7 @@
             (format "%s %s" cmd list-switch)
           cmd)
         (mapconcat #'shell-quote-argument file-list " "))))))
+(setq tramp-use-ssh-controlmaster-options nil)
 
 (defun ora-dired-open-term ()
   "Open an `ansi-term' that corresponds to current directory."
