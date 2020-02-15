@@ -134,6 +134,9 @@
           cmd)
         (mapconcat #'shell-quote-argument file-list " "))))))
 (setq tramp-use-ssh-controlmaster-options nil)
+(setq tramp-verbose 1)
+;; (setq tramp-ssh-controlmaster-options
+;;       "-o ControlMaster=auto -o ControlPath='~/.ssh/controlmasters/%%r@%%h:%%p' -o ControlPersist=600")
 
 (defun ora-dired-open-term ()
   "Open an `ansi-term' that corresponds to current directory."
