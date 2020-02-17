@@ -285,7 +285,7 @@ Number of marked items: %(length (dired-get-marked-files))
 ;;;###autoload
 (defun ora-dired-hook ()
   (mis-mode 1)
-  (dired-omit-mode))
+  (dired-omit-mode 1))
 
 (defun ora-dired-utf8-unix ()
   (interactive)
