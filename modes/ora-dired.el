@@ -213,6 +213,7 @@ Number of marked items: %(length (dired-get-marked-files))
 (define-key dired-mode-map "k" 'dired-previous-line)
 (define-key dired-mode-map "h" 'dired-do-shell-command)
 (define-key dired-mode-map "Y" 'ora-dired-rsync)
+(define-key dired-mode-map "R" 'ora-dired-do-rename)
 (define-key dired-mode-map (kbd "C-j") 'dired-find-file)
 (define-key dired-mode-map (kbd "%^") 'dired-flag-garbage-files)
 (define-key dired-mode-map (kbd "z") 'ora-dired-get-size)
@@ -323,5 +324,14 @@ Number of marked items: %(length (dired-get-marked-files))
   (ora-advice-add 'shell-command-sentinel :override #'ora-shell-command-sentinel)
   (save-window-excursion
     (call-interactively 'dired-do-async-shell-command)))
+
+(defun ora-dired-do-rename ()
+  (interactive)
+  (let ((target (dired-dwim-target-directory)))
+    (if (file-remote-p target)
+        (progn
+          (dired-rsync target)
+          (message "pls remove"))
+      (dired-do-rename))))
 
 (provide 'ora-dired)
