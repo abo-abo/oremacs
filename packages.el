@@ -45,6 +45,7 @@
     (htmlize :host github :repo "abo-abo/htmlize")
     (iedit :host github :repo "abo-abo/iedit")
     ivy-hydra
+    ivy-prescient
     j-mode
     jedi
     lispy
