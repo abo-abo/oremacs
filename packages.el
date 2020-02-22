@@ -81,7 +81,8 @@
     which-key
     worf
     yaml-mode
-    yasnippet)
+    yasnippet
+    (lpy :host github :repo "abo-abo/lpy"))
   "List of packages that I like.")
 
 (setq straight-built-in-pseudo-packages
