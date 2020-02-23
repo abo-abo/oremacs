@@ -16,6 +16,11 @@ Display progress in the mode line instead."
         mb)
     (save-excursion
       (goto-char (copy-marker begin))
+      (while (re-search-forward "]0;" end-marker t)
+        (setq mb (match-beginning 0))
+        (when (re-search-forward ":~" end-marker t)
+          (delete-region mb (point))))
+      (goto-char (copy-marker begin))
       (while (re-search-forward "\0337" end-marker t)
         (setq mb (match-beginning 0))
         (when (re-search-forward "\0338" end-marker t)
