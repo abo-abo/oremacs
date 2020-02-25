@@ -1,6 +1,7 @@
 ;;* packages
 (defconst ora-packages
-  '(ace-link
+  '(avy
+    ace-link
     ace-popup-menu
     ace-window
     async
@@ -41,7 +42,6 @@
     haskell-mode
     headlong
     helm-make
-    hideshowvis
     (htmlize :host github :repo "abo-abo/htmlize")
     (iedit :host github :repo "abo-abo/iedit")
     ivy-hydra
@@ -86,11 +86,15 @@
   "List of packages that I like.")
 
 (setq straight-built-in-pseudo-packages
-      '(emacs python uniquify dired dired-x magit cook
-        ivy swiper counsel lispy avy ace-window ace-link auto-yasnippet elf-mode
-        eltex tiny centimacro helm-j-cheatsheet pamparam
-        define-word eclipse-theme function-args gtk-pomodoro-indicator headlong
-        ivy-hydra make-it-so orca org-download plain-org-wiki worf))
+      (append
+       '(emacs python uniquify dired dired-x magit cook ivy ivy-hydra counsel)
+       (cl-set-difference
+        ora-packages
+        (cl-set-difference
+         ora-packages
+         (mapcar
+          #'intern-soft
+          (directory-files (expand-file-name "git" emacs-d)))))))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
