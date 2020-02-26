@@ -43,9 +43,9 @@
     headlong
     helm-make
     (htmlize :host github :repo "abo-abo/htmlize")
+    hydra
     (iedit :host github :repo "abo-abo/iedit")
     ivy-hydra
-    ivy-prescient
     j-mode
     jedi
     lispy
@@ -85,16 +85,18 @@
     (lpy :host github :repo "abo-abo/lpy"))
   "List of packages that I like.")
 
-(setq straight-built-in-pseudo-packages
-      (append
-       '(emacs python uniquify dired dired-x magit cook ivy ivy-hydra counsel)
-       (cl-set-difference
-        ora-packages
-        (cl-set-difference
-         ora-packages
-         (mapcar
-          #'intern-soft
-          (directory-files (expand-file-name "git" emacs-d)))))))
+(let ((all-pkgs (mapcar
+                 (lambda (p) (if (consp p) (car p) p))
+                 ora-packages))
+      (git-pkgs (mapcar
+                 #'intern
+                 (delete
+                  "." (delete
+                       ".." (directory-files (expand-file-name "git" emacs-d)))))))
+  (setq straight-built-in-pseudo-packages
+        (append
+         '(emacs python uniquify dired dired-x magit cook ivy ivy-hydra lv counsel)
+         (cl-intersection git-pkgs all-pkgs))))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
