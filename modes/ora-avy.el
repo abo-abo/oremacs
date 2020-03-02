@@ -8,8 +8,8 @@
 
 ;;** Display pop-up buffers with `ace-window'
 ;; https://github.com/abo-abo/ace-window/pull/187
-(setq display-buffer-base-action '((display-buffer-reuse-window
-                                    ace-display-buffer)))
+;; (setq display-buffer-base-action '((display-buffer-reuse-window
+;;                                     ace-display-buffer)))
 (setq display-buffer-alist '(("\\*Org Attach\\[R"
                               ;; see also: `helm-split-window-default-fn'
                               (display-buffer-pop-up-window))
