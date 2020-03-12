@@ -7,6 +7,8 @@
 (setq erc-track-exclude-types '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE"
                                 "324" "329" "332" "333" "353" "477"))
 
+(add-to-list 'erc-modules 'notifications)
+(erc-update-modules)
 (setq erc-server "localhost")
 (setq erc-nick "oleh")
 (setq erc-port 6667)
