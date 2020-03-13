@@ -8,6 +8,7 @@
                                 "324" "329" "332" "333" "353" "477"))
 
 (add-to-list 'erc-modules 'notifications)
+(add-to-list 'erc-modules 'spelling)
 (erc-update-modules)
 (setq erc-server "localhost")
 (setq erc-nick "oleh")
