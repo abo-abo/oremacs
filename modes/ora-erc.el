@@ -9,6 +9,8 @@
 
 (add-to-list 'erc-modules 'notifications)
 (add-to-list 'erc-modules 'spelling)
+(add-to-list 'erc-modules 'dcc)
+(add-to-list 'erc-modules 'keep-place)
 (erc-update-modules)
 (setq erc-server "localhost")
 (setq erc-nick "oleh")
