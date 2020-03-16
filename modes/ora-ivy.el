@@ -135,6 +135,7 @@
 (define-key isearch-mode-map (kbd "C-c s") 'swiper-isearch-toggle)
 (define-key swiper-map (kbd "C-c s") 'swiper-isearch-toggle)
 (define-key ivy-occur-grep-mode-map (kbd "M-i") #'ora-ivy-occur-grep-iedit)
+(setq swiper-verbose nil)
 
 (defun ora-ivy-occur-grep-iedit ()
   (interactive)
