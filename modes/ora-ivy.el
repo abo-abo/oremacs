@@ -143,5 +143,7 @@
     (ivy-wgrep-change-to-wgrep-mode))
   (iedit-mode))
 
+(csetq counsel-recentf-include-xdg-list t)
+
 (require 'pora-ivy nil t)
 (provide 'ora-ivy)
