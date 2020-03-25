@@ -12,6 +12,8 @@
 (add-to-list 'erc-modules 'dcc)
 (add-to-list 'erc-modules 'keep-place)
 (erc-update-modules)
+(require 'erc-log)
+(setq-default erc-enable-logging t)
 (setq erc-server "localhost")
 (setq erc-nick "oleh")
 (setq erc-port 6667)
