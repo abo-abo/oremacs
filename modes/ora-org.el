@@ -48,6 +48,8 @@
   (prettify-symbols-mode)
   (setq-local tab-always-indent 'complete))
 
+(setq org-agenda-max-entries nil)
+
 ;;;###autoload
 (defun ora-org-agenda-hook ())
 
