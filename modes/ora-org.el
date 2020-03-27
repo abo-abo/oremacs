@@ -246,7 +246,9 @@
         ("hidelinks" "hyperref" nil)))
 
 ;;* Files
-(setq org-archive-location "archive/gtd.org_archive::")
+(setq org-archive-location (expand-file-name
+                            "../archive/gtd.org_archive::"
+                            plain-org-wiki-directory))
 
 ;;* Source blocks
 (require 'htmlfontify)
