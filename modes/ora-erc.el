@@ -14,6 +14,12 @@
 (erc-update-modules)
 (require 'erc-log)
 (setq-default erc-enable-logging t)
+(setq erc-log-channels-directory
+      (file-name-as-directory
+       (concat user-emacs-directory "erc")))
+(setq erc-log-write-after-insert t)
+(setq erc-log-write-after-send t)
+
 (setq erc-server "localhost")
 (setq erc-nick "oleh")
 (setq erc-port 6667)
