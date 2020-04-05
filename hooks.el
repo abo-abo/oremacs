@@ -95,6 +95,8 @@
   '(require 'ora-elfeed))
 (eval-after-load 'epa-hook
   '(require 'ora-epa))
+(eval-after-load 'counsel-keepassxc
+  '(require 'ora-keepassxc))
 (add-hook 'command-history-hook 'lispy-mode)
 (defalias 'sc 'shell-command-to-string)
 (defalias 'cal 'calendar)
