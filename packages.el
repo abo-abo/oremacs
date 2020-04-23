@@ -1,4 +1,10 @@
 ;;* packages
+(require 'cl-seq)
+
+(defconst emacs-d
+  (file-name-directory
+   (file-chase-links load-file-name)))
+
 (defconst ora-packages
   '(avy
     ace-link
@@ -22,7 +28,6 @@
     command-log-mode
     company
     company-jedi
-    counsel
     (counsel-keepassxc :host github :repo "tangxinfa/counsel-keepassxc")
     ccls
     (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
@@ -71,7 +76,6 @@
     rust-mode
     slime
     (smex :host github :repo "abo-abo/smex")
-    swiper
     tea-time
     transpose-frame
     ukrainian-holidays
@@ -85,18 +89,23 @@
     (lpy :host github :repo "abo-abo/lpy"))
   "List of packages that I like.")
 
-(let ((all-pkgs (mapcar
-                 (lambda (p) (if (consp p) (car p) p))
-                 ora-packages))
-      (git-pkgs (mapcar
-                 #'intern
-                 (delete
-                  "." (delete
-                       ".." (directory-files (expand-file-name "git" emacs-d)))))))
+(let* ((all-pkgs (mapcar
+                  (lambda (p) (if (consp p) (car p) p))
+                  ora-packages))
+       (git-dirs (mapcar
+                  #'intern
+                  (delete
+                   "." (delete
+                        ".." (directory-files (expand-file-name "git" emacs-d))))))
+       (git-pkgs (cl-intersection git-dirs all-pkgs)))
   (setq straight-built-in-pseudo-packages
         (append
-         '(emacs python uniquify dired dired-x magit cook ivy ivy-hydra lv counsel)
-         (cl-intersection git-pkgs all-pkgs))))
+         '(emacs python uniquify dired dired-x magit cook
+           swiper ivy ivy-hydra lv counsel)
+         git-pkgs))
+  (setq ora-packages
+        (cl-set-difference ora-packages git-pkgs
+                           :key (lambda (x) (if (consp x) (car x) x)))))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
