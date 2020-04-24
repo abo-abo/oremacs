@@ -152,8 +152,8 @@
 (setq org-cycle-separator-lines 0)
 (setq org-return-follows-link t)
 (setq org-bookmark-names-plist
-      '(:last-capture "jc:  org-last-capture"
-        :last-refile "jr:  org-last-refile"))
+      '(:last-capture "jc: org-last-capture"
+        :last-refile "jr: org-last-refile"))
 (setq org-refile-targets
       '((nil :maxlevel . 3)
         (org-agenda-files :maxlevel . 3)))
