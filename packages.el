@@ -28,6 +28,7 @@
     command-log-mode
     company
     company-jedi
+    counsel
     (counsel-keepassxc :host github :repo "tangxinfa/counsel-keepassxc")
     ccls
     (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
@@ -100,8 +101,9 @@
        (git-pkgs (cl-intersection git-dirs all-pkgs)))
   (setq straight-built-in-pseudo-packages
         (append
-         '(emacs python uniquify dired dired-x magit cook
-           swiper ivy ivy-hydra lv counsel)
+         '(emacs python uniquify dired dired-x magit cook)
+         (and (memq 'swiper git-dirs)
+              '(swiper ivy ivy-hydra lv counsel))
          git-pkgs))
   (setq ora-packages
         (cl-set-difference ora-packages git-pkgs
