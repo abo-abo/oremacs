@@ -26,7 +26,7 @@ pull:
 	git submodule update 2>&1 | tee -a etc/log
 
 update:
-	$(emacs) -batch -l packages.el -f straight-pull-all 2>&1 | tee -a etc/log
+	$(emacs) -batch -l packages.el -f straight-pull-all
 
 upgrade: pull
 	cd $(BASEDIR) && $(emacs) -batch -l packages.el 2>&1 | tee -a etc/log
