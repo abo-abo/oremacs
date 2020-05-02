@@ -41,6 +41,7 @@
     eclipse-theme
     find-file-in-project
     flycheck
+    flx
     function-args
     geiser
     (google-c-style :host github :repo "google/styleguide" :branch "gh-pages")
