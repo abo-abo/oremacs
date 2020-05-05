@@ -18,11 +18,12 @@
 (define-key java-mode-map (kbd "χ") 'java-attr)
 (define-key java-mode-map (kbd "C-/") 'java-toggle-map)
 (define-key java-mode-map (kbd "C-M-j") 'lispy-goto-local)
-(require 'soap)
+(define-key java-mode-map (kbd "M-.") 'lsp-find-definition)
+(require 'lpy-soap)
 (require 'abbrev)
 (read-abbrev-file (expand-file-name "etc/abbrev_defs" emacs-d) t)
 (dolist (k '("+" "-" "*" "/" "%" "&" "|" "<" "=" ">" ","))
-  (define-key java-mode-map (kbd k) 'soap-command))
+  (define-key java-mode-map (kbd k) 'lpy-soap-command))
 
 ;;;###autoload
 (defun ora-java-hook ()

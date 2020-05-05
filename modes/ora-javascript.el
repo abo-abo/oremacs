@@ -1,13 +1,13 @@
 (require 'js)
 (require 'auto-complete)
-(require 'soap)
+(require 'lpy-soap)
 
 (csetq js2-basic-offset 2)
 (csetq js-indent-level 2)
 
 (define-key js-mode-map (kbd "<f5>") 'js-f5)
 (define-key js-mode-map (kbd "C-<f5>") 'js-C-f5)
-(define-key js-mode-map (kbd "=") 'soap-command)
+(define-key js-mode-map (kbd "=") 'lpy-soap-command)
 
 
 ;;;###autoload

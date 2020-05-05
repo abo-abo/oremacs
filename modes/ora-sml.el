@@ -1,11 +1,11 @@
 (require 'sml-mode)
-(require 'soap)
+(require 'lpy-soap)
 
 ;;;###autoload
 (defun ora-sml-hook ())
 
 (dolist (k '("=" "+" "-" "<" ">" ","))
-  (define-key sml-mode-map k 'soap-command))
+  (define-key sml-mode-map k 'lpy-soap-command))
 
 (require 'pora-sml nil t)
 
