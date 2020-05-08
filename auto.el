@@ -425,8 +425,9 @@ If called with a prefix, prompts for flags to pass to ag."
 (defun bmk/magit-status ()
   "Bookmark for `magit-status'."
   (interactive)
-  (when (and (equal system-name "firefly")
-             (buffer-file-name))
+  (when (and (buffer-file-name)
+             ;; (equal system-name "firefly")
+             )
     (delete-trailing-whitespace)
     (save-buffer))
   (call-interactively 'magit-status))
