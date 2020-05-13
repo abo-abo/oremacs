@@ -188,6 +188,8 @@
 ;;* Misc shortcuts
 (define-key universal-argument-map "ψ" 'universal-argument-more)
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+(global-set-key (kbd "C-s-p") 'counsel-rhythmbox-playpause-current-song)
+
 ;;* Hydras
 (require 'hydra-examples)
 (defhydra hydra-error (global-map "M-g")
