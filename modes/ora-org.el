@@ -5,6 +5,7 @@
 (setq org-export-backends '(html latex))
 (setq org-export-with-sub-superscripts nil)
 (setq org-catch-invisible-edits 'smart)
+(setq org-fontify-done-headline nil)
 (require 'org)
 (add-to-list 'load-path (expand-file-name "git/org-mode/contrib/lisp/" emacs-d))
 (require 'org-src)
