@@ -440,6 +440,17 @@ If called with a prefix, prompts for flags to pass to ag."
    (get-buffer-create "*scratch*"))
   (lisp-interaction-mode))
 
+(defun bmk/remote-shell ()
+  (interactive)
+  (require 'tramp)
+  (let ((hosts (delq nil (mapcar
+                          (lambda (x) (and x (cdr x) (cadr x)))
+                          (tramp-parse-sconfig "~/.ssh/config")))))
+    (ivy-read "ssh: " hosts
+              :action (lambda (h)
+                        (dired (concat "/ssh:" h ":/"))
+                        (ora-dired-open-term)))))
+
 ;;;###autoload
 (defun bmk/function (bookmark)
   "Handle a function bookmark BOOKMARK."
