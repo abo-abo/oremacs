@@ -1,7 +1,7 @@
 (require 'whicher)
 (require 'ora-smime)
 (use-package mu4e
-  :load-path "~/git/Emacs/mu/mu4e")
+  :load-path "~/git/_Emacs/mu/mu4e")
 (setq mu4e-maildir "~/mail/work")
 (setq mu4e-html2text-command (whicher "w3m -T text/html"))
 (setq mu4e-drafts-folder "/Drafts")
