@@ -49,8 +49,8 @@
 ;; but I like --sort because of consistent result display.
 ;; there's no flickering beteen the input "ivy-f" and "ivy-fo".
 (setq counsel-rg-base-command
-      "rg --sort path -M 120 --no-heading --line-number --color never %s")
-
+      (split-string
+       "rg --sort path -M 240 --no-heading --line-number --color never %s"))
 (setq counsel-git-grep-cmd-default
       (concat "git --no-pager grep --full-name -n --no-color -i -e '%s' -- './*' "
               (mapconcat (lambda (x) (format "':!*.%s'" x))
