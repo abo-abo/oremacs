@@ -34,6 +34,8 @@
 
 ;;;###autoload
 (defun ora-erc-hook ()
+  (setq-local scroll-margin 1)
+  (erc-log-mode 1)
   (unless (bound-and-true-p flyspell-mode)
     (let ((fly (assoc (buffer-name) ora-erc-buddies)))
       (when fly
