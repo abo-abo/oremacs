@@ -45,7 +45,7 @@
         (flyspell-mode 1)))))
 
 ;; don't change the modeline every time someone goes online/offline
-(advice-add 'erc-modified-channels-object :around #'ora-erc-modified-channels-object)
+(ora-advice-add 'erc-modified-channels-object :around #'ora-erc-modified-channels-object)
 (defun ora-erc-modified-channels-object (_func strings)
   "Generate a new `erc-modified-channels-object' based on STRINGS."
   (if strings
