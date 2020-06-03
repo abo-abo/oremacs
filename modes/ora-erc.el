@@ -67,4 +67,10 @@
      :server "localhost"
      :nick "oleh")))
 
+(defun ora-pcomplete-erc-all-nicks (old-fun)
+  (append '() (funcall old-fun)))
+
+(ora-advice-add 'pcomplete-erc-all-nicks :around 'ora-pcomplete-erc-all-nicks)
+
+(require 'pora-erc nil t)
 (provide 'ora-erc)
