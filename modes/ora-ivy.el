@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t -*-
 (require 'ivy)
 (require 'ivy-hydra)
+(require 'ivy-avy)
 (require 'counsel)
 (csetq ivy-display-style 'fancy)
 ;; (csetq ivy-count-format "(%d/%d) ")
