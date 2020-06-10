@@ -37,6 +37,7 @@
          (goto-char (match-beginning 0))))
     (user-error
      "Not completing files currently")))
+(put 'ivy-dired 'no-counsel-M-x t)
 
 (setq ivy-switch-buffer-faces-alist
       '((emacs-lisp-mode . swiper-match-face-1)
