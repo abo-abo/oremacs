@@ -1,3 +1,4 @@
+(require 'haskell)
 ;;;###autoload
 (defun ora-haskell-hook ())
 
