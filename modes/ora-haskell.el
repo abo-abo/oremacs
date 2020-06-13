@@ -1,4 +1,6 @@
 (require 'haskell)
+(require 'lpy-soap)
+(require 'company-dabbrev)
 ;;;###autoload
 (defun ora-haskell-hook ())
 
