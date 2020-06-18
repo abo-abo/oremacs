@@ -20,6 +20,7 @@
 (defun ora-haskell-hook ()
   (setq comment-insert-comment-function #'ora-haskell-comment-insert)
   (cl-pushnew #'ora-haskell-completion-at-point completion-at-point-functions)
+  ;; (setq haskell-literate 'bird)
   (company-mode))
 
 
