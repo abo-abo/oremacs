@@ -23,6 +23,16 @@
   ;; (setq haskell-literate 'bird)
   (company-mode))
 
+(defun ora-haskell-colon ()
+  (interactive)
+  (cond ((looking-back ":")
+         (delete-char -1)
+         (insert " :: "))
+        (t
+         (insert ":"))))
+
+
+(define-key haskell-mode-map ":" 'ora-haskell-colon)
 
 (require 'pora-haskell nil t)
 
