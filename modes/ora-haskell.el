@@ -31,6 +31,8 @@
         (t
          (insert ":"))))
 
+(dolist (k '("=" "+" "-" "<" ">" "," "^"))
+  (define-key haskell-mode-map k 'lpy-soap-command))
 
 (define-key haskell-mode-map ":" 'ora-haskell-colon)
 
