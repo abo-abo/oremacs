@@ -68,6 +68,7 @@
 (minibuffer-depth-indicate-mode 1)
 (csetq read-quoted-char-radix 16)
 ;;** editor behavior
+(csetq load-prefer-newer t)
 (csetq indent-tabs-mode nil)
 (csetq ring-bell-function 'ignore)
 (csetq highlight-nonselected-windows nil)
