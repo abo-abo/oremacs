@@ -328,13 +328,7 @@
   (run-with-idle-timer
    3 nil
    (lambda () (require 'ora-org)))
-  (require 'define-word)
-  (use-package slime
-    :commands slime
-    :init
-    (require 'slime-autoloads)
-    (setq slime-contribs '(slime-fancy))
-    (setq inferior-lisp-program "/usr/bin/sbcl")))
+  (require 'define-word))
 (use-package cook
   :commands cook)
 (use-package elf-mode
