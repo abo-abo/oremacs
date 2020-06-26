@@ -327,8 +327,7 @@
 (unless (bound-and-true-p ora-barebones)
   (run-with-idle-timer
    3 nil
-   (lambda () (require 'ora-org)))
-  (require 'define-word))
+   (lambda () (require 'ora-org))))
 (use-package cook
   :commands cook)
 (use-package elf-mode

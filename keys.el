@@ -213,8 +213,10 @@
   ("0" (text-scale-set 0) :bind nil :exit t)
   ("1" (text-scale-set 0) nil :bind nil :exit t))
 
-(defhydra hydra-k (:color blue
-                   :idle 0.8)
+(use-package define-word
+  :commands define-word-at-point)
+
+(defhydra hydra-k (:exit t :idle 0.8)
   "k"
   ("a" orfu-agenda-day "agenda")
   ("b" winner-undo "browse" :exit nil)
