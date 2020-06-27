@@ -216,6 +216,10 @@
 (use-package define-word
   :commands define-word-at-point)
 
+(use-package tea-time
+  :config
+  (setq tea-time-sound-command "play %s"))
+
 (defhydra hydra-k (:exit t :idle 0.8)
   "k"
   ("a" orfu-agenda-day "agenda")
