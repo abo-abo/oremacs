@@ -220,6 +220,9 @@
   :config
   (setq tea-time-sound-command "play %s"))
 
+(use-package cook
+  :commands cook)
+
 (defhydra hydra-k (:exit t :idle 0.8)
   "k"
   ("a" orfu-agenda-day "agenda")

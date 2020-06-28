@@ -325,8 +325,6 @@
   (run-with-idle-timer
    3 nil
    (lambda () (require 'ora-org))))
-(use-package cook
-  :commands cook)
 (use-package elf-mode
   :commands elf-mode
   :init
