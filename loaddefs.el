@@ -3,11 +3,6 @@
 ;;;### (autoloads nil "auto" "auto.el" (0 0 0 0))
 ;;; Generated autoloads from auto.el
 
-(autoload 'ora-para-down "auto" "\
-
-
-\(fn ARG)" t nil)
-
 (autoload 'ora-para-up "auto" "\
 
 
@@ -341,28 +336,28 @@ Return ip info from ipinfo.io for IP.
 
 \(fn IP)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("ora-" "dbg" "show-message" "char-upcasep" "re-seq")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("ora-" 0 4 (face font-lock-function-name-face)) #("dbg" 0 3 (face font-lock-function-name-face)) "show-message" "char-upcasep" #("bmk/remote-shell" 0 16 (face font-lock-function-name-face)) "re-seq")))
 
 ;;;***
 
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("cal" 0 3 (face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("cal" 0 3 (fontified nil)))))
 
 ;;;***
 
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (fontified nil) 1 7 (fontified t face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (fontified nil) 1 10 (fontified nil)) #("yes-or-no-p" 0 11 (fontified nil)) #("ora-" 0 4 (fontified t face font-lock-function-name-face)) #("csetq" 0 5 (face font-lock-function-name-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '(#("emacs-d" 0 1 (face font-lock-function-name-face fontified t) 1 7 (fontified t face font-lock-variable-name-face)) #("eldoc-mode" 0 1 (face font-lock-function-name-face fontified t) 1 10 (face font-lock-function-name-face fontified t)) #("yes-or-no-p" 0 11 (face font-lock-function-name-face fontified t)) #("ora-" 0 4 (fontified t face font-lock-function-name-face)) #("csetq" 0 5 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
 ;;;### (autoloads nil "keys" "keys.el" (0 0 0 0))
 ;;; Generated autoloads from keys.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '("lispy-insert-prev-outline-body" "hydra-" "ora-open-line")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '(#("lispy-insert-prev-outline-body" 0 30 (face font-lock-function-name-face fontified t)) #("hydra-" 0 6 (face font-lock-type-face)) #("ora-open-line" 0 13 (face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -541,7 +536,7 @@ Return ip info from ipinfo.io for IP.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '("ora-" "hydra-marked-items")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '(#("ora-" 0 4 (fontified nil)) #("hydra-marked-items" 0 18 (face font-lock-type-face fontified t)))))
 
 ;;;***
 
@@ -609,9 +604,12 @@ Return ip info from ipinfo.io for IP.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-elisp.el
 
-(autoload 'ora-emacs-lisp-hook "modes/ora-elisp" nil nil nil)
+(autoload 'ora-emacs-lisp-hook "modes/ora-elisp" "\
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elisp" '("conditionally-enable-lispy" "lisp--match-hidden-arg" "ora-")))
+
+\(fn)" nil nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elisp" '("ora-" "conditionally-enable-lispy" "lisp--match-hidden-arg")))
 
 ;;;***
 
@@ -691,7 +689,7 @@ Open or move eshell in `default-directory'.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eww" '("ora--eww-reader-scale" "eww-view-ace")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eww" '(#("ora-" 0 4 (fontified t face font-lock-function-name-face)) #("eww-view-ace" 0 12 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
@@ -757,7 +755,7 @@ But don't look beyond what's visible on the screen.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-haskell" '("ora-haskell-co")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-haskell" '(#("ora-haskell-co" 0 14 (fontified t face font-lock-function-name-face)))))
 
 ;;;***
 
@@ -943,7 +941,7 @@ Call `j-console' and setup shortcuts.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-lisp" '("ora-slime-completion-in-region")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-lisp" '(#("ora-slime-completion-in-region" 0 30 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
@@ -1037,7 +1035,7 @@ Transform Elisp-style code references to Markdown-style.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-mu4e" '(#("ora-mml-attach-file" 0 19 (face font-lock-function-name-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-mu4e" '("ora-mml-attach-file")))
 
 ;;;***
 
@@ -1384,12 +1382,11 @@ Transform Elisp-style code references to Markdown-style.
 ;;;### (autoloads nil "packages" "packages.el" (0 0 0 0))
 ;;; Generated autoloads from packages.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "packages" '("ora-packages")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "packages" '(#("ora-packages" 0 12 (face font-lock-variable-name-face fontified t)) #("emacs-d" 0 7 (face font-lock-variable-name-face fontified t)))))
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-keepassxc.el")
-;;;;;;  (0 0 0 0))
+;;;### (autoloads nil nil ("modes/ora-keepassxc.el") (0 0 0 0))
 
 ;;;***
 
@@ -1397,13 +1394,25 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from git/org-fu/org-fu.el
 
-(autoload 'orfu-agenda-quick "git/org-fu/org-fu" nil t nil)
+(autoload 'orfu-agenda-quick "git/org-fu/org-fu" "\
 
-(autoload 'orfu-agenda-office "git/org-fu/org-fu" nil t nil)
 
-(autoload 'orfu-agenda-day "git/org-fu/org-fu" nil t nil)
+\(fn)" t nil)
 
-(autoload 'orfu-agenda-articles "git/org-fu/org-fu" nil t nil)
+(autoload 'orfu-agenda-office "git/org-fu/org-fu" "\
+
+
+\(fn)" t nil)
+
+(autoload 'orfu-agenda-day "git/org-fu/org-fu" "\
+
+
+\(fn)" t nil)
+
+(autoload 'orfu-agenda-articles "git/org-fu/org-fu" "\
+
+
+\(fn)" t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git/org-fu/org-fu" '("orfu-")))
 
