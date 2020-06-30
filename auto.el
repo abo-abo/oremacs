@@ -1,15 +1,5 @@
 ;;* Navigation
 ;;;###autoload
-(defun ora-para-up (arg)
-  (interactive "p")
-  (if (bolp)
-      (progn
-        (forward-line -1)
-        (backward-paragraph arg)
-        (forward-line 1))
-    (line-move (- arg))))
-
-;;;###autoload
 (defun ora-move-beginning-of-line ()
   (interactive)
   (if (bolp)

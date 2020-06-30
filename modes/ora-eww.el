@@ -15,6 +15,15 @@
         (forward-line 1))
     (line-move arg)))
 
+(defun ora-para-up (arg)
+  (interactive "p")
+  (if (bolp)
+      (progn
+        (forward-line -1)
+        (backward-paragraph arg)
+        (forward-line 1))
+    (line-move (- arg))))
+
 (define-key eww-mode-map "j" 'ora-para-down)
 (define-key eww-mode-map "k" 'ora-para-up)
 (define-key eww-mode-map "l" 'forward-char)

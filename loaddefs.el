@@ -3,11 +3,6 @@
 ;;;### (autoloads nil "auto" "auto.el" (0 0 0 0))
 ;;; Generated autoloads from auto.el
 
-(autoload 'ora-para-up "auto" "\
-
-
-\(fn ARG)" t nil)
-
 (autoload 'ora-move-beginning-of-line "auto" "\
 
 
