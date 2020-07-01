@@ -110,23 +110,6 @@
         (setq start (match-end 0)))
       (nreverse res))))
 
-;;;###autoload
-(defun ora-occur ()
-  "Call `occur' with a sane default."
-  (interactive)
-  (push (ora-region-str-or-symbol) regexp-history)
-  (call-interactively 'occur))
-
-(defun ora-region-str-or-symbol ()
-  "Return the contents of region or current symbol."
-  (if (region-active-p)
-      (buffer-substring-no-properties
-       (region-beginning)
-       (region-end))
-    (let ((sym (thing-at-point 'symbol)))
-      (when (stringp sym)
-        (regexp-quote sym)))))
-
 (defvar ora-qr-beg nil
   "Placeholder for query start.")
 

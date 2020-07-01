@@ -28,11 +28,6 @@
 
 \(fn)" t nil)
 
-(autoload 'ora-occur "auto" "\
-Call `occur' with a sane default.
-
-\(fn)" t nil)
-
 (autoload 'ora-query-replace-regex "auto" "\
 
 
@@ -331,7 +326,7 @@ Return ip info from ipinfo.io for IP.
 
 \(fn IP)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("ora-" 0 4 (face font-lock-function-name-face)) #("dbg" 0 3 (face font-lock-function-name-face)) "show-message" "char-upcasep" #("bmk/remote-shell" 0 16 (face font-lock-function-name-face)) "re-seq")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("ora-" 0 4 (face font-lock-function-name-face)) "dbg" "show-message" "char-upcasep" "bmk/remote-shell" #("re-seq" 0 6 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
@@ -1381,7 +1376,8 @@ Transform Elisp-style code references to Markdown-style.
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-keepassxc.el") (0 0 0 0))
+;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-keepassxc.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
