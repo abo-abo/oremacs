@@ -177,17 +177,6 @@ When ARG is non-nil launch `query-replace-regexp'."
                  (replace-match to)))))))
 
 ;;;###autoload
-(defun og (string directory)
-  "Search using ag in a given DIRECTORY for a given search STRING,
-with STRING defaulting to the symbol under point.
-
-If called with a prefix, prompts for flags to pass to ag."
-  (interactive (list (read-from-minibuffer "Search string: ")
-                     (read-directory-name "Directory: ")))
-  (require 'ag)
-  (ag/search string directory))
-
-;;;###autoload
 (defun ora-unfill-paragraph ()
   "Transform a paragraph into a single line."
   (interactive)
