@@ -163,11 +163,7 @@
         (goto-char (point-max))
         (delete-region (comint-line-beginning-position) (point))
         (insert (format "cd %s" (shell-quote-argument current-dir)))
-        (call-interactively 'comint-send-input))
-      ;; (term-send-string
-      ;;  (ora-terminal)
-      ;;  (format "cd '%s'\n" current-dir))
-      )
+        (call-interactively 'comint-send-input)))
     (setq default-directory current-dir)))
 
 

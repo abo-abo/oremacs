@@ -44,14 +44,6 @@ When ARG is non-nil launch `query-replace-regexp'.
 
 \(fn ARG)" t nil)
 
-(autoload 'og "auto" "\
-Search using ag in a given DIRECTORY for a given search STRING,
-with STRING defaulting to the symbol under point.
-
-If called with a prefix, prompts for flags to pass to ag.
-
-\(fn STRING DIRECTORY)" t nil)
-
 (autoload 'ora-unfill-paragraph "auto" "\
 Transform a paragraph into a single line.
 
@@ -59,11 +51,6 @@ Transform a paragraph into a single line.
 
 (autoload 'ora-ctrltab "auto" "\
 List buffers and give it focus.
-
-\(fn)" t nil)
-
-(autoload 'ora-terminal "auto" "\
-Switch to terminal. Launch if nonexistent.
 
 \(fn)" t nil)
 
@@ -526,7 +513,7 @@ Return ip info from ipinfo.io for IP.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '(#("ora-" 0 4 (fontified nil)) #("hydra-marked-items" 0 18 (face font-lock-type-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-dired" '("ora-" #("hydra-marked-items" 0 18 (face font-lock-type-face fontified t)))))
 
 ;;;***
 

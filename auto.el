@@ -203,20 +203,6 @@ When ARG is non-nil launch `query-replace-regexp'."
     (forward-line)))
 
 ;;;###autoload
-(defun ora-terminal ()
-  "Switch to terminal. Launch if nonexistent."
-  (interactive)
-  (let ((term-buffer (if (eq system-type 'windows-nt)
-                         "*shell*"
-                       "*ansi-term*")))
-    (if (get-buffer term-buffer)
-        (switch-to-buffer term-buffer)
-      (if (eq system-type 'windows-nt)
-          (shell)
-        (ansi-term "/bin/bash")))
-    (get-buffer-process term-buffer)))
-
-;;;###autoload
 (defun ora-goto-hook-file ()
   "Opens hooks.el at point specific to current `major-mode'"
   (interactive)
