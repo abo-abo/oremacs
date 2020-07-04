@@ -89,11 +89,6 @@ Useful to completely revert an `org-mode' file.
 
 \(fn &optional B E)" t nil)
 
-(autoload 'ora-reinit-semantic "auto" "\
-
-
-\(fn)" t nil)
-
 (autoload 'ora-nw-yank "auto" "\
 
 
@@ -313,7 +308,7 @@ Return ip info from ipinfo.io for IP.
 
 \(fn IP)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("ora-" 0 4 (face font-lock-function-name-face)) "dbg" "show-message" "char-upcasep" "bmk/remote-shell" #("re-seq" 0 6 (face font-lock-function-name-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '(#("ora-" 0 4 (fontified t face font-lock-function-name-face)) "dbg" "show-message" "char-upcasep" #("bmk/remote-shell" 0 16 (face font-lock-function-name-face fontified t)) #("re-seq" 0 6 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 

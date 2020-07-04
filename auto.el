@@ -337,17 +337,6 @@ When ARG is non-nil launch `query-replace-regexp'."
   (shell-command-on-region b e "toilet" (current-buffer) t))
 
 ;;;###autoload
-(defun ora-reinit-semantic ()
-  (interactive)
-  (goto-char (point-min))
-  (search-forward "(defconst semantic-c-by--keyword-table")
-  (eval-defun nil)
-  (search-forward "(defconst semantic-c-by--token-table")
-  (eval-defun nil)
-  (search-forward "(defconst semantic-c-by--parse-table")
-  (eval-defun nil))
-
-;;;###autoload
 (defun ora-nw-yank ()
   (interactive)
   (shell-command-on-region (point) (point) "xsel" (current-buffer) t))
