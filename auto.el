@@ -341,13 +341,6 @@ When ARG is non-nil launch `query-replace-regexp'."
   (interactive)
   (shell-command-on-region (point) (point) "xsel" (current-buffer) t))
 
-;;;###autoload
-(defun ora-install-gcl ()
-  (interactive)
-  (shell-command
-   (format "cd \"%setc/\" && wget http://gnu.xl-mirror.nl/gcl/gcl.info.tgz && tar xzf gcl.info.tgz && rm -f gcl.info.tgz"
-           emacs-d)))
-
 ;;* Bookmarks
 ;;;###autoload
 (defun bmk/magit-status ()
