@@ -362,16 +362,25 @@ When ARG is non-nil launch `query-replace-regexp'."
    (get-buffer-create "*scratch*"))
   (lisp-interaction-mode))
 
+(defun ora-remote-hosts ()
+  (require 'tramp)
+  (let ((default-directory "~"))
+    (delq nil (mapcar
+               (lambda (x) (and x (cdr x) (cadr x)))
+               (tramp-parse-sconfig "~/.ssh/config")))))
+
 (defun bmk/remote-shell ()
   (interactive)
-  (require 'tramp)
-  (let ((hosts (delq nil (mapcar
-                          (lambda (x) (and x (cdr x) (cadr x)))
-                          (tramp-parse-sconfig "~/.ssh/config")))))
-    (ivy-read "ssh: " hosts
-              :action (lambda (h)
-                        (dired (concat "/ssh:" h ":/"))
+  (ivy-read "ssh: " (ora-remote-hosts)
+            :action (lambda (h)
+                      (let ((default-directory (concat "/ssh:" h ":/")))
                         (ora-dired-open-term)))))
+
+(defun bmk/remote-dired ()
+  (interactive)
+  (ivy-read "ssh: " (ora-remote-hosts)
+            :action (lambda (h)
+                      (dired (concat "/ssh:" h ":/")))))
 
 ;;;###autoload
 (defun bmk/function (bookmark)
