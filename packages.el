@@ -54,6 +54,7 @@
     (iedit :host github :repo "abo-abo/iedit")
     ivy-hydra
     j-mode
+    ;; depends on 'cl
     jedi
     lispy
     lsp-mode
@@ -79,8 +80,10 @@
     slime
     (smex :host github :repo "abo-abo/smex")
     tea-time
+    (touchpad :host github :repo "abo-abo/touchpad")
     transpose-frame
     ukrainian-holidays
+    ;; depends on 'cl
     unicode-fonts
     use-package
     wgrep
