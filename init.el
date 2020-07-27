@@ -5,6 +5,7 @@
    (file-chase-links load-file-name))
   "The giant turtle on which the world rests.")
 (setq ora-startup-time-tic (current-time))
+(setq byte-compile-warnings '(cl-functions))
 (let ((emacs-git (expand-file-name "git/" emacs-d)))
   (mapc (lambda (x)
           (add-to-list 'load-path (expand-file-name x emacs-git)))
