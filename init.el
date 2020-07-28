@@ -21,7 +21,8 @@
 (if t
     (require 'ora-straight)
   (setq package-user-dir (expand-file-name "elpa" emacs-d))
-  (package-initialize))
+  (when (< emacs-major-version 27)
+    (package-initialize)))
 
 ;;* Font
 (defun ora-set-font (&optional frame)
