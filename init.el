@@ -254,6 +254,7 @@
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
   (lispy-flet (process-list ()) ad-do-it))
+(setq confirm-kill-processes nil)
 (defadvice custom-theme-load-confirm (around no-query-safe-thme activate)
   t)
 (use-package dired
