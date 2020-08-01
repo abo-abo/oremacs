@@ -2,6 +2,7 @@
 (require 'dired-x)
 (require 'dired-aux)
 (require 'term)
+(require 'tramp)
 
 ;;* set
 (ora-advice-add 'dired-internal-noselect :filter-args 'ora-dired-internal-noselect)
