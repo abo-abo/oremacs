@@ -6,6 +6,7 @@
 (defun ora-shell-hook ())
 
 (define-key shell-mode-map (kbd "C-r") 'counsel-shell-history)
+(define-key shell-mode-map (kbd "C-k") 'ora-shell-kill-line)
 
 (ora-advice-add 'ansi-color-apply-on-region :before 'ora-ansi-color-apply-on-region)
 
@@ -39,5 +40,23 @@ Display progress in the mode line instead."
    (replace-regexp-in-string
     "%" "%%"
     (ansi-color-apply progress))))
+
+(defun ora-shell-kill-line ()
+  (interactive)
+  (let ((offset (- (point) (line-beginning-position)))
+        (str (buffer-substring-no-properties
+              (line-beginning-position)
+              (point-max))))
+    (delete-region
+     (line-beginning-position)
+     (point-max))
+    (insert
+     (with-temp-buffer
+       (python-mode)
+       (insert str)
+       (goto-char (1+ offset))
+       (lpy-kill-line)
+       (buffer-string)))
+    (goto-char (+ offset (line-beginning-position)))))
 
 (provide 'ora-shell)
