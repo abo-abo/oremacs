@@ -42,6 +42,8 @@ Display progress in the mode line instead."
     (ansi-color-apply progress))))
 
 (defun ora-shell-kill-line ()
+  "When in a string, kill until the end of string.
+Otherwise, behave like `kill-line'."
   (interactive)
   (let ((offset (- (point) (line-beginning-position)))
         (str (buffer-substring-no-properties
