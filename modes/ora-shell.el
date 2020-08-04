@@ -31,11 +31,6 @@ Display progress in the mode line instead."
             (ora-apt-progress-message progress)))))))
 
 (defun ora-apt-progress-message (progress)
-  ;; (setq mode-line-process
-  ;;       (if (string-match "Progress: \\[ *\\([0-9]+\\)%\\]" progress)
-  ;;           (list (concat ":%s " (match-string 1 progress) "%%%% "))
-  ;;         '(":%s")))
-  ;; (force-mode-line-update)
   (message
    (replace-regexp-in-string
     "%" "%%"
