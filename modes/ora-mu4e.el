@@ -5,7 +5,6 @@
 (setq mu4e-maildir "~/mail/work")
 (setq mu4e-html2text-command (whicher "w3m -T text/html"))
 (setq mu4e-drafts-folder "/Drafts")
-(setq mu4e-sent-folder "/Sent Items")
 (setq mu4e-trash-folder "/Trash")
 (setq mu4e-get-mail-command (whicher "mbsync -a"))
 (setq message-kill-buffer-on-exit t)
@@ -24,15 +23,6 @@
 
 ;; don't save message to Sent Messages, IMAP server takes care of that
 (setq mu4e-sent-messages-behavior 'delete)
-
-;; setup some handy shortcuts
-;; you can quickly switch to your Inbox -- press ``ji''
-;; then, when you want archive some messages, move them to
-;; the 'All Mail' folder by pressing ``ma''.
-(setq mu4e-maildir-shortcuts
-      '(("/INBOX" . ?i)
-        ("/Archive" . ?a)
-        ("/Trash" . ?t)))
 
 (define-key mu4e-compose-mode-map (kbd "C-M-i") nil)
 (define-key mu4e-compose-mode-map (kbd "C-c C-a") 'ora-mml-attach-file)
