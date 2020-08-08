@@ -7,4 +7,5 @@
 ;;;###autoload
 (defun ora-rust-hook ())
 
+(require 'pora-rust nil t)
 (provide 'ora-rust)
