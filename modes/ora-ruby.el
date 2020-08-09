@@ -54,3 +54,5 @@
     (error (progn
              (ora-ruby-up)
              (ruby-beginning-of-block)))))
+
+(require 'pora-ruby nil t)
