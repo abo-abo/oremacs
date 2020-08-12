@@ -604,10 +604,7 @@ But don't look beyond what's visible on the screen.
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-groovy.el
 
-(autoload 'ora-groovy-hook "modes/ora-groovy" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-groovy-hook "modes/ora-groovy" nil nil nil)
 
 ;;;***
 
@@ -615,12 +612,9 @@ But don't look beyond what's visible on the screen.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-haskell.el
 
-(autoload 'ora-haskell-hook "modes/ora-haskell" "\
+(autoload 'ora-haskell-hook "modes/ora-haskell" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-haskell" '(#("ora-haskell-co" 0 14 (fontified t face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-haskell" '("ora-haskell-co")))
 
 ;;;***
 
@@ -732,7 +726,7 @@ Threat is as function body when from endline before )
 ;;;### (autoloads nil "modes/ora-ivy" "modes/ora-ivy.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ivy.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '("ora-" "ivy-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ivy" '("ivy-" "ora-")))
 
 ;;;***
 
@@ -1085,10 +1079,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-ruby.el
 
-(autoload 'ora-ruby-hook "modes/ora-ruby" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-ruby-hook "modes/ora-ruby" nil nil nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-ruby" '("ora-ruby-")))
 
@@ -1098,10 +1089,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-rust.el
 
-(autoload 'ora-rust-hook "modes/ora-rust" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-rust-hook "modes/ora-rust" nil nil nil)
 
 ;;;***
 
@@ -1140,12 +1128,9 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-shell.el
 
-(autoload 'ora-shell-hook "modes/ora-shell" "\
+(autoload 'ora-shell-hook "modes/ora-shell" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-shell" '("ora-a")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-shell" '("ora-")))
 
 ;;;***
 
@@ -1164,19 +1149,6 @@ Transform Elisp-style code references to Markdown-style.
 
 
 \(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads nil "modes/ora-somafm" "modes/ora-somafm.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from modes/ora-somafm.el
-
-(autoload 'somafm "modes/ora-somafm" "\
-
-
-\(fn)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-somafm" '(#("somafm-kill" 0 11 (face font-lock-function-name-face fontified t)))))
 
 ;;;***
 
@@ -1254,25 +1226,13 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from git/org-fu/org-fu.el
 
-(autoload 'orfu-agenda-quick "git/org-fu/org-fu" "\
+(autoload 'orfu-agenda-quick "git/org-fu/org-fu" nil t nil)
 
+(autoload 'orfu-agenda-office "git/org-fu/org-fu" nil t nil)
 
-\(fn)" t nil)
+(autoload 'orfu-agenda-day "git/org-fu/org-fu" nil t nil)
 
-(autoload 'orfu-agenda-office "git/org-fu/org-fu" "\
-
-
-\(fn)" t nil)
-
-(autoload 'orfu-agenda-day "git/org-fu/org-fu" "\
-
-
-\(fn)" t nil)
-
-(autoload 'orfu-agenda-articles "git/org-fu/org-fu" "\
-
-
-\(fn)" t nil)
+(autoload 'orfu-agenda-articles "git/org-fu/org-fu" nil t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git/org-fu/org-fu" '("orfu-")))
 
