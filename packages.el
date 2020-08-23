@@ -6,42 +6,43 @@
    (file-chase-links load-file-name)))
 
 (defconst ora-packages
-  '(avy
-    ace-link
+  ;; (cl-sort . #'string< :key (lambda (x) (symbol-name (if (consp x) (car x) x))))
+  '(ace-link
     ace-popup-menu
     ace-window
-    async
     alert
+    async
     auctex
     auto-compile
     auto-yasnippet
+    avy
     bash-completion
     bbdb
-    elf-mode
-    elfeed
-    (eltex :host github :repo "abo-abo/eltex")
-    eglot
-    evil
-    exec-path-from-shell
-    cmake-mode
+    ccls
     cider
+    (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
+    cmake-mode
     command-log-mode
     company
     company-jedi
     counsel
     (counsel-keepassxc :host github :repo "tangxinfa/counsel-keepassxc")
-    ccls
-    (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
     define-word
     diminish
     dired-rsync
-    dockerfile-mode
     docker
     docker-tramp
+    dockerfile-mode
     eclipse-theme
+    eglot
+    elf-mode
+    elfeed
+    (eltex :host github :repo "abo-abo/eltex")
+    evil
+    exec-path-from-shell
     find-file-in-project
-    flycheck
     flx
+    flycheck
     function-args
     geiser
     (google-c-style :host github :repo "google/styleguide" :branch "gh-pages")
@@ -54,11 +55,11 @@
     (iedit :host github :repo "abo-abo/iedit")
     ivy-hydra
     j-mode
-    ;; depends on 'cl
     jedi
     lispy
-    lsp-mode
+    (lpy :host github :repo "abo-abo/lpy")
     lsp-java
+    lsp-mode
     magit
     make-it-so
     markdown-mode
@@ -70,10 +71,10 @@
     org-parser
     (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
     package-lint
-    projectile
     plain-org-wiki
     posframe
     powerline
+    projectile
     rainbow-mode
     request
     rust-mode
@@ -83,15 +84,13 @@
     (touchpad :host github :repo "abo-abo/touchpad")
     transpose-frame
     ukrainian-holidays
-    ;; depends on 'cl
     unicode-fonts
     use-package
     wgrep
     which-key
     worf
     yaml-mode
-    yasnippet
-    (lpy :host github :repo "abo-abo/lpy"))
+    yasnippet)
   "List of packages that I like.")
 
 (let* ((all-pkgs (mapcar
