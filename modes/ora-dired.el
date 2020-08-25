@@ -32,26 +32,7 @@
 (setq dired-garbage-files-regexp
       "\\.idx\\|\\.run\\.xml$\\|\\.bbl$\\|\\.bcf$\\|.blg$\\|-blx.bib$\\|.nav$\\|.snm$\\|.out$\\|.synctex.gz$\\|\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|pyg\\)\\)\\'")
 (setq dired-dwim-target t)
-(setq dired-guess-shell-alist-user
-      '(("\\.pdf\\'" "evince" "okular")
-        ("\\.xml\\'"
-         (format "xmllint --format %s --output %s" file file))
-        ("\\.\\(?:djvu\\|eps\\)\\'" "evince")
-        ("\\.\\(?:jpg\\|jpeg\\|png\\|svg\\|gif\\|tiff\\|xpm\\|bmp\\)\\'" "eog")
-        ("\\.\\(?:xcf\\)\\'" "gimp")
-        ("\\.csv\\'" "libreoffice")
-        ("\\.tex\\'" "pdflatex" "latex")
-        ("\\.\\(?:mp4\\|mkv\\|avi\\|flv\\|ogv\\|ifo\\|m4v\\|wmv\\|webm\\)\\(?:\\.part\\)?\\'"
-         "vlc")
-        ("\\.\\(?:mp3\\|flac\\|wv\\)\\'" "rhythmbox")
-        ("\\.html?\\'" "firefox")
-        ("\\.cue?\\'" "audacious")
-        ("\\.\\(?:pptx?\\|od[ts]\\|xls[xbm]?\\|docx?\\)\\'" "libreoffice")
-        ("\\.\\(?:zip\\|tgz\\|tar.gz\\)\\'" "file-roller")
-        ("\\.epub\\'" "calibre")
-        ("\\.json\\'" "python -m json.tool > indented.json")
-        ("\\.\\'" "nautilus")
-        ("\\.py\\'" "autopep8 -i")))
+(require 'dired-guess)
 
 ;;* advice
 (defadvice dired-advertised-find-file (around ora-dired-subst-directory activate)
@@ -100,40 +81,6 @@
         (message (match-string 1 res))
       (error "unexpected output %s" res))))
 
-(defvar ora-dired-filelist-cmd
-  '(("vlc" "-L")))
-
-(defun ora-dired-start-process (cmd &optional file-list)
-  (interactive
-   (let ((files (dired-get-marked-files t nil)))
-     (list
-      (cond ((memq system-type '(windows-nt cygwin))
-             nil)
-            (current-prefix-arg
-             (dired-read-shell-command "& on %s: " nil files))
-            (t
-             (let ((prog (dired-guess-default files)))
-               (if (consp prog)
-                   (car prog)
-                 prog))))
-      files)))
-  (if (eq system-type 'windows-nt)
-      (dolist (file file-list)
-        (w32-shell-execute "open" (expand-file-name file)))
-    (when (eq system-type 'cygwin)
-      (setq cmd "cygstart"))
-    (let (list-switch)
-      (start-process
-       cmd nil shell-file-name
-       shell-command-switch
-       (format
-        "nohup 1>/dev/null 2>/dev/null %s %s"
-        (if (and (> (length file-list) 1)
-                 (setq list-switch
-                       (cadr (assoc cmd ora-dired-filelist-cmd))))
-            (format "%s %s" cmd list-switch)
-          cmd)
-        (mapconcat #'shell-quote-argument file-list " "))))))
 (setq tramp-use-ssh-controlmaster-options nil)
 (setq tramp-verbose 1)
 ;; (setq tramp-ssh-controlmaster-options
@@ -200,7 +147,7 @@ Number of marked items: %(length (dired-get-marked-files))
       (error "no more than 2 files should be marked"))))
 
 ;;* bind and hook
-(define-key dired-mode-map "r" 'ora-dired-start-process)
+(define-key dired-mode-map "r" 'dig-start)
 (define-key dired-mode-map "e" 'ora-ediff-files)
 
 (define-key dired-mode-map (kbd "C-t") nil)
