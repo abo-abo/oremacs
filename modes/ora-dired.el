@@ -82,6 +82,8 @@
       (error "unexpected output %s" res))))
 
 (setq tramp-use-ssh-controlmaster-options nil)
+;; (setq tramp-remote-process-environment
+;;       (delete "ENV=''" tramp-remote-process-environment))
 (setq tramp-verbose 1)
 ;; (setq tramp-ssh-controlmaster-options
 ;;       "-o ControlMaster=auto -o ControlPath='~/.ssh/controlmasters/%%r@%%h:%%p' -o ControlPersist=600")
