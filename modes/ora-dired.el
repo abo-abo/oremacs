@@ -254,7 +254,7 @@ Number of marked items: %(length (dired-get-marked-files))
       (dired-jump nil archive-file)
       (dired-find-file))))
 
-(defun ora-shell-command-sentinel (process signal)
+(defun ora-shell-command-sentinel (process _signal)
   (when (memq (process-status process) '(exit signal))
     (advice-remove 'shell-command-sentinel 'ora-shell-command-sentinel)
     (message (with-current-buffer (process-buffer process)
