@@ -268,8 +268,7 @@
 (use-package helm-make
   :commands (helm-make helm-make-projectile)
   :config (setq helm-make-completion-method 'ivy))
-(setq abbrev-file-name
-      (concat emacs-d "personal/abbrev_defs"))
+(setq abbrev-file-name (expand-file-name "personal/lists/abbrev_defs" emacs-d))
 (use-package flyspell
   :commands flyspell-mode
   :config (require 'ora-flyspell))

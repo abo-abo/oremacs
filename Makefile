@@ -9,10 +9,10 @@ profile:
 	-f profile-dotemacs
 
 install: upgrade
-	cd $(BASEDIR) && mkdir -p personal
+	cd $(BASEDIR) && mkdir -p personal/lists
 	yes n | cp -i etc/init-template.el personal/personal-init.el
 	yes n | cp -i etc/ispell_dict personal/ispell_dict
-	yes n | cp -i etc/abbrev_defs personal/abbrev_defs
+	yes n | cp -i etc/abbrev_defs personal/lists/abbrev_defs
 	yes n | cp -ri etc/org .
 	make run
 
