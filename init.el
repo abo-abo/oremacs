@@ -246,9 +246,7 @@
 ;;** windows
 (require 'ora-avy)
 ;;** rest
-(require 'hydra)
-(setq hydra--work-around-dedicated nil)
-(hydra-add-font-lock)
+(require 'ora-hydra)
 (require 'hooks)
 (require 'ora-elisp)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
