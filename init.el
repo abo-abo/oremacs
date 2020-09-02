@@ -88,7 +88,7 @@
 (setq x-selection-timeout 10)
 ;; improves copying from a ssh -X Emacs.
 (setq x-selection-timeout 100)
-(csetq lpr-command "gtklp")
+(csetq lpr-command (whicher "gtklp"))
 ;;** internals
 (csetq gc-cons-threshold (* 10 1024 1024))
 (csetq ad-redefinition-action 'accept)
