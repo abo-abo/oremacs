@@ -96,11 +96,6 @@
 (csetq display-time-24hr-format t)
 (csetq display-time-default-load-average nil)
 (csetq display-time-format "")
-;;** email
-(csetq send-mail-function 'smtpmail-send-it)
-(csetq smtpmail-auth-credendials (expand-file-name "~/.authinfo"))
-(csetq smtpmail-smtp-server "smtp.gmail.com")
-(csetq smtpmail-smtp-service 587)
 ;;** Rest
 (csetq browse-url-browser-function 'browse-url-firefox)
 (csetq browse-url-firefox-program "firefox")

@@ -1,5 +1,11 @@
 (require 'whicher)
 (require 'ora-smime)
+
+(csetq send-mail-function 'smtpmail-send-it)
+(csetq smtpmail-auth-credendials (expand-file-name "~/.authinfo"))
+(csetq smtpmail-smtp-server "smtp.gmail.com")
+(csetq smtpmail-smtp-service 587)
+
 (use-package mu4e
   :load-path "~/git/_Emacs/mu/mu4e")
 (setq mu4e-maildir "~/mail/work")
