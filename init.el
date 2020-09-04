@@ -98,7 +98,7 @@
 (csetq display-time-format "")
 ;;** Rest
 (csetq browse-url-browser-function 'browse-url-firefox)
-(csetq browse-url-firefox-program "firefox")
+(csetq browse-url-firefox-program (whicher "firefox"))
 ;;*** Backups
 (setq backup-by-copying t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
