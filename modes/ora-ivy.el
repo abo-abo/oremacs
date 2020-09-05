@@ -3,6 +3,7 @@
 (require 'ivy-hydra)
 (require 'ivy-avy)
 (require 'counsel)
+(ivy-mode 1)
 (csetq ivy-display-style 'fancy)
 ;; (csetq ivy-count-format "(%d/%d) ")
 (csetq ivy-use-virtual-buffers t)

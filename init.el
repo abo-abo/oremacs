@@ -146,7 +146,6 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (use-package diminish)
 (require 'ora-ivy)
-(ivy-mode 1)
 (setq hippie-expand-verbose nil)
 (blink-cursor-mode -1)
 (add-to-list 'auto-mode-alist '("\\.tex\\'" . TeX-latex-mode))
