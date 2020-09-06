@@ -13,7 +13,6 @@
    (shell . t)
    (python . t)
    (emacs-lisp . t)
-   (matlab . t)
    (latex . t)
    (C . t)
    (J . t)

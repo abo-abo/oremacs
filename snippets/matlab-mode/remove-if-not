@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: map
-# key: f
-# --
-remove_if_not (@(x) $0, $1)
