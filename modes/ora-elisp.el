@@ -1,5 +1,12 @@
 (require 'ora-elisp-style-guide)
 
+(remove-hook 'post-self-insert-hook 'blink-paren-post-self-insert-function)
+(csetq eval-expression-print-length nil)
+(csetq eval-expression-print-level nil)
+(setq print-gensym nil)
+(setq print-circle nil)
+(setq byte-compile--use-old-handlers nil)
+
 ;;* Misc
 ;;;###autoload
 (defun ora-emacs-lisp-hook ()

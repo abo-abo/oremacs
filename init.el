@@ -78,12 +78,6 @@
 (setq kill-buffer-query-functions nil)
 (add-hook 'server-switch-hook 'raise-frame)
 (defadvice set-window-dedicated-p (around no-dedicated-windows activate))
-(remove-hook 'post-self-insert-hook 'blink-paren-post-self-insert-function)
-(csetq eval-expression-print-length nil)
-(csetq eval-expression-print-level nil)
-(setq print-gensym nil)
-(setq print-circle nil)
-(setq byte-compile--use-old-handlers nil)
 ;; http://debbugs.gnu.org/cgi/bugreport.cgi?bug=16737
 (setq x-selection-timeout 10)
 ;; improves copying from a ssh -X Emacs.
