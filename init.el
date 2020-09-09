@@ -121,9 +121,6 @@
 ;;** global minor modes
 (global-auto-revert-mode 1)
 (setq auto-revert-verbose nil)
-(when (fboundp 'global-eldoc-mode) (global-eldoc-mode -1))
-(defun eldoc-mode (&rest _))
-(show-paren-mode 1)
 (winner-mode 1)
 (remove-hook 'minibuffer-setup-hook 'winner-save-unconditionally)
 (use-package recentf

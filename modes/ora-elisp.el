@@ -7,6 +7,10 @@
 (setq print-circle nil)
 (setq byte-compile--use-old-handlers nil)
 
+(when (fboundp 'global-eldoc-mode) (global-eldoc-mode -1))
+(defun eldoc-mode (&rest _))
+(show-paren-mode 1)
+
 ;;* Misc
 ;;;###autoload
 (defun ora-emacs-lisp-hook ()
