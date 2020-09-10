@@ -224,9 +224,8 @@
 (require 'bookmark)
 (setq bookmark-completion-ignore-case nil)
 (bookmark-maybe-load-default-file)
-;;** windows
-(require 'ora-avy)
 ;;** rest
+(require 'ora-avy)
 (require 'ora-hydra)
 (require 'hooks)
 (require 'ora-elisp)
