@@ -292,8 +292,6 @@
   :diminish compilation-in-progress
   :config
   (setq compilation-ask-about-save nil)
-  ;; (setq compilation-scroll-output 'next-error)
-  ;; (setq compilation-skip-threshold 2)
   (assq-delete-all 'compilation-in-progress mode-line-modes))
 (use-package ace-popup-menu
   :config (ace-popup-menu-mode))
