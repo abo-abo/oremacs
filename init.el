@@ -103,7 +103,8 @@
   (require 'eclipse-theme)
   (load-theme 'eclipse t)
   (require 'use-package)
-  (require 'smex))
+  (require 'smex)
+  (require 'warnings))
 ;;* Modes
 ;;** global minor modes
 (global-auto-revert-mode 1)
@@ -152,7 +153,6 @@
 ;;** expansion
 (use-package tiny
   :commands tiny-expand)
-(require 'warnings)
 (use-package yasnippet
   :diminish yas-minor-mode
   :config
