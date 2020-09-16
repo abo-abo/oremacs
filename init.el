@@ -16,14 +16,12 @@
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/modes/" emacs-d))
 (setq enable-local-variables :all)
-
 ;;* straight.el
 (if t
     (require 'ora-straight)
   (setq package-user-dir (expand-file-name "elpa" emacs-d))
   (when (< emacs-major-version 27)
     (package-initialize)))
-
 ;;* Font
 (require 'ora-fonts)
 ;;* Customize
@@ -273,8 +271,6 @@
               (unless (file-remote-p project)
                 (file-directory-p (concat project "/.git/"))))
             (projectile-relevant-known-projects))))))
-(use-package ace-link
-  :config (ace-link-setup-default))
 (use-package compile
   :diminish compilation-in-progress
   :config

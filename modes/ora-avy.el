@@ -1,3 +1,5 @@
+(use-package ace-link
+  :config (ace-link-setup-default))
 ;;* Ace Window
 (require 'ace-window)
 (csetq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
