@@ -1,5 +1,7 @@
 (use-package ace-link
   :config (ace-link-setup-default))
+(use-package ace-popup-menu
+  :config (ace-popup-menu-mode))
 ;;* Ace Window
 (require 'ace-window)
 (csetq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))

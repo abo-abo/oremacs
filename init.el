@@ -276,8 +276,6 @@
   :config
   (setq compilation-ask-about-save nil)
   (assq-delete-all 'compilation-in-progress mode-line-modes))
-(use-package ace-popup-menu
-  :config (ace-popup-menu-mode))
 (use-package htmlize
   :commands htmlize-buffer)
 (lispy-mode)
