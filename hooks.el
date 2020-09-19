@@ -83,12 +83,7 @@
 (eval-after-load 'helm '(require 'ora-helm))
 (add-hook 'image-mode-hook 'ora-image-hook)
 (add-hook 'rust-mode-hook 'ora-rust-hook)
-(eval-after-load 'grep
-  '(define-key grep-mode-map (kbd "C-x C-q") 'wgrep-change-to-wgrep-mode))
-(eval-after-load 'wgrep
-  '(progn
-    (define-key grep-mode-map (kbd "C-c C-c") 'wgrep-finish-edit)
-    (setq wgrep-auto-save-buffer t)))
+(eval-after-load 'grep '(require 'ora-grep))
 (eval-after-load 'erc
   '(require 'ora-erc))
 (eval-after-load 'elfeed-search
