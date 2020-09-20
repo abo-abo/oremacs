@@ -221,7 +221,11 @@
 (defadvice custom-theme-load-confirm (around no-query-safe-thme activate)
   t)
 (use-package dired
-  :commands dired)
+  :commands dired
+  :config (setq dired-listing-switches
+                (if (memq system-type '(windows-nt darwin))
+                    "-alh"
+                  "-laGh1v --group-directories-first")))
 (use-package dired-x
   :commands dired-jump)
 (use-package helm-j-cheatsheet
