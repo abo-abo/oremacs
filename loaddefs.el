@@ -197,9 +197,6 @@ Set a custom variable, with completion." t nil)
 (autoload 'ora-recompile-startup "auto" "\
 Fix byte-compilation warnings emitted by lread.c." t nil)
 
-(autoload 'ora-firefox-io-idle "auto" "\
-Make sure Firefox doesn't use too much IO resulting in audio lag." t nil)
-
 (autoload 'ora-rhythmbox-io-best "auto" nil t nil)
 
 (autoload 'ipinfo "auto" "\
@@ -214,14 +211,14 @@ Return ip info from ipinfo.io for IP.
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '(#("cal" 0 3 (fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hooks" '("cal")))
 
 ;;;***
 
 ;;;### (autoloads nil "init" "init.el" (0 0 0 0))
 ;;; Generated autoloads from init.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '("csetq" "eldoc-mode" "emacs-d" "ora-" "yes-or-no-p")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "init" '("csetq" "emacs-d" "ora-advice-add" "yes-or-no-p")))
 
 ;;;***
 
@@ -469,12 +466,9 @@ Return ip info from ipinfo.io for IP.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-elisp.el
 
-(autoload 'ora-emacs-lisp-hook "modes/ora-elisp" "\
+(autoload 'ora-emacs-lisp-hook "modes/ora-elisp" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elisp" '("ora-" "conditionally-enable-lispy" "lisp--match-hidden-arg")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elisp" '("conditionally-enable-lispy" "eldoc-mode" "lisp--match-hidden-arg" "ora-")))
 
 ;;;***
 
@@ -569,6 +563,14 @@ But don't look beyond what's visible on the screen.
 \(fn)" t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-flyspell" '("flyspell-ignore-http-and-https")))
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-fonts" "modes/ora-fonts.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from modes/ora-fonts.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-fonts" '("ora-set-font")))
 
 ;;;***
 
@@ -1217,8 +1219,8 @@ Transform Elisp-style code references to Markdown-style.
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-keepassxc.el")
-;;;;;;  (0 0 0 0))
+;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-grep.el"
+;;;;;;  "modes/ora-hydra.el" "modes/ora-keepassxc.el") (0 0 0 0))
 
 ;;;***
 
