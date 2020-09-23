@@ -6,27 +6,6 @@
       (back-to-indentation)
     (beginning-of-line)))
 
-;;;###autoload
-(defun ora-open-file-at-point (event)
-  (interactive "e")
-  (posn-set-point (event-end event))
-  (require 'ffap)
-  (let ((f (ffap-guesser))
-        (w (cl-find-if (lambda (w)
-                         (with-current-buffer (window-buffer w)
-                           (eq major-mode 'image-mode)))
-                       (window-list)))
-        b)
-    (when f
-      (if (string-match-p "^http" f)
-          (browse-url f)
-        (setq b (find-file-noselect (expand-file-name f)))
-        (if w
-            (progn
-              (select-window w)
-              (switch-to-buffer b))
-          (pop-to-buffer b))))))
-
 (defun ora-thing-at-point ()
   (if (region-active-p)
       (buffer-substring-no-properties
