@@ -6,21 +6,6 @@
       (back-to-indentation)
     (beginning-of-line)))
 
-(defun ora-thing-at-point ()
-  (if (region-active-p)
-      (buffer-substring-no-properties
-       (region-beginning)
-       (region-end))
-    (substring-no-properties
-     (thing-at-point 'word))))
-
-;;;###autoload
-(defun ora-open-wikipedia ()
-  (interactive)
-  (browse-url
-   (format "https://wikipedia.org/wiki/%s"
-           (ora-thing-at-point))))
-
 (defun ora-backward-delete-whitespace ()
   (interactive)
   (save-match-data

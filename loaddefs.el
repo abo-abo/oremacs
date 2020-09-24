@@ -5,8 +5,6 @@
 
 (autoload 'ora-move-beginning-of-line "auto" nil t nil)
 
-(autoload 'ora-open-wikipedia "auto" nil t nil)
-
 (autoload 'ora-c-forward-sexp-function "auto" "\
 
 
