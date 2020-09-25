@@ -21,6 +21,8 @@
             (backward-kill-word 1))
         (delete-region st en)))))
 
+(require 'hideif)
+
 ;;;###autoload
 (defun ora-c-forward-sexp-function (arg)
   (if (looking-at "^#")
@@ -60,43 +62,8 @@
    :action (lambda (x) (find-file (cdr x)))))
 
 ;;* Regex
-(defun re-seq (regexp string)
-  "Return a list of matches to REGEXP in STRING."
-  (save-match-data
-    (let ((start 0)
-          res)
-      (while (string-match regexp string start)
-        (push (let ((n-matches (/ (length (match-data)) 2)))
-                (mapcar (lambda (i)
-                          (match-string i string))
-                        (number-sequence 0 (1- n-matches))))
-              res)
-        (setq start (match-end 0)))
-      (nreverse res))))
-
 (defvar ora-qr-beg nil
   "Placeholder for query start.")
-
-;;;###autoload
-(defun ora-query-replace-regex (from)
-  (interactive
-   (list
-    (read-regexp
-     "Query replace"
-     (let ((bounds (lispy--bounds-dwim)))
-       (setq ora-qr-beg (car bounds))
-       (when ora-qr-beg
-         (kill-new
-          (buffer-substring-no-properties
-           ora-qr-beg
-           (cdr bounds))))))))
-  (when ora-qr-beg
-    (goto-char ora-qr-beg)
-    (setq ora-qr-beg))
-  (deactivate-mark)
-  (query-replace-regexp
-   from
-   (query-replace-read-to from "Query replace" nil)))
 
 ;;;###autoload
 (defun ora-query-replace (from)

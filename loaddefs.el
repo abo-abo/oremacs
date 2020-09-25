@@ -12,11 +12,6 @@
 
 (autoload 'ora-project "auto" nil t nil)
 
-(autoload 'ora-query-replace-regex "auto" "\
-
-
-\(fn FROM)" t nil)
-
 (autoload 'ora-query-replace "auto" "\
 
 
@@ -197,7 +192,7 @@ Return ip info from ipinfo.io for IP.
 
 \(fn IP)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("bmk/remote-" "char-upcasep" "dbg" "ora-" "re-seq" "show-message")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("bmk/remote-" "char-upcasep" "dbg" "ora-" "show-message")))
 
 ;;;***
 
