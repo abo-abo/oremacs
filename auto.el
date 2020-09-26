@@ -268,11 +268,6 @@ When ARG is non-nil launch `query-replace-regexp'."
   (interactive "r")
   (shell-command-on-region b e "toilet" (current-buffer) t))
 
-;;;###autoload
-(defun ora-nw-yank ()
-  (interactive)
-  (shell-command-on-region (point) (point) "xsel" (current-buffer) t))
-
 ;;* Bookmarks
 ;;;###autoload
 (defun bmk/magit-status ()

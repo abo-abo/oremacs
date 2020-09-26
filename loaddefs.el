@@ -51,8 +51,6 @@ Useful to completely revert an `org-mode' file." t nil)
 
 \(fn &optional B E)" t nil)
 
-(autoload 'ora-nw-yank "auto" nil t nil)
-
 (autoload 'bmk/magit-status "auto" "\
 Bookmark for `magit-status'." t nil)
 
