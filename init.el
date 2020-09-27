@@ -174,8 +174,6 @@
             (define-key iedit-lib-keymap "\C-r" 'iedit-prev-occurrence))
   :init (setq iedit-toggle-key-default nil))
 ;;** completion
-(use-package headlong
-  :commands headlong-bookmark-jump)
 (use-package auto-complete
   :commands auto-complete-mode
   :config
@@ -205,12 +203,9 @@
   (setq uniquify-buffer-name-style 'reverse)
   (setq uniquify-separator "/")
   (setq uniquify-ignore-buffers-re "^\\*"))
-;;** bookmarks
-(require 'bookmark)
-(setq bookmark-completion-ignore-case nil)
-(bookmark-maybe-load-default-file)
 ;;** rest
 (require 'ora-avy)
+(require 'ora-bookmark)
 (require 'ora-hydra)
 (require 'hooks)
 (require 'ora-elisp)

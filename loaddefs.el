@@ -51,17 +51,6 @@ Useful to completely revert an `org-mode' file." t nil)
 
 \(fn &optional B E)" t nil)
 
-(autoload 'bmk/magit-status "auto" "\
-Bookmark for `magit-status'." t nil)
-
-(autoload 'bmk/scratch "auto" "\
-Bookmark for *scratch*." t nil)
-
-(autoload 'bmk/function "auto" "\
-Handle a function bookmark BOOKMARK.
-
-\(fn BOOKMARK)" nil nil)
-
 (autoload 'ora-ediff-buffers "auto" nil t nil)
 
 (autoload 'ora-org-to-html-to-clipboard "auto" "\
@@ -190,7 +179,7 @@ Return ip info from ipinfo.io for IP.
 
 \(fn IP)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("bmk/remote-" "char-upcasep" "dbg" "ora-" "show-message")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto" '("char-upcasep" "dbg" "ora-" "show-message")))
 
 ;;;***
 
@@ -271,6 +260,14 @@ Return ip info from ipinfo.io for IP.
 ;;; Generated autoloads from modes/ora-avy.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-avy" '("hydra-avy")))
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-bookmark" "modes/ora-bookmark.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-bookmark.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-bookmark" '("bmk/" "ora-remote-hosts")))
 
 ;;;***
 

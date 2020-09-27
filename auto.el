@@ -268,67 +268,6 @@ When ARG is non-nil launch `query-replace-regexp'."
   (interactive "r")
   (shell-command-on-region b e "toilet" (current-buffer) t))
 
-;;* Bookmarks
-;;;###autoload
-(defun bmk/magit-status ()
-  "Bookmark for `magit-status'."
-  (interactive)
-  (when (and (buffer-file-name)
-             ;; (equal system-name "firefly")
-             )
-    (delete-trailing-whitespace)
-    (save-buffer))
-  (call-interactively 'magit-status))
-
-;;;###autoload
-(defun bmk/scratch ()
-  "Bookmark for *scratch*."
-  (interactive)
-  (switch-to-buffer
-   (get-buffer-create "*scratch*"))
-  (lisp-interaction-mode))
-
-(defun ora-remote-hosts ()
-  (require 'tramp)
-  (let ((default-directory "~"))
-    (delq nil (mapcar
-               (lambda (x) (and x (cdr x) (cadr x)))
-               (tramp-parse-sconfig "~/.ssh/config")))))
-
-(defun bmk/remote-shell ()
-  (interactive)
-  (ivy-read "ssh: " (ora-remote-hosts)
-            :action (lambda (h)
-                      (let ((default-directory (concat "/ssh:" h ":/")))
-                        (ora-dired-open-term)))))
-
-(defun bmk/remote-dired ()
-  (interactive)
-  (ivy-read "ssh: " (ora-remote-hosts)
-            :action (lambda (h)
-                      (dired (concat "/ssh:" h ":/")))))
-
-;;;###autoload
-(defun bmk/function (bookmark)
-  "Handle a function bookmark BOOKMARK."
-  (funcall (bookmark-prop-get bookmark 'function)))
-
-(defun ora-bookmark+-to-bookmark ()
-  "Strip bookmark+-specific properties."
-  (setq bookmark-alist
-        (mapcar
-         (lambda (x)
-           (delq nil
-                 (list
-                  (substring-no-properties (car x))
-                  (assoc 'filename x)
-                  (assoc 'front-context-string x)
-                  (assoc 'rear-context-string x)
-                  (assoc 'position x)
-                  (assoc 'function x)
-                  (assoc 'handler x))))
-         bookmark-alist)))
-
 ;;* Utility
 ;;;###autoload
 (defun ora-ediff-buffers ()
