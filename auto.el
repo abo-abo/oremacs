@@ -245,8 +245,9 @@ When ARG is non-nil launch `query-replace-regexp'."
   (interactive)
   (require 'async)
   (async-start
-   (lambda () (shell-command-to-string
-          "emacs --batch --eval \"
+   (lambda ()
+     (sc
+      "emacs --batch --eval \"
 (condition-case e
     (progn
       (load \\\"~/.emacs\\\")
@@ -277,20 +278,6 @@ When ARG is non-nil launch `query-replace-regexp'."
                      (current-buffer))
     (call-interactively 'ediff-buffers)))
 
-
-;;;###autoload
-(defun ora-org-to-html-to-clipboard ()
-  "Export region to HTML, and copy it to the clipboard."
-  (interactive)
-  (let ((org-html-xml-declaration nil)
-        (org-html-postamble nil)
-        (org-html-preamble nil))
-    (org-export-to-file 'html "/tmp/org.html"))
-  (apply
-   'start-process "xclip" "*xclip*"
-   (split-string
-    "xclip -verbose -i /tmp/org.html -t text/html -selection clipboard" " ")))
-
 ;;;###autoload
 (defun ora-eval-other-window (arg123)
   "Eval current expression in the context of other window.
@@ -304,37 +291,6 @@ In case 'setq isn't present, add it."
     (other-window 1)
     (eval-expression sexp)
     (other-window -1)))
-
-;;;###autoload
-(defun ora-describe-hash (variable &optional buffer)
-  "Display the full documentation of VARIABLE (a symbol).
-Returns the documentation as a string, also.
-If VARIABLE has a buffer-local value in BUFFER (default to the current buffer),
-it is displayed along with the global value."
-  (interactive
-   (let ((v (variable-at-point))
-         (enable-recursive-minibuffers t)
-         val)
-     (setq val (completing-read
-                (if (and (symbolp v)
-                         (hash-table-p (symbol-value v)))
-                    (format
-                     "Describe hash-map (default %s): " v)
-                  "Describe hash-map: ")
-                obarray
-                (lambda (atom) (and (boundp atom)
-                                    (hash-table-p (symbol-value atom))))
-                t nil nil
-                (if (hash-table-p v) (symbol-name v))))
-     (list (if (equal val "")
-               v (intern val)))))
-  (with-output-to-temp-buffer (help-buffer)
-    (maphash (lambda (key value)
-               (pp key)
-               (princ " => ")
-               (pp value)
-               (terpri))
-             (symbol-value variable))))
 
 ;;;###autoload
 (defun ora-toggle-window-dedicated ()
@@ -983,18 +939,18 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
   (interactive "sEnter IP to query (blank for own IP): ")
   (require 'request)
   (request
-      (concat "https://ipinfo.io/" ip)
-      :headers '(("User-Agent" . "Emacs ipinfo.io Client")
-                 ("Accept" . "application/json")
-                 ("Content-Type" . "application/json;charset=utf-8"))
-      :parser 'json-read
-      :success (cl-function
-                (lambda (&key data &allow-other-keys)
-                  (message
-                   (mapconcat
-                    (lambda (e)
-                      (format "%10s: %s" (capitalize (symbol-name (car e))) (cdr e)))
-                    data "\n"))))
-      :error (cl-function
-              (lambda (&rest args &key error-thrown &allow-other-keys)
-                (message "Can't receive ipinfo. Error %S " error-thrown)))))
+    (concat "https://ipinfo.io/" ip)
+    :headers '(("User-Agent" . "Emacs ipinfo.io Client")
+               ("Accept" . "application/json")
+               ("Content-Type" . "application/json;charset=utf-8"))
+    :parser 'json-read
+    :success (cl-function
+              (lambda (&key data &allow-other-keys)
+                (message
+                 (mapconcat
+                  (lambda (e)
+                    (format "%10s: %s" (capitalize (symbol-name (car e))) (cdr e)))
+                  data "\n"))))
+    :error (cl-function
+            (lambda (&rest args &key error-thrown &allow-other-keys)
+              (message "Can't receive ipinfo. Error %S " error-thrown)))))

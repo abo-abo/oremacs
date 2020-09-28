@@ -623,5 +623,17 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
         ("gmap" . "http://maps.google.com/maps?q=%s")
         ("omap" . "http://nominatim.openstreetmap.org/search?q=%s&polygon=1")))
 
+(defun ora-org-to-html-to-clipboard ()
+  "Export region to HTML, and copy it to the clipboard."
+  (interactive)
+  (let ((org-html-xml-declaration nil)
+        (org-html-postamble nil)
+        (org-html-preamble nil))
+    (org-export-to-file 'html "/tmp/org.html"))
+  (apply
+   'start-process "xclip" "*xclip*"
+   (split-string
+    "xclip -verbose -i /tmp/org.html -t text/html -selection clipboard" " ")))
+
 (require 'pora-org nil t)
 (provide 'ora-org)
