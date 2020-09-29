@@ -316,81 +316,9 @@ In case 'setq isn't present, add it."
         (save-buffer)))
     (mapcar #'update-directory-autoloads
             '("" "modes" "git/org-fu"))
-
     (cd "personal")
     (setq generated-autoload-file (expand-file-name "loaddefs.el"))
     (update-directory-autoloads "")))
-
-;;;###autoload
-(defun align-cols (start end max-cols)
-  "Align text between point and mark as columns.
-Columns are separated by whitespace characters.
-Prefix arg means align that many columns. (default is all)"
-  (interactive "r\nP")
-  (save-excursion
-    (let ((p start)
-          pos
-          end-of-line
-          word
-          count
-          (max-cols (if (numberp max-cols) (max 0 (1- max-cols)) nil))
-          (pos-list nil)
-          (ref-list nil))
-      ;; find the positions
-      (goto-char start)
-      (while (< p end)
-        (beginning-of-line)
-        (setq count 0)
-        (setq end-of-line (save-excursion (end-of-line) (point)))
-        (re-search-forward "^\\s-*" end-of-line t)
-        (setq pos (current-column))     ;start of first word
-        (if (null (car ref-list))
-            (setq pos-list (list pos))
-          (setq pos-list (list (max pos (car ref-list))))
-          (setq ref-list (cdr ref-list)))
-        (while (and (if max-cols (< count max-cols) t)
-                    (re-search-forward "\\s-+" end-of-line t))
-          (setq count (1+ count))
-          (setq word (- (current-column) pos))
-          ;; length of next word including following whitespaces
-          (setq pos (current-column))
-          (if (null (car ref-list))
-              (setq pos-list (cons word pos-list))
-            (setq pos-list (cons (max word (car ref-list)) pos-list))
-            (setq ref-list (cdr ref-list))))
-        (while ref-list
-          (setq pos-list (cons (car ref-list) pos-list))
-          (setq ref-list (cdr ref-list)))
-        (setq ref-list (nreverse pos-list))
-        (forward-line)
-        (setq p (point)))
-      ;; aling the cols starting with last row
-      (setq pos-list (copy-sequence ref-list))
-      (setq start
-            (save-excursion (goto-char start) (beginning-of-line) (point)))
-      (goto-char end)
-      (beginning-of-line)
-      (while (>= p start)
-        (beginning-of-line)
-        (setq count 0)
-        (setq end-of-line (save-excursion (end-of-line) (point)))
-        (re-search-forward "^\\s-*" end-of-line t)
-        (goto-char (match-end 0))
-        (setq pos (nth count pos-list))
-        (while (< (current-column) pos)
-          (insert-char ?\040 1))
-        (setq end-of-line (save-excursion (end-of-line) (point)))
-        (while (and (if max-cols (< count max-cols) t)
-                    (re-search-forward "\\s-+" end-of-line t))
-          (setq count (1+ count))
-          (setq pos (+ pos (nth count pos-list)))
-          (goto-char (match-end 0))
-          (while (< (current-column) pos)
-            (insert-char ?\040 1))
-          (setq end-of-line (save-excursion (end-of-line) (point))))
-        (forward-line -1)
-        (if (= p (point-min)) (setq p (1- p))
-          (setq p (point)))))))
 
 ;;;###autoload
 (defun ora-comment-and-insert ()
