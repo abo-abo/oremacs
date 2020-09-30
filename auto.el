@@ -321,17 +321,6 @@ In case 'setq isn't present, add it."
     (update-directory-autoloads "")))
 
 ;;;###autoload
-(defun ora-comment-and-insert ()
-  (interactive)
-  (lispy-mark)
-  (let ((str (buffer-substring-no-properties
-              (region-beginning)
-              (region-end))))
-    (comment-dwim nil)
-    (newline-and-indent)
-    (insert str)))
-
-;;;###autoload
 (defun ora-dired-org-to-pdf ()
   (interactive)
   (let ((files

@@ -53,9 +53,6 @@ Useful to completely revert an `org-mode' file." t nil)
 
 (autoload 'ora-ediff-buffers "auto" nil t nil)
 
-(autoload 'ora-org-to-html-to-clipboard "auto" "\
-Export region to HTML, and copy it to the clipboard." t nil)
-
 (autoload 'ora-eval-other-window "auto" "\
 Eval current expression in the context of other window.
 Expression has to be of type (setq X BODY)
@@ -63,26 +60,9 @@ In case 'setq isn't present, add it.
 
 \(fn ARG123)" t nil)
 
-(autoload 'ora-describe-hash "auto" "\
-Display the full documentation of VARIABLE (a symbol).
-Returns the documentation as a string, also.
-If VARIABLE has a buffer-local value in BUFFER (default to the current buffer),
-it is displayed along with the global value.
-
-\(fn VARIABLE &optional BUFFER)" t nil)
-
 (autoload 'ora-toggle-window-dedicated "auto" nil t nil)
 
 (autoload 'update-all-autoloads "auto" nil t nil)
-
-(autoload 'align-cols "auto" "\
-Align text between point and mark as columns.
-Columns are separated by whitespace characters.
-Prefix arg means align that many columns. (default is all)
-
-\(fn START END MAX-COLS)" t nil)
-
-(autoload 'ora-comment-and-insert "auto" nil t nil)
 
 (autoload 'ora-dired-org-to-pdf "auto" nil t nil)
 
@@ -958,17 +938,11 @@ Transform Elisp-style code references to Markdown-style.
 ;;;### (autoloads nil "modes/ora-org" "modes/ora-org.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-org.el
 
-(autoload 'ora-org-hook "modes/ora-org" "\
+(autoload 'ora-org-hook "modes/ora-org" nil nil nil)
 
+(autoload 'ora-org-agenda-hook "modes/ora-org" nil nil nil)
 
-\(fn)" nil nil)
-
-(autoload 'ora-org-agenda-hook "modes/ora-org" "\
-
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org" '("org-" "ora-" "hot-expand" "hydra-org-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org" '("hot-expand" "hydra-org-" "ora-" "org-")))
 
 ;;;***
 
