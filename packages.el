@@ -29,6 +29,7 @@
     (counsel-keepassxc :host github :repo "tangxinfa/counsel-keepassxc")
     define-word
     diminish
+    (orly :host github :repo "abo-abo/orly")
     (dired-guess :host github :repo "abo-abo/dired-guess")
     dired-rsync
     docker
@@ -54,6 +55,7 @@
     (htmlize :host github :repo "abo-abo/htmlize")
     hydra
     (iedit :host github :repo "abo-abo/iedit")
+    ivy-avy
     ivy-hydra
     j-mode
     jedi
@@ -88,6 +90,7 @@
     unicode-fonts
     use-package
     wgrep
+    (whicher :host github :repo "abo-abo/whicher")
     which-key
     worf
     yaml-mode
