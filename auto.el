@@ -128,7 +128,7 @@ When ARG is non-nil launch `query-replace-regexp'."
                 (count-lines (point-min) (point-max)))
             (goto-char (point-min))
           (forward-line)))
-    (let ((default-directory "~"))
+    (let ((default-directory (concat (expand-file-name "~") "/")))
       (list-buffers))
     (switch-to-buffer "*Buffer List*")
     (delete-other-windows)
