@@ -56,6 +56,7 @@
     (htmlize :host github :repo "abo-abo/htmlize")
     hydra
     (iedit :host github :repo "abo-abo/iedit")
+    ivy-avy
     ivy-hydra
     j-mode
     jedi
