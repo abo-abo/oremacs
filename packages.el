@@ -8,6 +8,7 @@
 (defconst ora-packages
   ;; (cl-sort . #'string< :key (lambda (x) (symbol-name (if (consp x) (car x) x))))
   '((orly :host github :repo "abo-abo/orly")
+    abc-mode
     ace-link
     ace-popup-menu
     ace-window
