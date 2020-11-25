@@ -13,6 +13,7 @@
     ace-popup-menu
     ace-window
     alert
+    all-the-icons
     anakondo
     async
     auctex
