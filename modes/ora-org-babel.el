@@ -59,5 +59,9 @@
 (setq org-babel-default-header-args:bash
       '((:results . "verbatim")))
 
+(setq org-babel-default-header-args
+      (cons '(:noweb . "yes")
+            (assq-delete-all :noweb org-babel-default-header-args)))
+
 
 (provide 'ora-org-babel)
