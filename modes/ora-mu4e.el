@@ -52,7 +52,8 @@
 
 ;;;###autoload
 (defun ora-mu4e-compose-hook ()
-  (setq truncate-lines t)
+  (use-hard-newlines -1)
+  ;; (setq truncate-lines t)
   (setq completion-at-point-functions
         '(mu4e~compose-complete-contact t)))
 
