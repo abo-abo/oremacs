@@ -100,9 +100,14 @@
               default-directory
             d))))
 
-(setq counsel-linux-apps-directories
-      '("/usr/local/share/applications/"
-        "/usr/share/applications/"))
+(csetq counsel-linux-apps-directories
+       (mapcar (lambda (dir) (expand-file-name "applications" dir))
+               (list
+                "/usr/share/"
+                "/usr/local/share/"
+                (expand-file-name "~/.local/share/")
+                "/usr/share/ubuntu/"
+                "/var/lib/snapd/desktop/")))
 
 (define-key ivy-switch-buffer-map (kbd "C-k") 'ivy-switch-buffer-kill)
 
