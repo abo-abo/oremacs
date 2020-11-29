@@ -7,6 +7,15 @@
 (setq erc-track-exclude-types '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE"
                                 "324" "329" "332" "333" "353" "477"))
 
+(defun ora-erc-ignore-unimportant (msg)
+  (if (or (string-match "*** localhost has changed mode for &bitlbee to" msg)
+          ;;(string-match "Unknown error while loading configuration" msg)
+          (string-match "Account already online" msg)
+          (string-match "root (root@localhost) has set the topic" msg)
+          (string-match "is now known as" msg))
+      (setq erc-insert-this nil)))
+(add-hook 'erc-insert-pre-hook 'ora-erc-ignore-unimportant)
+
 (add-to-list 'erc-modules 'notifications)
 (add-to-list 'erc-modules 'spelling)
 (add-to-list 'erc-modules 'dcc)
