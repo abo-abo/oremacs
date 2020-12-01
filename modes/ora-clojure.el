@@ -38,8 +38,9 @@ Avoid having to `cider-connect' every single thing."
 
 (setq cider-jdk-src-paths
       (mapcar #'expand-file-name
-              '("~/git/java/openjvm-8-src"
-                "~/git/java/clojure-1.8.0-sources")))
+              (cl-remove-if-not #'file-exists-p
+                                '("~/git/java/openjvm-8-src"
+                                  "~/git/java/clojure-1.8.0-sources"))))
 
 (defun add-classpath (&rest files)
   (let* ((cp (getenv "CLASSPATH"))
