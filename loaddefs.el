@@ -32,6 +32,8 @@ List buffers and give it focus." t nil)
 (autoload 'ora-goto-hook-file "auto" "\
 Opens hooks.el at point specific to current `major-mode'" t nil)
 
+(autoload 'ora-toggle-buffer "auto" nil t nil)
+
 (autoload 'ora-dired-rsync "auto" "\
 
 
@@ -180,7 +182,7 @@ Return ip info from ipinfo.io for IP.
 ;;;### (autoloads nil "keys" "keys.el" (0 0 0 0))
 ;;; Generated autoloads from keys.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '(#("lispy-insert-prev-outline-body" 0 30 (face font-lock-function-name-face fontified t)) #("hydra-" 0 6 (face font-lock-type-face)) #("ora-open-line" 0 13 (face font-lock-function-name-face)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "keys" '("hydra-" "lispy-insert-prev-outline-body" "ora-open-line")))
 
 ;;;***
 
@@ -266,12 +268,9 @@ Return ip info from ipinfo.io for IP.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-clojure.el
 
-(autoload 'ora-clojure-hook "modes/ora-clojure" "\
+(autoload 'ora-clojure-hook "modes/ora-clojure" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("ora-" "clojure-ampersand" "add-classpath")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("add-classpath" "clojure-ampersand" "ora-")))
 
 ;;;***
 
@@ -456,15 +455,9 @@ Return ip info from ipinfo.io for IP.
 ;;;### (autoloads nil "modes/ora-erc" "modes/ora-erc.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-erc.el
 
-(autoload 'ora-erc-hook "modes/ora-erc" "\
+(autoload 'ora-erc-hook "modes/ora-erc" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(autoload 'bitlbee "modes/ora-erc" "\
-
-
-\(fn)" t nil)
+(autoload 'bitlbee "modes/ora-erc" nil t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-erc" '("ora-")))
 
@@ -1172,12 +1165,12 @@ Transform Elisp-style code references to Markdown-style.
 ;;;### (autoloads nil "packages" "packages.el" (0 0 0 0))
 ;;; Generated autoloads from packages.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "packages" '("emacs-d" "ora-packages")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "packages" '("emacs-d" "ora-packages" "straight-install-packages")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-elisp-style-guide.el" "modes/ora-grep.el"
-;;;;;;  "modes/ora-hydra.el" "modes/ora-keepassxc.el") (0 0 0 0))
+;;;### (autoloads nil nil ("modes/ora-grep.el" "modes/ora-hydra.el"
+;;;;;;  "modes/ora-keepassxc.el") (0 0 0 0))
 
 ;;;***
 
