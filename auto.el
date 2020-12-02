@@ -148,6 +148,17 @@ When ARG is non-nil launch `query-replace-regexp'."
       (goto-char (point-min))
       (search-forward str-mode-hook nil t))))
 
+;;;###autoload
+(defun ora-toggle-buffer ()
+  (interactive)
+  (let* ((fname (file-name-nondirectory (buffer-file-name)))
+         (oname (cond ((string-match "^ora-\\(.*\\)$" fname)
+                       (format "../personal/modes/pora-%s" (match-string 1 fname)))
+                      ((string-match "^pora-\\(.*\\)$" fname)
+                       (format "../../modes/ora-%s" (match-string 1 fname))))))
+    (when oname
+      (find-file oname))))
+
 (defcustom ora-dired-rsync-limit nil
   "Limit rsync transfer rate."
   :type
