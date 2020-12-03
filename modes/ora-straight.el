@@ -5,7 +5,7 @@
 (require 'cl-seq)
 (cl-reduce (lambda (a b)) '(0 0))
 
-(defun straight-reload-all ()
+(defun ora-straight-reload-all ()
   (interactive)
   (let ((build-dir "~/.emacs.d/straight/build/"))
     (dolist (pkg (delete "cl-lib" (delete ".." (delete "." (directory-files build-dir)))))
@@ -15,6 +15,6 @@
         (when autoloads
           (load autoloads t 'nomessage))))))
 
-(straight-reload-all)
+(ora-straight-reload-all)
 
 (provide 'ora-straight)

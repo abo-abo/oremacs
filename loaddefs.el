@@ -1108,7 +1108,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-straight.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-straight" '("straight-reload-all")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-straight" '("ora-straight-reload-all")))
 
 ;;;***
 
