@@ -24,6 +24,8 @@
 
 ;;* CIDER
 (require 'cider)
+
+(setq nrepl-use-ssh-fallback-for-remote-hosts t)
 (csetq cider-mode-line-show-connection nil)
 (define-key cider-mode-map (kbd "C-c C-v") nil)
 (csetq cider-font-lock-dynamically nil)
