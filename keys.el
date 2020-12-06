@@ -224,13 +224,15 @@
   :commands cook)
 
 (defhydra hydra-k (:exit t :idle 0.8)
-  "k"
+  "Misc command launcher."
   ("a" orfu-agenda-day "agenda")
   ("b" winner-undo "browse" :exit nil)
-  ("c" (lambda () (interactive) (cook '(4))) "cook :")
+  ("c" cook "cook :")
   ("d" define-word-at-point "def")
   ("e" ora-ediff-dwim "ediff")
-  ("f" ora-flyspell-previous-word "flyspell")
+  ("f" hydra--universal-argument "C-u" :exit nil :idle 0.8)
+  ("κ" hydra--universal-argument "C-u" :exit nil :idle 0.8)
+  ("F" ora-flyspell-previous-word "flyspell")
   ("j" dired-jump "dired")
   ("E" eval-expression "eval")
   ("m" hydra-pamparam/body "pamparam")
