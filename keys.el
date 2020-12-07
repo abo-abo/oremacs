@@ -238,7 +238,7 @@
   ("m" hydra-pamparam/body "pamparam")
   ("R" counsel-recoll "recoll")
   ("r" (counsel-rhythmbox 1) "rhythmbox")
-  ("o" ccc-toggle-header-source "other")
+  ("o" ora-toggle-buffer "other")
   ("G" ora-github "github")
   ("g" counsel-search "incremental search")
   ("p" ora-project "project")
