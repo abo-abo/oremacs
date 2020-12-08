@@ -251,6 +251,7 @@
   ("W" ora-open-wikipedia "wikipedia")
   ("q" nil "quit"))
 
+(autoload 'hydra-pamparam/body "pamparam")
 (autoload 'hydra-search/body "ora-search")
 
 (defhydra hydra-toggle (:color pink :hint nil)
