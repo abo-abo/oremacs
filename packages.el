@@ -76,6 +76,7 @@
     org-download
     org-parser
     (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
+    org-roam
     package-lint
     plain-org-wiki
     posframe
