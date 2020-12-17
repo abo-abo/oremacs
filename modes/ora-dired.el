@@ -15,20 +15,32 @@
 (setq directory-free-space-args "-Pmh")
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
-(setq dired-omit-files
-      (format "\\(?:\\.%s\\'\\)\\|%s\\|\\`\\.[^.]\\|\\`_minted"
-              (regexp-opt
-               '("aux" "log" "pickle" "synctex.gz" "run.xml" "bcf" "am" "in" "blx.bib"
-                 "vrb" "opt" "nav" "snm" "out" "ass"))
-              (regexp-opt
-               '("compile_commands.json"
-                 "TAGS"
-                 "__pycache__"
-                 ;; OSv deployments
-                 "Capstanfile"
-                 ;; Heroku deployments
-                 "Procfile"))))
 (setq dired-omit-verbose nil)
+
+(defun ora-omit-regex (names postfixes prefixes &optional dotfiles)
+  (mapconcat #'identity
+             (delq nil
+                   (list
+                    (and postfixes (format "\\(?:\\.%s\\)" (regexp-opt postfixes)))
+                    (and prefixes (format "\\(?:\\`%s\\)" (regexp-opt prefixes)))
+                    (and names (regexp-opt names))
+                    (and dotfiles "\\`\\.[^.]")))
+             "\\|"))
+
+(setq dired-omit-files
+      (ora-omit-regex
+       '("compile_commands.json"
+         "TAGS"
+         "__pycache__"
+         ;; OSv deployments
+         "Capstanfile"
+         ;; Heroku deployments
+         "Procfile")
+       '("aux" "log" "pickle" "synctex.gz" "run.xml" "bcf" "am" "in" "blx.bib"
+         "vrb" "opt" "nav" "snm" "out" "ass")
+       '("_minted" "__")
+       t))
+
 (setq dired-garbage-files-regexp
       "\\.idx\\|\\.run\\.xml$\\|\\.bbl$\\|\\.bcf$\\|.blg$\\|-blx.bib$\\|.nav$\\|.snm$\\|.out$\\|.synctex.gz$\\|\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|pyg\\)\\)\\'")
 (setq dired-dwim-target t)
