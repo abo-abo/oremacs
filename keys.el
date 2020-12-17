@@ -233,7 +233,8 @@
   ("f" hydra--universal-argument "C-u" :exit nil :idle 0.8)
   ("κ" hydra--universal-argument "C-u" :exit nil :idle 0.8)
   ("F" ora-flyspell-previous-word "flyspell")
-  ("j" dired-jump "dired")
+  ;; ("j" dired-jump "dired")
+  ("j" hydra-org-journal/body "journal")
   ("E" eval-expression "eval")
   ("m" hydra-pamparam/body "pamparam")
   ("R" counsel-recoll "recoll")
@@ -252,6 +253,7 @@
   ("q" nil "quit"))
 
 (autoload 'hydra-org-roam/body "ora-org-roam")
+(autoload 'hydra-org-journal/body "ora-org-journal")
 (autoload 'hydra-pamparam/body "pamparam")
 (autoload 'hydra-search/body "ora-search")
 
