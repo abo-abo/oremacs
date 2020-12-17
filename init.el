@@ -195,7 +195,7 @@
   (use-package powerline
     :config
     (setq powerline-display-buffer-size nil)
-    (setq powerline-display-mule-info nil)
+    (setq powerline-display-mule-info t)
     (setq powerline-display-hud nil)
     (when (display-graphic-p)
       (powerline-default-theme)
