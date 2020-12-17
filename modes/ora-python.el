@@ -22,7 +22,7 @@
     :config
     (define-key jedi-mode-map [C-tab] nil)
     (setq jedi:use-shortcuts nil)
-    (setq jedi:complete-on-dot t)
+    (setq jedi:complete-on-dot nil)
     (setq jedi:setup-function nil)
     (setq jedi:mode-function nil)
     (setcar jedi:install-server--command "pip3")
