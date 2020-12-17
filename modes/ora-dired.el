@@ -80,11 +80,13 @@
 (defun ora-dired-show-octal-permissions ()
   "Show current item premissons, e.g. for later use in chmod."
   (interactive)
-  (let ((r (counsel--command
-            "stat" "-c" "%a %n"
-            (tramp-file-name-localname
-             (tramp-dissect-file-name
-              (car (dired-get-marked-files)))))))
+  (let* ((fname (car (dired-get-marked-files)))
+         (fname (if (file-remote-p fname)
+                    (tramp-file-name-localname
+                     (tramp-dissect-file-name
+                      fname))
+                  fname))
+         (r (counsel--command "stat" "-c" "%a %n" fname)))
     (message (car (split-string r " ")))))
 
 (defun ora-dired-get-size ()
