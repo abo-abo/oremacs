@@ -5,6 +5,7 @@
 (require 'cl-seq)
 (cl-reduce (lambda (a b)) '(0 0))
 
+;;;###autoload
 (defun ora-straight-reload-all ()
   (interactive)
   (let ((build-dir "~/.emacs.d/straight/build/"))
