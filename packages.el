@@ -74,6 +74,7 @@
     orca
     org-bullets
     org-download
+    org-journal
     org-parser
     (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
     org-roam
@@ -137,3 +138,4 @@
     (straight-use-package package)))
 
 (straight-install-packages ora-packages)
+(save-buffers-kill-emacs)
