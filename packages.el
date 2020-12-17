@@ -21,7 +21,7 @@
     auto-yasnippet
     avy
     bash-completion
-    bbdb
+    ;; bbdb
     ccls
     cider
     (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
