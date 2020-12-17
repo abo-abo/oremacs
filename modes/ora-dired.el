@@ -294,4 +294,5 @@ Number of marked items: %(length (dired-get-marked-files))
           (message "pls remove"))
       (dired-do-rename))))
 
+(require 'pora-dired nil t)
 (provide 'ora-dired)
