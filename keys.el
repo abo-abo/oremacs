@@ -237,7 +237,7 @@
   ("E" eval-expression "eval")
   ("m" hydra-pamparam/body "pamparam")
   ("R" counsel-recoll "recoll")
-  ("r" (counsel-rhythmbox 1) "rhythmbox")
+  ("r" hydra-org-roam/body "roam")
   ("o" ora-toggle-buffer "other")
   ("G" ora-github "github")
   ("g" counsel-search "incremental search")
@@ -251,6 +251,7 @@
   ("W" ora-open-wikipedia "wikipedia")
   ("q" nil "quit"))
 
+(autoload 'hydra-org-roam/body "ora-org-roam")
 (autoload 'hydra-pamparam/body "pamparam")
 (autoload 'hydra-search/body "ora-search")
 
