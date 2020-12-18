@@ -109,6 +109,8 @@
                 "/usr/share/ubuntu/"
                 "/var/lib/snapd/desktop/")))
 
+(setq counsel-linux-app-format-function #'counsel-linux-app-format-function-name-pretty)
+
 (define-key ivy-switch-buffer-map (kbd "C-k") 'ivy-switch-buffer-kill)
 
 (defun ora-toggle-ivy-posframe ()
