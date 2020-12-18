@@ -37,7 +37,7 @@
 
 (global-set-key (kbd "C-,") 'lispy-kill-at-point)
 (global-set-key (kbd "C-'") 'avy-goto-char-timer)
-(global-set-key (kbd "C-/") 'hydra-org-objects/body)
+(global-set-key (kbd "C-/") 'toggle-input-method)
 (global-set-key (kbd "C-7") 'mc/mark-next-like-this)
 ;;* Ctrl Meta shortcuts
 (global-set-key (kbd "C-M-,") 'lispy-mark)
