@@ -17,7 +17,7 @@
           (progn
             (push (list link (elfeed-entry-title entry))
                   org-stored-links)
-            (org-capture nil "l")
+            (org-capture nil "L")
             (message ""))
         (browse-url link)))))
 
