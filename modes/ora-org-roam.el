@@ -18,7 +18,7 @@
          plain
          #'org-roam-capture--get-point
          "%?"
-         :file-name "%<%Y%m%d%H%M%S>-${slug}"
+         :file-name "%<%Y-%m-%d_%H:%M>-${slug}"
          :head "#+title: ${title}\n* Tasks\n"
          :unnarrowed t)))
 
