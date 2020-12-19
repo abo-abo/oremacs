@@ -30,17 +30,16 @@
 (org-roam-mode)
 
 (defun ora-org-roam-find-file-action (x)
-  (let ((title-with-tags (car x))
-        (file-path (plist-get (cdr x) :path)))
-    (if file-path
-        (org-roam--find-file file-path)
-      (let ((org-roam-capture--info
-             `((title . ,title-with-tags)
-               (slug . ,(funcall org-roam-title-to-slug-function title-with-tags))))
-            (org-roam-capture--context 'title))
-        (setq org-roam-capture-additional-template-props (list :finalize 'find-file))
-        (org-roam-capture--capture))))
-  (message "%S" x))
+  (if (consp x)
+      (let ((file-path (plist-get (cdr x) :path)))
+        (org-roam--find-file file-path))
+    (let* ((title-with-tags x)
+           (org-roam-capture--info
+            `((title . ,title-with-tags)
+              (slug . ,(funcall org-roam-title-to-slug-function title-with-tags))))
+           (org-roam-capture--context 'title))
+      (setq org-roam-capture-additional-template-props (list :finalize 'find-file))
+      (org-roam-capture--capture))))
 
 (defun ora-org-roam-find-file ()
   (interactive)
