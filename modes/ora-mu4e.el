@@ -29,6 +29,7 @@
 
 ;; don't save message to Sent Messages, IMAP server takes care of that
 (setq mu4e-sent-messages-behavior 'delete)
+(setq mu4e-headers-include-related nil)
 
 (define-key mu4e-compose-mode-map (kbd "C-M-i") nil)
 (define-key mu4e-compose-mode-map (kbd "C-c C-a") 'ora-mml-attach-file)
