@@ -7,7 +7,7 @@
        (file-name-directory
         (directory-file-name
          plain-org-wiki-directory))))
-
+(setq org-roam-buffer-position 'bottom)
 (setq org-roam-completion-system 'ivy)
 
 (whicher "dot")
