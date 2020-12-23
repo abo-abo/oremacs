@@ -35,6 +35,7 @@
 
 (setq org-reveal-hlevel 2)
 (setq org-attach-file-list-property nil)
+(setq org-attach-use-inheritance t)
 (setq org-hide-emphasis-markers t)
 (put 'org-hide-emphasis-markers 'safe-local-variable 'identity)
 
