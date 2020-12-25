@@ -59,6 +59,7 @@
     hydra
     (iedit :host github :repo "abo-abo/iedit")
     ivy-avy
+    ivy-posframe
     ivy-hydra
     j-mode
     jedi
@@ -81,7 +82,6 @@
     package-lint
     pamparam
     plain-org-wiki
-    posframe
     powerline
     projectile
     rainbow-mode
