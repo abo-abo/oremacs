@@ -80,7 +80,7 @@
            (cdr bounds))))))))
   (when ora-qr-beg
     (goto-char ora-qr-beg)
-    (setq ora-qr-beg))
+    (setq ora-qr-beg nil))
   (deactivate-mark)
   (query-replace
    from
