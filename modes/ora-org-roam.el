@@ -25,7 +25,8 @@
 (defhydra hydra-org-roam (:exit t :idle 0.8)
   "Launcher for `org-roam'."
   ("i" org-roam-insert "insert")
-  ("f" ora-org-roam-find-file "find-file"))
+  ("f" ora-org-roam-find-file "find-file")
+  ("v" org-roam-buffer-activate "backlinks"))
 
 (org-roam-mode)
 
