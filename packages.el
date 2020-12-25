@@ -96,6 +96,7 @@
     unicode-fonts
     use-package
     wgrep
+    (whicher :host github :repo "abo-abo/whicher")
     which-key
     worf
     yaml-mode
