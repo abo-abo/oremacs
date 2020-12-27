@@ -149,11 +149,14 @@
       '(("TODO" . (:foreground "red" :weight bold))
         ("WAITING" . (:foreground "blue" :weight bold))
         ("PAUSED" . (:foreground "orange" :weight bold))))
-(setq org-return-follows-link nil)
 (setq org-startup-indented t)
 (setq org-startup-folded nil)
 (setq org-cycle-separator-lines 0)
+
 (setq org-return-follows-link t)
+;; open links in the same window
+(setf (cdr (assq 'file org-link-frame-setup)) 'find-file)
+
 (setq org-bookmark-names-plist
       '(:last-capture "jc: org-last-capture"
         :last-refile "jr: org-last-refile"))
