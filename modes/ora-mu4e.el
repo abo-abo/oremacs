@@ -26,6 +26,8 @@
 ;; needed for mbsync
 (setq mu4e-change-filenames-when-moving t)
 (setq message-sendmail-f-is-evil nil)
+(setq message-send-mail-function 'message-send-mail-with-sendmail)
+(setq sendmail-program (whicher "msmtp"))
 
 ;; don't save message to Sent Messages, IMAP server takes care of that
 (setq mu4e-sent-messages-behavior 'delete)
