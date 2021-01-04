@@ -15,7 +15,7 @@
 (setq mu4e-get-mail-command (whicher "mbsync -a"))
 (setq message-kill-buffer-on-exit t)
 (setq mu4e-confirm-quit nil)
-(setq mu4e-headers-date-format "%d-%m-%Y %H:%M")
+(setq mu4e-headers-date-format "%Y-%m-%d %H:%M")
 (setq mu4e-headers-fields
       '((:human-date . 16)
         (:flags . 6)
