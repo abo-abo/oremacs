@@ -1,5 +1,6 @@
 (use-package org-roam
   :diminish org-roam-mode)
+(require 'org-roam-protocol)
 
 (setq org-roam-directory
       (expand-file-name
