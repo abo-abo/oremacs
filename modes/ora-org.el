@@ -50,6 +50,8 @@
   (add-to-list 'prettify-symbols-alist
                '(":PROPERTIES:" . ":"))
   (prettify-symbols-mode)
+  (when (file-equal-p default-directory org-roam-directory)
+    (flyspell-mode))
   (setq-local tab-always-indent 'complete))
 
 (setq org-agenda-max-entries nil)
