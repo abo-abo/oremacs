@@ -2,6 +2,9 @@
   :diminish org-roam-mode)
 (require 'org-roam-protocol)
 
+(setq org-roam-graph-extra-config '(("overlap" . "prism")
+                                    ("color" . "skyblue")))
+
 (setq org-roam-directory
       (expand-file-name
        "roam"
