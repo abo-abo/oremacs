@@ -30,6 +30,7 @@
   "Launcher for `org-roam'."
   ("i" org-roam-insert "insert")
   ("f" ora-org-roam-find-file "find-file")
+  ("r" org-roam-random-note "random")
   ("v" org-roam-buffer-activate "backlinks")
   ("t" ora-roam-todo "todo"))
 
