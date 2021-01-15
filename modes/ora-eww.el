@@ -38,14 +38,20 @@
 (define-key eww-mode-map "y" 'eww)
 (define-key eww-mode-map "A" 'eww-view-ace)
 (define-key eww-mode-map "c" 'counsel-ace-link)
+(define-key eww-mode-map "R" 'ora-eww-readable)
 
 ;;;###autoload
 (defun ora-eww-hook ())
 
 (csetq shr-width 60)
 
+(defun ora-eww-readable ()
+  (interactive)
+  (eww-readable)
+  (ora--eww-reader-scale))
+
 (defun ora--eww-reader-scale ()
-  (text-scale-set 4)
+  (text-scale-set 3)
   (setq left-margin-width 30)
   (set-window-margins nil 30)
   (remove-hook 'eww-after-render-hook 'ora--eww-reader-scale))
