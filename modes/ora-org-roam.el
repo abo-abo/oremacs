@@ -1,6 +1,8 @@
 (use-package org-roam
-  :diminish org-roam-mode)
-(require 'org-roam-protocol)
+  :diminish org-roam-mode
+  :config
+  (org-roam-mode)
+  (require 'org-roam-protocol))
 
 (setq org-roam-graph-extra-config '(("overlap" . "prism")
                                     ("color" . "skyblue")))
@@ -31,10 +33,30 @@
   ("i" org-roam-insert "insert")
   ("f" ora-org-roam-find-file "find-file")
   ("r" org-roam-random-note "random")
-  ("v" org-roam-buffer-activate "backlinks")
+  ("v" org-roam-buffer-activate "view backlinks")
+  ("b" ora-org-roam-find-backlink "find backlink")
   ("t" ora-roam-todo "todo"))
 
-(org-roam-mode)
+(defun ora-org-roam-find-backlink-action (x)
+  (let ((fname (nth 0 x))
+        (plist (nth 2 x)))
+    (find-file fname)
+    (goto-char (plist-get plist :point))))
+
+(defun ora-org-roam-find-backlink-transformer (x)
+  (org-roam-db--get-title (substring-no-properties x)))
+
+(defun ora-org-roam-find-backlink ()
+  (interactive)
+  (let* ((file-path (buffer-file-name))
+         (titles (org-roam--extract-titles))
+         (backlinks (org-roam--get-backlinks (cons file-path titles))))
+    (ivy-read "backlinks: " backlinks
+              :action #'ora-org-roam-find-backlink-action
+              :caller 'ora-org-roam-find-backlink)))
+
+(ivy-configure 'ora-org-roam-find-backlink
+  :display-transformer-fn #'ora-org-roam-find-backlink-transformer)
 
 (defun ora-org-roam-find-file-action (x)
   (if (consp x)
