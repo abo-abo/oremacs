@@ -82,14 +82,48 @@
 (defun ora-roam-todo ()
   "An ad-hoc agenda for `org-roam'."
   (interactive)
-  (let* ((regex "^\\* TODO")
-         (b (get-buffer (concat "*ivy-occur counsel-rg \"" regex "\"*"))))
+  (let* ((win (selected-window))
+         (buf (current-buffer))
+         (bname "*roam-todo*")
+         (b (get-buffer bname)))
     (if b
         (progn
           (switch-to-buffer b)
           (ivy-occur-revert-buffer))
-      (setq unread-command-events (listify-key-sequence (kbd "C-c C-o M->")))
-      (counsel-rg regex org-roam-directory "--sort modified"))))
+      (setq b (get-buffer-create bname))
+      (pop-to-buffer b)
+      (ora-roam-occur)
+      (setq ivy-occur-last (make-ivy-state
+                            :action #'counsel-git-grep-action
+                            :buffer buf
+                            :caller 'ora-roam-todo
+                            :directory default-directory
+                            :re-builder #'ivy--regex-plus
+                            :text ivy-text
+                            :window win)))))
+
+(ivy-configure 'ora-roam-todo
+  :occur #'ora-roam-occur
+  :parent 'counsel-rg)
+
+(defun ora-roam-occur (&optional _cands)
+  (unless (eq major-mode 'ivy-occur-grep-mode)
+    (ivy-occur-grep-mode))
+  (setq default-directory org-roam-directory)
+  (setq-local counsel-ag-command
+              '("rg" "--no-heading" "--line-number" "--sort" "modified" "--color" "never" "-s" "%s"))
+  (ivy-set-text "^\\*+  TODO")
+  (let ((cands (counsel--split-string
+                (counsel--call
+                 (cl-subst ivy-regex "%s" counsel-ag-command :test #'equal))))
+        (today (format-time-string "%Y_%m_%d")))
+    (setq cands
+          (cl-remove-if
+           (lambda (s)
+             (and (string-match ":\\([0-9]+_[0-9]+_[0-9]+\\):" s)
+                  (not (string= (match-string 1 s) today))))
+           cands))
+    (swiper--occur-insert-lines (mapcar #'counsel--normalize-grep-match cands))))
 
 (defun ora-roam-read-stats (beg end)
   (save-excursion
