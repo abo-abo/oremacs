@@ -77,6 +77,8 @@
             :action #'ora-org-roam-find-file-action
             :caller 'ora-org-roam-find-file))
 
+(ivy-define-key ivy-occur-grep-mode-map "d" 'ora-roam-todo-delay)
+
 (defun ora-roam-todo ()
   "An ad-hoc agenda for `org-roam'."
   (interactive)
@@ -88,5 +90,42 @@
           (ivy-occur-revert-buffer))
       (setq unread-command-events (listify-key-sequence (kbd "C-c C-o M->")))
       (counsel-rg regex org-roam-directory "--sort modified"))))
+
+(defun ora-roam-read-stats (beg end)
+  (save-excursion
+    (goto-char beg)
+    (if (re-search-forward "(setq stats '\\((.*)\\))" end t)
+        (read
+         (match-string-no-properties 1))
+      (goto-char end)
+      (insert "(setq stats '(2.5))\n")
+      (list 2.5))))
+
+(defun ora-roam-write-stats (beg end stats)
+  (save-excursion
+    (goto-char beg)
+    (when (re-search-forward "(setq stats '\\((.*)\\))" end t)
+      (replace-match (prin1-to-string stats) nil t nil 1))))
+
+(defun ora-roam-todo-delay ()
+  (interactive)
+  (save-selected-window
+    (ivy-occur-press-and-switch)
+    (org-back-to-heading)
+    (let* ((el (org-element-at-point))
+           (beg (org-element-property :begin el))
+           (end (org-element-property :end el))
+           (stats (ora-roam-read-stats beg end))
+           (new-stats (pamparam-sm2 stats 4))
+           (interval (nth 1 new-stats))
+           (new-tag (format-time-string "%Y_%m_%d" (time-add nil (* 3600 24 interval))))
+           (tags (org-element-property :tags el)))
+      (ora-roam-write-stats beg end new-stats)
+      (org-set-tags
+       (cons new-tag (cl-remove-if
+                      (lambda (tag) (string-match "\\([0-9]+\\)_\\([0-9]+\\)_\\([0-9]+\\)" tag))
+                      tags))))
+    (save-buffer))
+  (ivy-occur-delete-candidate))
 
 (provide 'ora-org-roam)
