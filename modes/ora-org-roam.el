@@ -138,7 +138,7 @@
 (defun ora-roam-write-stats (beg end stats)
   (save-excursion
     (goto-char beg)
-    (when (re-search-forward "(setq stats '\\((.*)\\))" end t)
+    (when (re-search-forward "(setq stats '\\((.*)\\))" (min (+ end 20) (point-max)) t)
       (replace-match (prin1-to-string stats) nil t nil 1))))
 
 (defun ora-roam-todo-delay ()
