@@ -887,3 +887,5 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Can't receive ipinfo. Error %S " error-thrown)))))
+
+(define-obsolete-function-alias 'string-to-int 'string-to-number)
