@@ -160,6 +160,7 @@
                       (lambda (tag) (string-match "\\([0-9]+\\)_\\([0-9]+\\)_\\([0-9]+\\)" tag))
                       tags))))
     (save-buffer))
-  (ivy-occur-delete-candidate))
+  (ivy-occur-delete-candidate)
+  (ivy-occur-revert-buffer))
 
 (provide 'ora-org-roam)
