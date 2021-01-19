@@ -94,7 +94,7 @@
   (define-key map "a" 'worf-reserved)
   (define-key map "b" 'worf-reserved)
   (define-key map "c" 'worf-reserved)
-  (define-key map "d" 'worf-reserved)
+  (define-key map "d" 'org-agenda-goto-date)
   (define-key map "e" 'worf-reserved)
   (define-key map "f" 'worf-reserved)
   (define-key map "n" 'worf-reserved)
