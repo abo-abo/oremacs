@@ -1,23 +1,19 @@
 (use-package org-roam
-  :diminish org-roam-mode
-  :config
-  (org-roam-mode)
-  (require 'org-roam-protocol))
-
-(setq org-roam-graph-extra-config '(("overlap" . "prism")
-                                    ("color" . "skyblue")))
-
+  :diminish org-roam-mode)
+(require 'pamparam)
 (setq org-roam-directory
       (expand-file-name
        "roam"
        (file-name-directory
         (directory-file-name
          plain-org-wiki-directory))))
+(org-roam-mode)
+(require 'org-roam-protocol)
 (setq org-roam-buffer-position 'bottom)
 (setq org-roam-completion-system 'ivy)
-
 (whicher "dot")
-
+(setq org-roam-graph-extra-config '(("overlap" . "prism")
+                                    ("color" . "skyblue")))
 (setq org-roam-capture-templates
       '(("d"
          "default"
@@ -82,7 +78,7 @@
 (defun ora-roam-todo ()
   "An ad-hoc agenda for `org-roam'."
   (interactive)
-  (let* ((win (selected-window))
+  (let* ((win (next-window))
          (buf (current-buffer))
          (bname "*roam-todo*")
          (b (get-buffer bname)))
@@ -91,7 +87,7 @@
           (switch-to-buffer b)
           (ivy-occur-revert-buffer))
       (setq b (get-buffer-create bname))
-      (pop-to-buffer b)
+      (switch-to-buffer b)
       (ora-roam-occur)
       (setq ivy-occur-last (make-ivy-state
                             :action #'counsel-git-grep-action
