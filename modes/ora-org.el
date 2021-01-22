@@ -51,6 +51,8 @@
                '(":PROPERTIES:" . ":"))
   (prettify-symbols-mode)
   (when (file-equal-p default-directory org-roam-directory)
+    (when (string-match-p "[а-я]" (buffer-string))
+      (ispell-change-dictionary "en_US,uk_UA"))
     (flyspell-mode))
   (setq-local tab-always-indent 'complete))
 
