@@ -26,12 +26,17 @@
 
 (defhydra hydra-org-roam (:exit t :idle 0.8)
   "Launcher for `org-roam'."
-  ("i" org-roam-insert "insert")
+  ("i" ora-roam-insert "insert")
   ("f" ora-org-roam-find-file "find-file")
   ("r" org-roam-random-note "random")
   ("v" org-roam-buffer-activate "view backlinks")
   ("b" ora-org-roam-find-backlink "find backlink")
   ("t" ora-roam-todo "todo"))
+
+(defun ora-roam-insert ()
+  (interactive)
+  (worf-maybe-rebuild-roam-cache)
+  (org-roam-insert))
 
 (defun ora-org-roam-find-backlink-action (x)
   (let ((fname (nth 0 x))
