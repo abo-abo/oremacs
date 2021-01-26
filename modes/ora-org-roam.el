@@ -122,7 +122,7 @@
           (cl-remove-if
            (lambda (s)
              (and (string-match ":\\([0-9]+_[0-9]+_[0-9]+\\):" s)
-                  (not (string= (match-string 1 s) today))))
+                  (not (string< (match-string 1 s) today))))
            cands))
     (swiper--occur-insert-lines (mapcar #'counsel--normalize-grep-match cands))))
 
