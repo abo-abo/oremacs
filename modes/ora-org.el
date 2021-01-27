@@ -147,13 +147,14 @@
 ;;* Basic settings
 (setq-default org-todo-keywords
               '((sequence "TODO"
-                 "WAITING" "PAUSED"
+                 "WAITING" "PAUSED" "LIST"
                  ;; "NEXT"
                  "|" "DONE" "CANCELLED")))
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "red" :weight bold))
         ("WAITING" . (:foreground "blue" :weight bold))
-        ("PAUSED" . (:foreground "orange" :weight bold))))
+        ("PAUSED" . (:foreground "orange" :weight bold))
+        ("LIST" . (:foreground "orange" :weight bold))))
 (setq org-startup-indented t)
 (setq org-startup-folded nil)
 (setq org-cycle-separator-lines 0)
