@@ -16,7 +16,9 @@
          (git-files (ora-directory-files emacs-git))
          (pkgs (cl-set-difference
                 (delete "cl-lib" (ora-directory-files build-dir))
-                (append '("cl-lib" "counsel" "ivy" "ivy-avy")
+                (append '("cl-lib")
+                        (when (member "swiper" git-files)
+                          '("counsel" "ivy" "ivy-avy"))
                         git-files)
                 :test #'equal)))
     (dolist (pkg pkgs)
