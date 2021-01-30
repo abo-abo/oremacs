@@ -160,7 +160,12 @@ When ARG is non-nil launch `query-replace-regexp'."
                   ((string-match "^ora-\\(.*\\)$" fname)
                    (format "../personal/modes/pora-%s" (match-string 1 fname)))
                   ((string-match "^pora-\\(.*\\)$" fname)
-                   (format "../../modes/ora-%s" (match-string 1 fname))))))
+                   (format "../../modes/ora-%s" (match-string 1 fname)))
+                  ((and (string-match "org$" fname)
+                        (save-excursion
+                          (goto-char (point-min))
+                          (re-search-forward "\\[\\[file:\\([^]]+\\)\\]\\[Archive\\]\\]" nil t)
+                          (match-string-no-properties 1)))))))
     (when oname
       (find-file oname))))
 
