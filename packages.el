@@ -89,6 +89,7 @@
     rust-mode
     slime
     (smex :host github :repo "abo-abo/smex")
+    super-save
     tea-time
     (touchpad :host github :repo "abo-abo/touchpad")
     transpose-frame
