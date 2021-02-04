@@ -45,7 +45,7 @@
   (worf-mode)
   (org-bullets-mode)
   (org-indent-mode)
-  (setq fill-column 85)
+  (setq fill-column 90)
   (auto-fill-mode)
   (add-to-list 'prettify-symbols-alist
                '(":PROPERTIES:" . ":"))
