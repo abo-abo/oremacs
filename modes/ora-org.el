@@ -57,6 +57,17 @@
   (setq-local tab-always-indent 'complete))
 
 (setq org-agenda-max-entries nil)
+;; Hide tasks that are scheduled in the future.
+(setq org-agenda-todo-ignore-scheduled 'future)
+(setq org-agenda-todo-ignore-time-comparison-use-seconds t)
+;; Hide the deadline prewarning prior to scheduled date.
+(setq org-agenda-skip-deadline-prewarning-if-scheduled 'pre-scheduled)
+
+;; (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
+;; (setq org-agenda-skip-timestamp-if-deadline-is-shown t)
+;; (setq org-agenda-skip-additional-timestamps-same-entry t)
+
+(setq org-agenda-todo-ignore-with-date t)
 
 ;;;###autoload
 (defun ora-org-agenda-hook ())
@@ -146,14 +157,16 @@
 
 ;;* Basic settings
 (setq-default org-todo-keywords
-              '((sequence "TODO"
-                 "WAITING" "PAUSED" "LIST"
-                 ;; "NEXT"
-                 "|" "DONE" "CANCELLED")))
+              '((sequence
+                 "TODO" "NEXT" "PROG"
+                 "WAITING"
+                 "LIST"
+                 "|" "DONE" "DROP(r)")))
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "red" :weight bold))
+        ("NEXT" . (:foreground "red" :weight bold))
+        ("PROG" . (:foreground "red" :weight bold))
         ("WAITING" . (:foreground "blue" :weight bold))
-        ("PAUSED" . (:foreground "orange" :weight bold))
         ("LIST" . (:foreground "orange" :weight bold))))
 (setq org-startup-indented t)
 (setq org-startup-folded nil)
