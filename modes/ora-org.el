@@ -189,7 +189,7 @@
 (setq org-clock-sound "/usr/local/share/tngchime.wav")
 (setq org-latex-create-formula-image-program 'dvipng)
 (plist-put org-format-latex-options :scale 1.5)
-(setq org-image-actual-width 500)
+(setq org-image-actual-width 300)
 
 ;;* Interactions
 (setq org-file-apps
