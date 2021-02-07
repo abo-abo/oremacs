@@ -1,12 +1,15 @@
 (use-package org-roam
   :diminish org-roam-mode)
 (require 'pamparam)
+(setq wgrep-colon-file-separator-header-regexp "\\(?1:[^\n]+?[^\n/:]\\):\\(?3:[1-9][0-9]*\\)[	 ]*:")
+
 (setq org-roam-directory
       (expand-file-name
        "roam"
        (file-name-directory
         (directory-file-name
          plain-org-wiki-directory))))
+
 (org-roam-mode)
 (require 'org-roam-protocol)
 (setq org-roam-buffer-position 'bottom)
