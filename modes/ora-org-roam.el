@@ -27,6 +27,18 @@
          :head "#+title: ${title}\n* Tasks\n"
          :unnarrowed t)))
 
+(setq org-roam-capture-ref-templates
+      '(("r"
+         "ref"
+         plain
+         #'org-roam-capture--get-point
+         "%?"
+         :file-name "%<%Y-%m-%d_%H:%M>-${slug}"
+         :head "#+title: ${title}\n* Tasks\n** TODO [[${ref}][${title}]]\nAdded: %T\n"
+         :unnarrowed t
+         :immediate-finish t
+         :jump-to-captured t)))
+
 (defhydra hydra-org-roam (:exit t :idle 0.8)
   "Launcher for `org-roam'."
   ("i" ora-roam-insert "insert")
