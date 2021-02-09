@@ -46,7 +46,8 @@
   ("r" org-roam-random-note "random")
   ("v" org-roam-buffer-activate "view backlinks")
   ("b" ora-org-roam-find-backlink "find backlink")
-  ("t" ora-roam-todo "todo"))
+  ("t" ora-roam-todo "todo")
+  ("j" org-roam-find-index "index"))
 
 (defun ora-roam-insert ()
   (interactive)
