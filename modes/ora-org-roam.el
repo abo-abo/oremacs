@@ -180,4 +180,14 @@
   (ivy-occur-delete-candidate)
   (ivy-occur-revert-buffer))
 
+(defun ora-check-org-roam-db ()
+  (interactive)
+  (let* ((fs1 (directory-files org-roam-directory nil "org$"))
+         (fs2
+          (mapcar (lambda (x) (file-name-nondirectory (plist-get (cdr x) :path)))
+                  (org-roam--get-title-path-completions)))
+         (diff (cl-set-difference fs1 fs2 :test 'equal)))
+    (if (= 0 (length diff))
+        (message "OK")
+      (message "Db invalid %S" diff))))
 (provide 'ora-org-roam)
