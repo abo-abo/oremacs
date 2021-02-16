@@ -226,7 +226,7 @@
 (defhydra hydra-k (:exit t :idle 0.8)
   "Misc command launcher."
   ("a" orfu-agenda-day "agenda")
-  ("b" winner-undo "browse" :exit nil)
+  ("b" org-mark-ring-goto "back" :exit nil)
   ("c" cook "cook :")
   ("d" define-word-at-point "def")
   ("e" ora-ediff-dwim "ediff")
