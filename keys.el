@@ -260,6 +260,7 @@
 (defhydra hydra-toggle (:color pink :hint nil)
   "
 _a_ abbrev-mode:       %`abbrev-mode
+_b_ backup-files:      %`make-backup-files
 _d_ debug-on-error:    %`debug-on-error
 _f_ auto-fill-mode:    %`auto-fill-function
 _h_ highlight          %`highlight-nonselected-windows
@@ -268,6 +269,7 @@ _w_ whitespace-mode:   %`whitespace-mode
 _l_ org link display
 "
   ("a" abbrev-mode)
+  ("b" (setq make-backup-files (not make-backup-files)))
   ("d" toggle-debug-on-error)
   ("e" evil-mode :exit t)
   ("f" auto-fill-mode)
