@@ -21,8 +21,8 @@
   (interactive)
   (if (eq major-mode 'org-agenda-mode)
       (progn
-        (org-pomodoro)
+        (worf-pomodoro)
         (org-save-all-org-buffers))
-    (org-pomodoro)))
+    (worf-pomodoro)))
 
 (provide 'ora-org-pomodoro)
