@@ -53,4 +53,5 @@ Assumes `browse-url-browser-function' is logged into Youtube."
       (save-buffer)
       (kill-buffer))))
 
+(require 'pora-elfeed nil t)
 (provide 'ora-elfeed)
