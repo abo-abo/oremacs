@@ -1,5 +1,6 @@
 (use-package org-roam
   :diminish org-roam-mode)
+(require 'ora-org-journal)
 (require 'pamparam)
 (setq wgrep-colon-file-separator-header-regexp "\\(?1:[^\n]+?[^\n/:]\\):\\(?3:[1-9][0-9]*\\)[	 ]*:")
 
