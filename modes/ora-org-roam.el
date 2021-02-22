@@ -66,6 +66,7 @@
 
 (defun ora-org-roam-find-backlink ()
   (interactive)
+  (worf-maybe-rebuild-roam-cache)
   (let* ((file-path (buffer-file-name))
          (titles (org-roam--extract-titles))
          (backlinks (org-roam--get-backlinks (cons file-path titles))))
