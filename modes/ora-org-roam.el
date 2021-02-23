@@ -130,7 +130,7 @@
     (ivy-occur-grep-mode))
   (setq default-directory org-roam-directory)
   (setq-local counsel-ag-command
-              '("rg" "--no-heading" "--line-number" "--sort" "modified" "--color" "never" "-s" "%s"))
+              '("rg" "--no-heading" "--line-number" "--sortr" "modified" "--color" "never" "-s" "%s"))
   (ivy-set-text "^\\*+  TODO")
   (let ((cands (counsel--split-string
                 (counsel--call
@@ -140,7 +140,7 @@
           (cl-remove-if
            (lambda (s)
              (and (string-match ":\\([0-9]+_[0-9]+_[0-9]+\\):" s)
-                  (not (string< (match-string 1 s) today))))
+                  (string< today (match-string 1 s))))
            cands))
     (swiper--occur-insert-lines (mapcar #'counsel--normalize-grep-match cands))))
 
@@ -192,4 +192,6 @@
     (if (= 0 (length diff))
         (message "OK")
       (message "Db invalid %S" diff))))
+
+(require 'pora-org-roam nil t)
 (provide 'ora-org-roam)
