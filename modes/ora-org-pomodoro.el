@@ -25,4 +25,5 @@
         (org-save-all-org-buffers))
     (worf-pomodoro)))
 
+(require 'pora-org-pomodoro nil t)
 (provide 'ora-org-pomodoro)
