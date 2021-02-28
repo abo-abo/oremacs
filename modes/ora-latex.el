@@ -102,3 +102,7 @@
 (defadvice TeX-source-correlate-sync-source (after ora-raise-tex activate)
   (require 'org-fu)
   (orfu-raise-frame))
+
+(add-to-list 'TeX-view-program-selection '(output-pdf "PDF Tools"))
+
+(provide 'ora-latex)
