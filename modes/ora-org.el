@@ -1,6 +1,6 @@
 ;;* Requires
+(require 'pora-org nil t)
 (use-package async)
-(use-package plain-org-wiki)
 (require 'ora-org-babel)
 (require 'ora-org-roam)
 (setq org-export-backends '(html latex))
