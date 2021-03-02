@@ -4,6 +4,15 @@
 (define-key flyspell-mode-map [(control ?\;)] nil)
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-M-i") nil)
+
+(defun ora-make-flyspell-overlay-return-mouse-stuff (ol)
+  (overlay-put ol 'help-echo nil)
+  (overlay-put ol 'keymap nil)
+  (overlay-put ol 'mouse-face nil))
+
+(advice-add 'make-flyspell-overlay :filter-return #'ora-make-flyspell-overlay-return-mouse-stuff)
+
+
 (setq flyspell-auto-correct-binding (kbd "C-M-;"))
 
 (dolist (mode '(text-mode erc-mode))
