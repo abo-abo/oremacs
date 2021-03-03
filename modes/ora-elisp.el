@@ -114,6 +114,5 @@
 
 (add-hook 'edebug-setup-hook 'ora-edebug-hook)
 
-
-;;* Provide
+(require 'pora-elisp nil t)
 (provide 'ora-elisp)
