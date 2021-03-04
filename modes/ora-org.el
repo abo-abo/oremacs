@@ -54,7 +54,15 @@
     (when (string-match-p "[а-я]" (buffer-string))
       (ispell-change-dictionary "en_US,uk_UA"))
     (flyspell-mode))
+  (ora-org-hide-archive-heading)
   (setq-local tab-always-indent 'complete))
+
+(defun ora-org-hide-archive-heading ()
+  (save-excursion
+    (when (progn
+            (goto-char (point-min))
+            (search-forward "* Archive" nil t))
+      (outline-flag-subtree t))))
 
 (setq org-agenda-max-entries nil)
 ;; Hide tasks that are scheduled in the future.
