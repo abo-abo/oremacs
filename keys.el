@@ -239,6 +239,7 @@
   ("m" hydra-pamparam/body "pamparam")
   ("R" counsel-recoll "recoll")
   ("r" hydra-org-roam/body "roam")
+  ("ρ" hydra-org-roam/body "roam")
   ("o" ora-toggle-buffer "other")
   ("G" ora-github "github")
   ("g" counsel-search "incremental search")
