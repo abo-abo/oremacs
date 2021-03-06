@@ -667,5 +667,4 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
    (split-string
     "xclip -verbose -i /tmp/org.html -t text/html -selection clipboard" " ")))
 
-(require 'pora-org nil t)
 (provide 'ora-org)
