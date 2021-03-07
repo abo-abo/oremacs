@@ -121,7 +121,6 @@
   '(progn
     (setq xref-pulse-on-jump nil)
     (setq xref-after-return-hook nil)))
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (use-package diminish)
 (require 'ora-ivy)
 (setq hippie-expand-verbose nil)
