@@ -289,9 +289,9 @@ Number of marked items: %(length (dired-get-marked-files))
   (interactive)
   (let ((target (dired-dwim-target-directory)))
     (if (file-remote-p target)
-        (progn
-          (dired-rsync target)
-          (message "pls remove"))
+        (if (equal target default-directory)
+            (dired-do-rename)
+          (dired-rsync target))
       (dired-do-rename))))
 
 (require 'pora-dired nil t)
