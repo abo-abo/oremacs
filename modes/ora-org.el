@@ -167,14 +167,13 @@
 (setq-default org-todo-keywords
               '((sequence
                  "TODO" "NEXT" "PROG"
-                 "WAITING"
-                 "LIST"
+                 "WAIT" "LIST"
                  "|" "DONE" "DROP(r)")))
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "red" :weight bold))
         ("NEXT" . (:foreground "red" :weight bold))
         ("PROG" . (:foreground "red" :weight bold))
-        ("WAITING" . (:foreground "blue" :weight bold))
+        ("WAIT" . (:foreground "blue" :weight bold))
         ("LIST" . (:foreground "orange" :weight bold))))
 (setq org-startup-indented t)
 (setq org-startup-folded nil)
