@@ -100,6 +100,7 @@
     (whicher :host github :repo "abo-abo/whicher")
     which-key
     worf
+    wucuo
     yaml-mode
     yasnippet)
   "List of packages that I like.")
