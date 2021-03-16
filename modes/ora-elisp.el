@@ -69,6 +69,10 @@
 (font-lock-add-keywords 'emacs-lisp-mode
                         (ora-fontify-glyph "\\\\\\\\)" ")"))
 (font-lock-add-keywords 'emacs-lisp-mode
+                        (ora-fontify-glyph "\\\\\\\\{" "{"))
+(font-lock-add-keywords 'emacs-lisp-mode
+                        (ora-fontify-glyph "\\\\\\\\}" "}"))
+(font-lock-add-keywords 'emacs-lisp-mode
                         '(("^;;;###[-a-z]*autoload.*$" 0 'shadow t))
                         'end)
 
