@@ -240,9 +240,6 @@ Number of marked items: %(length (dired-get-marked-files))
              `(,tramp-file-name-regexp . nil))
 (setq tramp-chunksize 8192)
 
-(autoload 'org-download-enable "org-download")
-(add-hook 'dired-mode-hook 'org-download-enable)
-
 ;;;###autoload
 (defun ora-dired-hook ()
   (mis-mode 1)
