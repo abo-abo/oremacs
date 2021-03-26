@@ -182,6 +182,7 @@
 (setq org-cycle-separator-lines 0)
 
 (setq org-return-follows-link t)
+(setq org-link-search-must-match-exact-headline nil)
 ;; open links in the same window
 (setf (cdr (assq 'file org-link-frame-setup)) 'find-file)
 
