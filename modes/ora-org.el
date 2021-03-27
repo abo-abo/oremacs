@@ -55,9 +55,11 @@
   (when (file-equal-p default-directory org-roam-directory)
     (when (string-match-p "[а-я]" (buffer-string))
       (ispell-change-dictionary "en_US,uk_UA"))
-    (wucuo-start))
+    ;; (wucuo-start)
+    )
   (ora-org-hide-archive-heading)
-  (setq-local tab-always-indent 'complete))
+  (setq-local tab-always-indent 'complete)
+  (cl-pushnew 'ora-org-dont-fill-links fill-nobreak-predicate))
 
 (defun ora-org-hide-archive-heading ()
   (save-excursion
@@ -668,5 +670,12 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
    'start-process "xclip" "*xclip*"
    (split-string
     "xclip -verbose -i /tmp/org.html -t text/html -selection clipboard" " ")))
+
+(defun ora-org-dont-fill-links ()
+  (when (get-text-property (point) 'htmlize-link)
+    (if (looking-at "\\[")
+        (skip-chars-backward "[")
+      (backward-up-list 2))
+    t))
 
 (provide 'ora-org)
