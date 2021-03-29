@@ -51,9 +51,11 @@
   ("t" ora-roam-todo "todo")
   ("j" org-roam-find-index "index"))
 
-(defun ora-roam-insert ()
-  (interactive)
-  (worf-maybe-rebuild-roam-cache)
+(defun ora-roam-insert (&optional arg)
+  (interactive "P")
+  (if arg
+      (org-roam-db-build-cache)
+    (worf-maybe-rebuild-roam-cache))
   (org-roam-insert))
 
 (defun ora-org-roam-find-backlink-action (x)
