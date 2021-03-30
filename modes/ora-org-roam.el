@@ -67,9 +67,11 @@
 (defun ora-org-roam-find-backlink-transformer (x)
   (org-roam-db--get-title (substring-no-properties x)))
 
-(defun ora-org-roam-find-backlink ()
-  (interactive)
-  (worf-maybe-rebuild-roam-cache)
+(defun ora-org-roam-find-backlink (&optional arg)
+  (interactive "P")
+  (if arg
+      (org-roam-db-build-cache)
+    (worf-maybe-rebuild-roam-cache))
   (let* ((file-path (buffer-file-name))
          (titles (org-roam--extract-titles))
          (backlinks (org-roam--get-backlinks (cons file-path titles))))
