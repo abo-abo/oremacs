@@ -96,7 +96,7 @@
 
 (defun ora-org-roam-find-file ()
   (interactive)
-  (unless org-roam-mode (org-roam-mode))
+  ;; (unless org-roam-mode (org-roam-mode))
   (ivy-read "File: " (org-roam--get-title-path-completions)
             :action #'ora-org-roam-find-file-action
             :caller 'ora-org-roam-find-file))
