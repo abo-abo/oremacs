@@ -136,7 +136,7 @@
   (setq default-directory org-roam-directory)
   (setq-local counsel-ag-command
               '("rg" "--no-heading" "--line-number" "--sortr" "modified" "--color" "never" "-s" "%s"))
-  (ivy-set-text "^\\*+  TODO")
+  (ivy-set-text "^\\*+  (TODO|PROG)")
   (let ((cands (counsel--split-string
                 (counsel--call
                  (cl-subst ivy-regex "%s" counsel-ag-command :test #'equal))))
