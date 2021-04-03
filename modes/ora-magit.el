@@ -204,6 +204,7 @@
     (let ((item (magit-section-info (magit-current-section)))
           action)
       (ignore-errors (magit-stage-item))
+      (sit-for 0.1)
       (search-forward item)
       (setq action (if (looking-back "^\tNew.*" (line-beginning-position))
                        "Add"
