@@ -192,6 +192,7 @@ Number of marked items: %(length (dired-get-marked-files))
 
 (defun ora-dired-terminal ()
   (interactive)
+  (require 'orly)
   (orly-start "gnome-terminal"))
 
 (defun ora-dired-other-window ()
