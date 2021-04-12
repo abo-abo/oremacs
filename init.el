@@ -274,10 +274,6 @@
   (run-with-idle-timer
    3 nil
    (lambda () (require 'ora-org))))
-(use-package elf-mode
-  :commands elf-mode
-  :init
-  (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
 (add-to-list 'warning-suppress-types '(undo discard-info))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (ora-advice-add 'semantic-idle-scheduler-function :around #'ignore)

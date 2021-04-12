@@ -9,4 +9,9 @@
 (add-to-list 'auto-mode-alist '("user.txt\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("tmp_github.com" . markdown-mode))
 
+(use-package elf-mode
+  :commands elf-mode
+  :init
+  (add-to-list 'magic-mode-alist (cons "ELF" 'elf-mode)))
+
 (provide 'ora-auto)
