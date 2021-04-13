@@ -33,9 +33,12 @@
 
 (defun bmk/remote-shell ()
   (interactive)
-  (ivy-read "ssh: " (ora-remote-hosts)
+  (ivy-read "ssh: " (cons "localhost" (ora-remote-hosts))
             :action (lambda (h)
-                      (let ((default-directory (concat "/ssh:" h ":/")))
+                      (let ((default-directory
+                             (if (string= h "localhost")
+                                 default-directory
+                               (concat "/ssh:" h ":/"))))
                         (ora-dired-open-term)))))
 
 (defun bmk/remote-dired ()
