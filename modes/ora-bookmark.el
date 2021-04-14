@@ -47,4 +47,18 @@
             :action (lambda (h)
                       (dired (concat "/ssh:" h ":/")))))
 
+(defun ora-add-bookmark-command-action (cmd)
+  (let ((entry `(,(concat ": " cmd)
+                  (filename . "   - no file -")
+                  (position . 0)
+                  (function . ,(intern cmd))
+                  (handler . bmk/function))))
+    (cl-pushnew entry bookmark-alist)))
+
+(defun ora-add-bookmark-command ()
+  "Add a command action."
+  (interactive)
+  (let ((ivy-inhibit-action #'ora-add-bookmark-command-action))
+    (counsel-M-x)))
+
 (provide 'ora-bookmark)
