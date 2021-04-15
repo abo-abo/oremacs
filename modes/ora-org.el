@@ -27,6 +27,7 @@
 (use-package org-download
   :config
   (org-download-enable)
+  (setq org-startup-with-inline-images t)
   (setq org-download-display-inline-images t)
   (setq org-download-method 'attach))
 
