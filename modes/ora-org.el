@@ -676,7 +676,8 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
   (when (get-text-property (point) 'htmlize-link)
     (if (looking-at "\\[")
         (skip-chars-backward "[")
-      (backward-up-list 2))
+      (ignore-errors
+        (backward-up-list 2)))
     t))
 
 (provide 'ora-org)
