@@ -93,6 +93,9 @@
 (define-key org-mode-map (kbd "C-M-i") 'ora-org-complete-symbol)
 (define-key org-mode-map (kbd "C-m") 'newline)
 (define-key org-mode-map (kbd "C-c C-r") nil)
+(define-key org-mode-map (kbd "C-p") 'ora-org-previous-line)
+(define-key org-mode-map (kbd "C-n") 'ora-org-next-line)
+(define-key org-mode-map (kbd "M-b") 'ora-org-backward-word)
 (define-key org-mode-map [C-tab] nil)
 (define-key org-mode-map (kbd "<f2> a") 'org-archive)
 (define-key org-mode-map (kbd "χ") 'worf-back-to-heading)
@@ -679,5 +682,24 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
       (ignore-errors
         (backward-up-list 2)))
     t))
+
+(defun ora-org-beginning-of-link ()
+  (when (looking-back "\\]\\[" (line-beginning-position))
+    (search-backward "[[" (line-beginning-position) t)))
+
+(defun ora-org-next-line ()
+  (interactive)
+  (forward-line 1)
+  (ora-org-beginning-of-link))
+
+(defun ora-org-previous-line ()
+  (interactive)
+  (forward-line -1)
+  (ora-org-beginning-of-link))
+
+(defun ora-org-backward-word ()
+  (interactive)
+  (forward-word -1)
+  (ora-org-beginning-of-link))
 
 (provide 'ora-org)
