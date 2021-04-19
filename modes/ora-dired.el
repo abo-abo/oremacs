@@ -189,6 +189,7 @@ Number of marked items: %(length (dired-get-marked-files))
 (define-key dired-mode-map "P" 'ora-dired-show-octal-permissions)
 (define-key dired-mode-map "T" 'ora-dired-terminal)
 (define-key dired-mode-map "&" 'ora-dired-do-async-shell-command)
+(define-key dired-mode-map (kbd "C-o") 'ora-open-line)
 
 (defun ora-dired-terminal ()
   (interactive)
