@@ -22,23 +22,16 @@
   (setq package-user-dir (expand-file-name "elpa" emacs-d))
   (when (< emacs-major-version 27)
     (package-initialize)))
-;;* Font
-(require 'ora-fonts)
-;;* Customize
+
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
 (defun ora-advice-add (&rest args)
   (when (fboundp 'advice-add)
     (apply #'advice-add args)))
-;;** decorations
-(csetq tool-bar-mode nil)
-(csetq menu-bar-mode nil)
-(csetq scroll-bar-mode nil)
-(csetq truncate-lines t)
-(csetq inhibit-startup-screen t)
-(csetq initial-scratch-message "")
-(csetq text-quoting-style 'grave)
-(csetq line-number-display-limit-width 2000000)
+
+(require 'ora-visuals)
+
+;;* Customize
 ;;** navigation within buffer
 (csetq next-screen-context-lines 5)
 (csetq recenter-positions '(top middle bottom))
