@@ -64,10 +64,7 @@
 ;;** internals
 (csetq gc-cons-threshold (* 10 1024 1024))
 (csetq ad-redefinition-action 'accept)
-;;** time display
-(csetq display-time-24hr-format t)
-(csetq display-time-default-load-average nil)
-(csetq display-time-format "")
+
 ;;** Rest
 (csetq browse-url-browser-function 'browse-url-firefox)
 (csetq browse-url-firefox-program (whicher "firefox"))
