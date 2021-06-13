@@ -32,6 +32,8 @@
 (add-hook 'emacs-lisp-mode-hook 'ora-emacs-lisp-hook)
 (add-hook 'lisp-interaction-mode-hook 'ora-lisp-interaction-hook)
 (add-hook 'lisp-mode-hook 'ora-lisp-hook)
+;; sly should not do this in sly-autoloads.el
+(remove-hook 'lisp-mode-hook 'sly-editing-mode)
 (add-hook 'occur-mode-hook 'ora-occur-mode-hook)
 (add-hook 'occur-hook 'ora-occur-hook)
 (add-hook 'Buffer-menu-mode-hook 'ora-Buffer-menu-hook)
