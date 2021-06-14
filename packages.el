@@ -50,6 +50,7 @@
     flycheck
     function-args
     geiser
+    go-mode
     (google-c-style :host github :repo "google/styleguide" :branch "gh-pages")
     gtk-pomodoro-indicator
     haskell-mode
