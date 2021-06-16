@@ -119,7 +119,7 @@
              (cmd (format "cd %s\n" (shell-quote-argument dir))))
         (if shell
             (progn
-              (pop-to-buffer shell)
+              (switch-to-buffer shell)
               (comint-send-string (get-buffer-process shell) cmd)
               (comint-send-input))
           (setq shell (mash-make-shell host 'mash-new-shell cmd))))
