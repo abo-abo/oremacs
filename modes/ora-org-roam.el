@@ -46,7 +46,6 @@
   ("i" ora-roam-insert "insert")
   ("f" ora-org-roam-find-file "find-file")
   ("r" org-roam-random-note "random")
-  ("v" org-roam-buffer-activate "view backlinks")
   ("b" ora-org-roam-find-backlink "find backlink")
   ("t" ora-roam-todo "todo")
   ("j" org-roam-find-index "index"))
@@ -57,6 +56,12 @@
       (org-roam-db-build-cache)
     (worf-maybe-rebuild-roam-cache))
   (org-roam-insert))
+
+(defun worf-maybe-rebuild-roam-cache ()
+  (let ((n1 (length (org-roam--get-title-path-completions)))
+        (n2 (length (directory-files org-roam-directory nil "org$"))))
+    (unless (= n1 n2)
+      (org-roam-db-build-cache))))
 
 (defun ora-org-roam-find-backlink-action (x)
   (let ((fname (nth 0 x))
@@ -100,92 +105,6 @@
   (ivy-read "File: " (org-roam--get-title-path-completions)
             :action #'ora-org-roam-find-file-action
             :caller 'ora-org-roam-find-file))
-
-(ivy-define-key ivy-occur-grep-mode-map "d" 'ora-roam-todo-delay)
-
-(defun ora-roam-todo ()
-  "An ad-hoc agenda for `org-roam'."
-  (interactive)
-  (let* ((win (next-window))
-         (buf (current-buffer))
-         (bname "*roam-todo*")
-         (b (get-buffer bname)))
-    (if b
-        (progn
-          (switch-to-buffer b)
-          (ivy-occur-revert-buffer))
-      (setq b (get-buffer-create bname))
-      (switch-to-buffer b)
-      (ora-roam-occur)
-      (setq ivy-occur-last (make-ivy-state
-                            :action #'counsel-git-grep-action
-                            :buffer buf
-                            :caller 'ora-roam-todo
-                            :directory default-directory
-                            :re-builder #'ivy--regex-plus
-                            :text ivy-text
-                            :window win)))))
-
-(ivy-configure 'ora-roam-todo
-  :occur #'ora-roam-occur
-  :parent 'counsel-rg)
-
-(defun ora-roam-occur (&optional _cands)
-  (unless (eq major-mode 'ivy-occur-grep-mode)
-    (ivy-occur-grep-mode))
-  (setq default-directory org-roam-directory)
-  (setq-local counsel-ag-command
-              '("rg" "--no-heading" "--line-number" "--sortr" "modified" "--color" "never" "-s" "%s"))
-  (ivy-set-text "^\\*+  (TODO|PROG)")
-  (let ((cands (counsel--split-string
-                (counsel--call
-                 (cl-subst ivy-regex "%s" counsel-ag-command :test #'equal))))
-        (today (format-time-string "%Y_%m_%d")))
-    (setq cands
-          (cl-remove-if
-           (lambda (s)
-             (and (string-match ":\\([0-9]+_[0-9]+_[0-9]+\\):" s)
-                  (string< today (match-string 1 s))))
-           cands))
-    (swiper--occur-insert-lines (mapcar #'counsel--normalize-grep-match cands))))
-
-(defun ora-roam-read-stats (beg end)
-  (save-excursion
-    (goto-char beg)
-    (if (re-search-forward "(setq stats '\\((.*)\\))" end t)
-        (read
-         (match-string-no-properties 1))
-      (goto-char end)
-      (insert "(setq stats '(2.5))\n")
-      (list 2.5))))
-
-(defun ora-roam-write-stats (beg end stats)
-  (save-excursion
-    (goto-char beg)
-    (when (re-search-forward "(setq stats '\\((.*)\\))" (min (+ end 20) (point-max)) t)
-      (replace-match (prin1-to-string stats) nil t nil 1))))
-
-(defun ora-roam-todo-delay ()
-  (interactive)
-  (save-selected-window
-    (ivy-occur-press-and-switch)
-    (org-back-to-heading)
-    (let* ((el (org-element-at-point))
-           (beg (org-element-property :begin el))
-           (end (org-element-property :end el))
-           (stats (ora-roam-read-stats beg end))
-           (new-stats (pamparam-sm2 stats 4))
-           (interval (nth 1 new-stats))
-           (new-tag (format-time-string "%Y_%m_%d" (time-add nil (* 3600 24 interval))))
-           (tags (org-element-property :tags el)))
-      (ora-roam-write-stats beg end new-stats)
-      (org-set-tags
-       (cons new-tag (cl-remove-if
-                      (lambda (tag) (string-match "\\([0-9]+\\)_\\([0-9]+\\)_\\([0-9]+\\)" tag))
-                      tags))))
-    (save-buffer))
-  (ivy-occur-delete-candidate)
-  (ivy-occur-revert-buffer))
 
 (defun ora-check-org-roam-db ()
   (interactive)
