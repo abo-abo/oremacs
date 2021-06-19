@@ -23,3 +23,17 @@
   ;; (unless (eq system-type 'windows-nt)
   ;;   (flyspell-mode))
   )
+
+(add-hook 'before-save-hook #'ora-to-ascii)
+
+(defun ora-to-ascii ()
+  (when (derived-mode-p 'text-mode)
+    (format-replace-strings
+     '(("\x201C" . "\"")
+       ("\x201D" . "\"")
+       ("\x2018" . "'")
+       ("\x2019" . "'")
+       ;; en-dash
+       ("\x2013" . "-")
+       ;; em-dash
+       ("\x2014" . "-")))))
