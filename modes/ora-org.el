@@ -20,7 +20,7 @@
   (setq worf-visit-function
         (defun ora-worf-visit-function (file)
           (let ((ext (file-name-extension file)))
-            (if (string= ext "pdf")
+            (if (member ext '("pdf" "djvu"))
                 (counsel-locate-action-extern file)
               (find-file file))))))
 
