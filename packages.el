@@ -48,6 +48,7 @@
     find-file-in-project
     flx
     flycheck
+    flyspell-correct-ivy
     function-args
     geiser
     go-mode
