@@ -83,6 +83,7 @@
     org-roam
     package-lint
     pamparam
+    pass
     plain-org-wiki
     powerline
     projectile
