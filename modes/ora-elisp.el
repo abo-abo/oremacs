@@ -19,7 +19,7 @@
     (lispy-mode 1)
     (company-mode)
     (set (make-local-variable 'company-backends)
-         '((company-elisp :with company-dabbrev-code)))
+         '((company-elisp)))
     ;; (abel-mode)
     (diminish 'abbrev-mode)
     ;; (yas-minor-mode-on)
