@@ -16,6 +16,7 @@
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/modes/" emacs-d))
 (setq enable-local-variables :all)
+(require 'pora-base nil t)
 ;;* straight.el
 (if t
     (require 'ora-straight)
