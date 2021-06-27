@@ -22,6 +22,7 @@
    (latex . t)
    (R . t)
    (sql . t)
+   (sqlite . t)
    (calc . t)))
 (add-to-list 'org-src-lang-modes '("J" . j))
 
