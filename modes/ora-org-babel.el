@@ -60,9 +60,8 @@
 (setq org-babel-default-header-args:bash
       '((:results . "verbatim")))
 
-(setq org-babel-default-header-args
-      (cons '(:noweb . "yes")
-            (assq-delete-all :noweb org-babel-default-header-args)))
+;; (setf (cdr (assoc :results org-babel-default-header-args)) "output silent")
+(setf (cdr (assoc :noweb org-babel-default-header-args)) "yes")
 
 
 (provide 'ora-org-babel)
