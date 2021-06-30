@@ -51,8 +51,8 @@
   (setq fill-column 90)
   (setq-local auto-hscroll-mode nil)
   (auto-fill-mode)
-  (add-to-list 'prettify-symbols-alist
-               '(":PROPERTIES:" . ":"))
+  (add-to-list 'prettify-symbols-alist '(":PROPERTIES:" . ":"))
+  (add-to-list 'prettify-symbols-alist '("src_sh" . "$"))
   (prettify-symbols-mode)
   (when (file-equal-p default-directory org-roam-directory)
     (when (string-match-p "[а-я]" (buffer-string))
