@@ -39,6 +39,7 @@
 (define-key eww-mode-map "A" 'eww-view-ace)
 (define-key eww-mode-map "c" 'counsel-ace-link)
 (define-key eww-mode-map "R" 'ora-eww-readable)
+(define-key eww-mode-map "M-o" 'move-beginning-of-line)
 
 ;;;###autoload
 (defun ora-eww-hook ())
