@@ -44,7 +44,7 @@
 ;;;###autoload
 (defun ora-eww-hook ())
 
-(csetq shr-width 60)
+(csetq shr-width 80)
 
 (defun ora-eww-readable ()
   (interactive)
