@@ -103,6 +103,7 @@
 (ora-advice-add 'org-edit-src-exit :after (lambda (&rest _) (save-buffer)))
 (define-key org-mode-map (kbd "C-c C-v") nil)
 (define-key org-mode-map (kbd "C-c C-q") 'counsel-org-tag)
+(define-key org-mode-map (kbd "C-c C-l") 'ora-org-insert-link)
 (define-key org-agenda-mode-map (kbd "<backspace>") 'ora-org-agenda-unmark-backward)
 
 (defun ora-org-agenda-unmark-backward ()
@@ -110,6 +111,32 @@
   (forward-line -1)
   (org-agenda-bulk-unmark)
   (forward-line -1))
+
+(defun ora-org-insert-link ()
+  "Like `org-insert-link' but with personal dwim preferences."
+  (interactive)
+  (let* ((point-in-link (org-in-regexp org-link-any-re 1))
+         (clipboard-url (and kill-ring
+                             (string-match-p "^http" (current-kill 0))
+                             (current-kill 0)))
+         (region-content (when (region-active-p)
+                           (buffer-substring-no-properties (region-beginning)
+                                                           (region-end)))))
+    (cond ((and region-content clipboard-url (not point-in-link))
+           (delete-region (region-beginning) (region-end))
+           (insert (org-make-link-string clipboard-url region-content)))
+          ((and clipboard-url (not point-in-link))
+           (insert (org-make-link-string
+                    clipboard-url
+                    (read-string "title: "
+                                 (with-current-buffer (url-retrieve-synchronously clipboard-url)
+                                   (dom-text (car
+                                              (dom-by-tag (libxml-parse-html-region
+                                                           (point-min)
+                                                           (point-max))
+                                                          'title))))))))
+          (t
+           (call-interactively 'org-insert-link)))))
 
 ;;** org-agenda-mode-map
 (require 'org-agenda)
