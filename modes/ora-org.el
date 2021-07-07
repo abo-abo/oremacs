@@ -106,6 +106,7 @@
 (define-key org-mode-map (kbd "C-c C-l") 'ora-org-insert-link)
 (define-key org-mode-map (kbd "C-c C-z") 'org-babel-load-in-session-maybe)
 (define-key org-agenda-mode-map (kbd "<backspace>") 'ora-org-agenda-unmark-backward)
+(defalias 'org-babel-load-session:sh 'org-babel-load-session:shell)
 
 (defun ora-org-agenda-unmark-backward ()
   (interactive)
