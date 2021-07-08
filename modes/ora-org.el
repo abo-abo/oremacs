@@ -234,7 +234,8 @@
 
 ;;* Interactions
 (setq org-file-apps
-      '((auto-mode . emacs)
+      '(("\\.epub\\'" . "ebook-viewer \"%s\"")
+        (auto-mode . emacs)
         (directory . emacs)
         ("\\.x?html?\\'" . "firefox %s")
         ("\\.pdf\\'" . "evince \"%s\"")
