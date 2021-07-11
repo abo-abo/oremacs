@@ -241,8 +241,9 @@
         ("\\.\\(?:pdf\\|djvu\\)\\'" . "evince \"%s\"")
         ("\\.\\(?:gif\\|heic\\)\\'" . "eog \"%s\"")
         ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1")
-        ("\\.mp4\\'" . "vlc \"%s\"")
-        ("\\.mkv" . "vlc \"%s\"")))
+        ("\\.mp4\\'" . "mpv \"%s\"")
+        ("\\.mkv" . "vlc \"%s\"")
+        (t . emacs)))
 (setq system-time-locale "C")
 (setq appt-display-diary nil)
 
