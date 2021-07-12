@@ -661,8 +661,12 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 
 (defun ora-org-done-p ()
   (save-excursion
-    (org-back-to-heading)
-    (looking-at "\\*+ \\(DONE\\|CANCELLED\\)")))
+    (when (condition-case nil
+              (progn
+                (org-back-to-heading)
+                t)
+            (error nil))
+      (looking-at "\\*+ \\(DONE\\|DROP\\)"))))
 
 (defun ora-org-delete-element (&optional context)
   (setq context (or context (org-element-context)))
