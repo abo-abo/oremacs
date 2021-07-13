@@ -674,21 +674,6 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
    (org-element-property :begin context)
    (1+ (org-element-property :end context))))
 
-(defun ora-org-cleanup-links ()
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "^\\[\\[" nil t)
-      (let* ((context (org-element-context))
-             (type (org-element-property :type context))
-             (path (org-link-unescape (org-element-property :path context))))
-        (when (string= type "file")
-          (when (or (not (file-exists-p path))
-                    (ora-org-done-p))
-            (delete-file path)
-            (ora-org-delete-element)))))
-    (save-buffer)))
-
 (setq org-link-abbrev-alist
       '(("google" . "http://www.google.com/search?q=")
         ("gmap" . "http://maps.google.com/maps?q=%s")
