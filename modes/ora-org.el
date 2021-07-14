@@ -706,11 +706,17 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 (defun ora-org-next-line ()
   (interactive)
   (forward-line 1)
+  (let ((ov (car (overlays-at (point)))))
+    (when ov
+      (goto-char (1+ (overlay-end ov)))))
   (ora-org-beginning-of-link))
 
 (defun ora-org-previous-line ()
   (interactive)
   (forward-line -1)
+  (let ((ov (car (overlays-at (point)))))
+    (when ov
+      (goto-char (1- (overlay-start ov)))))
   (ora-org-beginning-of-link))
 
 (defun ora-org-backward-word ()
