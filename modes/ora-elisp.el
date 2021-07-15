@@ -61,7 +61,8 @@
 (defun lisp--match-hidden-arg (limit) nil)
 
 (setq prettify-symbols-alist
-      '(("lambda" . ?λ)))
+      '(("lambda" . ?λ)
+        ("src_sh" . ?$)))
 (font-lock-add-keywords 'emacs-lisp-mode
                         (ora-fontify-glyph "\\\\\\\\|" "∨"))
 (font-lock-add-keywords 'emacs-lisp-mode
