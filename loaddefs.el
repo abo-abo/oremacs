@@ -249,7 +249,7 @@ Return ip info from ipinfo.io for IP.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-bookmark.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-bookmark" '("bmk/" "ora-remote-hosts")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-bookmark" '("bmk/" "ora-")))
 
 ;;;***
 
@@ -420,7 +420,7 @@ Return ip info from ipinfo.io for IP.
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-elfeed.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elfeed" '(#("ora-elfeed-" 0 11 (face font-lock-function-name-face fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elfeed" '("ora-elfeed-")))
 
 ;;;***
 
@@ -494,17 +494,11 @@ Open or move eshell in `default-directory'.
 ;;;### (autoloads nil "modes/ora-eww" "modes/ora-eww.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-eww.el
 
-(autoload 'ora-eww-hook "modes/ora-eww" "\
+(autoload 'ora-eww-hook "modes/ora-eww" nil nil nil)
 
+(autoload 'ora-eww-reader "modes/ora-eww" nil t nil)
 
-\(fn)" nil nil)
-
-(autoload 'ora-eww-reader "modes/ora-eww" "\
-
-
-\(fn)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eww" '(#("ora-" 0 4 (fontified t face font-lock-function-name-face)) #("eww-view-ace" 0 12 (face font-lock-function-name-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-eww" '("eww-view-ace" "ora-")))
 
 ;;;***
 
@@ -514,11 +508,9 @@ Open or move eshell in `default-directory'.
 
 (autoload 'ora-flyspell-previous-word "modes/ora-flyspell" "\
 Correct the first misspelled word that occurs before point.
-But don't look beyond what's visible on the screen.
+But don't look beyond what's visible on the screen." t nil)
 
-\(fn)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-flyspell" '("flyspell-ignore-http-and-https")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-flyspell" '("flyspell-ignore-http-and-https" "ora-make-flyspell-overlay-return-mouse-stuff")))
 
 ;;;***
 
@@ -588,10 +580,7 @@ But don't look beyond what's visible on the screen.
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-help.el
 
-(autoload 'ora-help-hook "modes/ora-help" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-help-hook "modes/ora-help" nil nil nil)
 
 ;;;***
 
@@ -740,10 +729,7 @@ Call `j-console' and setup shortcuts.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-latex.el
 
-(autoload 'ora-latex-hook "modes/ora-latex" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-latex-hook "modes/ora-latex" nil nil nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-latex" '("font-lock-simple-face" "ora-")))
 
@@ -753,12 +739,9 @@ Call `j-console' and setup shortcuts.
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-lisp.el
 
-(autoload 'ora-lisp-hook "modes/ora-lisp" "\
+(autoload 'ora-lisp-hook "modes/ora-lisp" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-lisp" '(#("ora-slime-completion-in-region" 0 30 (face font-lock-function-name-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-lisp" '("ora-slime-completion-in-region")))
 
 ;;;***
 
@@ -773,37 +756,19 @@ Call `j-console' and setup shortcuts.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-magit.el
 
-(autoload 'ora-magit-status-hook "modes/ora-magit" "\
+(autoload 'ora-magit-status-hook "modes/ora-magit" nil nil nil)
 
+(autoload 'ora-magit-log-hook "modes/ora-magit" nil nil nil)
 
-\(fn)" nil nil)
+(autoload 'ora-magit-commit-hook "modes/ora-magit" nil nil nil)
 
-(autoload 'ora-magit-log-hook "modes/ora-magit" "\
+(autoload 'ora-magit-diff-hook "modes/ora-magit" nil nil nil)
 
+(autoload 'ora-magit-branch-manager-hook "modes/ora-magit" nil nil nil)
 
-\(fn)" nil nil)
+(autoload 'ora-git-commit-hook "modes/ora-magit" nil nil nil)
 
-(autoload 'ora-magit-commit-hook "modes/ora-magit" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-magit-diff-hook "modes/ora-magit" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-magit-branch-manager-hook "modes/ora-magit" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-git-commit-hook "modes/ora-magit" "\
-
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-magit" '("ora-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-magit" '("ora-magit-")))
 
 ;;;***
 
@@ -951,12 +916,17 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-org-pomodoro.el
 
-(autoload 'ora-org-clock-out "modes/ora-org-pomodoro" "\
+(autoload 'ora-org-clock-out "modes/ora-org-pomodoro" nil t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org-pomodoro" '("ora-org-pomodoro")))
 
-\(fn)" t nil)
+;;;***
+
+;;;### (autoloads nil "modes/ora-org-roam" "modes/ora-org-roam.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-org-roam.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org-pomodoro" '(#("ora-org-pomodoro" 0 16 (face font-lock-function-name-face fontified t)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org-roam" '("hydra-org-roam" "ora-" "worf-maybe-rebuild-roam-cache")))
 
 ;;;***
 
@@ -976,6 +946,14 @@ Transform Elisp-style code references to Markdown-style.
 
 
 \(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-pass" "modes/ora-pass.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from modes/ora-pass.el
+
+(autoload 'ora-password "modes/ora-pass" nil t nil)
 
 ;;;***
 
@@ -1013,17 +991,19 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-python.el
 
-(autoload 'ora-python-hook "modes/ora-python" "\
+(autoload 'ora-python-hook "modes/ora-python" nil nil nil)
 
+(autoload 'ora-inferior-python-hook "modes/ora-python" nil nil nil)
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-python" '("ora-" "python-")))
 
-(autoload 'ora-inferior-python-hook "modes/ora-python" "\
+;;;***
+
+;;;### (autoloads nil "modes/ora-roamy" "modes/ora-roamy.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from modes/ora-roamy.el
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-python" '("python-" "ora-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-roamy" '("ora-roam" "orfu-youtube-channel-roamy" "roamy-agenda-category")))
 
 ;;;***
 
@@ -1108,7 +1088,9 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-straight.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-straight" '("ora-straight-reload-all")))
+(autoload 'ora-straight-reload-all "modes/ora-straight" nil t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-straight" '("ora-directory-files")))
 
 ;;;***
 
@@ -1142,12 +1124,9 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-text.el
 
-(autoload 'ora-text-hook "modes/ora-text" "\
+(autoload 'ora-text-hook "modes/ora-text" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-text" '("ora-move-line-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-text" '("ora-")))
 
 ;;;***
 
@@ -1169,8 +1148,9 @@ Transform Elisp-style code references to Markdown-style.
 
 ;;;***
 
-;;;### (autoloads nil nil ("modes/ora-grep.el" "modes/ora-hydra.el"
-;;;;;;  "modes/ora-keepassxc.el") (0 0 0 0))
+;;;### (autoloads nil nil ("modes/ora-auto.el" "modes/ora-elisp-style-guide.el"
+;;;;;;  "modes/ora-grep.el" "modes/ora-hydra.el" "modes/ora-keepassxc.el"
+;;;;;;  "modes/ora-visuals.el" "plain.el") (0 0 0 0))
 
 ;;;***
 
