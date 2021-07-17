@@ -79,7 +79,6 @@
 ;; (global-set-key (kbd "~") 'self-insert-command)           ; [t]
 (global-set-key "υ" 'aya-expand)                             ; [y]
 (global-set-key "ψ" 'universal-argument)                     ; [u]
-(global-set-key "ϊ" 'hydra-avy/body)                         ; [i]
 ;; (global-set-key (kbd "DEL") 'self-insert-command)         ; [o]
 (global-set-key (kbd "π") 'avy-goto-char)                    ; [p]
 ;; (global-set-key (kbd "-") 'self-insert-command)           ; [a]
