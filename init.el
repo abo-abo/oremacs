@@ -71,9 +71,9 @@
 (csetq browse-url-firefox-program (whicher "firefox"))
 ;;*** Backups
 (setq backup-by-copying t)
-(setq backup-directory-alist (list
-                              (cons tramp-file-name-regexp "/tmp/")
-                              '("." . "~/.emacs.d/backups")))
+(setq backup-directory-alist `(
+                               (,tramp-file-name-regexp . "/tmp/")
+                               ("." . "~/.emacs.d/backups")))
 (setq delete-old-versions t)
 (setq version-control t)
 (setq create-lockfiles nil)
