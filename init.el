@@ -119,6 +119,7 @@
 (require 'ora-auto)
 (autoload 'mu4e "ora-mu4e")
 (autoload 'mu4e-compose-new "ora-mu4e")
+(autoload 'pass "ora-pass")
 
 ;;** major modes
 (use-package cmake-mode
