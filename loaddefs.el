@@ -999,14 +999,6 @@ Transform Elisp-style code references to Markdown-style.
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-roamy" "modes/ora-roamy.el" (0 0
-;;;;;;  0 0))
-;;; Generated autoloads from modes/ora-roamy.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-roamy" '("ora-roam" "orfu-youtube-channel-roamy" "roamy-agenda-category")))
-
-;;;***
-
 ;;;### (autoloads nil "modes/ora-ruby" "modes/ora-ruby.el" (0 0 0
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-ruby.el
