@@ -278,6 +278,7 @@ _l_ org link display
   ("t" toggle-truncate-lines)
   ("w" whitespace-mode)
   ("l" org-toggle-link-display)
+  ("i" illiterate)
   ("q" nil "quit"))
 
 (global-set-key (kbd "C-c C-v") 'hydra-toggle/body)
