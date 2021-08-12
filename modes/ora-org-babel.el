@@ -63,15 +63,5 @@
 ;; (setf (cdr (assoc :results org-babel-default-header-args)) "output silent")
 (setf (cdr (assoc :noweb org-babel-default-header-args)) "yes")
 
-(font-lock-add-keywords
- 'org-mode
- '(("\\(src_\\)\\([^[{]+\\)\\(\\(?:\\[:.*\\]\\)?\\){\\([^}]*\\)}"
-    ;; src
-    (1 'default)
-    ;; lang
-    (2 'default)
-    ;; headers
-    (3 'font-lock-comment-face)
-    (4 'org-code))))
-
+(require 'ora-org-babel-inline)
 (provide 'ora-org-babel)
