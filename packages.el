@@ -23,6 +23,7 @@
     bash-completion
     ;; bbdb
     ccls
+    (cc-chainsaw :host github :repo "abo-abo/cc-chainsaw")
     cider
     (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
     cmake-mode
@@ -51,6 +52,7 @@
     flyspell-correct-ivy
     function-args
     geiser
+    geiser-racket
     go-mode
     (google-c-style :host github :repo "google/styleguide" :branch "gh-pages")
     gtk-pomodoro-indicator
@@ -69,7 +71,8 @@
     (lpy :host github :repo "abo-abo/lpy")
     lsp-java
     lsp-mode
-    magit
+    (magit :host github :repo "abo-abo/magit")
+    ;; magit
     make-it-so
     markdown-mode
     multiple-cursors
@@ -77,15 +80,16 @@
     orca
     org-bullets
     org-download
-    org-journal
     org-parser
+    (org-fu :host github :repo "abo-abo/org-fu")
     (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
-    org-roam
+    ;; org-roam
     package-lint
     pamparam
     pass
     plain-org-wiki
     powerline
+    (profile-dotemacs :host github :repo "abo-abo/profile-dotemacs")
     projectile
     rainbow-mode
     request
