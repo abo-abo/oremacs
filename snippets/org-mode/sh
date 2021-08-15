@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sh
+# key: sh
+# --
+src_sh{$0}
