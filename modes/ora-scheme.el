@@ -21,4 +21,4 @@
   (company-mode -1)
   (setq-local completion-at-point-functions '(scheme-completion-at-point)))
 
-(setq scheme-program-name "/usr/bin/csi")
+(setq scheme-program-name (whicher "/usr/bin/csi"))
