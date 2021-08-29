@@ -83,6 +83,7 @@
     org-parser
     (org-fu :host github :repo "abo-abo/org-fu")
     (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
+    org-ref
     ;; org-roam
     package-lint
     pamparam
