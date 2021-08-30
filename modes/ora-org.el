@@ -666,7 +666,7 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
                 (org-back-to-heading)
                 t)
             (error nil))
-      (looking-at "\\*+ \\(DONE\\|DROP\\)"))))
+      (looking-at "\\*+ \\(?:[0-9][0-9]:[0-9][0-9] \\)?\\(DONE\\|DROP\\)"))))
 
 (defun ora-org-delete-element (&optional context)
   (setq context (or context (org-element-context)))
