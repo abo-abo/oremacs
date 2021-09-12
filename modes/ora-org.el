@@ -54,16 +54,8 @@
   (prettify-symbols-mode)
   (when (fboundp 'pora-org-hook)
     (pora-org-hook))
-  (ora-org-hide-archive-heading)
   (setq-local tab-always-indent 'complete)
   (cl-pushnew 'ora-org-dont-fill-links fill-nobreak-predicate))
-
-(defun ora-org-hide-archive-heading ()
-  (save-excursion
-    (when (progn
-            (goto-char (point-min))
-            (search-forward "* Archive" nil t))
-      (outline-flag-subtree t))))
 
 (setq org-agenda-max-entries nil)
 ;; Hide tasks that are scheduled in the future.
