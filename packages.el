@@ -52,7 +52,6 @@
     flyspell-correct-ivy
     function-args
     geiser
-    geiser-racket
     go-mode
     (google-c-style :host github :repo "google/styleguide" :branch "gh-pages")
     gtk-pomodoro-indicator
