@@ -21,4 +21,13 @@
   (company-mode -1)
   (setq-local completion-at-point-functions '(scheme-completion-at-point)))
 
+(defun ora-scheme-plait-colon (orig-fn)
+  (if (and (eq major-mode 'scheme-mode) (eq (geiser-racket--language) 'plait))
+      (progn
+        (just-one-space)
+        (insert ": "))
+    (funcall orig-fn)))
+
+(advice-add 'lispy-colon :around #'ora-scheme-plait-colon)
+
 (setq scheme-program-name (whicher "/usr/bin/csi"))
