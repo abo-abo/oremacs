@@ -1,4 +1,5 @@
 (setf (cdr (assoc :results org-babel-default-inline-header-args)) "output silent")
+(setf (cdr (assoc :results org-babel-default-inline-header-args)) "value replace")
 
 (font-lock-add-keywords
  'org-mode
