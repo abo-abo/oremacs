@@ -1,7 +1,7 @@
 (setq indent-tabs-mode nil)
 (require 'cl-indent)
 (setq lisp-indent-function 'lisp-indent-function)
-(setq lisp-indent-function 'common-lisp-indent-function)
+;; (setq lisp-indent-function 'common-lisp-indent-function)
 
 (put 'defalias 'common-lisp-indent-function 1)
 (put 'if 'common-lisp-indent-function 2)
