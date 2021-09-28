@@ -14,4 +14,17 @@
     (5 'default)
     (6 'font-lock-comment-face))))
 
+(font-lock-add-keywords
+ 'org-mode
+ '(("\\({{{results(\\)\\(.*\\)\\()}}}\\)"
+    (0
+     (progn
+       (compose-region (+ (match-beginning 1) 0) (+ (match-beginning 1) 1) "-")
+       (compose-region (+ (match-beginning 1) 1) (+ (match-beginning 1) 2) ">")
+       (compose-region (+ (match-beginning 1) 2) (match-end 1) " ")
+       (compose-region
+        (match-beginning 3)
+        (match-end 3)
+        "."))))))
+
 (provide 'ora-org-babel-inline)
