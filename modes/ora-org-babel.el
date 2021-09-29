@@ -60,6 +60,10 @@
 (setq org-babel-default-header-args:bash
       '((:results . "verbatim")))
 
+;;* Common Lisp
+(setq org-babel-default-header-args:lisp
+      '((:results . "value")))
+
 ;; (setf (cdr (assoc :results org-babel-default-header-args)) "output silent")
 (setf (cdr (assoc :noweb org-babel-default-header-args)) "yes")
 
