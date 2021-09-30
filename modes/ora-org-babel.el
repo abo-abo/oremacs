@@ -26,6 +26,24 @@
    (calc . t)))
 (add-to-list 'org-src-lang-modes '("J" . j))
 
+(defun ora-org-babel-insert-result (orig-fn result &optional result-params info hash lang)
+  (let ((inline-p (let ((context (org-element-context)))
+                    (and (memq (org-element-type context)
+                               '(inline-babel-call inline-src-block))
+                         context))))
+    (if inline-p
+        (let ((existing-result (org-babel-where-is-src-block-result t nil hash)))
+          (if existing-result
+              (goto-char existing-result)
+            (goto-char (org-element-property :end inline-p))
+            (skip-chars-backward " \t")
+            (insert " "))
+          (insert (format "{{{results(=%s=)}}}" (if (stringp result) result (prin1-to-string result))))
+          (lispy-message org-babel-last-output))
+      (funcall orig-fn result result-params info hash lang))))
+
+(ora-advice-add 'org-babel-insert-result :around #'ora-org-babel-insert-result)
+
 ;;* C
 (setq org-babel-C-compiler "gcc -std=c99")
 
