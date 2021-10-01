@@ -2,6 +2,7 @@
 (require 'pora-org nil t)
 (use-package async)
 (require 'ora-org-babel)
+(require 'ora-org-babel-inline)
 (require 'ora-org-pomodoro)
 (setq org-export-backends '(html latex))
 (setq org-export-with-sub-superscripts nil)
