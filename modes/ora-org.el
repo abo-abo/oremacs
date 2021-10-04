@@ -707,9 +707,9 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 
 (defun ora-org-previous-line ()
   (interactive)
-  (forward-line -1)
+  (line-move -1)
   (let ((ov (car (overlays-at (point)))))
-    (when ov
+    (when (and ov (not (= 10 (char-after (overlay-start ov)))))
       (goto-char (1- (overlay-start ov)))))
   (ora-org-beginning-of-link))
 
