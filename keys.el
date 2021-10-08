@@ -364,18 +364,19 @@ _v_ariable     valu_e_"
   (interactive)
   (require 'auto-yasnippet)
   (unless (cond
-            ((progn
-               (unless yas-global-mode
-                 (yas-global-mode 1))
-               (yas--snippets-at-point))
-             (yas-next-field-or-maybe-expand))
-            ((ignore-errors
-               (setq aya-invokation-point (point))
-               (setq aya-invokation-buffer (current-buffer))
-               (setq aya-tab-position (- (point) (line-beginning-position)))
-               (let ((yas-fallback-behavior 'return-nil))
-                 (yas-expand))))
-            ((funcall 'tiny-expand)))
+           ((progn
+              (unless yas-global-mode
+                (yas-global-mode 1))
+              (yas--snippets-at-point))
+            (yas-next-field-or-maybe-expand))
+           ((ignore-errors
+              (setq aya-invokation-point (point))
+              (setq aya-invokation-buffer (current-buffer))
+              (setq aya-tab-position (- (point) (line-beginning-position)))
+              (cl-letf ((yas-fallback-behavior 'return-nil)
+                        ((symbol-function #'slime-after-change-function) #'ignore))
+                (yas-expand))))
+           ((funcall 'tiny-expand)))
     (hydra-o/body)))
 
 (defhydra hydra-o (:exit t)
