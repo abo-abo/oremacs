@@ -120,6 +120,7 @@
 (autoload 'mu4e "ora-mu4e")
 (autoload 'mu4e-compose-new "ora-mu4e")
 (autoload 'pass "ora-pass")
+(eval-after-load 'slime '(require 'ora-lisp))
 
 ;;** major modes
 (use-package cmake-mode
