@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: quicklisp
+# key: l
+# --
+(ql:quickload $0)
