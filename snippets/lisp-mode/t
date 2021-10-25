@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: trace
+# key: t
+# --
+(format t "$1: ~a" $1)
