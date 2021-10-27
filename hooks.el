@@ -16,7 +16,6 @@
 (add-hook 'inferior-python-mode-hook 'ora-inferior-python-hook)
 (add-hook 'hy-mode-hook 'ora-hy-hook)
 (add-hook 'ruby-mode-hook 'ora-ruby-hook)
-(add-hook 'j-mode-hook 'ora-j-hook)
 (add-hook 'haskell-mode-hook 'ora-haskell-hook)
 (add-hook 'cider-mode-hook 'ora-cider-hook)
 (add-hook 'cider-repl-mode-hook 'ora-cider-hook)

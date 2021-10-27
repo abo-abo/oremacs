@@ -4,7 +4,8 @@
 ;;
 
 ;;; Code:
-
+(use-package j-mode
+  :mode ("\\.j\\'" . j-mode))
 (require 'j-mode)
 (require 'j-font-lock)
 (require 'helm-j-cheatsheet)

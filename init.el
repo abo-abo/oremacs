@@ -129,8 +129,6 @@
   :mode ("\\.clj\\'" . clojure-mode))
 (use-package eltex
   :mode ("\\.elt\\'" . eltex-mode))
-(use-package j-mode
-  :mode ("\\.j\\'" . j-mode))
 (use-package octave
   :interpreter ("octave" . octave-mode))
 ;;* Use Package
