@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: html_tag2
+# key: hh
+# --
+<$0 />
