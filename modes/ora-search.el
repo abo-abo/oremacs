@@ -1,7 +1,9 @@
 (require 'hydra)
 
 (defun ora-search-query (fmt)
-  (let ((query (read-from-minibuffer "Search for: ")))
+  (let ((query (if (region-active-p)
+                   (buffer-substring-no-properties (region-beginning) (region-end))
+                 (read-from-minibuffer "Search for: "))))
     (browse-url (format fmt query))))
 
 (defhydra hydra-search (:exit t)
