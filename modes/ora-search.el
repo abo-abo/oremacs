@@ -7,6 +7,7 @@
     (browse-url (format fmt query))))
 
 (defhydra hydra-search (:exit t)
+  ("w" (ora-search-query "https://en.wikipedia.org/w/index.php?search=%s") "wiki")
   ("g" (ora-search-query "https://github.com/search?ref=simplesearch&q=%s") "github")
   ("m" (ora-search-query "https://www.google.com/maps/search/%s?hl=en&source=opensearch") "maps")
   ("r" (ora-search-query "https://www.reddit.com/search?q=%s") "reddit")
