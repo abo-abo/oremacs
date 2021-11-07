@@ -53,6 +53,7 @@
   (add-to-list 'prettify-symbols-alist '(":PROPERTIES:" . ":"))
   (add-to-list 'prettify-symbols-alist '("src_sh" . "$"))
   (add-to-list 'prettify-symbols-alist '("src_lisp" . "λ"))
+  (add-to-list 'prettify-symbols-alist '("src_elisp" . "λ"))
   (prettify-symbols-mode)
   (when (fboundp 'pora-org-hook)
     (pora-org-hook))
