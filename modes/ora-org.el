@@ -100,6 +100,9 @@
 (define-key org-mode-map (kbd "C-c C-q") 'counsel-org-tag)
 (define-key org-mode-map (kbd "C-c C-l") 'ora-org-insert-link)
 (define-key org-mode-map (kbd "C-c C-z") 'org-babel-load-in-session-maybe)
+(define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
+(eval-after-load 'org-ref
+  '(require 'pora-org-ref nil t))
 (define-key org-agenda-mode-map (kbd "<backspace>") 'ora-org-agenda-unmark-backward)
 (defalias 'org-babel-load-session:sh 'org-babel-load-session:shell)
 
