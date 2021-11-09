@@ -39,7 +39,8 @@
             (skip-chars-backward " \t")
             (insert " "))
           (insert (format "{{{results(=%s=)}}}" (if (stringp result) result (prin1-to-string result))))
-          (lispy-message org-babel-last-output))
+          (when (boundp 'org-babel-eval-output)
+            (lispy-message org-babel-eval-output)))
       (funcall orig-fn result result-params info hash lang))))
 
 (ora-advice-add 'org-babel-insert-result :around #'ora-org-babel-insert-result)
