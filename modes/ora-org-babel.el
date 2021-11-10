@@ -17,6 +17,7 @@
    (C . t)
    (J . t)
    (java . t)
+   (js . t)
    (scheme . t)
    (lisp . t)
    (latex . t)
