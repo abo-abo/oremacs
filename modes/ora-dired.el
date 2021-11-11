@@ -264,8 +264,7 @@ Number of marked items: %(length (dired-get-marked-files))
          (archive-file
           (when (and file (string-match "\\`\\(.*jar\\|.*zip\\):" file))
             (match-string 1 file))))
-    (with-no-warnings
-      (ring-insert find-tag-marker-ring (point-marker)))
+    (xref-push-marker-stack)
     (if (null archive-file)
         (dired-jump nil file)
       (dired-jump nil archive-file)
