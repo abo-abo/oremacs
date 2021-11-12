@@ -1,6 +1,7 @@
 (require 'slime)
 (require 'slime-autoloads)
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(setq inferior-lisp-program "sbcl")
+
 (diminish 'slime-autodoc-mode)
 (define-key slime-mode-map (kbd "M-p") nil)
 (define-key slime-mode-map (kbd "C-M-i") nil)
@@ -24,4 +25,5 @@
  'slime-display-or-scroll-completions
  :around #'ora-slime-completion-in-region)
 
+(require 'pora-lisp nil t)
 (provide 'ora-lisp)
