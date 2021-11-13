@@ -1,7 +1,9 @@
-(require 'lsp-clients)
 (require 'lsp)
 
 (setq lsp-auto-guess-root t)
+(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+
+(global-set-key (kbd "C-<") lsp-command-map)
 
 (defun lsp-mode-line ()
   "Construct the mode line text."

@@ -259,6 +259,10 @@
   (assq-delete-all 'compilation-in-progress mode-line-modes))
 (use-package htmlize
   :commands htmlize-buffer)
+
+(eval-after-load 'lsp
+  '(require 'ora-lsp))
+
 (lispy-mode)
 (require 'personal-init nil t)
 (unless (bound-and-true-p ora-barebones)
