@@ -1,6 +1,7 @@
 (require 'lsp)
 
 (setq lsp-auto-guess-root t)
+(setq lsp-headerline-breadcrumb-enable nil)
 (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
 
 (global-set-key (kbd "C-<") lsp-command-map)
