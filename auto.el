@@ -189,7 +189,7 @@ When ARG is non-nil launch `query-replace-regexp'."
           (if ora-dired-rsync-limit
               (format " --bwlimit=%s" ora-dired-rsync-limit)
             "")
-          " -arvzu"
+          " -arvzut"
           (and current-prefix-arg " --delete")
           " --progress ")))
     ;; add all selected file names as arguments to the rsync command
