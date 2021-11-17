@@ -21,6 +21,7 @@
 (add-hook 'cider-repl-mode-hook 'ora-cider-hook)
 (add-hook 'java-mode-hook 'ora-java-hook)
 (add-hook 'js-mode-hook 'ora-javascript-hook)
+(add-hook 'html-mode-hook 'ora-html-hook)
 (add-hook 'markdown-mode-hook 'ora-markdown-hook)
 (add-hook 'LaTeX-mode-hook 'ora-latex-hook)
 (add-hook 'latex-mode-hook 'ora-latex-hook)

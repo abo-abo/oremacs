@@ -165,6 +165,22 @@ Return ip info from ipinfo.io for IP.
 
 ;;;***
 
+;;;### (autoloads nil "git/org-fu/org-fu-twitter" "git/org-fu/org-fu-twitter.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from git/org-fu/org-fu-twitter.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git/org-fu/org-fu-twitter" '("orfu-")))
+
+;;;***
+
+;;;### (autoloads nil "git/org-fu/youtube-dl" "git/org-fu/youtube-dl.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from git/org-fu/youtube-dl.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git/org-fu/youtube-dl" '("youtube-dl-channel-to-org")))
+
+;;;***
+
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
@@ -584,6 +600,14 @@ But don't look beyond what's visible on the screen." t nil)
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-html" "modes/ora-html.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from modes/ora-html.el
+
+(autoload 'ora-html-hook "modes/ora-html" nil nil nil)
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-hy" "modes/ora-hy.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-hy.el
 
@@ -681,19 +705,13 @@ Threat is as function body when from endline before )
 ;;; Generated autoloads from modes/ora-j.el
 
 (autoload 'j-setup-shortcuts "modes/ora-j" "\
-Assign shortcuts for J.
-
-\(fn)" t nil)
+Assign shortcuts for J." t nil)
 
 (autoload 'ora-j-hook "modes/ora-j" "\
-Hook for J modes.
-
-\(fn)" nil nil)
+Hook for J modes." nil nil)
 
 (autoload 'run-j "modes/ora-j" "\
-Call `j-console' and setup shortcuts.
-
-\(fn)" t nil)
+Call `j-console' and setup shortcuts." t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-j" '("j-")))
 
@@ -716,12 +734,9 @@ Call `j-console' and setup shortcuts.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-javascript.el
 
-(autoload 'ora-javascript-hook "modes/ora-javascript" "\
+(autoload 'ora-javascript-hook "modes/ora-javascript" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-javascript" '("javascript-candidates" "js-" "refresh-javascript-candidates" "ac-source-javascript" "keyword-function")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-javascript" '("ac-source-javascript" "javascript-candidates" "js-" "keyword-function" "ora-" "refresh-javascript-candidates")))
 
 ;;;***
 
@@ -908,7 +923,7 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-org-babel.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org-babel" '("org-babel-default-header-args:clojure")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org-babel" '("ora-org-babel-insert-result" "org-babel-default-header-args:clojure")))
 
 ;;;***
 
@@ -1021,12 +1036,9 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-scheme.el
 
-(autoload 'ora-scheme-hook "modes/ora-scheme" "\
+(autoload 'ora-scheme-hook "modes/ora-scheme" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-scheme" '("scheme-completion-at-point")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-scheme" '("ora-scheme-plait-colon" "scheme-completion-at-point")))
 
 ;;;***
 
@@ -1142,7 +1154,8 @@ Transform Elisp-style code references to Markdown-style.
 
 ;;;### (autoloads nil nil ("modes/ora-auto.el" "modes/ora-elisp-style-guide.el"
 ;;;;;;  "modes/ora-grep.el" "modes/ora-hydra.el" "modes/ora-keepassxc.el"
-;;;;;;  "modes/ora-visuals.el" "plain.el") (0 0 0 0))
+;;;;;;  "modes/ora-org-babel-inline.el" "modes/ora-visuals.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 
