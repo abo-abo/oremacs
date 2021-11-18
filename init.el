@@ -263,6 +263,10 @@
 (eval-after-load 'lsp
   '(require 'ora-lsp))
 
+(eval-after-load 'flycheck
+  '(progn
+     (setq flycheck-check-syntax-automatically '(save mode-enabled))))
+
 (lispy-mode)
 (require 'personal-init nil t)
 (unless (bound-and-true-p ora-barebones)
