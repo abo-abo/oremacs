@@ -1,5 +1,6 @@
 ;;* Clojure
 (require 'clojure-mode)
+(require 'flycheck-clj-kondo)
 (require 'clojure-semantic)
 (csetq clojure-indent-style :always-align)
 (csetq clojure-indent-style :always-indent)
@@ -13,7 +14,8 @@
   (setq company-backends
         '(company-capf company-dabbrev-code company-keywords company-files))
   (setq add-log-current-defun-function
-        #'lisp-current-defun-name))
+        #'lisp-current-defun-name)
+  (flycheck-mode))
 
 (define-key clojure-mode-map (kbd "C-:") nil)
 (define-key clojure-mode-map (kbd "β") 'counsel-clj)

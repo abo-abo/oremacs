@@ -49,6 +49,7 @@
     find-file-in-project
     flx
     flycheck
+    flycheck-clj-kondo
     flyspell-correct-ivy
     function-args
     geiser
