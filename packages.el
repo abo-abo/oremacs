@@ -50,6 +50,8 @@
     flx
     flycheck
     flycheck-clj-kondo
+    clj-refactor
+    cljr-ivy
     flyspell-correct-ivy
     function-args
     geiser

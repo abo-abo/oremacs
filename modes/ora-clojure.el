@@ -2,6 +2,9 @@
 (require 'clojure-mode)
 (require 'flycheck-clj-kondo)
 (require 'clojure-semantic)
+(require 'clj-refactor)
+(require 'cljr-ivy)
+
 (csetq clojure-indent-style :always-align)
 (csetq clojure-indent-style :always-indent)
 (csetq clojure-indent-style :align-arguments)
@@ -23,6 +26,7 @@
 (define-key clojure-mode-map (kbd "C-c C-l") 'cider-load-file)
 (define-key clojure-mode-map (kbd "C-c C-z") 'cider-switch-to-repl-buffer)
 (define-key clojure-mode-map (kbd "C-c C-r") nil)
+(define-key clojure-mode-map (kbd "C-c r") 'cljr-ivy)
 
 ;;* CIDER
 (require 'cider)
