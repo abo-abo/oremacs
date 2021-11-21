@@ -68,6 +68,7 @@
     ivy-bibtex
     ivy-posframe
     ivy-hydra
+    ivy-xref
     jedi
     lispy
     (lpy :host github :repo "abo-abo/lpy")
