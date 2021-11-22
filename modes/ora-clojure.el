@@ -36,6 +36,7 @@
 (define-key cider-mode-map (kbd "C-c C-v") nil)
 (csetq cider-font-lock-dynamically nil)
 (csetq cider-jack-in-default 'lein)
+(csetq cider-repl-display-help-banner nil)
 (csetq cider-default-cljs-repl nil)
 (csetq cider-default-cljs-repl 'figwheel-main)
 (csetq cider-figwheel-main-default-options ":dev")
