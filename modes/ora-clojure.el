@@ -39,6 +39,7 @@
 (csetq cider-jack-in-default 'clojure-cli)
 (csetq cider-default-cljs-repl nil)
 (csetq cider-default-cljs-repl 'figwheel-main)
+(csetq cider-default-cljs-repl 'shadow)
 (csetq cider-figwheel-main-default-options ":dev")
 (defun ora-sesman-current-session (orig-fn &rest args)
   "Use a single REPL for everything.
