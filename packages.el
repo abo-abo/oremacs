@@ -97,6 +97,7 @@
     projectile
     rainbow-mode
     request
+    rjsx-mode
     rust-mode
     slime
     (smex :host github :repo "abo-abo/smex")
