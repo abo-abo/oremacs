@@ -4,6 +4,8 @@
 (require 'lpy-soap)
 
 (csetq js2-basic-offset 2)
+(csetq js2-mode-show-parse-errors nil)
+(csetq js2-mode-show-strict-warnings nil)
 (csetq js-indent-level 2)
 
 (define-key js-mode-map (kbd "<f5>") 'js-f5)
