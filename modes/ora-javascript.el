@@ -10,7 +10,33 @@
 
 (define-key js-mode-map (kbd "<f5>") 'js-f5)
 (define-key js-mode-map (kbd "C-<f5>") 'js-C-f5)
-(define-key js-mode-map (kbd "=") 'lpy-soap-command)
+(define-key js-mode-map (kbd "=") 'ora-js-assign)
+
+(defun ora-js-assign ()
+  (interactive)
+  (cond
+   ((lispy-after-string-p ")")
+    (insert " ="))
+   ((and (eq major-mode 'rjsx-mode)
+         (condition-case nil
+             (save-excursion (rjsx-jump-opening-tag))
+           (error nil)))
+    (insert "="))
+   ((lispy-after-string-p "!")
+    (backward-delete-char 1)
+    (just-one-space)
+    (insert "!= "))
+   ((lispy-after-string-p "<")
+    (delete-char -1)
+    (insert " <= "))
+   ((looking-back "\\sw\\( ?\\+ ?\\)" (line-beginning-position))
+    (delete-region (match-beginning 1)
+                   (match-end 1))
+    (insert " += "))
+   ((lispy-after-string-p "[")
+    (insert "="))
+   (t
+    (lpy-soap-default-action "="))))
 
 (defun ora-rjsx-maybe ()
   (save-excursion
