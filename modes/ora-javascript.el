@@ -11,6 +11,7 @@
 (define-key js-mode-map (kbd "<f5>") 'js-f5)
 (define-key js-mode-map (kbd "C-<f5>") 'js-C-f5)
 (define-key js-mode-map (kbd "=") 'ora-js-assign)
+(define-key js-mode-map (kbd "M-o") 'back-to-indentation)
 
 (defun ora-js-assign ()
   (interactive)
