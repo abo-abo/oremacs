@@ -39,6 +39,7 @@
    (t
     (lpy-soap-default-action "="))))
 
+(define-key js-mode-map (kbd "M-.") 'xref-find-definitions)
 (defun ora-rjsx-maybe ()
   (save-excursion
     (goto-char (point-min))
