@@ -40,6 +40,7 @@
     (lpy-soap-default-action "="))))
 
 (define-key js-mode-map (kbd "M-.") 'xref-find-definitions)
+(define-key js-mode-map (kbd "C-j") 'newline-and-indent)
 (defun ora-rjsx-maybe ()
   (save-excursion
     (goto-char (point-min))
