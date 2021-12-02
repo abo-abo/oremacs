@@ -53,7 +53,6 @@
 
 ;;;###autoload
 (defun ora-javascript-hook ()
-  (semantic-mode -1)
   ;; (add-to-list 'ac-sources 'ac-source-javascript)
   (ora-rjsx-maybe)
   (yas-minor-mode 1)
