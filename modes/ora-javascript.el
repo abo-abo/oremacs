@@ -53,11 +53,10 @@
 
 ;;;###autoload
 (defun ora-javascript-hook ()
-  ;; (add-to-list 'ac-sources 'ac-source-javascript)
   (ora-rjsx-maybe)
   (yas-minor-mode 1)
   (setq-local avy-subword-extra-word-chars nil)
-  (auto-complete-mode 1)
+
   ;; (ignore-errors
   ;;   (moz-minor-mode 1))
   )
