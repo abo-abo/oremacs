@@ -6,7 +6,6 @@
    (file-chase-links load-file-name)))
 
 (defconst ora-packages
-  ;; (cl-sort . #'string< :key (lambda (x) (symbol-name (if (consp x) (car x) x))))
   '((orly :host github :repo "abo-abo/orly")
     abc-mode
     ace-link
@@ -154,4 +153,3 @@
     (straight-use-package package)))
 
 (straight-install-packages ora-packages)
-;; (save-buffers-kill-emacs)
