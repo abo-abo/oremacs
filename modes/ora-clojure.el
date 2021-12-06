@@ -1,4 +1,5 @@
 ;;* Clojure
+(require 'anakondo)
 (require 'clojure-mode)
 (require 'flycheck-clj-kondo)
 (require 'clojure-semantic)
