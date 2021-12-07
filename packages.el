@@ -30,7 +30,6 @@
     company
     company-jedi
     counsel
-    (counsel-keepassxc :host github :repo "tangxinfa/counsel-keepassxc")
     define-word
     diminish
     (dired-guess :host github :repo "abo-abo/dired-guess")
