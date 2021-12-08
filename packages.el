@@ -5,114 +5,135 @@
   (file-name-directory
    (file-chase-links load-file-name)))
 
+(defconst ora-packages-alist
+  '(("clojure"
+     cider
+     anakondo
+     (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
+     clj-refactor
+     flycheck-clj-kondo
+     cljr-ivy)
+    ("cpp"
+     ccls
+     (cc-chainsaw :host github :repo "abo-abo/cc-chainsaw")
+     (google-c-style :host github :repo "google/styleguide" :branch "gh-pages")
+     cmake-mode
+     elf-mode
+     function-args)
+    ("shell"
+     bash-completion
+     exec-path-from-shell)
+    ("python"
+     company-jedi
+     jedi
+     (lpy :host github :repo "abo-abo/lpy"))
+    ("elisp"
+     auto-compile
+     package-lint)
+    ("snippets"
+     auto-yasnippet)
+    ("email"
+     ;; bbdb
+     )
+    ("docker"
+     docker
+     docker-tramp
+     dockerfile-mode)
+    ("org"
+     (orly :host github :repo "abo-abo/orly")
+     orca
+     org-bullets
+     org-download
+     org-parser
+     (org-fu :host github :repo "abo-abo/org-fu")
+     (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
+     org-ref
+     ;; org-roam
+     pamparam
+     plain-org-wiki)
+    ("avy"
+     avy
+     ace-link
+     ace-popup-menu
+     ace-window)
+    ("look"
+     all-the-icons
+     eclipse-theme
+     diminish
+     powerline
+     rainbow-mode)
+    ("latex"
+     auctex
+     (eltex :host github :repo "abo-abo/eltex"))
+    ("ivy"
+     counsel
+     flx
+     ivy-avy
+     ivy-bibtex
+     ivy-posframe
+     ivy-hydra
+     ivy-xref
+     (smex :host github :repo "abo-abo/smex"))
+    ("words"
+     define-word
+     flyspell-correct-ivy)
+    ("ide"
+     eglot
+     flycheck
+     lsp-java
+     lsp-mode
+     geiser)
+    ("dired"
+     (dired-guess :host github :repo "abo-abo/dired-guess")
+     dired-rsync)
+    ("major-mode"
+     abc-mode
+     go-mode
+     haskell-mode
+     rjsx-mode
+     rust-mode
+     markdown-mode)))
+
 (defconst ora-packages
-  '((orly :host github :repo "abo-abo/orly")
-    abc-mode
-    ace-link
-    ace-popup-menu
-    ace-window
-    alert
-    all-the-icons
-    anakondo
-    async
-    auctex
-    auto-compile
-    auto-yasnippet
-    avy
-    bash-completion
-    ;; bbdb
-    ccls
-    (cc-chainsaw :host github :repo "abo-abo/cc-chainsaw")
-    cider
-    (clojure-semantic :host github :repo "abo-abo/clojure-semantic")
-    cmake-mode
-    command-log-mode
-    company
-    company-jedi
-    counsel
-    define-word
-    diminish
-    (dired-guess :host github :repo "abo-abo/dired-guess")
-    dired-rsync
-    docker
-    docker-tramp
-    dockerfile-mode
-    eclipse-theme
-    eglot
-    elf-mode
-    elfeed
-    (eltex :host github :repo "abo-abo/eltex")
-    evil
-    exec-path-from-shell
-    find-file-in-project
-    flx
-    flycheck
-    flycheck-clj-kondo
-    clj-refactor
-    cljr-ivy
-    flyspell-correct-ivy
-    function-args
-    geiser
-    go-mode
-    (google-c-style :host github :repo "google/styleguide" :branch "gh-pages")
-    gtk-pomodoro-indicator
-    haskell-mode
-    headlong
-    helm-make
-    (htmlize :host github :repo "abo-abo/htmlize")
-    hydra
-    (iedit :host github :repo "abo-abo/iedit")
-    ivy-avy
-    ivy-bibtex
-    ivy-posframe
-    ivy-hydra
-    ivy-xref
-    jedi
-    lispy
-    (lpy :host github :repo "abo-abo/lpy")
-    lsp-java
-    lsp-mode
-    (magit :host github :repo "abo-abo/magit")
-    ;; magit
-    make-it-so
-    markdown-mode
-    multiple-cursors
-    netherlands-holidays
-    orca
-    org-bullets
-    org-download
-    org-parser
-    (org-fu :host github :repo "abo-abo/org-fu")
-    (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
-    org-ref
-    ;; org-roam
-    package-lint
-    pamparam
-    pass
-    plain-org-wiki
-    powerline
-    (profile-dotemacs :host github :repo "abo-abo/profile-dotemacs")
-    projectile
-    rainbow-mode
-    request
-    rjsx-mode
-    rust-mode
-    slime
-    (smex :host github :repo "abo-abo/smex")
-    super-save
-    tea-time
-    (touchpad :host github :repo "abo-abo/touchpad")
-    transpose-frame
-    ukrainian-holidays
-    unicode-fonts
-    use-package
-    wgrep
-    (whicher :host github :repo "abo-abo/whicher")
-    which-key
-    worf
-    wucuo
-    yaml-mode
-    yasnippet)
+  (append
+   '(alert
+     async
+     command-log-mode
+     company
+     elfeed
+     evil
+     find-file-in-project
+     gtk-pomodoro-indicator
+     headlong
+     helm-make
+     (htmlize :host github :repo "abo-abo/htmlize")
+     hydra
+     (iedit :host github :repo "abo-abo/iedit")
+     lispy
+     (magit :host github :repo "abo-abo/magit")
+     make-it-so
+     multiple-cursors
+     netherlands-holidays
+     pass
+     (profile-dotemacs :host github :repo "abo-abo/profile-dotemacs")
+     projectile
+     request
+     slime
+     super-save
+     tea-time
+     (touchpad :host github :repo "abo-abo/touchpad")
+     transpose-frame
+     ukrainian-holidays
+     unicode-fonts
+     use-package
+     wgrep
+     (whicher :host github :repo "abo-abo/whicher")
+     which-key
+     worf
+     wucuo
+     yaml-mode
+     yasnippet)
+   (apply #'append (mapcar #'cdr ora-packages-alist)))
   "List of packages that I like.")
 
 (let* ((all-pkgs (mapcar
