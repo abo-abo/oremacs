@@ -50,7 +50,10 @@
      org-ref
      ;; org-roam
      pamparam
-     plain-org-wiki)
+     plain-org-wiki
+     gtk-pomodoro-indicator
+     ukrainian-holidays
+     netherlands-holidays)
     ("avy"
      avy
      ace-link
@@ -103,7 +106,6 @@
      elfeed
      evil
      find-file-in-project
-     gtk-pomodoro-indicator
      headlong
      helm-make
      (htmlize :host github :repo "abo-abo/htmlize")
@@ -113,7 +115,6 @@
      (magit :host github :repo "abo-abo/magit")
      make-it-so
      multiple-cursors
-     netherlands-holidays
      pass
      (profile-dotemacs :host github :repo "abo-abo/profile-dotemacs")
      projectile
@@ -123,7 +124,6 @@
      tea-time
      (touchpad :host github :repo "abo-abo/touchpad")
      transpose-frame
-     ukrainian-holidays
      unicode-fonts
      use-package
      wgrep
