@@ -81,11 +81,14 @@
      define-word
      flyspell-correct-ivy)
     ("ide"
+     company
      eglot
      flycheck
      lsp-java
      lsp-mode
-     geiser)
+     geiser
+     (iedit :host github :repo "abo-abo/iedit")
+     multiple-cursors)
     ("dired"
      (dired-guess :host github :repo "abo-abo/dired-guess")
      dired-rsync)
@@ -102,7 +105,6 @@
    '(alert
      async
      command-log-mode
-     company
      elfeed
      evil
      find-file-in-project
@@ -110,11 +112,9 @@
      helm-make
      (htmlize :host github :repo "abo-abo/htmlize")
      hydra
-     (iedit :host github :repo "abo-abo/iedit")
      lispy
      (magit :host github :repo "abo-abo/magit")
      make-it-so
-     multiple-cursors
      pass
      (profile-dotemacs :host github :repo "abo-abo/profile-dotemacs")
      projectile
