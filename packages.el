@@ -64,7 +64,9 @@
      eclipse-theme
      diminish
      powerline
-     rainbow-mode)
+     rainbow-mode
+     which-key
+     command-log-mode)
     ("latex"
      auctex
      (eltex :host github :repo "abo-abo/eltex"))
@@ -87,11 +89,13 @@
      lsp-java
      lsp-mode
      geiser
+     slime
      (iedit :host github :repo "abo-abo/iedit")
      multiple-cursors)
     ("dired"
      (dired-guess :host github :repo "abo-abo/dired-guess")
-     dired-rsync)
+     dired-rsync
+     make-it-so)
     ("major-mode"
      abc-mode
      go-mode
@@ -104,7 +108,6 @@
   (append
    '(alert
      async
-     command-log-mode
      elfeed
      evil
      find-file-in-project
@@ -114,12 +117,10 @@
      hydra
      lispy
      (magit :host github :repo "abo-abo/magit")
-     make-it-so
      pass
      (profile-dotemacs :host github :repo "abo-abo/profile-dotemacs")
      projectile
      request
-     slime
      super-save
      tea-time
      (touchpad :host github :repo "abo-abo/touchpad")
@@ -128,7 +129,6 @@
      use-package
      wgrep
      (whicher :host github :repo "abo-abo/whicher")
-     which-key
      worf
      wucuo
      yaml-mode
