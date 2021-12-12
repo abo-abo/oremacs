@@ -53,7 +53,8 @@
      plain-org-wiki
      gtk-pomodoro-indicator
      ukrainian-holidays
-     netherlands-holidays)
+     netherlands-holidays
+     (htmlize :host github :repo "abo-abo/htmlize"))
     ("avy"
      avy
      ace-link
@@ -66,7 +67,8 @@
      powerline
      rainbow-mode
      which-key
-     command-log-mode)
+     command-log-mode
+     unicode-fonts)
     ("latex"
      auctex
      (eltex :host github :repo "abo-abo/eltex"))
@@ -113,7 +115,6 @@
      find-file-in-project
      headlong
      helm-make
-     (htmlize :host github :repo "abo-abo/htmlize")
      hydra
      lispy
      (magit :host github :repo "abo-abo/magit")
@@ -125,7 +126,6 @@
      tea-time
      (touchpad :host github :repo "abo-abo/touchpad")
      transpose-frame
-     unicode-fonts
      use-package
      wgrep
      (whicher :host github :repo "abo-abo/whicher")
