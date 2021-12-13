@@ -54,7 +54,8 @@
      gtk-pomodoro-indicator
      ukrainian-holidays
      netherlands-holidays
-     (htmlize :host github :repo "abo-abo/htmlize"))
+     (htmlize :host github :repo "abo-abo/htmlize")
+     worf)
     ("avy"
      avy
      ace-link
@@ -104,16 +105,18 @@
      haskell-mode
      rjsx-mode
      rust-mode
-     markdown-mode)))
+     markdown-mode)
+    ("keys"
+     evil
+     headlong
+     (touchpad :host github :repo "abo-abo/touchpad"))))
 
 (defconst ora-packages
   (append
    '(alert
      async
      elfeed
-     evil
      find-file-in-project
-     headlong
      helm-make
      hydra
      lispy
@@ -124,12 +127,10 @@
      request
      super-save
      tea-time
-     (touchpad :host github :repo "abo-abo/touchpad")
      transpose-frame
      use-package
      wgrep
      (whicher :host github :repo "abo-abo/whicher")
-     worf
      wucuo
      yaml-mode
      yasnippet)
