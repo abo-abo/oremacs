@@ -29,9 +29,16 @@
      (lpy :host github :repo "abo-abo/lpy"))
     ("elisp"
      auto-compile
-     package-lint)
+     package-lint
+     (profile-dotemacs :host github :repo "abo-abo/profile-dotemacs")
+     use-package
+     alert
+     async
+     request
+     (whicher :host github :repo "abo-abo/whicher"))
     ("snippets"
-     auto-yasnippet)
+     auto-yasnippet
+     yasnippet)
     ("email"
      ;; bbdb
      )
@@ -84,7 +91,8 @@
      (smex :host github :repo "abo-abo/smex"))
     ("words"
      define-word
-     flyspell-correct-ivy)
+     flyspell-correct-ivy
+     wucuo)
     ("ide"
      company
      eglot
@@ -93,8 +101,10 @@
      lsp-mode
      geiser
      slime
+     lispy
      (iedit :host github :repo "abo-abo/iedit")
-     multiple-cursors)
+     multiple-cursors
+     helm-make)
     ("dired"
      (dired-guess :host github :repo "abo-abo/dired-guess")
      dired-rsync
@@ -105,36 +115,27 @@
      haskell-mode
      rjsx-mode
      rust-mode
-     markdown-mode)
+     markdown-mode
+     yaml-mode)
     ("keys"
      evil
      headlong
-     (touchpad :host github :repo "abo-abo/touchpad"))))
+     (touchpad :host github :repo "abo-abo/touchpad")
+     hydra)
+    ("files"
+     find-file-in-project
+     projectile
+     wgrep
+     (magit :host github :repo "abo-abo/magit")
+     super-save)
+    ("misc"
+     elfeed
+     pass
+     tea-time
+     transpose-frame)))
 
 (defconst ora-packages
-  (append
-   '(alert
-     async
-     elfeed
-     find-file-in-project
-     helm-make
-     hydra
-     lispy
-     (magit :host github :repo "abo-abo/magit")
-     pass
-     (profile-dotemacs :host github :repo "abo-abo/profile-dotemacs")
-     projectile
-     request
-     super-save
-     tea-time
-     transpose-frame
-     use-package
-     wgrep
-     (whicher :host github :repo "abo-abo/whicher")
-     wucuo
-     yaml-mode
-     yasnippet)
-   (apply #'append (mapcar #'cdr ora-packages-alist)))
+  (apply #'append (mapcar #'cdr ora-packages-alist))
   "List of packages that I like.")
 
 (let* ((all-pkgs (mapcar
