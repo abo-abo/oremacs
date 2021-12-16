@@ -61,7 +61,7 @@
      gtk-pomodoro-indicator
      ukrainian-holidays
      netherlands-holidays
-     (htmlize :host github :repo "abo-abo/htmlize")
+     htmlize
      worf)
     ("avy"
      avy
