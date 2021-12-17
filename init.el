@@ -260,6 +260,13 @@
 (use-package htmlize
   :commands htmlize-buffer)
 
+(use-package super-save
+  :diminish super-save-mode
+  :config
+  (setq super-save-auto-save-when-idle t)
+  ;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (super-save-mode))
+
 (eval-after-load 'lsp
   '(require 'ora-lsp))
 
