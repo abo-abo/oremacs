@@ -896,4 +896,15 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
             (lambda (&rest args &key error-thrown &allow-other-keys)
               (message "Can't receive ipinfo. Error %S " error-thrown)))))
 
+;;;###autoload
+(defun ora-open-wikitionary ()
+  (interactive)
+  (browse-url
+   (if (eq major-mode 'clojure-mode)
+       (let ((str (thing-at-point 'symbol t)))
+         (concat "https://clojuredocs.org/clojure.core/"
+                 (replace-regexp-in-string "\\?" "_q" str)))
+     (concat "https://nl.wiktionary.org/wiki/"
+             (ivy-thing-at-point)))))
+
 (define-obsolete-function-alias 'string-to-int 'string-to-number)
