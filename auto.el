@@ -907,4 +907,11 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
      (concat "https://nl.wiktionary.org/wiki/"
              (ivy-thing-at-point)))))
 
+;;;###autoload
+(defun ora-open-wikipedia ()
+  (interactive)
+  (browse-url
+   (format "https://en.wikipedia.org/wiki/%s"
+           (ivy-thing-at-point))))
+
 (define-obsolete-function-alias 'string-to-int 'string-to-number)
