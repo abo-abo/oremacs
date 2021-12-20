@@ -914,4 +914,11 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
    (format "https://en.wikipedia.org/wiki/%s"
            (ivy-thing-at-point))))
 
+;;;###autoload
+(defun ora-open-google-translate ()
+  (interactive)
+  (browse-url
+   (format "https://translate.google.com/#nl/en/%s"
+           (ivy-thing-at-point))))
+
 (define-obsolete-function-alias 'string-to-int 'string-to-number)
