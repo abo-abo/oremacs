@@ -618,6 +618,14 @@ But don't look beyond what's visible on the screen." t nil)
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-hydra-k" "modes/ora-hydra-k.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-hydra-k.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-hydra-k" '("hydra-k" "ora-open-")))
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-ibuffer" "modes/ora-ibuffer.el"
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ibuffer.el

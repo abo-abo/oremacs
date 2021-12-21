@@ -192,6 +192,7 @@
 
 ;;* Hydras
 (require 'hydra-examples)
+(require 'ora-hydra-k)
 (defhydra hydra-error (global-map "M-g")
   "goto-error"
   ("h" first-error "first")
@@ -222,41 +223,6 @@
 
 (use-package cook
   :commands cook)
-
-(defhydra hydra-k (:exit t :idle 0.8)
-  "Misc command launcher."
-  ("a" orfu-agenda-day "agenda")
-  ("b" org-mark-ring-goto "back" :exit nil)
-  ("c" cook "cook :")
-  ("d" define-word-at-point "def")
-  ("e" ora-ediff-dwim "ediff")
-  ("E" eval-expression "eval")
-  ("f" hydra--universal-argument "C-u" :exit nil :idle 0.8)
-  ("F" ora-flyspell-previous-word "flyspell")
-  ("g" counsel-search "incremental search")
-  ("G" ora-github "github")
-  ;; "h" "i"
-  ("j" ora-dired-open-term "jump here")
-  ;; "k" "l"
-  ("m" hydra-pamparam/body "pamparam")
-  ("n" ora-open-wikitionary "wikitionary")
-  ("N" ora-open-google-translate "google-translate")
-  ("o" ora-toggle-buffer "other")
-  ("p" ora-project "project")
-  ("P" ora-password "password")
-  ("q" nil "quit")
-  ("R" counsel-recoll "recoll")
-  ("s" hydra-search/body "search")
-  ("t" tea-time "tea")
-  ("v" hydra-avy/body "avy")
-  ("y" avy-copy-region "yank region")
-  ("w" plain-org-wiki "wiki")
-  ("W" ora-open-wikipedia "wikipedia")
-  ("κ" hydra--universal-argument "C-u" :exit nil :idle 0.8))
-
-(autoload 'ora-dired-open-term "ora-dired")
-(autoload 'hydra-pamparam/body "pamparam")
-(autoload 'hydra-search/body "ora-search")
 
 (defhydra hydra-toggle (:color pink :hint nil)
   "
@@ -386,13 +352,11 @@ _v_ariable     valu_e_"
   ;; ("j" zo-insert-outline-below)
   ("h" lispy-insert-outline-left)
   ("p" lispy-insert-prev-outline-body)
-
   ("f" ora-org-roam-find-file "file")
   ("i" ora-roam-insert "ins")
   ("r" org-roam-random-note "rnd")
   ("b" ora-org-roam-find-backlink "back")
   ("t" ora-roam-todo "todo")
-
   ("C-o" nil nil))
 (hydra-set-property 'hydra-o :verbosity 1)
 
