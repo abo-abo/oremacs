@@ -38,7 +38,8 @@
      (whicher :host github :repo "abo-abo/whicher"))
     ("snippets"
      auto-yasnippet
-     yasnippet)
+     yasnippet
+     emmet-mode)
     ("email"
      ;; bbdb
      )

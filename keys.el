@@ -329,21 +329,32 @@ _v_ariable     valu_e_"
 (defun ora-open-line ()
   (interactive)
   (require 'auto-yasnippet)
-  (unless (cond
-           ((progn
-              (unless yas-global-mode
-                (yas-global-mode 1))
-              (yas--snippets-at-point))
-            (yas-next-field-or-maybe-expand))
-           ((ignore-errors
-              (setq aya-invokation-point (point))
-              (setq aya-invokation-buffer (current-buffer))
-              (setq aya-tab-position (- (point) (line-beginning-position)))
-              (cl-letf ((yas-fallback-behavior 'return-nil)
-                        ((symbol-function #'slime-after-change-function) #'ignore))
-                (yas-expand))))
-           ((funcall 'tiny-expand)))
-    (hydra-o/body)))
+  (let (expr markup)
+    (unless (cond
+             ((progn
+                (unless yas-global-mode
+                  (yas-global-mode 1))
+                (yas--snippets-at-point))
+              (yas-next-field-or-maybe-expand))
+             ((ignore-errors
+                (setq aya-invokation-point (point))
+                (setq aya-invokation-buffer (current-buffer))
+                (setq aya-tab-position (- (point) (line-beginning-position)))
+                (cl-letf ((yas-fallback-behavior 'return-nil)
+                          ((symbol-function #'slime-after-change-function) #'ignore))
+                  (yas-expand))))
+             ((funcall 'tiny-expand))
+             ;; from `emmet-expand-line'
+             ((and
+               (require 'emmet-mode)
+               (setq expr (emmet-expr-on-line))
+               (setq markup (emmet-transform (first expr))))
+              (delete-region (second expr) (third expr))
+              (emmet-insert-and-flash markup)
+              (emmet-reposition-cursor expr))
+             ((memq major-mode '(html-mode mhtml-mode))
+              (emmet-expand-line nil)))
+      (hydra-o/body))))
 
 (defhydra hydra-o (:exit t)
   "outl"
