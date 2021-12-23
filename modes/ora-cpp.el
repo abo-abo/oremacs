@@ -27,7 +27,6 @@
 (define-key c-mode-base-map (kbd "TAB") 'ccc-magic-tab)
 (define-key c-mode-base-map (kbd "DEL") 'ccc-electric-del)
 (define-key c-mode-base-map (kbd "M-r") 'ccc-run)
-(define-key c-mode-map (kbd "β") 'moo-complete)
 (define-key c++-mode-map (kbd "β") 'counsel-company)
 (define-key c++-mode-map (kbd "M-q") 'ccc-align-function-arguments)
 (define-key c++-mode-map (kbd "C-M-g") 'hydra-gud/body)

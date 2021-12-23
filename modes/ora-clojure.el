@@ -22,7 +22,6 @@
   (flycheck-mode))
 
 (define-key clojure-mode-map (kbd "C-:") nil)
-(define-key clojure-mode-map (kbd "β") 'counsel-clj)
 (define-key clojure-mode-map (kbd "&") 'clojure-ampersand)
 (define-key clojure-mode-map (kbd "C-c C-l") 'cider-load-file)
 (define-key clojure-mode-map (kbd "C-c C-z") 'cider-switch-to-repl-buffer)

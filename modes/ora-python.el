@@ -42,7 +42,6 @@
 (define-key python-mode-map (kbd "C-?") 'jedi:show-doc)
 (define-key python-mode-map (kbd "RET") 'newline-and-indent)
 (define-key python-mode-map (kbd "θ") 'lpy-quotes)
-(define-key python-mode-map (kbd "β") 'counsel-jedi)
 (define-key python-mode-map (kbd "C-M-j") 'lpy-goto)
 (define-key python-mode-map (kbd "C-c C-v") nil)
 (define-key python-mode-map (kbd "C-c C-r") nil)

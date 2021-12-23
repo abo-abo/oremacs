@@ -47,7 +47,6 @@
       (insert prefix))
     (complete-symbol nil)))
 
-(define-key lisp-mode-shared-map (kbd "β") 'counsel-company)
 (define-key lisp-mode-shared-map (kbd "β") 'ora-package-symbol)
 
 (define-key lisp-mode-shared-map (kbd "C-c C-z")
