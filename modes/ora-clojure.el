@@ -41,13 +41,6 @@
 (csetq cider-default-cljs-repl 'figwheel-main)
 (csetq cider-default-cljs-repl 'shadow)
 (csetq cider-figwheel-main-default-options ":dev")
-(defun ora-sesman-current-session (orig-fn &rest args)
-  "Use a single REPL for everything.
-Avoid having to `cider-connect' every single thing."
-  (apply orig-fn args)
-  ;; (car (hash-table-values sesman-sessions-hashmap))
-  )
-(ora-advice-add 'sesman-current-session :around 'ora-sesman-current-session)
 
 (setq cider-jdk-src-paths
       (mapcar #'expand-file-name
