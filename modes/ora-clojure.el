@@ -42,12 +42,6 @@
 (csetq cider-default-cljs-repl 'shadow)
 (csetq cider-figwheel-main-default-options ":dev")
 
-(setq cider-jdk-src-paths
-      (mapcar #'expand-file-name
-              (cl-remove-if-not #'file-exists-p
-                                '("~/git/java/openjvm-8-src"
-                                  "~/git/java/clojure-1.8.0-sources"))))
-
 (defun add-classpath (&rest files)
   (let* ((cp (getenv "CLASSPATH"))
          (paths (when (stringp cp)
