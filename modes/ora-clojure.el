@@ -30,7 +30,6 @@
 
 ;;* CIDER
 (require 'cider)
-
 (setq nrepl-use-ssh-fallback-for-remote-hosts t)
 (csetq cider-mode-line-show-connection nil)
 (define-key cider-mode-map (kbd "C-c C-v") nil)
@@ -51,10 +50,6 @@
                   :test #'equal))
     (setq cp (mapconcat #'identity (nreverse paths) ":"))
     (setenv "CLASSPATH" cp)))
-
-;; (add-classpath
-;;  "~/git/java/clojure-1.8.0-sources"
-;;  "~/git/java/openjvm-8-src")
 
 (defun clojure-ampersand ()
   (interactive)
