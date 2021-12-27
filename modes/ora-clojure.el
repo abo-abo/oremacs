@@ -86,10 +86,5 @@
 (font-lock-remove-keywords 'clojure-mode ora-clojure-font-lock-keywords)
 (font-lock-add-keywords 'clojure-mode ora-clojure-font-lock-keywords)
 
-(use-package spiral
-    :config
-  (define-key spiral-mode-map (kbd "C-c C-c") nil)
-  :disabled)
-
 (require 'pora-clojure nil t)
 (provide 'ora-clojure)
