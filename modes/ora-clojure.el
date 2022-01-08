@@ -3,8 +3,13 @@
 (require 'clojure-mode)
 (require 'flycheck-clj-kondo)
 (require 'clojure-semantic)
-(require 'clj-refactor)
+
 (require 'cljr-ivy)
+
+(use-package clj-refactor
+  :config
+  (remove-hook 'find-file-hook 'cljr--ensure-no-dashes-in-filename)
+  (remove-hook 'find-file-hook 'cljr--add-ns-if-blank-clj-file))
 
 (csetq clojure-indent-style :always-align)
 (csetq clojure-indent-style :always-indent)
