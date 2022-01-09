@@ -67,12 +67,7 @@
     (insert "& ")))
 
 (defvar ora-clojure-font-lock-keywords
-  '(("^;; ?\\(\\*[^*\n]?.*\\)$" 1 'org-level-1 prepend)
-    ("^;; ?\\(\\*\\*[^*\n]?.*\\)$" 1 'org-level-2 prepend)
-    ("^;; ?\\(\\*\\*\\*[^*\n]?.*\\)$" 1 'org-level-3 prepend)
-    ("^;; ?\\(\\*\\*\\*\\*[^*\n]?.*\\)$" 1 'org-level-4 prepend)
-    ("^;; ?\\(\\*\\*\\*\\*\\*[*\n]?.*\\)$" 1 'org-level-5 prepend)
-    (ora-clojure-outline-comment-highlight 1 'default prepend)
+  '((ora-clojure-outline-comment-highlight 1 'default prepend)
     ;; ("`\\([^\n']+\\)'" 1 font-lock-constant-face prepend)
     ))
 
