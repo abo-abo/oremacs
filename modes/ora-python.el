@@ -71,6 +71,7 @@
     (setq jedi:environment-root "jedi")
     (setq jedi:environment-virtualenv python-environment-virtualenv)
     (add-to-list 'company-backends 'company-jedi))
+  (flycheck-mode)
   (electric-indent-mode -1)
   (auto-complete-mode -1)
   (company-mode)
