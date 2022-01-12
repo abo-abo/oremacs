@@ -335,7 +335,8 @@ _v_ariable     valu_e_"
                 (unless yas-global-mode
                   (yas-global-mode 1))
                 (yas--snippets-at-point))
-              (yas-next-field-or-maybe-expand))
+              (yas-next-field-or-maybe-expand)
+              t)
              ((ignore-errors
                 (setq aya-invokation-point (point))
                 (setq aya-invokation-buffer (current-buffer))
