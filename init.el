@@ -139,7 +139,6 @@
   :diminish yas-minor-mode
   :config
   (progn
-    (setq yas-after-exit-snippet-hook '((lambda () (yas-global-mode -1))))
     (setq yas-fallback-behavior 'return-nil)
     (setq yas-triggers-in-field t)
     (setq yas-verbosity 0)
