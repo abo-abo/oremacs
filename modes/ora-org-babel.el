@@ -24,8 +24,10 @@
    (R . t)
    (sql . t)
    (sqlite . t)
-   (calc . t)))
+   (calc . t)
+   (clojure . t)))
 (add-to-list 'org-src-lang-modes '("J" . j))
+(setq org-babel-clojure-backend 'cider)
 
 (defun ora-org-babel-insert-result (orig-fn result &optional result-params info hash lang)
   (let ((inline-p (let ((context (org-element-context)))
