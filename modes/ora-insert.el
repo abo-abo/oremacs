@@ -98,8 +98,17 @@
         (lispy--surround-region "{" "}")
         (backward-char)
         (forward-list))
-    (insert "{}")
-    (backward-char)))
+    (cond ((and (eolp) (not (bolp)) (memq major-mode '(js2-mode)))
+           (just-one-space)
+           (insert "{}")
+           (backward-char 1)
+           (undo-boundary)
+           (newline-and-indent 2)
+           (forward-line -1)
+           (indent-for-tab-command))
+          (t
+           (insert "{}")
+           (backward-char)))))
 
 ;;;###autoload
 (defun ora-braces-c++ ()
