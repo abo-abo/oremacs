@@ -20,6 +20,7 @@
   ("p" ora-project "project")
   ("P" ora-password "password")
   ("q" nil "quit")
+  ("r" flycheck-next-error "errors")
   ("R" counsel-recoll "recoll")
   ("s" hydra-search/body "search")
   ("t" tea-time "tea")
