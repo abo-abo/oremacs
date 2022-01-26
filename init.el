@@ -272,6 +272,7 @@
 (eval-after-load 'flycheck
   '(progn
      (setq flycheck-check-syntax-automatically '(save mode-enabled))))
+(require 'ora-pass)
 
 (lispy-mode)
 (require 'personal-init nil t)
