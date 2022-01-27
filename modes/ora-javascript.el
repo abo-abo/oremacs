@@ -13,6 +13,14 @@
 (define-key js-mode-map (kbd "=") 'ora-js-assign)
 (define-key js-mode-map (kbd "M-o") 'back-to-indentation)
 (define-key js-mode-map (kbd "σ") 'ora-braces)
+(define-key js-mode-map (kbd "e") 'ora-indium-eval)
+
+(defun ora-indium-eval ()
+  (interactive)
+  (cond ((region-active-p)
+         (indium-eval-region (region-beginning) (region-end)))
+        (t
+         (self-insert-command 1))))
 
 (defun ora-js-assign ()
   (interactive)
