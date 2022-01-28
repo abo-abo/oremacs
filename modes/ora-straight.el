@@ -15,8 +15,8 @@
          (emacs-git (expand-file-name "git/" emacs-d))
          (git-files (ora-directory-files emacs-git))
          (pkgs (cl-set-difference
-                (delete "cl-lib" (ora-directory-files build-dir))
-                (append '("cl-lib")
+                (ora-directory-files build-dir)
+                (append '("cl-lib" "org")
                         (when (member "swiper" git-files)
                           '("counsel" "ivy" "ivy-avy"))
                         git-files)
