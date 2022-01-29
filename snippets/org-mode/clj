@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: clj
+# key: clj
+# --
+src_clojure{($0)}
