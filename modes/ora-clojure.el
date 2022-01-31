@@ -41,6 +41,7 @@
 (csetq cider-font-lock-dynamically nil)
 (csetq cider-repl-display-help-banner nil)
 (csetq cider-jack-in-default 'clojure-cli)
+(csetq cider-clojure-cli-aliases nil)
 (csetq cider-default-cljs-repl nil)
 (csetq cider-default-cljs-repl 'figwheel-main)
 (csetq cider-default-cljs-repl 'shadow)
