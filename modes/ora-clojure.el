@@ -87,5 +87,11 @@
 (font-lock-remove-keywords 'clojure-mode ora-clojure-font-lock-keywords)
 (font-lock-add-keywords 'clojure-mode ora-clojure-font-lock-keywords)
 
+(defun ora-cider-current-connection (orig-fn &rest args)
+  (if (eq major-mode 'org-mode)
+      (cadr (first (sesman--all-system-sessions 'CIDER)))
+    (apply orig-fn args)))
+(advice-add 'cider-current-connection :around #'ora-cider-current-connection)
+
 (require 'pora-clojure nil t)
 (provide 'ora-clojure)
