@@ -51,6 +51,12 @@
 (define-key js-mode-map (kbd "M-.") 'xref-find-definitions)
 (define-key js-mode-map (kbd "C-j") 'newline-and-indent)
 (define-key js-mode-map (kbd "C-M-j") 'counsel-imenu)
+(define-key js-mode-map (kbd "C-c C-y") 'ora-yank-json)
+
+(defun ora-yank-json ()
+  (interactive)
+  (shell-command "xclip -o | jq" (current-buffer)))
+
 
 (defun ora-rjsx-maybe ()
   (save-excursion
@@ -58,7 +64,6 @@
     (when (and (re-search-forward "import React" nil t)
                (not (eq major-mode 'rjsx-mode)))
       (rjsx-mode))))
-
 
 ;;;###autoload
 (defun ora-javascript-hook ()
