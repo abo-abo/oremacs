@@ -7,7 +7,7 @@
 (csetq smtpmail-smtp-service 587)
 
 (use-package mu4e
-  :load-path "/usr/share/emacs/site-lisp/mu4e/")
+  :load-path "/usr/local/share/emacs/site-lisp/mu4e/")
 (setq mu4e-maildir "~/mail/work")
 (setq mu4e-html2text-command (whicher "w3m -T text/html"))
 (setq mu4e-drafts-folder "/Drafts")
