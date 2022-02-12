@@ -79,6 +79,13 @@
   ;;   (moz-minor-mode 1))
   )
 
+(defun ora-js-ide ()
+  (interactive)
+  (when (file-exists-p ".indium.json")
+    (unless (bound-and-true-p indium-interaction-mode)
+      (indium-connect)
+      (indium-interaction-mode 1))))
+
 (defvar keyword-function
   '(("\\(function\\)\\>" (0 (prog1 ()
                               (compose-region (match-beginning 1)
