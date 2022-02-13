@@ -5,10 +5,10 @@
 (csetq magit-time-format-string "%Y-%m-%d")
 (eval-after-load 'magit-blame
   '(progn
-    (define-key magit-blame-map "n" nil)
-    (define-key magit-blame-map "p" nil)
-    (define-key magit-blame-map "j" 'magit-blame-next-chunk)
-    (define-key magit-blame-map "k" 'magit-blame-previous-chunk)))
+     (define-key magit-blame-map "n" nil)
+     (define-key magit-blame-map "p" nil)
+     (define-key magit-blame-map "j" 'magit-blame-next-chunk)
+     (define-key magit-blame-map "k" 'magit-blame-previous-chunk)))
 
 ;;* Maps
 ;;** Status
@@ -53,24 +53,13 @@
 (define-key magit-branch-manager-mode-map "d" 'magit-discard-item)
 (define-key magit-branch-manager-mode-map "u" 'magit-diff-working-tree)
 ;;* Hooks
-;;;###autoload
 (defun ora-magit-status-hook ()
   (yas-minor-mode 0))
-;;;###autoload
 (defun ora-magit-log-hook ())
-;;;###autoload
 (defun ora-magit-commit-hook ()
   (setq magit-ignore-huge-commits nil))
-
-;;;###autoload
 (defun ora-magit-diff-hook ())
-
-;;;###autoload
 (defun ora-magit-branch-manager-hook ())
-
-;;;###autoload
-(defun ora-git-commit-hook ()
-  (setq fill-column 70))
 
 ;;* Functions
 (defun ora-magit-find-main-file ()
@@ -218,6 +207,12 @@
   (let ((item (magit-section-info (magit-current-section))))
     (orly-start
      "git difftool" (list item))))
+
+(add-hook 'magit-status-mode-hook 'ora-magit-status-hook)
+(add-hook 'magit-log-mode-hook 'ora-magit-log-hook)
+(add-hook 'magit-commit-mode-hook 'ora-magit-commit-hook)
+(add-hook 'magit-diff-mode-hook 'ora-magit-diff-hook)
+(add-hook 'magit-branch-manager-mode-hook 'ora-magit-branch-manager-hook)
 
 (require 'pora-magit nil t)
 (provide 'ora-magit)

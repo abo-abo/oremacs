@@ -286,7 +286,7 @@ Return ip info from ipinfo.io for IP.
 
 (autoload 'ora-clojure-hook "modes/ora-clojure" nil nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("add-classpath" "clojure-ampersand" "ora-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-clojure" '("add-classpath" "clojure-ampersand" "ora-c")))
 
 ;;;***
 
@@ -338,20 +338,11 @@ Return ip info from ipinfo.io for IP.
 ;;;### (autoloads nil "modes/ora-cpp" "modes/ora-cpp.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-cpp.el
 
-(autoload 'ora-c-common-hook "modes/ora-cpp" "\
+(autoload 'ora-c-common-hook "modes/ora-cpp" nil nil nil)
 
+(autoload 'ora-c-hook "modes/ora-cpp" nil nil nil)
 
-\(fn)" nil nil)
-
-(autoload 'ora-c-hook "modes/ora-cpp" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-c++-hook "modes/ora-cpp" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-c++-hook "modes/ora-cpp" nil nil nil)
 
 ;;;***
 
@@ -664,41 +655,21 @@ But don't look beyond what's visible on the screen." t nil)
 
 \(fn ARG)" t nil)
 
-(autoload 'ora-parens "modes/ora-insert" "\
+(autoload 'ora-parens "modes/ora-insert" nil t nil)
 
+(autoload 'ora-dollars "modes/ora-insert" nil t nil)
 
-\(fn)" t nil)
+(autoload 'ora-brackets "modes/ora-insert" nil t nil)
 
-(autoload 'ora-dollars "modes/ora-insert" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-brackets "modes/ora-insert" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-braces "modes/ora-insert" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-braces "modes/ora-insert" nil t nil)
 
 (autoload 'ora-braces-c++ "modes/ora-insert" "\
 Insert {}.
-Threat is as function body when from endline before )
+Threat is as function body when from endline before )" t nil)
 
-\(fn)" t nil)
+(autoload 'ora-angles-c++ "modes/ora-insert" nil t nil)
 
-(autoload 'ora-angles-c++ "modes/ora-insert" "\
-
-
-\(fn)" t nil)
-
-(autoload 'ora-angles "modes/ora-insert" "\
-
-
-\(fn)" t nil)
+(autoload 'ora-angles "modes/ora-insert" nil t nil)
 
 ;;;***
 
@@ -779,19 +750,7 @@ Call `j-console' and setup shortcuts." t nil)
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-magit.el
 
-(autoload 'ora-magit-status-hook "modes/ora-magit" nil nil nil)
-
-(autoload 'ora-magit-log-hook "modes/ora-magit" nil nil nil)
-
-(autoload 'ora-magit-commit-hook "modes/ora-magit" nil nil nil)
-
-(autoload 'ora-magit-diff-hook "modes/ora-magit" nil nil nil)
-
-(autoload 'ora-magit-branch-manager-hook "modes/ora-magit" nil nil nil)
-
-(autoload 'ora-git-commit-hook "modes/ora-magit" nil nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-magit" '("ora-magit-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-magit" '("ora-")))
 
 ;;;***
 
@@ -842,32 +801,17 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-nextmagit.el
 
-(autoload 'ora-nextmagit-status-hook "modes/ora-nextmagit" "\
+(autoload 'ora-nextmagit-status-hook "modes/ora-nextmagit" nil nil nil)
 
+(autoload 'ora-nextmagit-log-hook "modes/ora-nextmagit" nil nil nil)
 
-\(fn)" nil nil)
+(autoload 'ora-nextmagit-commit-hook "modes/ora-nextmagit" nil nil nil)
 
-(autoload 'ora-nextmagit-log-hook "modes/ora-nextmagit" "\
+(autoload 'ora-nextmagit-diff-hook "modes/ora-nextmagit" nil nil nil)
 
+(autoload 'ora-nextmagit-branch-manager-hook "modes/ora-nextmagit" nil nil nil)
 
-\(fn)" nil nil)
-
-(autoload 'ora-nextmagit-commit-hook "modes/ora-nextmagit" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-nextmagit-diff-hook "modes/ora-nextmagit" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'ora-nextmagit-branch-manager-hook "modes/ora-nextmagit" "\
-
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-nextmagit" '("ora-m" "endless/add-PR-fetch")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-nextmagit" '("endless/add-PR-fetch" "ora-m")))
 
 ;;;***
 
@@ -1120,15 +1064,9 @@ Transform Elisp-style code references to Markdown-style.
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-term.el
 
-(autoload 'ora-term-exec-hook "modes/ora-term" "\
+(autoload 'ora-term-exec-hook "modes/ora-term" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(autoload 'ora-term-hook "modes/ora-term" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-term-hook "modes/ora-term" nil nil nil)
 
 ;;;***
 
