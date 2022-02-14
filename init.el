@@ -233,24 +233,7 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 (use-package find-file-in-project
   :commands find-file-in-project)
-(use-package magit
-  :commands magit-status
-  :config
-  (progn
-    (ignore-errors
-      (diminish 'magit-auto-revert-mode))
-    (setq magit-completing-read-function 'ivy-completing-read)
-    (setq magit-item-highlight-face 'bold)
-    (setq magit-repo-dirs-depth 1)
-    (setq magit-repo-dirs
-          (mapcar
-           (lambda (dir)
-             (substring dir 0 -1))
-           (cl-remove-if-not
-            (lambda (project)
-              (unless (file-remote-p project)
-                (file-directory-p (concat project "/.git/"))))
-            (projectile-relevant-known-projects))))))
+(require 'pora-magit nil t)
 (use-package compile
   :diminish compilation-in-progress
   :config

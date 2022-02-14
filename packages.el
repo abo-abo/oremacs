@@ -127,7 +127,6 @@
      find-file-in-project
      projectile
      wgrep
-     (magit :host github :repo "abo-abo/magit")
      super-save)
     ("misc"
      elfeed
@@ -150,7 +149,7 @@
        (git-pkgs (cl-intersection git-dirs all-pkgs)))
   (setq straight-built-in-pseudo-packages
         (append
-         '(emacs python uniquify dired dired-x magit cook org)
+         '(emacs python uniquify dired dired-x cook org)
          (and (memq 'swiper git-dirs)
               '(swiper ivy ivy-hydra lv counsel))
          git-pkgs))

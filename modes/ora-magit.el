@@ -214,5 +214,4 @@
 (add-hook 'magit-diff-mode-hook 'ora-magit-diff-hook)
 (add-hook 'magit-branch-manager-mode-hook 'ora-magit-branch-manager-hook)
 
-(require 'pora-magit nil t)
 (provide 'ora-magit)
