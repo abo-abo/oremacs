@@ -2,6 +2,7 @@
 (require 'magit)
 ;; (csetq magit-log-margin-spec '(30 nil magit-duration-spec))
 (csetq magit-status-buffer-name-format "*magit: %b*")
+(setq magit-revision-insert-related-refs nil)
 (csetq magit-revert-buffers t)
 (setq git-commit-finish-query-functions nil)
 
