@@ -5,6 +5,15 @@
 (setq magit-revision-insert-related-refs nil)
 (csetq magit-revert-buffers t)
 (setq git-commit-finish-query-functions nil)
+(setq magit-status-headers-hook
+      '(magit-insert-error-header
+        magit-insert-repo-header
+        magit-insert-remote-header
+        ;; magit-insert-diff-filter-header
+        magit-insert-head-branch-header
+        ;; magit-insert-upstream-branch-header
+        magit-insert-push-branch-header
+        magit-insert-tags-header))
 
 (csetq magit-status-sections-hook
        '(magit-insert-status-headers
