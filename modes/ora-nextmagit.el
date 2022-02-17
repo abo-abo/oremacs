@@ -24,18 +24,15 @@
          magit-insert-bisect-output
          magit-insert-bisect-rest
          magit-insert-bisect-log
-         magit-insert-stashes
          magit-insert-untracked-files
          magit-insert-unstaged-changes
          magit-insert-staged-changes
-         magit-insert-unpulled-from-upstream
-         magit-insert-unpushed-to-upstream))
-
-(setq magit-status-headers-hook
-      '(magit-insert-repo-header
-        magit-insert-remote-header
-        magit-insert-head-header
-        magit-insert-tags-header))
+         magit-insert-stashes
+         magit-insert-unpushed-to-pushremote
+         magit-insert-unpushed-to-upstream
+         ;; magit-insert-unpushed-to-upstream-or-recent
+         magit-insert-unpulled-from-pushremote
+         magit-insert-unpulled-from-upstream))
 
 (eval-after-load 'magit-blame
   '(progn
