@@ -33,13 +33,16 @@
          ;; magit-insert-unpushed-to-upstream-or-recent
          magit-insert-unpulled-from-pushremote
          magit-insert-unpulled-from-upstream))
+(csetq magit-revision-headers-format
+       "Author:     %aN <%aE>
+AuthorDate: %ad")
 
 (eval-after-load 'magit-blame
   '(progn
-    (define-key magit-blame-mode-map "n" nil)
-    (define-key magit-blame-mode-map "p" nil)
-    (define-key magit-blame-mode-map "j" 'magit-blame-next-chunk)
-    (define-key magit-blame-mode-map "k" 'magit-blame-previous-chunk)))
+     (define-key magit-blame-mode-map "n" nil)
+     (define-key magit-blame-mode-map "p" nil)
+     (define-key magit-blame-mode-map "j" 'magit-blame-next-chunk)
+     (define-key magit-blame-mode-map "k" 'magit-blame-previous-chunk)))
 
 (define-key magit-refs-mode-map "j" 'magit-section-forward)
 (define-key magit-refs-mode-map "k" 'magit-section-backward)
