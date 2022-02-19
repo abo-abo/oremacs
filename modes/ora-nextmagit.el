@@ -152,8 +152,7 @@ AuthorDate: %ad")
              (forward-char 2))))))
 
 (define-key magit-log-mode-map "o" 'ora-magit-visit-item-other-window)
-(define-key magit-diff-mode-map "o"
-  (lambda () (interactive) (magit-visit-item t)))
+(define-key magit-diff-mode-map "o" 'magit-diff-visit-file)
 ;; (define-key magit-branch-manager-mode-map "j" 'magit-goto-next-section)
 ;; (define-key magit-branch-manager-mode-map "k" 'magit-goto-previous-section)
 ;; (define-key magit-branch-manager-mode-map "d" 'magit-discard-item)
