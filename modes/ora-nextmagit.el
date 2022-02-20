@@ -305,4 +305,12 @@ AuthorDate: %ad")
   (interactive)
   (magit-diff-visit-file-worktree (magit-file-at-point)))
 
+(define-key magit-status-mode-map "e" 'ora-magit-ediff-dwim)
+(defun ora-magit-ediff-dwim ()
+  (interactive)
+  (let ((range (magit-diff--dwim)))
+    (if (eq range 'staged)
+        (magit-ediff-show-staged (magit-current-file))
+      (magit-ediff-show-unstaged (magit-current-file)))))
+
 (provide 'ora-nextmagit)
