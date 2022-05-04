@@ -128,6 +128,9 @@
      projectile
      wgrep
      super-save)
+    ("sql"
+     sql-indent
+     ejc-sql)
     ("misc"
      elfeed
      pass
