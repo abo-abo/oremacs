@@ -16,4 +16,20 @@
           comint-filename-completion))
   (shell-dirtrack-mode 1))
 
+(defun ora-fontify-shell-links (str)
+  (replace-regexp-in-string
+   "\e\\]8;[^;]*;\\(.*?\\)\e\\\\\\(.*?\\)\e\\]8;;\e\\\\?"
+   (lambda (s)
+     (let ((url (match-string-no-properties 1 s))
+           (text (match-string-no-properties 2 s)))
+       (propertize text
+                   'face 'url
+                   'url url
+                   'action (lambda (x) (browse-url (button-get x 'url)))
+                   'category 'default-button
+                   'button '(t))))
+   str))
+
+(add-hook 'comint-preoutput-filter-functions 'ora-fontify-shell-links)
+
 (provide 'ora-comint)
