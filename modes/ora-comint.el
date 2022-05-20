@@ -3,6 +3,7 @@
   :config (bash-completion-setup))
 
 (define-key comint-mode-map (kbd "<tab>") 'completion-at-point)
+(define-key comint-mode-map (kbd "C-k") 'ora-comint-kill-line)
 
 ;;;###autoload
 (defun ora-comint-hook ()
@@ -31,5 +32,15 @@
    str))
 
 (add-hook 'comint-preoutput-filter-functions 'ora-fontify-shell-links)
+
+(defun ora-comint-kill-line ()
+  (interactive)
+  (let ((beg (point)))
+    (if (search-forward "'" (line-end-position) t)
+        (progn
+          (kill-region beg (1- (point)))
+          (backward-char))
+      (kill-region beg (line-end-position)))))
+
 
 (provide 'ora-comint)
