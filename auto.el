@@ -799,7 +799,7 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
                 (nth 3 ws))))
     (show-message
      (mapconcat (lambda (x)
-                  (destructuring-bind (h m a d) x
+                  (cl-destructuring-bind (h m a d) x
                     (concat
                      h " "
                      (truncate-string-to-width m mw nil ?\  t) " "
