@@ -91,7 +91,7 @@
   "Works on current line if there's no region.
 When ARG is non-nil launch `query-replace-regexp'."
   (interactive "P")
-  (destructuring-bind (from to &rest)
+  (cl-destructuring-bind (from to &rest)
       (query-replace-read-args "Replace regexp" nil)
     (if arg
         (query-replace-regexp from to)
@@ -103,8 +103,8 @@ When ARG is non-nil launch `query-replace-regexp'."
                   (line-end-position))))
         (progn (goto-char st)
                (while (re-search-forward from en t)
-                 (incf en (- (length to)
-                             (length (match-string 0))))
+                 (cl-incf en (- (length to)
+                                (length (match-string 0))))
                  (replace-match to)))))))
 
 ;;;###autoload
