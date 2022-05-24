@@ -16,4 +16,6 @@
 (csetq display-time-default-load-average nil)
 (csetq display-time-format "")
 
+(setq frame-title-format '(multiple-frames "%b" ("" invocation-name "@" system-name)))
+
 (provide 'ora-visuals)
