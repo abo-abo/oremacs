@@ -1,3 +1,6 @@
+;; Show all processes, not just user's processes
+(setq-default proced-filter 'all)
+
 ;;;###autoload
 (defun ora-proced-hook ())
 
