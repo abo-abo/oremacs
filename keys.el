@@ -42,6 +42,8 @@
 ;;* Ctrl Meta shortcuts
 (global-set-key (kbd "C-M-,") 'lispy-mark)
 (global-set-key (kbd "C-M-h") 'backward-list)
+(global-set-key (kbd "C-M-r") 'er/expand-region)
+
 ;; (global-set-key (kbd "C-M-i") 'completion-at-point)
 (global-set-key (kbd "C-M-q") 'ora-unfill-paragraph)
 ;;* Ctrl Mod4 shortcuts
