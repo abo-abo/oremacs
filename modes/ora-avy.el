@@ -10,6 +10,10 @@
 
 (csetq aw-flip-keys '("n" "ν"))
 (add-to-list 'aw-dispatch-alist '(?ν aw-flip-window))
+(when (display-graphic-p)
+  (require 'ace-window-posframe)
+  (ace-window-posframe-mode)
+  (set-face-attribute 'aw-leading-char-face nil :weight 'bold :height 3.0))
 
 ;;** Display pop-up buffers with `ace-window'
 ;; https://github.com/abo-abo/ace-window/pull/187
