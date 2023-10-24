@@ -8,24 +8,24 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((ruby . t)
-   (groovy . t)
+ '(;; (ruby . t)
+   ;; (groovy . t)
    (shell . t)
    (python . t)
    (emacs-lisp . t)
-   (latex . t)
-   (C . t)
-   (J . t)
-   (java . t)
-   (js . t)
-   (scheme . t)
-   (lisp . t)
-   (latex . t)
-   (R . t)
+   ;; (latex . t)
+   ;; (C . t)
+   ;; (java . t)
+   ;; (js . t)
+   ;; (scheme . t)
+   ;; (lisp . t)
+   ;; (latex . t)
+   ;; (R . t)
    (sql . t)
    (sqlite . t)
-   (calc . t)
-   (clojure . t)))
+   ;; (calc . t)
+   ;; (clojure . t)
+   ))
 (add-to-list 'org-src-lang-modes '("J" . j))
 (setq org-babel-clojure-backend 'cider)
 
@@ -46,7 +46,7 @@
             (lispy-message org-babel-eval-output)))
       (funcall orig-fn result result-params info hash lang))))
 
-(ora-advice-add 'org-babel-insert-result :around #'ora-org-babel-insert-result)
+;; (ora-advice-add 'org-babel-insert-result :around #'ora-org-babel-insert-result)
 
 ;;* C
 (setq org-babel-C-compiler "gcc -std=c99")
@@ -73,7 +73,8 @@
 
 ;;* Python
 (setq org-babel-default-header-args:python
-      '((:results . "output")))
+      '((:results . "output")
+        (:session . "*lispy-python-default*")))
 (setq org-babel-python-command "python3")
 
 ;;* Bash
