@@ -1,6 +1,7 @@
 (require 'shell)
-(require 'bash-completion)
-(bash-completion-setup)
+
+(use-package coterm
+  :config (coterm-mode))
 
 ;;;###autoload
 (defun ora-shell-hook ())
