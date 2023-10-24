@@ -72,6 +72,7 @@
 (add-hook 'sql-mode-hook 'ora-sql-hook)
 (add-hook 'ibuffer-mode-hook 'ora-ibuffer-hook)
 (add-hook 'debugger-mode-hook 'ora-debugger-hook)
+(add-hook 'yaml-mode-hook 'ora-yaml-hook)
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 (eval-after-load 'helm '(require 'ora-helm))
 (add-hook 'image-mode-hook 'ora-image-hook)
