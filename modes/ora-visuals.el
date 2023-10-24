@@ -5,6 +5,7 @@
 (csetq tool-bar-mode nil)
 (csetq menu-bar-mode nil)
 (csetq scroll-bar-mode nil)
+(csetq display-time-mail-string "")
 (csetq truncate-lines t)
 (csetq inhibit-startup-screen t)
 (csetq initial-scratch-message "")
