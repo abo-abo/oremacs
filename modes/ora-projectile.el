@@ -35,4 +35,24 @@
 
 (global-set-key (kbd "C-h") 'hydra-projectile/body)
 (global-set-key (kbd "C-h") nil)
+
+
+(defun compilation-find-file-projectile-find-compilation-buffer (orig-fun marker filename directory &rest formats)
+  "Advice around compilation-find-file.
+We enhance its functionality by appending the current project's directories
+to its search path. This way when filenames in compilation buffers can't be
+found by compilation's normal logic they are searched for in project
+directories."
+  (let* ((root (projectile-project-root))
+         (compilation-search-path
+          (cond
+           ((equal root "/home/oleh/git/monorepo/")
+            '("/home/oleh/git/monorepo/" "/home/oleh/git/monorepo/tools/wavecli/"))
+           ((projectile-project-p)
+            (append compilation-search-path (list root)
+                      (mapcar (lambda (f) (expand-file-name f root))
+                              (projectile-current-project-dirs))))
+           (t
+            compilation-search-path))))
+    (apply orig-fun `(,marker ,filename ,directory ,@formats))))
 (provide 'ora-projectile)
