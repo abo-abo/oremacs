@@ -534,9 +534,20 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
   (interactive)
   (require 'tramp)
   (let ((dir (expand-file-name default-directory)))
-    (if (string-match "^/sudo:" dir)
-        (user-error "Already in sudo")
-      (dired (concat "/sudo::" dir)))))
+    (cond ((or (string-match "^/sudo:" dir)
+               (string-match "|sudo:" dir))
+           (user-error "Already in sudo"))
+
+          ((file-remote-p dir)
+           (cl-destructuring-bind (_ method user domain host port localname hop)
+               (tramp-dissect-file-name dir)
+             (let ((new-dir (concat
+                             "/ssh:"
+                             host
+                             "|sudo::" localname)))
+               (dired new-dir))))
+          (t
+           (dired (concat "/sudo::" dir))))))
 
 ;;;###autoload
 (defun ora-insert-date (date)
