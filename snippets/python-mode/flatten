@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: flatten
+# key: fl
+# --
+[x for sublst in $0 for x in sublst]
