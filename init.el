@@ -220,9 +220,7 @@
   :commands helm-j-cheatsheet)
 (use-package pamparam
   :commands pamparam-drill)
-(use-package helm-make
-  :commands (helm-make helm-make-projectile)
-  :config (setq helm-make-completion-method 'ivy))
+(require 'ora-makefile)
 (setq abbrev-file-name (expand-file-name "personal/lists/abbrev_defs" emacs-d))
 (use-package flyspell
   :commands flyspell-mode
