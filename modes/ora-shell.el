@@ -29,7 +29,10 @@ Display progress in the mode line instead."
           (let ((progress (buffer-substring-no-properties
                            (+ mb 2) (- (point) 2))))
             (delete-region mb (point))
-            (ora-apt-progress-message progress)))))))
+            (ora-apt-progress-message progress))))
+      (goto-char (copy-marker begin))
+      (while (re-search-forward "" end-marker t)
+        (delete-region (match-beginning 0) (match-end 0))))))
 
 (defun ora-apt-progress-message (progress)
   (message
