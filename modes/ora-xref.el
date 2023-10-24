@@ -1,0 +1,5 @@
+(setq xref-pulse-on-jump nil)
+(setq xref-after-return-hook nil)
+(define-key xref--xref-buffer-mode-map "j" 'xref-next-line)
+(define-key xref--xref-buffer-mode-map "k" 'xref-prev-line)
+(provide 'ora-xref)

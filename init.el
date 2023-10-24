@@ -106,9 +106,7 @@
                           ".*png$" ".*cache$"))
   (setq recentf-max-saved-items 600))
 (eval-after-load 'xref
-  '(progn
-    (setq xref-pulse-on-jump nil)
-    (setq xref-after-return-hook nil)))
+  '(require 'ora-xref))
 (use-package diminish)
 (require 'ora-ivy)
 (setq hippie-expand-verbose nil)
