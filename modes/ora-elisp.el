@@ -83,6 +83,7 @@
     (lispy-mode 1)))
 
 (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
+(add-hook 'minibuffer-setup-hook 'yas-minor-mode)
 
 (defun ora-lisp-interaction-hook ()
   (lispy-mode 1)
