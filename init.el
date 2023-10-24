@@ -103,7 +103,7 @@
   (require 'eclipse-theme)
   (load-theme 'eclipse t)
   (require 'use-package)
-  (require 'smex)
+  (use-package smex)
   (require 'warnings))
 ;;* Modes
 ;;** global minor modes
@@ -136,6 +136,8 @@
   :mode ("\\.clj\\'" . clojure-mode))
 (use-package eltex
   :mode ("\\.elt\\'" . eltex-mode))
+(use-package nov
+  :commands nov-mode)
 (use-package octave
   :interpreter ("octave" . octave-mode))
 ;;* Use Package
@@ -174,6 +176,9 @@
     (define-key ac-complete-mode-map [return] nil)
     (define-key ac-complete-mode-map (kbd "M-TAB") nil)))
 (require 'ora-company)
+(use-package bash-completion
+  :config (bash-completion-setup))
+
 ;;** keys
 (use-package centimacro
   :commands centi-assign)
