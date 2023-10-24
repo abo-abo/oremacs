@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: filter
+# key: f
+# --
+${1:$(string-trim-right yas-text "s")} = next(${1:$(string-trim-right yas-text "s")} for ${1:$(string-trim-right yas-text "s")} in $1 if ${1:$(string-trim-right yas-text "s")}$0)
