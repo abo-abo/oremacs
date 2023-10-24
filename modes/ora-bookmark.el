@@ -27,6 +27,21 @@
    (get-buffer-create "*scratch*"))
   (lisp-interaction-mode))
 
+(defun bmk/py-scratch ()
+  (interactive)
+  (let ((data-dir (expand-file-name
+                   (format-time-string "%Y-%m/%Y-%m-%d"
+                                       (and current-prefix-arg (org-read-date nil 'to-time)))
+                   ora-daily-data-directory)))
+    (make-directory data-dir t)
+    (find-file (expand-file-name "scratch.py" data-dir))))
+
+(add-to-list
+ 'bookmark-alist
+ '("p:  py-scratch"
+   (filename . "   - no file -") (position . 0) (function . bmk/py-scratch) (handler . bmk/function)))
+
+
 (defun ora-remote-hosts ()
   (require 'tramp)
   (let ((default-directory "~"))
