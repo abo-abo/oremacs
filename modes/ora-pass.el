@@ -15,4 +15,11 @@
             :action #'password-store-copy
             :caller 'ora-password))
 
+(defun ora-password-action-gpg (password-path)
+  (insert "$(gpg -q --for-your-eyes-only --no-tty -d ~/.password-store/" password-path ".gpg)"))
+
+(ivy-set-actions
+ 'ora-password
+ '(("g" ora-password-action-gpg "gpg")))
+
 (provide 'ora-pass)
