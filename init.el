@@ -69,6 +69,9 @@
 ;;** internals
 (csetq gc-cons-threshold (* 10 1024 1024))
 (csetq ad-redefinition-action 'accept)
+(setq process-adaptive-read-buffering nil)
+(setq read-process-output-max (* 1024 1024))
+(setq native-comp-async-report-warnings-errors nil)
 
 ;;** Rest
 (csetq browse-url-browser-function 'browse-url-firefox)
