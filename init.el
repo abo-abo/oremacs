@@ -81,6 +81,8 @@
 (setq backup-directory-alist `(
                                (,tramp-file-name-regexp . "/tmp/")
                                ("." . "~/.emacs.d/backups")))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "auto-save/" user-emacs-directory) t)))
 (setq delete-old-versions t)
 (setq version-control t)
 (setq create-lockfiles nil)
