@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sql
+# key: sql
+# --
+src_sql{$0}
