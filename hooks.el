@@ -66,6 +66,7 @@
 (add-hook 'Man-mode-hook 'ora-Man-hook)
 (add-hook 'sh-mode-hook 'ora-sh-hook)
 (add-hook 'eww-mode-hook 'ora-eww-hook)
+(add-hook 'nov-mode-hook 'ora-nov-hook)
 (add-hook 'nxml-mode-hook 'ora-nxml-hook)
 (add-hook 'tar-mode-hook 'ora-tar-hook)
 (add-hook 'sql-mode-hook 'ora-sql-hook)
