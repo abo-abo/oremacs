@@ -19,8 +19,8 @@
 
           ((and (not (eq major-mode 'org-mode))
                 (setq bnd (lispy--bounds-string))
-                (not (eq (car bnd)
-                         (point)))
+                (not (eq (car bnd) (point)))
+                (not (eq (char-after (car bnd)) ?\'))
                 (not arg))
            (insert "\\\"\\\"")
            (backward-char 2))
