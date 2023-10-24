@@ -1,4 +1,4 @@
-;;; oremacs
+;;; oremacs -*- lexical-binding: t -*-
 ;;* Base directory and load-path
 (defvar emacs-d
   (file-name-directory
