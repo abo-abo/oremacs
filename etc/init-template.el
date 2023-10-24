@@ -12,9 +12,6 @@
 (setq org-agenda-files
       (mapcar #'ora-org-expand '("gtd.org" "ent.org")))
 
-(setq diary-file (ora-org-expand "diary"))
-(setq org-agenda-include-diary t)
-
 ;; org-mode wiki
 (use-package plain-org-wiki
   :commands plain-org-wiki plain-org-wiki-helm
