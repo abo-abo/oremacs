@@ -25,6 +25,10 @@
 (defun ora-js-assign ()
   (interactive)
   (cond
+   ((let* ((sp (syntax-ppss))
+           (beg (nth 8 sp)))
+      (memq (char-after beg) '(?\" ?\')))
+    (insert "="))
    ((lispy-after-string-p ")")
     (insert " ="))
    ((and (eq major-mode 'rjsx-mode)
@@ -81,10 +85,14 @@
 
 (defun ora-js-ide ()
   (interactive)
-  (when (file-exists-p ".indium.json")
-    (unless (bound-and-true-p indium-interaction-mode)
-      (indium-connect)
-      (indium-interaction-mode 1))))
+  (require 'indium)
+  (let ((default-directory (counsel-locate-git-root)))
+    (when (file-exists-p ".indium.json")
+      (unless (bound-and-true-p indium-interaction-mode)
+        (indium-connect)
+        (indium-interaction-mode 1)
+        (setq-local completion-at-point-functions
+                    (list #'lispy--js-completion-at-point t))))))
 
 (defvar keyword-function
   '(("\\(function\\)\\>" (0 (prog1 ()
