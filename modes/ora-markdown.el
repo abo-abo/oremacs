@@ -7,11 +7,14 @@
 
 (define-key markdown-mode-map (kbd "C-c C-c") #'ora-server-edit)
 (define-key markdown-mode-map (kbd "<tab>") nil)
-(define-key markdown-mode-map (kbd "C-;") 'tiny-expand)
+;; (define-key markdown-mode-map (kbd "C-;") 'dired-jump)
 (define-key markdown-mode-map (kbd "C-c r") 'markdown-pre-region)
 (define-key markdown-mode-map (kbd "C-c S") 'ora-markdown-stack-block)
 (define-key markdown-mode-map (kbd "M-p") nil)
 (define-key markdown-mode-map (kbd "C-M-i") nil)
+(define-key markdown-mode-map (kbd "M-<right>") 'markdown-demote)
+(define-key markdown-mode-map (kbd "M-<left>") 'markdown-promote)
+;; (define-key markdown-mode-map (kbd "C-j") 'ora-markdown-return)
 
 ;;;###autoload
 (defun ora-markdown-hook ()
@@ -39,3 +42,11 @@
       #'identity
       (split-string str "\n" t)
       "\n    "))))
+
+(defun ora-markdown-return ()
+  (interactive)
+  (if (markdown-link-p)
+      (progn
+        (xref-push-marker-stack)
+        (markdown--browse-url (markdown-link-url)))
+    (electric-newline-and-maybe-indent)))
