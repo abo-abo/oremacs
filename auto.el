@@ -907,3 +907,9 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
              (not browse-url-new-window-flag)
            browse-url-new-window-flag))
       (error "No URL found"))))
+
+;;;###autoload
+(defun ora-slurp (f)
+  (with-temp-buffer
+    (insert-file-contents f)
+    (buffer-string)))
