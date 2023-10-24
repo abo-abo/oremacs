@@ -6,6 +6,7 @@
 (require 'ace-window)
 (csetq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (csetq aw-background nil)
+(csetq aw-scope 'frame)
 
 (csetq aw-flip-keys '("n" "ν"))
 (add-to-list 'aw-dispatch-alist '(?ν aw-flip-window))
