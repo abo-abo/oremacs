@@ -39,7 +39,9 @@
 (define-key eww-mode-map "A" 'eww-view-ace)
 (define-key eww-mode-map "c" 'counsel-ace-link)
 (define-key eww-mode-map "R" 'ora-eww-readable)
-(define-key eww-mode-map "M-o" 'move-beginning-of-line)
+(define-key eww-mode-map (kbd "M-o") 'move-beginning-of-line)
+(define-key eww-mode-map (kbd "C-j") 'ora-eww-newline)
+(define-key eww-mode-map (kbd "M-,") 'eww-back-url)
 
 ;;;###autoload
 (defun ora-eww-hook ())
@@ -48,7 +50,8 @@
 
 (defun ora-eww-readable ()
   (interactive)
-  (eww-readable)
+  (ignore-errors
+    (eww-readable))
   (ora--eww-reader-scale))
 
 (defun ora--eww-reader-scale ()
@@ -70,3 +73,16 @@
            (when (eq (org-element-type context) 'link)
              (eww (org-element-property :raw-link context))
              (add-hook 'eww-after-render-hook 'ora--eww-reader-scale))))))
+
+(defun ace-link--eww-action (pt external)
+  (when (number-or-marker-p pt)
+    (goto-char pt)
+    (browse-url-firefox (get-text-property (point) 'shr-url))))
+
+
+(defun ora-eww-newline ()
+  (interactive)
+  ;; (org-mark-ring-push)
+  ;; (xref-push-marker-stack (point-marker))
+  (let ((url (get-text-property (point) 'shr-url)))
+    (browse-url url)))
