@@ -890,3 +890,20 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
               (message "Can't receive ipinfo. Error %S " error-thrown)))))
 
 (define-obsolete-function-alias 'string-to-int 'string-to-number "<2022-04-08 Fri>")
+
+(defun ora-browse-url-at-point ()
+  (interactive)
+  (let ((url (cond
+              ((looking-at "#\\([0-9]+\\)")
+               (let ((pr (match-string-no-properties 1))
+                     (issues-url (forge--format (forge-get-repository 'stub) 'issues-url-format)))
+                 (format "%s/%s" issues-url pr)))
+              (t
+               (browse-url-url-at-point)))))
+    (if url
+        (browse-url
+         url
+         (if nil
+             (not browse-url-new-window-flag)
+           browse-url-new-window-flag))
+      (error "No URL found"))))
