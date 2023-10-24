@@ -55,7 +55,7 @@
 ;; there's no flickering beteen the input "ivy-f" and "ivy-fo".
 (setq counsel-rg-base-command
       (split-string
-       "rg --sort path -M 240 --no-heading --line-number --color never %s"))
+       "rg --hidden --glob=!.git/ --sort path -M 240 --no-heading --line-number --color never %s"))
 (setq counsel-git-grep-cmd-default
       (concat "git --no-pager grep --full-name -n --no-color -i -e '%s' -- './*' "
               (mapconcat (lambda (x) (format "':!*.%s'" x))
@@ -63,7 +63,7 @@
 
 (defun ora-counsel-git ()
   (interactive)
-  (let ((counsel-git-cmd "rg -0 --files"))
+  (let ((counsel-git-cmd "rg -0 --files --hidden --glob='!.git/'"))
     (counsel-git)))
 
 (defun ivy-view-backtrace ()
