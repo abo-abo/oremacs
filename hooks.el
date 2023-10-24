@@ -52,6 +52,7 @@
 (add-hook 'text-mode-hook 'ora-text-hook)
 (add-hook 'term-exec-hook 'ora-term-exec-hook)
 (add-hook 'term-mode-hook 'ora-term-hook)
+(add-hook 'vterm-mode-hook 'ora-vterm-hook)
 (add-hook 'shell-mode-hook 'ora-shell-hook)
 (add-hook 'comint-mode-hook 'ora-comint-hook)
 (add-hook 'eshell-mode-hook 'ora-eshell-hook)
