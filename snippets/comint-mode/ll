@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: last-rows
+# key: ll
+# --
+select * from $0 order by when_updated desc limit 10;
