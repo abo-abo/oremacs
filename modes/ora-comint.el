@@ -1,6 +1,4 @@
 (require 'comint)
-(use-package bash-completion
-  :config (bash-completion-setup))
 
 (define-key comint-mode-map (kbd "<tab>") 'completion-at-point)
 (define-key comint-mode-map (kbd "C-k") 'ora-comint-kill-line)
@@ -35,12 +33,18 @@
 
 (defun ora-comint-kill-line ()
   (interactive)
-  (let ((beg (point)))
-    (if (search-forward "'" (line-end-position) t)
-        (progn
-          (kill-region beg (1- (point)))
-          (backward-char))
-      (kill-region beg (line-end-position)))))
-
+  (let* ((offset (- (point) (line-beginning-position)))
+         (line (buffer-substring-no-properties
+                (line-beginning-position) (line-end-position)))
+         (bnd (with-temp-buffer
+                (sh-mode)
+                (insert line)
+                (goto-char (point-min))
+                (forward-char offset)
+                (lispy--bounds-string))))
+    (if bnd
+        (kill-region
+         (point) (+ (line-beginning-position) (cdr bnd) -2))
+      (kill-region (point) (line-end-position)))))
 
 (provide 'ora-comint)
