@@ -10,6 +10,7 @@
 (add-hook 'c++-mode-hook 'ora-c++-hook)
 (add-hook 'clojure-mode-hook 'ora-clojure-hook)
 (add-hook 'dockerfile-mode-hook 'ora-dockerfile-hook)
+(add-hook 'docker-image-mode-hook 'ora-docker-image-hook)
 (add-hook 'scheme-mode-hook 'ora-scheme-hook)
 (add-hook 'python-mode-hook 'ora-python-hook)
 (add-hook 'groovy-mode-hook 'ora-groovy-hook)
