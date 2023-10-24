@@ -16,6 +16,8 @@
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
 (setq dired-omit-verbose nil)
+;; since Emacs-29
+(setq dired-free-space 'separate)
 
 (defun ora-omit-regex (names postfixes prefixes &optional dotfiles)
   (mapconcat #'identity
@@ -36,9 +38,9 @@
          "Capstanfile"
          ;; Heroku deployments
          "Procfile")
-       '("aux" "log" "pickle" "synctex.gz" "run.xml" "bcf" "am" "in" "blx.bib"
-         "vrb" "opt" "nav" "snm" "out" "ass")
-       '("_minted" "__")
+       '("aux" "log" "pickle" "synctex.gz" "run.xml" "bcf" "am" "blx.bib"
+         "vrb" "opt" "nav" "snm" "out" "ass" "egg-info")
+       '("_minted" "flycheck_")
        t))
 
 (setq dired-garbage-files-regexp
@@ -116,7 +118,8 @@
              (name (format "*shell  %s*" host))
              (shell (when (assoc name (mash-shell-list))
                       (get-buffer name)))
-             (cmd (format "cd %s\n" (shell-quote-argument dir))))
+             (cmd (unless (string= dir "/")
+                    (format "cd %s\n" (shell-quote-argument dir)))))
         (if shell
             (progn
               (switch-to-buffer shell)
@@ -124,12 +127,15 @@
               (comint-send-input))
           (setq shell (mash-make-shell host 'mash-new-shell cmd))))
     (let ((dir (expand-file-name default-directory))
-          (buf (mash-get "def" 'mash-new-shell)))
-      (switch-to-buffer buf)
-      (goto-char (point-max))
-      (delete-region (comint-line-beginning-position) (point))
-      (insert (format "cd %s" (shell-quote-argument dir)))
-      (call-interactively 'comint-send-input))))
+          (buf (get-buffer "*shell  def*")))
+      (if buf
+          (progn
+            (switch-to-buffer buf)
+            (goto-char (point-max))
+            (delete-region (comint-line-beginning-position) (point))
+            (insert (format "cd %s" (shell-quote-argument dir)))
+            (call-interactively 'comint-send-input))
+        (switch-to-buffer (mash-get "def" 'mash-new-shell))))))
 
 (require 'hydra)
 (defhydra hydra-marked-items (dired-mode-map "")
@@ -163,7 +169,8 @@ Number of marked items: %(length (dired-get-marked-files))
       (error "no more than 2 files should be marked"))))
 
 ;;* bind and hook
-(define-key dired-mode-map "r" 'dig-start)
+(define-key dired-mode-map "r" 'orly-start)
+(autoload 'orly-start "orly")
 (define-key dired-mode-map "e" 'ora-ediff-files)
 
 (define-key dired-mode-map (kbd "C-t") nil)
