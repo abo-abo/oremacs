@@ -35,6 +35,13 @@
 (csetq recenter-positions '(top middle bottom))
 ;;** finding files
 (csetq vc-follow-symlinks t)
+(csetq vc-find-revision-no-save t)
+(csetq vc-handled-backends '(Git))
+(defun ora-vc-off-if-remote ()
+  (if (file-remote-p (buffer-file-name))
+      (setq-local vc-handled-backends nil)))
+(add-hook 'find-file-hook 'ora-vc-off-if-remote)
+(csetq remote-file-name-inhibit-locks t)
 (csetq find-file-suppress-same-file-warnings t)
 (csetq read-file-name-completion-ignore-case t)
 (csetq read-buffer-completion-ignore-case t)
