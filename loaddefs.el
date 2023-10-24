@@ -159,6 +159,11 @@ Return ip info from ipinfo.io for IP.
 
 \(fn IP)" t nil)
 
+(autoload 'ora-slurp "auto" "\
+
+
+\(fn F)" nil nil)
+
 (register-definition-prefixes "auto" '("char-upcasep" "dbg" "ora-" "show-message"))
 
 ;;;***
@@ -626,7 +631,7 @@ Work with `rest' in the *restclient* buffer." t nil)
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-hydra-k.el
 
-(register-definition-prefixes "modes/ora-hydra-k" '("hydra-" "ora-open-"))
+(register-definition-prefixes "modes/ora-hydra-k" '("hydra-" "ora-"))
 
 ;;;***
 
@@ -634,7 +639,7 @@ Work with `rest' in the *restclient* buffer." t nil)
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-hydra-refactor.el
 
-(register-definition-prefixes "modes/ora-hydra-refactor" '("hydra-refactor" "ora-run-test"))
+(register-definition-prefixes "modes/ora-hydra-refactor" '("hydra-refactor" "ora-"))
 
 ;;;***
 
@@ -834,7 +839,7 @@ Transform Elisp-style code references to Markdown-style." t nil)
 
 (autoload 'ora-magit-status-buffer "modes/ora-nextmagit" nil t nil)
 
-(register-definition-prefixes "modes/ora-nextmagit" '("endless/add-PR-fetch" "magit-branch-and-checkout" "ora-"))
+(register-definition-prefixes "modes/ora-nextmagit" '("endless/add-PR-fetch" "hydra-magit" "magit-branch-and-checkout" "ora-"))
 
 ;;;***
 
@@ -921,6 +926,16 @@ Transform Elisp-style code references to Markdown-style." t nil)
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-org-present" "modes/ora-org-present.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from modes/ora-org-present.el
+
+(autoload 'ora-org-presentation "modes/ora-org-present" nil t nil)
+
+(register-definition-prefixes "modes/ora-org-present" '("my/org-present-"))
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-org-roam" "modes/ora-org-roam.el"
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-org-roam.el
@@ -973,10 +988,7 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-proced.el
 
-(autoload 'ora-proced-hook "modes/ora-proced" "\
-
-
-\(fn)" nil nil)
+(autoload 'ora-proced-hook "modes/ora-proced" nil nil nil)
 
 ;;;***
 
@@ -984,7 +996,7 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-projectile.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-projectile" '("hydra-projectile")))
+(register-definition-prefixes "modes/ora-projectile" '("compilation-find-file-projectile-find-compilation-buffer" "hydra-projectile"))
 
 ;;;***
 
@@ -1032,7 +1044,7 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-search.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-search" '("hydra-search" "ora-search-query")))
+(register-definition-prefixes "modes/ora-search" '("hydra-search" "ora-search-query"))
 
 ;;;***
 
@@ -1210,7 +1222,8 @@ Major mode for editing Python files.
 ;;;### (autoloads nil nil ("modes/ora-auto.el" "modes/ora-elisp-style-guide.el"
 ;;;;;;  "modes/ora-flycheck-ruff.el" "modes/ora-grep.el" "modes/ora-hydra.el"
 ;;;;;;  "modes/ora-keepassxc.el" "modes/ora-messages.el" "modes/ora-org-babel-inline.el"
-;;;;;;  "modes/ora-visuals.el" "modes/ora-xref.el") (0 0 0 0))
+;;;;;;  "modes/ora-rope.el" "modes/ora-visuals.el" "modes/ora-xref.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
