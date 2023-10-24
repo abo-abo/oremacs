@@ -34,9 +34,10 @@
                  'ora-toggle-buffer-hook fname)
                 (cond
                  ((and (string-match "\\`test_\\(.*\\.py\\)\\'" fname)
-                       (let* ((dir (counsel-locate-git-root))
-                              (name (match-string 1 fname))
-                              (fs (ivy--filter (concat "/" name) (counsel-git-cands dir))))
+                       (let* ((name (match-string 1 fname))
+                              (dir (counsel-locate-git-root))
+                              (fs (ivy--filter (format "\\(?:%s\\|\\`%s\\'\\)"
+                                                       (concat "/" name) name) (counsel-git-cands dir))))
                          (and (= 1 (length fs))
                               (expand-file-name (car fs) dir)))))
                  ((and (string-match "\\`\\(.*\\.py\\)\\'" fname)
