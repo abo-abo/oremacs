@@ -562,11 +562,14 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
   (message "%d" days)
   (when (eq days 1)
     (setq days 0))
-  (insert
-   (calendar-date-string
-    (calendar-gregorian-from-absolute
-     (+ (calendar-absolute-from-gregorian (calendar-current-date))
-        days)))))
+  (let* ((date (calendar-gregorian-from-absolute
+                (+ (calendar-absolute-from-gregorian (calendar-current-date))
+                   days)))
+         (year (calendar-extract-year date))
+         (month (calendar-extract-month date))
+         (day (calendar-extract-day date)))
+    (insert
+     (format "%d-%02d-%02d" year month day))))
 
 ;;;###autoload
 (defun ora-set-transparency (alpha-level)
