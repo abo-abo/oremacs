@@ -18,11 +18,8 @@
 (setq enable-local-variables :all)
 (require 'pora-base nil t)
 ;;* straight.el
-(if t
-    (require 'ora-straight)
-  (setq package-user-dir (expand-file-name "elpa" emacs-d))
-  (when (< emacs-major-version 27)
-    (package-initialize)))
+(if nil
+    (require 'ora-straight))
 
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))

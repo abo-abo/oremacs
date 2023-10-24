@@ -16,16 +16,21 @@
     ("cpp"
      ccls
      (cc-chainsaw :host github :repo "abo-abo/cc-chainsaw")
-     (google-c-style :host github :repo "google/styleguide" :branch "gh-pages")
+     google-c-style
      cmake-mode
      elf-mode
      function-args)
     ("shell"
      bash-completion
-     exec-path-from-shell)
+     exec-path-from-shell
+     vterm)
     ("python"
      company-jedi
      jedi
+     python-pytest
+     python-isort
+     blacken
+     pyimport
      (lpy :host github :repo "abo-abo/lpy"))
     ("elisp"
      auto-compile
@@ -56,6 +61,7 @@
      (org-fu :host github :repo "abo-abo/org-fu")
      (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
      org-ref
+     ox-gfm
      ;; org-roam
      pamparam
      plain-org-wiki
@@ -89,7 +95,8 @@
      ivy-posframe
      ivy-hydra
      ivy-xref
-     (smex :host github :repo "abo-abo/smex"))
+     ;; (smex :host github :repo "abo-abo/smex")
+     smex)
     ("words"
      define-word
      flyspell-correct-ivy
@@ -100,6 +107,7 @@
      flycheck
      lsp-java
      lsp-mode
+     lsp-ui
      geiser
      slime
      lispy
@@ -117,6 +125,7 @@
      rjsx-mode
      rust-mode
      markdown-mode
+     nov
      yaml-mode)
     ("keys"
      evil
@@ -124,10 +133,13 @@
      (touchpad :host github :repo "abo-abo/touchpad")
      hydra)
     ("files"
+     magit
+     forge
      find-file-in-project
      projectile
      wgrep
-     super-save)
+     super-save
+     kubernetes-tramp)
     ("sql"
      sql-indent
      ejc-sql)
@@ -177,4 +189,44 @@
   (dolist (package packages)
     (straight-use-package package)))
 
-(straight-install-packages ora-packages)
+(defun package-install-packages (packages)
+  (setq melpa-stable (getenv "MELPA_STABLE"))
+  (setq package-user-dir
+        (expand-file-name
+         (format "~/.elpa/%s/elpa"
+                 (concat emacs-version (when melpa-stable "-stable")))))
+  (message "installing in %s ...\n" package-user-dir)
+  (package-initialize)
+  (setq package-archives
+        (list (if melpa-stable
+                  '("melpa-stable" . "https://stable.melpa.org/packages/")
+                '("melpa" . "http://melpa.org/packages/"))
+              '("gnu" . "http://elpa.gnu.org/packages/")))
+  (package-refresh-contents)
+
+  (dolist (package packages)
+    (cond
+     ((consp package)
+      (message "%S: SKIP" package))
+     ((package-installed-p package)
+      (message "%S: OK" package))
+     (t
+      (condition-case nil
+          (progn
+            (package-install package)
+            (message "%S: OK" package))
+        (error
+         (message "%S: FAIL" package))))))
+
+  (save-window-excursion
+    (package-list-packages t)
+    (condition-case nil
+        (progn
+          (package-menu-mark-upgrades)
+          (package-menu-execute t))
+      (error
+       (message "All packages up to date")))))
+
+(if nil
+    (straight-install-packages ora-packages)
+  (package-install-packages ora-packages))
