@@ -1,7 +1,6 @@
 (require 'pora-org nil t)
 (use-package org-roam
   :diminish org-roam-mode)
-(require 'pamparam)
 (setq wgrep-colon-file-separator-header-regexp "\\(?1:[^\n]+?[^\n/:]\\):\\(?3:[1-9][0-9]*\\)[	 ]*:")
 
 (setq org-roam-verbose nil)
