@@ -78,6 +78,7 @@
 (add-hook 'image-mode-hook 'ora-image-hook)
 (add-hook 'rust-mode-hook 'ora-rust-hook)
 (add-hook 'command-history-hook 'lispy-mode)
+(add-hook 'lisp-data-mode-hook 'lispy-mode)
 (eval-after-load 'grep '(require 'ora-grep))
 (eval-after-load 'erc '(require 'ora-erc))
 (eval-after-load 'elfeed-search '(require 'ora-elfeed))
