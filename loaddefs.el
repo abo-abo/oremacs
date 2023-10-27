@@ -940,7 +940,7 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-org-roam.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org-roam" '("hydra-org-roam" "ora-" "worf-maybe-rebuild-roam-cache")))
+(register-definition-prefixes "modes/ora-org-roam" '("hydra-org-roam" "ora-" "worf-maybe-rebuild-roam-cache"))
 
 ;;;***
 
@@ -1221,9 +1221,8 @@ Major mode for editing Python files.
 
 ;;;### (autoloads nil nil ("modes/ora-auto.el" "modes/ora-elisp-style-guide.el"
 ;;;;;;  "modes/ora-flycheck-ruff.el" "modes/ora-grep.el" "modes/ora-hydra.el"
-;;;;;;  "modes/ora-keepassxc.el" "modes/ora-messages.el" "modes/ora-org-babel-inline.el"
-;;;;;;  "modes/ora-rope.el" "modes/ora-visuals.el" "modes/ora-xref.el")
-;;;;;;  (0 0 0 0))
+;;;;;;  "modes/ora-keepassxc.el" "modes/ora-org-babel-inline.el"
+;;;;;;  "modes/ora-visuals.el" "modes/ora-xref.el") (0 0 0 0))
 
 ;;;***
 
