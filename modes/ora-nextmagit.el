@@ -1,5 +1,8 @@
+;;;  -*- lexical-binding:t -*-
+
 ;;* Customs
 (require 'magit)
+(require 'magit-ediff)
 ;; (csetq magit-log-margin-spec '(30 nil magit-duration-spec))
 (csetq magit-status-buffer-name-format "*magit: %b*")
 (setq magit-revision-insert-related-refs nil)
@@ -70,7 +73,7 @@ AuthorDate: %ad")
 (ora-move-key "<C-tab>" nil magit-log-mode-map)
 (ora-move-key "<C-tab>" nil magit-revision-mode-map)
 (ora-move-key "<C-tab>" nil magit-status-mode-map)
-(define-key magit-hunk-section-map (kbd "RET") 'magit-diff-visit-file-worktree)
+(define-key magit-hunk-section-map (kbd "RET") 'magit-diff-visit-worktree-file)
 
 (dolist (map (list magit-status-mode-map
                    magit-log-mode-map
