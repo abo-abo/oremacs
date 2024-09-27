@@ -1,6 +1,6 @@
 (use-package bookmark
   ;; remove the ugliness in the fringe in Emacs 28
-  :custom-face (bookmark-face ((t (:foreground "white" :background nil)))))
+  :custom-face (bookmark-face ((t (:foreground "white" :background "unspecified")))))
 
 (setq bookmark-completion-ignore-case nil)
 (bookmark-maybe-load-default-file)
