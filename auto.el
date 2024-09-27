@@ -913,3 +913,34 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
   (with-temp-buffer
     (insert-file-contents f)
     (buffer-string)))
+
+
+;;;###autoload
+(defun ora-browse-url-emacs (url &optional same-window)
+  "Ask Emacs to load URL into a buffer and show it in another window.
+Optional argument SAME-WINDOW non-nil means show the URL in the
+currently selected window instead."
+  (interactive (browse-url-interactive-arg "URL: "))
+  (require 'url-handlers)
+  (let ((parsed (url-generic-parse-url url))
+        (func (if same-window 'find-file 'find-file-other-window)))
+    (if (equal (url-type parsed) "file")
+        ;; It's a file; just open it.
+        (let ((file (url-unhex-string (url-filename parsed)))
+              (target (url-target parsed)))
+          (when-let ((coding (browse-url--file-name-coding-system)))
+            (setq file (decode-coding-string file 'utf-8)))
+          ;; The local-part of file: URLs on Windows is supposed to
+          ;; start with an extra slash.
+          (when (eq system-type 'windows-nt)
+            (setq file (replace-regexp-in-string
+                        "\\`/\\([a-z]:\\)" "\\1" file)))
+          (funcall func file)
+          (when (and target (string-match-p "\\`[0-9]+\\'" target))
+            (goto-char (point-min))
+            (forward-line
+             (1- (string-to-number target)))))
+      (let ((file-name-handler-alist
+             (cons (cons url-handler-regexp 'url-file-handler)
+                   file-name-handler-alist)))
+        (funcall func url)))))

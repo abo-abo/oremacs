@@ -75,6 +75,9 @@
 
 ;;** Rest
 (csetq browse-url-browser-function 'browse-url-firefox)
+(setf
+ (cdr (assoc 'browse-url--non-html-file-url-p browse-url-default-handlers))
+ 'ora-browse-url-emacs)
 (csetq browse-url-firefox-program (whicher "firefox"))
 ;;*** Backups
 (setq backup-by-copying t)

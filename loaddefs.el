@@ -3,166 +3,173 @@
 ;;;### (autoloads nil "auto" "auto.el" (0 0 0 0))
 ;;; Generated autoloads from auto.el
 
-(autoload 'ora-move-beginning-of-line "auto" nil t nil)
+(autoload 'ora-move-beginning-of-line "auto" nil t)
 
 (autoload 'ora-c-forward-sexp-function "auto" "\
 
 
-\(fn ARG)" nil nil)
+\(fn ARG)")
 
-(autoload 'ora-project "auto" nil t nil)
+(autoload 'ora-project "auto" nil t)
 
 (autoload 'ora-query-replace "auto" "\
 
 
-\(fn FROM)" t nil)
+\(fn FROM)" t)
 
 (autoload 'ora-replace-regexp "auto" "\
 Works on current line if there's no region.
 When ARG is non-nil launch `query-replace-regexp'.
 
-\(fn ARG)" t nil)
+\(fn ARG)" t)
 
 (autoload 'ora-unfill-paragraph "auto" "\
-Transform a paragraph into a single line." t nil)
+Transform a paragraph into a single line." t)
 
 (autoload 'ora-ctrltab "auto" "\
-List buffers and give it focus." t nil)
+List buffers and give it focus." t)
 
 (autoload 'ora-goto-hook-file "auto" "\
-Opens hooks.el at point specific to current `major-mode'" t nil)
+Opens hooks.el at point specific to current `major-mode'" t)
 
 (autoload 'ora-dired-rsync "auto" "\
 
 
-\(fn DEST)" t nil)
+\(fn DEST)" t)
 
-(autoload 'ora-describe-keys "auto" nil t nil)
+(autoload 'ora-describe-keys "auto" nil t)
 
 (autoload 'illiterate "auto" "\
-Useful to completely revert an `org-mode' file." t nil)
+Useful to completely revert an `org-mode' file." t)
 
-(autoload 'melpa "auto" nil t nil)
+(autoload 'melpa "auto" nil t)
 
-(autoload 'ora-test-emacs "auto" nil t nil)
+(autoload 'ora-test-emacs "auto" nil t)
 
 (autoload 'ora-figlet-region "auto" "\
 
 
-\(fn &optional B E)" t nil)
+\(fn &optional B E)" t)
 
-(autoload 'ora-ediff-buffers "auto" nil t nil)
+(autoload 'ora-ediff-buffers "auto" nil t)
 
 (autoload 'ora-eval-other-window "auto" "\
 Eval current expression in the context of other window.
 Expression has to be of type (setq X BODY)
 In case 'setq isn't present, add it.
 
-\(fn ARG123)" t nil)
+\(fn ARG123)" t)
 
-(autoload 'ora-toggle-window-dedicated "auto" nil t nil)
+(autoload 'ora-toggle-window-dedicated "auto" nil t)
 
-(autoload 'update-all-autoloads "auto" nil t nil)
+(autoload 'update-all-autoloads "auto" nil t)
 
-(autoload 'ora-dired-org-to-pdf "auto" nil t nil)
+(autoload 'ora-dired-org-to-pdf "auto" nil t)
 
-(autoload 'wmctrl-720p "auto" nil t nil)
+(autoload 'wmctrl-720p "auto" nil t)
 
-(autoload 'ora-kill-current-buffer "auto" nil t nil)
+(autoload 'ora-kill-current-buffer "auto" nil t)
 
 (autoload 'ora-save-and-switch-buffer "auto" "\
 
 
-\(fn &optional ARG)" t nil)
+\(fn &optional ARG)" t)
 
-(autoload 'youtube-dl "auto" nil t nil)
+(autoload 'youtube-dl "auto" nil t)
 
 (autoload 'ora-directory-parent "auto" "\
 Return parent of directory DIR.
 
-\(fn DIR)" nil nil)
+\(fn DIR)")
 
 (autoload 'ora-pretty-things "auto" "\
-Compose chars according to `ora-pretty-alist'." nil nil)
+Compose chars according to `ora-pretty-alist'.")
 
 (autoload 'ora-fontify-glyph "auto" "\
 
 
-\(fn ITEM GLYPH)" nil nil)
+\(fn ITEM GLYPH)")
 
 (autoload 'ora-elisp-follow "auto" "\
 Jump to the definition of the function (or variable) at point.
 
-\(fn NAME)" t nil)
+\(fn NAME)" t)
 
-(autoload 'capitalize-word-toggle "auto" nil t nil)
+(autoload 'capitalize-word-toggle "auto" nil t)
 
-(autoload 'upcase-word-toggle "auto" nil t nil)
+(autoload 'upcase-word-toggle "auto" nil t)
 
 (autoload 'named-term "auto" "\
 
 
-\(fn NAME)" t nil)
+\(fn NAME)" t)
 
-(autoload 'jekyll-serve "auto" nil t nil)
+(autoload 'jekyll-serve "auto" nil t)
 
-(autoload 'sudired "auto" nil t nil)
+(autoload 'sudired "auto" nil t)
 
 (autoload 'ora-insert-date "auto" "\
 Insert DATE using the current locale.
 
-\(fn DATE)" t nil)
+\(fn DATE)" t)
 
 (autoload 'ora-insert-date-from "auto" "\
 Insert date that is DAYS from current.
 
-\(fn &optional DAYS)" t nil)
+\(fn &optional DAYS)" t)
 
 (autoload 'ora-set-transparency "auto" "\
 
 
-\(fn ALPHA-LEVEL)" t nil)
+\(fn ALPHA-LEVEL)" t)
 
 (autoload 'ora-hide-ctrl-M "auto" "\
-Hides the disturbing '^M' showing up in files containing mixed UNIX and DOS line endings." t nil)
+Hides the disturbing '^M' showing up in files containing mixed UNIX and DOS line endings." t)
 
 (autoload 'ora-lookup-key "auto" "\
 
 
-\(fn KEY)" nil nil)
+\(fn KEY)")
 
-(autoload 'ora-pretty-quote-glyphs "auto" nil nil nil)
+(autoload 'ora-pretty-quote-glyphs "auto")
 
 (defadvice kill-compilation (after ora-disable-compiling-message activate) (setq compilation-in-progress nil))
 
 (autoload 'ora-custom-setq "auto" "\
-Set a custom variable, with completion." t nil)
+Set a custom variable, with completion." t)
 
-(autoload 'ora-quote-github-issues "auto" nil t nil)
+(autoload 'ora-quote-github-issues "auto" nil t)
 
-(autoload 'ora-rename-pdf-bibtex "auto" nil t nil)
+(autoload 'ora-rename-pdf-bibtex "auto" nil t)
 
 (autoload 'ora-start-process "auto" "\
 
 
-\(fn CMD)" nil nil)
+\(fn CMD)")
 
-(autoload 'git-shortlog "auto" nil t nil)
+(autoload 'git-shortlog "auto" nil t)
 
 (autoload 'ora-recompile-startup "auto" "\
-Fix byte-compilation warnings emitted by lread.c." t nil)
+Fix byte-compilation warnings emitted by lread.c." t)
 
-(autoload 'ora-rhythmbox-io-best "auto" nil t nil)
+(autoload 'ora-rhythmbox-io-best "auto" nil t)
 
 (autoload 'ipinfo "auto" "\
 Return ip info from ipinfo.io for IP.
 
-\(fn IP)" t nil)
+\(fn IP)" t)
 
 (autoload 'ora-slurp "auto" "\
 
 
-\(fn F)" nil nil)
+\(fn F)")
+
+(autoload 'ora-browse-url-emacs "auto" "\
+Ask Emacs to load URL into a buffer and show it in another window.
+Optional argument SAME-WINDOW non-nil means show the URL in the
+currently selected window instead.
+
+\(fn URL &optional SAME-WINDOW)" t)
 
 (register-definition-prefixes "auto" '("char-upcasep" "dbg" "ora-" "show-message"))
 
@@ -310,7 +317,7 @@ Return ip info from ipinfo.io for IP.
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-comint.el
 
-(autoload 'ora-comint-hook "modes/ora-comint" nil nil nil)
+(autoload 'ora-comint-hook "modes/ora-comint")
 
 (register-definition-prefixes "modes/ora-comint" '("ora-"))
 
@@ -320,7 +327,7 @@ Return ip info from ipinfo.io for IP.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-company.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-company" '("ora-")))
+(register-definition-prefixes "modes/ora-company" '("ora-"))
 
 ;;;***
 
@@ -328,12 +335,9 @@ Return ip info from ipinfo.io for IP.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-compilation.el
 
-(autoload 'ora-compilation-hook "modes/ora-compilation" "\
+(autoload 'ora-compilation-hook "modes/ora-compilation")
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-compilation" '("ora-compilation-")))
+(register-definition-prefixes "modes/ora-compilation" '("ora-compilation-"))
 
 ;;;***
 
@@ -631,6 +635,11 @@ Work with `rest' in the *restclient* buffer." t nil)
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-hydra-k.el
 
+(autoload 'electric-portuguese-single-quote "modes/ora-hydra-k" "\
+
+
+\(fn ARG)" t)
+
 (register-definition-prefixes "modes/ora-hydra-k" '("hydra-" "ora-"))
 
 ;;;***
@@ -900,9 +909,9 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;### (autoloads nil "modes/ora-org" "modes/ora-org.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-org.el
 
-(autoload 'ora-org-hook "modes/ora-org" nil nil nil)
+(autoload 'ora-org-hook "modes/ora-org")
 
-(autoload 'ora-org-agenda-hook "modes/ora-org" nil nil nil)
+(autoload 'ora-org-agenda-hook "modes/ora-org")
 
 (register-definition-prefixes "modes/ora-org" '("hot-expand" "hydra-org-" "ora-" "org-"))
 
@@ -930,7 +939,7 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-org-present.el
 
-(autoload 'ora-org-presentation "modes/ora-org-present" nil t nil)
+(autoload 'ora-org-presentation "modes/ora-org-present" nil t)
 
 (register-definition-prefixes "modes/ora-org-present" '("my/org-present-"))
 
@@ -969,7 +978,7 @@ Transform Elisp-style code references to Markdown-style." t nil)
 
 (autoload 'ora-password "modes/ora-pass" nil t nil)
 
-(register-definition-prefixes "modes/ora-pass" '("ora-password-action-gpg"))
+(register-definition-prefixes "modes/ora-pass" '("ora-"))
 
 ;;;***
 
@@ -1220,9 +1229,9 @@ Major mode for editing Python files.
 ;;;***
 
 ;;;### (autoloads nil nil ("modes/ora-auto.el" "modes/ora-elisp-style-guide.el"
-;;;;;;  "modes/ora-flycheck-ruff.el" "modes/ora-grep.el" "modes/ora-hydra.el"
-;;;;;;  "modes/ora-keepassxc.el" "modes/ora-org-babel-inline.el"
-;;;;;;  "modes/ora-visuals.el" "modes/ora-xref.el") (0 0 0 0))
+;;;;;;  "modes/ora-grep.el" "modes/ora-hydra.el" "modes/ora-keepassxc.el"
+;;;;;;  "modes/ora-org-babel-inline.el" "modes/ora-visuals.el" "modes/ora-xref.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
