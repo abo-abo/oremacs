@@ -184,7 +184,7 @@ When ARG is non-nil launch `query-replace-regexp'."
     (setq rsync-command
           (concat rsync-command
                   (if (string-match "^/ssh:\\(.*?\\)\\([^:]+\\)$" dest)
-                      (format " -e ssh %s'\"%s\"'"
+                      (format " -e ssh %s%s"
                               (match-string 1 dest)
                               (match-string 2 dest))
                     (shell-quote-argument dest))))
