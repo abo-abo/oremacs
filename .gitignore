@@ -3,3 +3,5 @@ personal/
 /org/
 etc/info/
 etc/log
+/python.el
+/tramp
