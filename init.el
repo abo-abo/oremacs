@@ -279,8 +279,6 @@
   (setq save-silently t)
   (super-save-mode))
 
-(eval-after-load 'lsp
-  '(require 'ora-lsp))
 
 (eval-after-load 'flycheck
   '(progn
