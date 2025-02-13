@@ -4,6 +4,7 @@
 (require 'ora-org-babel)
 (require 'ora-org-babel-inline)
 (require 'ora-org-pomodoro)
+(require 'pora-orca nil t)
 (setq org-export-backends '(html latex))
 (setq org-export-with-sub-superscripts nil)
 (setq org-catch-invisible-edits 'smart)
@@ -11,6 +12,11 @@
 (require 'org)
 (add-to-list 'load-path (expand-file-name "git/org-mode/contrib/lisp/" emacs-d))
 (require 'org-src)
+(require 'orly)
+(require 'orly-py)
+(require 'orly-code)
+(require 'orly-cook)
+(require 'orly-ci)
 (use-package alert
   :defer t)
 
@@ -30,8 +36,6 @@
   (setq org-download-display-inline-images t)
   (setq org-download-method 'attach))
 
-(use-package orca)
-
 (use-package org-bullets
   :config
   (setcdr org-bullets-bullet-map nil))
@@ -48,15 +52,21 @@
 (defun ora-org-hook ()
   (worf-mode)
   (org-bullets-mode)
-  (org-indent-mode)
-  (setq fill-column 90)
+  (if (> (buffer-size) 1000000)
+      (org-indent-mode -1)
+    (org-indent-mode))
+  (setq fill-column 95)
   (setq-local auto-hscroll-mode nil)
+  (setq-local auto-hscroll-mode t)
   (auto-fill-mode)
   (add-to-list 'prettify-symbols-alist '(":PROPERTIES:" . ":"))
   (add-to-list 'prettify-symbols-alist '("src_sh" . "$"))
   (add-to-list 'prettify-symbols-alist '("src_lisp" . "λ"))
   (add-to-list 'prettify-symbols-alist '("src_elisp" . "λ"))
   (add-to-list 'prettify-symbols-alist '("src_clojure" . "λ"))
+  (add-to-list 'prettify-symbols-alist '("src_python" . "🐍"))
+  (add-to-list 'prettify-symbols-alist '("src_sql" . "🐘"))
+  (add-to-list 'prettify-symbols-alist '("src_quote" . "❞"))
   (prettify-symbols-mode)
   (when (fboundp 'pora-org-hook)
     (pora-org-hook))
@@ -82,6 +92,7 @@
 ;;* Keys
 ;;** org-mode-map
 (define-key org-mode-map (kbd "C-,") nil)
+(define-key org-mode-map (kbd "C-c C-t") 'org-table-transpose-table-at-point)
 (define-key org-mode-map (kbd "C-'") nil)
 (define-key org-mode-map (kbd "C-TAB") nil)
 (define-key org-mode-map (kbd "C-M-i") 'ora-org-complete-symbol)
@@ -90,12 +101,14 @@
 (define-key org-mode-map (kbd "C-p") 'ora-org-previous-line)
 (define-key org-mode-map (kbd "C-n") 'ora-org-next-line)
 (define-key org-mode-map (kbd "M-b") 'ora-org-backward-word)
+(define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
 (define-key org-mode-map [C-tab] nil)
 (define-key org-mode-map (kbd "<f2> a") 'org-archive)
 (define-key org-mode-map (kbd "χ") 'worf-back-to-heading)
 (define-key org-mode-map (kbd "C-σ") 'org-edit-special)
 (define-key org-mode-map (kbd "C-a") 'ora-move-beginning-of-line)
 (define-key org-mode-map (kbd "M-r") 'org-ctrl-c-ctrl-c)
+(define-key org-mode-map (kbd "M-a") 'worf-ace-link)
 (define-key org-src-mode-map (kbd "C-c C-c") nil)
 (define-key org-src-mode-map (kbd "C-σ") 'org-edit-src-exit)
 (ora-advice-add 'org-edit-src-exit :after (lambda (&rest _) (save-buffer)))
@@ -104,6 +117,7 @@
 (define-key org-mode-map (kbd "C-c C-l") 'ora-org-insert-link)
 (define-key org-mode-map (kbd "C-c C-z") 'org-babel-load-in-session-maybe)
 (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
+
 (eval-after-load 'org-ref
   '(require 'pora-org-ref nil t))
 (define-key org-agenda-mode-map (kbd "<backspace>") 'ora-org-agenda-unmark-backward)
@@ -165,8 +179,6 @@
   (define-key map "l" 'org-agenda-later)
   ;; worf
   (define-key map "s" 'worf-schedule)
-  (define-key map "N" 'worf-agenda-narrow)
-  (define-key map "W" 'worf-agenda-widen)
   (define-key map "t" 'worf-todo)
   ;; misc
   (define-key map (kbd "C-j") 'org-open-at-point)
@@ -198,11 +210,21 @@
   ("z" org-agenda-add-note "note"))
 
 ;;* Basic settings
-(setq-default org-todo-keywords
-              '((sequence
-                 "TODO" "NEXT" "PROG"
-                 "WAIT" "LIST"
-                 "|" "DONE" "DROP(r)")))
+(setq org-todo-keywords
+      '((sequence
+         "TODO" "NEXT" "PROG"
+         "WAIT" "LIST"
+         "|" "DONE" "DROP(r)")))
+(setq org-todo-key-alist
+      '((:startgroup)
+        ("TODO" . ?t)
+        ("NEXT" . ?n)
+        ("PROG" . ?p)
+        ("WAIT" . ?w)
+        ("LIST" . ?l)
+        ("DONE" . ?d)
+        ("DROP" . ?r)
+        (:endgroup)))
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "red" :weight bold))
         ("NEXT" . (:foreground "red" :weight bold))
@@ -211,6 +233,8 @@
         ("LIST" . (:foreground "orange" :weight bold))))
 (setq org-startup-indented t)
 (setq org-startup-folded nil)
+;; the 'text-properties default breaks `org-cycle-internal-local' which `lispy-mode' uses.
+;; (setq org-fold-core-style 'overlays)
 (setq org-cycle-separator-lines 0)
 
 (setq org-return-follows-link t)
@@ -314,11 +338,6 @@
         ("" "capt-of" nil)
         ("hidelinks" "hyperref" nil)))
 
-;;* Files
-(setq org-archive-location (expand-file-name
-                            "../archive/gtd.org_archive::"
-                            plain-org-wiki-directory))
-
 ;;* Source blocks
 (require 'htmlfontify)
 (setq org-src-fontify-natively t)
@@ -372,6 +391,7 @@ a sound to be played"
 
 (defvar ora-org-structure-template-alist
   '(("s" "#+begin_src ?\n\n#+end_src")
+    ("p" "#+begin_src sql :engine postgresql :dbconnection ?\n\n#+end_src")
     ("e" "#+begin_example\n?\n#+end_example")
     ("q" "#+begin_quote\n?\n#+end_quote")
     ("v" "#+begin_verse\n?\n#+end_verse")
@@ -422,6 +442,7 @@ _h_tml    ^ ^        _A_SCII:
   ("H" (hot-expand "H"))
   ("A" (hot-expand "A"))
   ("t" (hot-expand "t"))
+  ("p" (hot-expand "p"))
   ("u" (org-insert-env "equation"))
   ("<" self-insert-command "ins")
   ("o" nil "quit"))
@@ -694,10 +715,10 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 
 (defun ora-org-dont-fill-links ()
   (when (get-text-property (point) 'htmlize-link)
-    (if (looking-at "\\[")
-        (skip-chars-backward "[")
-      (ignore-errors
-        (backward-up-list 2)))
+    ;; (if (looking-at "\\[")
+    ;;     (skip-chars-backward "[")
+    ;;   (ignore-errors
+    ;;     (backward-up-list 2)))
     t))
 
 (defun ora-org-beginning-of-link ()
@@ -707,18 +728,19 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
 (defun ora-org-next-line ()
   (interactive)
   (line-move 1)
-  (let ((ov (car (overlays-at (point)))))
-    (when (and ov (not (= 10 (char-after (overlay-start ov)))))
-      (goto-char (1+ (overlay-end ov)))))
+  ;; (let ((ov (car (overlays-at (point)))))
+  ;;   (when (and ov (not (= 10 (char-after (overlay-start ov)))))
+  ;;     (goto-char (1+ (overlay-end ov)))))
   (ora-org-beginning-of-link))
 
 (defun ora-org-previous-line ()
   (interactive)
   (line-move -1)
-  (let ((ov (car (overlays-at (point)))))
-    (when (and ov (not (= 10 (char-after (overlay-start ov)))))
-      (goto-char (1- (overlay-start ov)))))
-  (ora-org-beginning-of-link))
+  ;; (unless (region-active-p)
+  ;;   (let ((context (org-element-context)))
+  ;;     (when (and context (eq 'link (org-element-type context)))
+  ;;       (goto-char (org-element-property :begin context)))))
+  )
 
 (defun ora-org-backward-word ()
   (interactive)

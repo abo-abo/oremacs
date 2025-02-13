@@ -744,14 +744,6 @@ Call `j-console' and setup shortcuts." t nil)
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-lsp-python" "modes/ora-lsp-python.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from modes/ora-lsp-python.el
-
-(register-definition-prefixes "modes/ora-lsp-python" '("lsp-ruff-executable"))
-
-;;;***
-
 ;;;### (autoloads nil "modes/ora-magit" "modes/ora-magit.el" (0 0
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-magit.el
@@ -861,14 +853,6 @@ Transform Elisp-style code references to Markdown-style." t)
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-orca" "modes/ora-orca.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from modes/ora-orca.el
-
-(register-definition-prefixes "modes/ora-orca" '("ora-org-handle-link-"))
-
-;;;***
-
 ;;;### (autoloads nil "modes/ora-org" "modes/ora-org.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-org.el
 
@@ -895,16 +879,6 @@ Transform Elisp-style code references to Markdown-style." t)
 (autoload 'ora-org-clock-out "modes/ora-org-pomodoro" nil t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-org-pomodoro" '("ora-org-pomodoro")))
-
-;;;***
-
-;;;### (autoloads nil "modes/ora-org-present" "modes/ora-org-present.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from modes/ora-org-present.el
-
-(autoload 'ora-org-presentation "modes/ora-org-present" nil t)
-
-(register-definition-prefixes "modes/ora-org-present" '("my/org-present-"))
 
 ;;;***
 
