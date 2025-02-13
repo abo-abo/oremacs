@@ -1,7 +1,10 @@
 (require 'python)
+
+(setq python-indent-def-block-scale 1)
+
 (require 'autoinsert)
-(use-package python-environment)
-(use-package company-jedi)
+;; (use-package python-environment)
+;; (use-package company-jedi)
 (add-to-list 'auto-insert-alist
              '(python-mode lambda nil (ora-python-auto-insert)))
 (defun ora-python-auto-insert ()
@@ -27,6 +30,16 @@
     (setq jedi:mode-function nil)
     (setcar jedi:install-server--command "pip3")
     (setq jedi:server-command (list "python3" jedi:server-script))))
+
+(defun ora-ruff-fix ()
+  (interactive)
+  (save-buffer)
+  (shell-command-to-string
+   (concat "ruff check --fix --unsafe-fixes " (shell-quote-argument (buffer-file-name))))
+  (shell-command-to-string
+   (concat "ruff format " (shell-quote-argument (buffer-file-name)))))
+
+
 (require 'ciao nil t)
 
 (require 'lpy)
@@ -37,6 +50,7 @@
 (setq python-shell-prompt-detect-failure-warning nil)
 ;; when set to nil, completions to functions end with "(", very annoying
 (setq python-shell-completion-native-enable t)
+(defun python-shell-completion-native-setup () t)
 (define-key python-mode-map (kbd "C-.") nil)
 (define-key python-mode-map (kbd "C-x C-p") 'jedi:goto-definition)
 (define-key python-mode-map (kbd "C-?") 'jedi:show-doc)
@@ -60,6 +74,7 @@
 (require 'le-python)
 (require 'flyspell)
 (flyspell-delay-command 'python-indent-dedent-line-backspace)
+(require 'ora-flycheck-ruff)
 
 ;;;###autoload
 (defun ora-python-hook ()
@@ -71,7 +86,20 @@
     (setq jedi:environment-root "jedi")
     (setq jedi:environment-virtualenv python-environment-virtualenv)
     (add-to-list 'company-backends 'company-jedi))
-  (flycheck-mode)
+  (unless (bound-and-true-p org-src-mode)
+    (let (gr)
+      (when (and (buffer-file-name)
+                 (setq gr (ignore-errors (counsel-locate-git-root))))
+        (unless (cl-some
+                 (lambda (d) (file-equal-p d gr))
+                 (list (expand-file-name "~")
+                       (expand-file-name "~/.pyenv")
+                       org-directory))
+          (add-to-list 'flycheck-disabled-checkers 'python-mypy)
+          (setq-local flycheck-checkers '(python-ruff
+                                          ;; python-pylint
+                                          ))
+          (flycheck-mode)))))
   (electric-indent-mode -1)
   (auto-complete-mode -1)
   (company-mode)
@@ -165,4 +193,5 @@ Don't call `python-info-docstring-p'."
       font-lock-string-face
     font-lock-comment-face))
 
+(require 'pora-python nil t)
 (provide 'ora-python)
