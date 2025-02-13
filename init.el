@@ -276,6 +276,7 @@
   :config
   (setq super-save-auto-save-when-idle t)
   ;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (setq save-silently t)
   (super-save-mode))
 
 (eval-after-load 'lsp
