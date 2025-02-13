@@ -284,6 +284,8 @@
 
 (eval-after-load 'flycheck
   '(require 'ora-flycheck))
+
+(setq auth-sources '("~/.authinfo.gpg"))
 (require 'ora-pass)
 
 (lispy-mode)
