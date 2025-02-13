@@ -1,5 +1,4 @@
 (use-package company)
-(require 'company-elisp)
 (csetq company-idle-delay 0.4)
 (csetq company-show-numbers t)
 (csetq company-elisp-detect-function-context nil)
@@ -9,15 +8,16 @@
 (setq company-frontends
       '(company-pseudo-tooltip-unless-just-one-frontend
         company-preview-if-just-one-frontend))
-
 (setq company-backends
-      '(company-elisp
-        ;; company-semantic
-        company-capf
+      '(company-capf
         (company-dabbrev-code company-gtags company-etags
-         company-keywords)
+                              company-keywords)
         company-files
         company-dabbrev))
+
+(when (featurep 'company-elisp)
+  (require 'company-elisp)
+  (cl-pushnew 'company-elisp company-backends))
 
 (defun ora-company-number ()
   "Forward to `company-complete-number'.
@@ -38,9 +38,10 @@ In that case, insert the number."
            10
          (string-to-number k))))))
 
-(defun ora--company-good-prefix-p (orig-fn prefix)
+(defun ora--company-good-prefix-p (orig-fn prefix &optional min-length)
   (unless (and (stringp prefix) (string-match-p "\\`[0-9]+\\'" prefix))
-    (funcall orig-fn prefix)))
+    (funcall orig-fn prefix min-length)))
+
 (ora-advice-add 'company--good-prefix-p :around #'ora--company-good-prefix-p)
 
 (let ((map company-active-map))
