@@ -615,14 +615,6 @@ Work with `rest' in the *restclient* buffer." t nil)
 
 ;;;***
 
-;;;### (autoloads nil "modes/ora-hydra-refactor" "modes/ora-hydra-refactor.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from modes/ora-hydra-refactor.el
-
-(register-definition-prefixes "modes/ora-hydra-refactor" '("hydra-refactor" "ora-"))
-
-;;;***
-
 ;;;### (autoloads nil "modes/ora-ibuffer" "modes/ora-ibuffer.el"
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ibuffer.el
