@@ -279,6 +279,8 @@
   (setq save-silently t)
   (super-save-mode))
 
+(eval-after-load 'vterm
+  '(require 'ora-vterm))
 
 (eval-after-load 'flycheck
   '(progn
