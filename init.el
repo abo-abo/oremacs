@@ -283,8 +283,7 @@
   '(require 'ora-vterm))
 
 (eval-after-load 'flycheck
-  '(progn
-     (setq flycheck-check-syntax-automatically '(save mode-enabled))))
+  '(require 'ora-flycheck))
 (require 'ora-pass)
 
 (lispy-mode)
