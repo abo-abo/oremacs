@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: q
+# key: q
+# --
+src_quote{$0}
