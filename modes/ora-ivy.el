@@ -157,5 +157,21 @@
 
 (csetq counsel-recentf-include-xdg-list t)
 
+(defun ora-counsel-git-occur (&optional _cands)
+  (cd (ivy-state-directory ivy-last))
+  (counsel-cmd-to-dired
+   (if (> (length ivy--all-candidates) 30000)
+       (replace-regexp-in-string "\\(-0\\)\\|\\(-z\\)" "" counsel-git-cmd)
+     (counsel--expand-ls
+      (format "%s | %s | xargs -0 ls"
+              (replace-regexp-in-string "\\(-0\\)\\|\\(-z\\)" "" counsel-git-cmd)
+              (let ((counsel-file-name-filter-alist
+                     '(("perl -ne '/(.*%s.*)/i && print \"$1\\0\";'" . t))))
+                (counsel--file-name-filter)))))))
+
+(ivy-set-occur 'counsel-git 'ora-counsel-git-occur)
+(add-to-list 'counsel-find-file-extern-extensions "MOV")
+
+
 (require 'pora-ivy nil t)
 (provide 'ora-ivy)
