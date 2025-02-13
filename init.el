@@ -12,9 +12,14 @@
         (delete "." (delete ".." (directory-files emacs-git)))))
 (add-to-list 'load-path (expand-file-name "git/org-mode/lisp/" emacs-d))
 (add-to-list 'load-path emacs-d)
+(add-to-list 'load-path (expand-file-name "tramp/" emacs-d))
 (add-to-list 'load-path (expand-file-name "modes/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/" emacs-d))
 (add-to-list 'load-path (expand-file-name "personal/modes/" emacs-d))
+;; Python eval broke for Lispy/Lpy after 27.1
+;; Load an earlier version until I figure this out
+(let ((load-path (cons emacs-d load-path)))
+  (require 'python))
 (setq enable-local-variables :all)
 (require 'pora-base nil t)
 ;;* straight.el
