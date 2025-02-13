@@ -232,7 +232,8 @@
 (use-package helm-j-cheatsheet
   :commands helm-j-cheatsheet)
 (use-package pamparam
-  :commands pamparam-drill)
+  :commands pamparam-drill
+  :config (setq pamparam-day-limit 110))
 (require 'ora-makefile)
 (setq abbrev-file-name (expand-file-name "personal/lists/abbrev_defs" emacs-d))
 (use-package flyspell
