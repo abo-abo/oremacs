@@ -23,13 +23,12 @@
     ("shell"
      bash-completion
      exec-path-from-shell
-     vterm)
+     vterm
+     coterm)
     ("python"
      company-jedi
      jedi
      python-pytest
-     python-isort
-     blacken
      pyimport
      (lpy :host github :repo "abo-abo/lpy"))
     ("elisp"
@@ -58,13 +57,14 @@
      org-bullets
      org-download
      org-parser
+     org-present
+     visual-fill-column
      (org-fu :host github :repo "abo-abo/org-fu")
      (org-pomodoro :host github :repo "abo-abo/org-pomodoro")
      org-ref
      ox-gfm
      ;; org-roam
      pamparam
-     plain-org-wiki
      gtk-pomodoro-indicator
      ukrainian-holidays
      netherlands-holidays
@@ -117,13 +117,15 @@
     ("dired"
      (dired-guess :host github :repo "abo-abo/dired-guess")
      dired-rsync
-     make-it-so)
+     make-it-so
+     ready-player)
     ("major-mode"
      abc-mode
      go-mode
      haskell-mode
      rjsx-mode
      rust-mode
+     nginx-mode
      markdown-mode
      nov
      yaml-mode)
@@ -135,11 +137,12 @@
     ("files"
      magit
      forge
+     git-link
      find-file-in-project
      projectile
      wgrep
      super-save
-     kubernetes-tramp)
+     tramp-container)
     ("sql"
      sql-indent
      ejc-sql)
