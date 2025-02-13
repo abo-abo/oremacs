@@ -61,7 +61,10 @@
       (when (or (> seconds-passed 60)
                 (not (member (current-buffer) (mapcar 'window-buffer (window-list)))))
         (pop-to-buffer (current-buffer))
-        (shell-command "play ~/Documents/tng-doorbell.wav"))))
+        (shell-command
+         (concat "play " (expand-file-name "personal/misc/tng-doorbell.wav" emacs-d))))))
   (cons msg exit-status))
 
 (setq compilation-exit-message-function 'ora-compilation-exit-message-function)
+
+(require 'pora-org nil t)
