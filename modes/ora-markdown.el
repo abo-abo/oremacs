@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (require 'markdown-mode)
 
 (defun ora-server-edit ()
@@ -50,3 +51,5 @@
         (xref-push-marker-stack)
         (markdown--browse-url (markdown-link-url)))
     (electric-newline-and-maybe-indent)))
+
+(require 'pora-markdown nil t)
