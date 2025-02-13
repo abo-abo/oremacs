@@ -262,7 +262,7 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 (use-package find-file-in-project
   :commands find-file-in-project)
-(require 'pora-magit nil t)
+(require 'ora-magit)
 (use-package compile
   :diminish compilation-in-progress
   :config
