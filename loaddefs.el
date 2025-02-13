@@ -175,22 +175,6 @@ currently selected window instead.
 
 ;;;***
 
-;;;### (autoloads nil "git/org-fu/org-fu-twitter" "git/org-fu/org-fu-twitter.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from git/org-fu/org-fu-twitter.el
-
-(register-definition-prefixes "git/org-fu/org-fu-twitter" '("orfu-"))
-
-;;;***
-
-;;;### (autoloads nil "git/org-fu/youtube-dl" "git/org-fu/youtube-dl.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from git/org-fu/youtube-dl.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git/org-fu/youtube-dl" '("youtube-dl-channel-to-org")))
-
-;;;***
-
 ;;;### (autoloads nil "hooks" "hooks.el" (0 0 0 0))
 ;;; Generated autoloads from hooks.el
 
@@ -344,11 +328,11 @@ currently selected window instead.
 ;;;### (autoloads nil "modes/ora-cpp" "modes/ora-cpp.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-cpp.el
 
-(autoload 'ora-c-common-hook "modes/ora-cpp" nil nil nil)
+(autoload 'ora-c-common-hook "modes/ora-cpp")
 
-(autoload 'ora-c-hook "modes/ora-cpp" nil nil nil)
+(autoload 'ora-c-hook "modes/ora-cpp")
 
-(autoload 'ora-c++-hook "modes/ora-cpp" nil nil nil)
+(autoload 'ora-c++-hook "modes/ora-cpp")
 
 ;;;***
 
@@ -369,9 +353,9 @@ currently selected window instead.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-dired.el
 
-(autoload 'ora-dired-hook "modes/ora-dired" nil nil nil)
+(autoload 'ora-dired-hook "modes/ora-dired")
 
-(autoload 'ora-dired-jump "modes/ora-dired" nil t nil)
+(autoload 'ora-dired-jump "modes/ora-dired" nil t)
 
 (register-definition-prefixes "modes/ora-dired" '("hydra-marked-items" "ora-"))
 
@@ -440,9 +424,9 @@ currently selected window instead.
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-elisp.el
 
-(autoload 'ora-emacs-lisp-hook "modes/ora-elisp" nil nil nil)
+(autoload 'ora-emacs-lisp-hook "modes/ora-elisp")
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-elisp" '("conditionally-enable-lispy" "eldoc-mode" "lisp--match-hidden-arg" "ora-")))
+(register-definition-prefixes "modes/ora-elisp" '("conditionally-enable-lispy" "eldoc-mode" "lisp--match-hidden-arg" "ora-"))
 
 ;;;***
 
@@ -592,7 +576,7 @@ But don't look beyond what's visible on the screen." t nil)
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-helm.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-helm" '("helm-")))
+(register-definition-prefixes "modes/ora-helm" '("helm-"))
 
 ;;;***
 
@@ -628,19 +612,6 @@ Work with `rest' in the *restclient* buffer." t nil)
 
 
 \(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads nil "modes/ora-hydra-k" "modes/ora-hydra-k.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from modes/ora-hydra-k.el
-
-(autoload 'electric-portuguese-single-quote "modes/ora-hydra-k" "\
-
-
-\(fn ARG)" t)
-
-(register-definition-prefixes "modes/ora-hydra-k" '("hydra-" "ora-"))
 
 ;;;***
 
@@ -711,7 +682,7 @@ Threat is as function body when from endline before )" t nil)
 ;;;### (autoloads nil "modes/ora-ivy" "modes/ora-ivy.el" (0 0 0 0))
 ;;; Generated autoloads from modes/ora-ivy.el
 
-(register-definition-prefixes "modes/ora-ivy" '("counsel-semgrep" "ivy-" "ora-"))
+(register-definition-prefixes "modes/ora-ivy" '("ivy-" "ora-"))
 
 ;;;***
 
@@ -748,7 +719,7 @@ Call `j-console' and setup shortcuts." t nil)
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-javascript.el
 
-(autoload 'ora-javascript-hook "modes/ora-javascript" nil nil nil)
+(autoload 'ora-javascript-hook "modes/ora-javascript")
 
 (register-definition-prefixes "modes/ora-javascript" '("ac-source-javascript" "javascript-candidates" "js-" "keyword-function" "ora-" "refresh-javascript-candidates"))
 
@@ -793,7 +764,19 @@ Call `j-console' and setup shortcuts." t nil)
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-magit.el
 
-(register-definition-prefixes "modes/ora-magit" '("ora-magit-"))
+(autoload 'ora-nextmagit-status-hook "modes/ora-magit")
+
+(autoload 'ora-nextmagit-log-hook "modes/ora-magit")
+
+(autoload 'ora-nextmagit-commit-hook "modes/ora-magit")
+
+(autoload 'ora-nextmagit-diff-hook "modes/ora-magit")
+
+(autoload 'ora-nextmagit-branch-manager-hook "modes/ora-magit")
+
+(autoload 'ora-magit-status-buffer "modes/ora-magit" nil t)
+
+(register-definition-prefixes "modes/ora-magit" '("endless/add-PR-fetch" "hydra-magit" "magit-branch-and-checkout" "ora-"))
 
 ;;;***
 
@@ -811,10 +794,10 @@ Call `j-console' and setup shortcuts." t nil)
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from modes/ora-markdown.el
 
-(autoload 'ora-markdown-hook "modes/ora-markdown" nil nil nil)
+(autoload 'ora-markdown-hook "modes/ora-markdown")
 
 (autoload 'ora-markdown-cleanup "modes/ora-markdown" "\
-Transform Elisp-style code references to Markdown-style." t nil)
+Transform Elisp-style code references to Markdown-style." t)
 
 (register-definition-prefixes "modes/ora-markdown" '("ora-"))
 
@@ -829,26 +812,6 @@ Transform Elisp-style code references to Markdown-style." t nil)
 (autoload 'ora-mu4e-compose-hook "modes/ora-mu4e" nil nil nil)
 
 (register-definition-prefixes "modes/ora-mu4e" '("ora-mml-attach-file"))
-
-;;;***
-
-;;;### (autoloads nil "modes/ora-nextmagit" "modes/ora-nextmagit.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from modes/ora-nextmagit.el
-
-(autoload 'ora-nextmagit-status-hook "modes/ora-nextmagit" nil nil nil)
-
-(autoload 'ora-nextmagit-log-hook "modes/ora-nextmagit" nil nil nil)
-
-(autoload 'ora-nextmagit-commit-hook "modes/ora-nextmagit" nil nil nil)
-
-(autoload 'ora-nextmagit-diff-hook "modes/ora-nextmagit" nil nil nil)
-
-(autoload 'ora-nextmagit-branch-manager-hook "modes/ora-nextmagit" nil nil nil)
-
-(autoload 'ora-magit-status-buffer "modes/ora-nextmagit" nil t nil)
-
-(register-definition-prefixes "modes/ora-nextmagit" '("endless/add-PR-fetch" "hydra-magit" "magit-branch-and-checkout" "ora-"))
 
 ;;;***
 
@@ -903,6 +866,14 @@ Transform Elisp-style code references to Markdown-style." t nil)
 \(fn)" t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-octave" '("octave-")))
+
+;;;***
+
+;;;### (autoloads nil "modes/ora-orca" "modes/ora-orca.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from modes/ora-orca.el
+
+(register-definition-prefixes "modes/ora-orca" '("ora-org-handle-link-"))
 
 ;;;***
 
@@ -976,9 +947,9 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-pass.el
 
-(autoload 'ora-password "modes/ora-pass" nil t nil)
+(autoload 'ora-password "modes/ora-pass" nil t)
 
-(register-definition-prefixes "modes/ora-pass" '("ora-"))
+(register-definition-prefixes "modes/ora-pass" '("ora-password-action-gpg"))
 
 ;;;***
 
@@ -1013,9 +984,9 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;;;;  0 0 0))
 ;;; Generated autoloads from modes/ora-python.el
 
-(autoload 'ora-python-hook "modes/ora-python" nil nil nil)
+(autoload 'ora-python-hook "modes/ora-python")
 
-(autoload 'ora-inferior-python-hook "modes/ora-python" nil nil nil)
+(autoload 'ora-inferior-python-hook "modes/ora-python")
 
 (register-definition-prefixes "modes/ora-python" '("ora-" "python-"))
 
@@ -1071,7 +1042,7 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-shell.el
 
-(autoload 'ora-shell-hook "modes/ora-shell" nil nil nil)
+(autoload 'ora-shell-hook "modes/ora-shell")
 
 (register-definition-prefixes "modes/ora-shell" '("ora-"))
 
@@ -1179,7 +1150,7 @@ Transform Elisp-style code references to Markdown-style." t nil)
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-yaml.el
 
-(autoload 'ora-yaml-hook "modes/ora-yaml" nil nil nil)
+(autoload 'ora-yaml-hook "modes/ora-yaml")
 
 ;;;***
 
@@ -1215,23 +1186,23 @@ Runs the hook `inferior-python-mode-hook' after
 `comint-mode-hook' is run.  (Type \\[describe-mode] in the
 process buffer for a list of commands.)
 
-\(fn &optional CMD DEDICATED SHOW)" t nil)
+\(fn &optional CMD DEDICATED SHOW)" t)
 
 (autoload 'python-mode "python" "\
 Major mode for editing Python files.
 
 \\{python-mode-map}
 
-\(fn)" t nil)
+\(fn)" t)
 
 (register-definition-prefixes "python" '("inferior-python-mode" "python-" "run-python-internal"))
 
 ;;;***
 
 ;;;### (autoloads nil nil ("modes/ora-auto.el" "modes/ora-elisp-style-guide.el"
-;;;;;;  "modes/ora-grep.el" "modes/ora-hydra.el" "modes/ora-keepassxc.el"
-;;;;;;  "modes/ora-org-babel-inline.el" "modes/ora-visuals.el" "modes/ora-xref.el")
-;;;;;;  (0 0 0 0))
+;;;;;;  "modes/ora-flycheck-ruff.el" "modes/ora-grep.el" "modes/ora-hydra.el"
+;;;;;;  "modes/ora-keepassxc.el" "modes/ora-org-babel-inline.el"
+;;;;;;  "modes/ora-visuals.el" "modes/ora-xref.el") (0 0 0 0))
 
 ;;;***
 
@@ -1239,13 +1210,7 @@ Major mode for editing Python files.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from git/org-fu/org-fu.el
 
-(autoload 'orfu-agenda-quick "git/org-fu/org-fu" nil t nil)
-
-(autoload 'orfu-agenda-office "git/org-fu/org-fu" nil t nil)
-
-(autoload 'orfu-agenda-day "git/org-fu/org-fu" nil t nil)
-
-(autoload 'orfu-agenda-articles "git/org-fu/org-fu" nil t nil)
+(autoload 'orfu-agenda-day "git/org-fu/org-fu" nil t)
 
 (register-definition-prefixes "git/org-fu/org-fu" '("orfu-"))
 

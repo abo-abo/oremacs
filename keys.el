@@ -193,7 +193,7 @@
 
 ;;* Hydras
 (require 'hydra-examples)
-(require 'ora-hydra-k)
+(require 'pora-hydra-k nil t)
 (defhydra hydra-error (global-map "M-g")
   "goto-error"
   ("h" first-error "first")
