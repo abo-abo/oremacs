@@ -280,15 +280,18 @@ Number of marked items: %(length (dired-get-marked-files))
 (defun ora-shell-command-sentinel (process _signal)
   (when (memq (process-status process) '(exit signal))
     (advice-remove 'shell-command-sentinel 'ora-shell-command-sentinel)
-    (message (with-current-buffer (process-buffer process)
-               (string-trim (buffer-string))))))
+    (message
+     (with-current-buffer (process-buffer process)
+       (replace-regexp-in-string "%" "%%" (string-trim (buffer-string)))))))
 
-(defun ora-dired-do-async-shell-command ()
+(defun ora-dired-do-async-shell-command (&optional arg)
   "Wrap `dired-do-async-shell-command' without popup windows."
-  (interactive)
-  (ora-advice-add 'shell-command-sentinel :override #'ora-shell-command-sentinel)
-  (save-window-excursion
-    (call-interactively 'dired-do-async-shell-command)))
+  (interactive "P")
+  (if arg
+      (call-interactively 'dired-do-async-shell-command)
+    (ora-advice-add 'shell-command-sentinel :override #'ora-shell-command-sentinel)
+    (save-window-excursion
+      (call-interactively 'dired-do-async-shell-command))))
 
 (defun ora-dired-do-rename ()
   (interactive)
