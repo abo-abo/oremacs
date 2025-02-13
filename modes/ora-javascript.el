@@ -73,7 +73,7 @@
 (defun ora-javascript-hook ()
   (unless (eq major-mode 'js2-mode)
     (js2-mode))
-  (ora-rjsx-maybe)
+  ;; (ora-rjsx-maybe)
   (setq-local avy-subword-extra-word-chars nil)
   (if (string-match-p "\\.json$" (buffer-name))
       (local-set-key (kbd "C-c C-g") 'jsons-print-path)
