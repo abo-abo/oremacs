@@ -254,6 +254,11 @@
   (setq projectile-switch-project-action
         (lambda ()
           (dired (projectile-project-root))))
+  (setq projectile-project-root-functions
+        '(projectile-root-local
+          projectile-root-bottom-up
+          projectile-root-top-down
+          projectile-root-top-down-recurring))
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 (use-package find-file-in-project
   :commands find-file-in-project)
