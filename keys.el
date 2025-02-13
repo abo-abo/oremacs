@@ -72,7 +72,7 @@
 (global-set-key (kbd "<C-return>") nil)                        ; [v]
 (global-set-key (kbd "C-β") nil)                               ; [b]
 (global-set-key (kbd "C-ν") 'ora-angles)                       ; [n]
-(global-set-key (kbd "C-μ") 'headlong-bookmark-jump-other)     ; [m]
+(global-set-key (kbd "C-μ") 'ora-magit-status-buffer)          ; [m]
 ;;* Mod4 shortcuts
 (global-set-key "θ" 'ora-quotes)                             ; [q]
 ;; (global-set-key "ω" 'self-insert-command)                 ; [w]
