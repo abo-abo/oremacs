@@ -127,8 +127,8 @@
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
 (global-set-key (kbd "C-c J") 'counsel-file-jump)
 (global-set-key (kbd "C-c k") 'counsel-rg)
-(global-set-key (kbd "C-c K") 'counsel-ag)
-(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c K") 'counsel-semgrep)
+(global-set-key (kbd "C-c l") 'hydra-link/body)
 (global-set-key (kbd "C-c m") 'counsel-linux-app)
 (global-set-key (kbd "C-c n") 'counsel-fzf)
 (global-set-key (kbd "C-c o") 'counsel-outline)
@@ -184,7 +184,6 @@
 (global-set-key [f11] 'ora-org-clock-out)
 (global-set-key [C-f11] 'org-clock-goto)
 (global-set-key [f12] 'orfu-agenda-day)
-(global-set-key [C-f12] 'orfu-agenda-quick)
 (global-set-key (kbd "C-<f1>") (lambda () (interactive) (shell-command "setxkbmap ua")))
 (global-set-key (kbd "C-<f2>") (lambda () (interactive) (shell-command "setxkbmap us;xmodmap ~/.Xmodmap")))
 ;;* Misc shortcuts
@@ -226,26 +225,29 @@
 (use-package cook
   :commands cook)
 
+(require 'hl-line)
 (defhydra hydra-toggle (:color pink :hint nil)
   "
 _a_ abbrev-mode:       %`abbrev-mode
 _b_ backup-files:      %`make-backup-files
 _d_ debug-on-error:    %`debug-on-error
 _f_ auto-fill-mode:    %`auto-fill-function
-_h_ highlight          %`highlight-nonselected-windows
+_h_ hscroll            %`auto-hscroll-mode
 _t_ truncate-lines:    %`truncate-lines
 _w_ whitespace-mode:   %`whitespace-mode
-_l_ org link display
+_l_ highlight line     %`hl-line-mode
+_L_ org link display
 "
   ("a" abbrev-mode)
   ("b" (setq make-backup-files (not make-backup-files)))
   ("d" toggle-debug-on-error)
   ("e" evil-mode :exit t)
   ("f" auto-fill-mode)
-  ("h" (setq highlight-nonselected-windows (not highlight-nonselected-windows)))
+  ("h" (setq auto-hscroll-mode (not auto-hscroll-mode)))
   ("t" toggle-truncate-lines)
   ("w" whitespace-mode)
-  ("l" org-toggle-link-display)
+  ("l" hl-line-mode)
+  ("L" org-toggle-link-display)
   ("i" illiterate)
   ("q" nil "quit"))
 
@@ -303,13 +305,13 @@ _v_ariable     valu_e_"
 (global-set-key (kbd "C-M-k") 'hydra-pause-resume)
 (global-set-key (kbd "C-M-k") 'ora-kill-current-buffer)
 (global-set-key (kbd "C-M-y") 'counsel-hydra-heads)
-(global-set-key (kbd "C-M-j") 'counsel-semantic)
+(global-set-key (kbd "C-M-j") 'ora-browse-url-at-point)
 (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-t") 'counsel-M-x)
 (global-set-key (kbd "C-SPC") 'hydra-set-mark)
 (global-set-key (kbd "C-SPC") 'set-mark-command)
-(global-set-key (kbd "<down-mouse-3>") 'ora-open-file-at-point)
+;; (global-set-key (kbd "<down-mouse-3>") 'ora-open-file-at-point)
 ;; unbind 'mouse-buffer-menu
 (global-set-key [C-down-mouse-1] 'ignore)
 
@@ -356,8 +358,12 @@ _v_ariable     valu_e_"
               (emmet-insert-and-flash markup)
               (emmet-reposition-cursor expr))
              ((memq major-mode '(html-mode mhtml-mode))
-              (emmet-expand-line nil)))
+              (emmet-expand-line nil))
+             ((eq major-mode 'minibuffer-mode)
+              (hydra-ivy/body)
+              t))
       (hydra-o/body))))
+(define-key ivy-minibuffer-map (kbd "C-o") 'ora-open-line)
 
 (defhydra hydra-o (:exit t)
   "outl"
