@@ -903,9 +903,7 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
     (if url
         (browse-url
          url
-         (if nil
-             (not browse-url-new-window-flag)
-           browse-url-new-window-flag))
+         browse-url-new-window-flag)
       (error "No URL found"))))
 
 ;;;###autoload
