@@ -32,7 +32,7 @@
   (let ((data-dir (expand-file-name
                    (format-time-string "%Y-%m/%Y-%m-%d"
                                        (and current-prefix-arg (org-read-date nil 'to-time)))
-                   ora-daily-data-directory)))
+                   roamy-directory-work)))
     (make-directory data-dir t)
     (find-file (expand-file-name "scratch.py" data-dir))))
 
@@ -92,10 +92,10 @@
 
 (defun ora-add-bookmark-command-action (cmd)
   (let ((entry `(,(concat ": " cmd)
-                  (filename . "   - no file -")
-                  (position . 0)
-                  (function . ,(intern cmd))
-                  (handler . bmk/function))))
+                 (filename . "   - no file -")
+                 (position . 0)
+                 (function . ,(intern cmd))
+                 (handler . bmk/function))))
     (cl-pushnew entry bookmark-alist)))
 
 (defun ora-add-bookmark-command ()
@@ -103,5 +103,7 @@
   (interactive)
   (let ((ivy-inhibit-action #'ora-add-bookmark-command-action))
     (counsel-M-x)))
+
+(require 'pora-bookmark nil t)
 
 (provide 'ora-bookmark)
