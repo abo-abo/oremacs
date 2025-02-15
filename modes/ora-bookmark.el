@@ -38,21 +38,21 @@
 
 (defvar ora-daily-archive-directory (expand-file-name "~/Archive/years/"))
 
-(defun ora-today-data-dir ()
+(defun ora-thoughts-dir ()
   (expand-file-name
-   (format-time-string "%Y-%m/%Y-%m-%d"
+   (format-time-string "%Y/%m/%Y-%m-%d"
                        (and current-prefix-arg (org-read-date nil 'to-time)))
    ora-daily-archive-directory))
 
 (defun bmk/today-archive ()
   (interactive)
-  (let ((data-dir (ora-today-data-dir)))
+  (let ((data-dir (ora-thoughts-dir)))
     (make-directory data-dir t)
     (dired data-dir)))
 
 (defun bmk/today-thoughts ()
   (interactive)
-  (let ((data-dir (ora-today-data-dir)))
+  (let ((data-dir (ora-thoughts-dir)))
     (make-directory data-dir t)
     (find-file (expand-file-name "thoughts.org" data-dir))))
 
