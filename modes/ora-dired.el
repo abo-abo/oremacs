@@ -32,6 +32,9 @@
 (setq dired-omit-files
       (ora-omit-regex
        '("compile_commands.json"
+         "google-cloud-sdk"
+         "snap"
+         "Desktop"
          "TAGS"
          "__pycache__"
          ;; OSv deployments
