@@ -15,7 +15,6 @@
      cljr-ivy)
     ("cpp"
      ccls
-     (cc-chainsaw :host github :repo "abo-abo/cc-chainsaw")
      google-c-style
      cmake-mode
      elf-mode
@@ -95,7 +94,6 @@
      ivy-posframe
      ivy-hydra
      ivy-xref
-     ;; (smex :host github :repo "abo-abo/smex")
      smex)
     ("words"
      define-word

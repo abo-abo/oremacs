@@ -8,7 +8,6 @@
 ;; (define-key function-args-mode-map (kbd "C-2") 'fa-show)
 ;; (define-key c++-mode-map (kbd "C-2") 'fa-show)
 (require 'ciao)
-;; (require 'cc-chainsaw)
 (csetq c-hanging-semi&comma-criteria nil)
 (setq-default c-basic-offset 4)
 ;; (use-package ccls)

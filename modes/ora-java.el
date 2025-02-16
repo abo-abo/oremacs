@@ -1,5 +1,4 @@
 (require 'cc-mode)
-(require 'cc-chainsaw)
 (setq compilation-read-command nil)
 
 (defun ora-java-current-defun-name ()
