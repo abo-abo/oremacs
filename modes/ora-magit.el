@@ -470,7 +470,7 @@ AuthorDate: %ad")
         (magit-show-commit parent-commit)))))
 
 
-(remove-hook 'magit-refs-sections-hook 'magit-insert-tags)
+(remove-hook 'magit-status-headers-hook 'magit-insert-tags-header)
 
 (defun ora-magit-force-push ()
   (interactive)
