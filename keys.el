@@ -23,7 +23,7 @@
 (global-set-key "\C-s" 'swiper)                          ; 'isearch-forward
 (global-set-key "\C-t" 'smex)                            ; 'transpose-chars
 (global-set-key "\C-u" 'undo)                            ; 'universal-argument
-;; (global-set-key "\C-v" 'scroll-up)                    ; default
+(global-set-key "\C-v" 'scroll-up)                       ; default
 ;; (global-set-key "\C-w" 'kill-region)                  ; default
 ;; (global-set-key "\C-x")                               ; default
 ;; (global-set-key "\C-y" 'yank)                         ; default
