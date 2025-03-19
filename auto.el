@@ -942,3 +942,9 @@ currently selected window instead."
              (cons (cons url-handler-regexp 'url-file-handler)
                    file-name-handler-alist)))
         (funcall func url)))))
+
+(defun ora-remove-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
