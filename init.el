@@ -295,7 +295,6 @@
    3 nil
    (lambda () (require 'ora-org))))
 (add-to-list 'warning-suppress-types '(undo discard-info))
-(add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (ora-advice-add 'semantic-idle-scheduler-function :around #'ignore)
 (require 'server)
 (setq ora-startup-time-toc (current-time))
