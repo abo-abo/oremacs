@@ -1,6 +1,0 @@
-* org-mode configuration
-#+STARTUP: overview
-* Tasks
-** TODO Install Emacs 27.1
-** TODO Follow [[https://twitter.com/_abo_abo][@_abo_abo]]
-* Projects
