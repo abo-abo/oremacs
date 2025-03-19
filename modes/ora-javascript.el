@@ -75,9 +75,9 @@
     (js2-mode))
   ;; (ora-rjsx-maybe)
   (setq-local avy-subword-extra-word-chars nil)
-  (if (string-match-p "\\.json$" (buffer-name))
-      (local-set-key (kbd "C-c C-g") 'jsons-print-path)
-    (lsp))
+  ;; (if (string-match-p "\\.json$" (buffer-name))
+  ;;     (local-set-key (kbd "C-c C-g") 'jsons-print-path)
+  ;;   (lsp))
 
   ;; (ignore-errors
   ;;   (moz-minor-mode 1))
