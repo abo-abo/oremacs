@@ -263,6 +263,16 @@ currently selected window instead.
 
 ;;;***
 
+;;;### (autoloads nil "modes/ora-calc" "modes/ora-calc.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from modes/ora-calc.el
+
+(autoload 'ora-calc-hook "modes/ora-calc")
+
+(register-definition-prefixes "modes/ora-calc" '("ora-copy-calc-top"))
+
+;;;***
+
 ;;;### (autoloads nil "modes/ora-cider" "modes/ora-cider.el" (0 0
 ;;;;;;  0 0))
 ;;; Generated autoloads from modes/ora-cider.el
@@ -698,12 +708,9 @@ Call `j-console' and setup shortcuts." t nil)
 ;;;;;;  0))
 ;;; Generated autoloads from modes/ora-java.el
 
-(autoload 'ora-java-hook "modes/ora-java" "\
+(autoload 'ora-java-hook "modes/ora-java")
 
-
-\(fn)" nil nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "modes/ora-java" '("java-" "get-single-argument-name" ">-by-length" "reductions" "upcase-first-letter" "downcase-first-letter" "ant" "ora-java-current-defun-name")))
+(register-definition-prefixes "modes/ora-java" '(">-by-length" "ant" "downcase-first-letter" "get-single-argument-name" "java-" "ora-java-current-defun-name" "reductions" "upcase-first-letter"))
 
 ;;;***
 
@@ -760,7 +767,7 @@ Call `j-console' and setup shortcuts." t nil)
 
 (autoload 'ora-magit-status-buffer "modes/ora-magit" nil t)
 
-(register-definition-prefixes "modes/ora-magit" '("endless/add-PR-fetch" "hydra-magit" "magit-branch-and-checkout" "ora-"))
+(register-definition-prefixes "modes/ora-magit" '("endless/add-PR-fetch" "magit-branch-and-checkout" "ora-"))
 
 ;;;***
 
