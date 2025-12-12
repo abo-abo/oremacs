@@ -117,7 +117,8 @@
   (setq forward-sexp-function 'ora-c-forward-sexp-function)
   (lpy-mode)
   (setq completion-at-point-functions '(lispy-python-completion-at-point t))
-  (setf (symbol-function #'jedi:handle-post-command) (lambda nil nil)))
+  (setf (symbol-function #'jedi:handle-post-command) (lambda nil nil))
+  (setq eglot-ignored-server-capabilities '(:completionProvider/resolveProvider :inlayHintProvider)))
 
 (defun ora-get-py-fname ()
   "Get the file name of a visibile `python-mode' buffer."
