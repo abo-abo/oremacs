@@ -38,7 +38,7 @@
 
 (defun bmk/today-archive ()
   (interactive)
-  (let ((data-dir (roamy--today-personal)))
+  (let ((data-dir (let ((roamy-directory-personal "~/Archive/years/")) (roamy--today-personal))))
     (make-directory data-dir t)
     (dired data-dir)))
 
