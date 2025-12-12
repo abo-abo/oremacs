@@ -893,10 +893,12 @@ wmctrl -r \"emacs@firefly\" -e \"1,0,0,1280,720\""))
 
 (defun ora-browse-url-at-point ()
   (interactive)
+  (require 'forge)
   (let ((url (cond
               ((looking-at "#\\([0-9]+\\)")
                (let ((pr (match-string-no-properties 1))
-                     (issues-url (forge--format (forge-get-repository 'stub) 'issues-url-format)))
+                     (issues-url (forge--format (forge-get-repository 'stub)
+                                                'issues-url-format)))
                  (format "%s/%s" issues-url pr)))
               (t
                (browse-url-url-at-point)))))
