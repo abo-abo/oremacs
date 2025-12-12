@@ -496,9 +496,7 @@ _h_tml    ^ ^        _A_SCII:
 ;;** Clock
 (defun ora-org-clock-goto ()
   (interactive)
-  (ring-insert
-   find-tag-marker-ring
-   (point-marker))
+  (org-mark-ring-push)
   (org-clock-goto))
 
 (defhydra hydra-org-clock (:color teal
