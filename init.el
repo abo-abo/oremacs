@@ -72,7 +72,7 @@
 (require 'whicher)
 (csetq lpr-command (whicher "gtklp"))
 ;;** internals
-(csetq gc-cons-threshold (* 10 1024 1024))
+(csetq gc-cons-threshold (* 100 1024 1024))
 (csetq ad-redefinition-action 'accept)
 (setq process-adaptive-read-buffering nil)
 (setq read-process-output-max (* 1024 1024))
@@ -105,7 +105,8 @@
 ;;** package.el
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
-        ("gnu" . "http://elpa.gnu.org/packages/")))
+        ("gnu" . "http://elpa.gnu.org/packages/")
+        ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 (setq package-pinned-packages '((yasnippet . "gnu")))
 (let ((file-name-handler-alist nil))
   (require 'eclipse-theme)
