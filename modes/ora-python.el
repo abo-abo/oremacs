@@ -75,12 +75,21 @@
 (require 'flyspell)
 (flyspell-delay-command 'python-indent-dedent-line-backspace)
 (require 'ora-flycheck-ruff)
+(require 'eglot)
+(setq-default eglot-ignored-server-capabilities '(:completionProvider/resolveProvider))
+(add-hook 'eglot-managed-mode-hook
+          (lambda ()
+            (remove-hook 'flymake-diagnostic-functions 'eglot-flymake-backend)))
+(add-hook 'ora-magit-status-buffer-hook 'eglot-shutdown-all)
 
 ;;;###autoload
 (defun ora-python-hook ()
   (setq-local company-backends '(company-dabbrev-code company-keywords))
   (setq python-environment-virtualenv
         '("virtualenv" "--system-site-packages" "--quiet" "--python" "/usr/bin/python3"))
+  ;; (setq eglot-workspace-configuration '(:pyright
+  ;;                                       (:reportUnusedCallResult nil)))
+
   (unless ora-no-pip
     (jedi:setup)
     (setq jedi:environment-root "jedi")
@@ -168,23 +177,6 @@ def __PYTHON_EL_get_completions(text):
 (defun ora-inferior-python-hook ()
   (setq next-error-function 'ora-comint-next-error-function))
 
-(defun ora-comint-next-error-function (n &optional reset)
-  (interactive "p")
-  (when reset
-    (setq compilation-current-error nil))
-  (let* ((msg (compilation-next-error (or n 1) nil
-                                      (or compilation-current-error
-                                          compilation-messages-start
-                                          (point-min))))
-         (loc (compilation--message->loc msg))
-         (file (caar (compilation--loc->file-struct loc)))
-         (buffer (find-file-noselect file)))
-    (pop-to-buffer buffer)
-    (goto-char (point-min))
-    (forward-line (1- (cadr loc)))
-    (back-to-indentation)
-    (unless (bolp)
-      (backward-char))))
 
 (defun python-font-lock-syntactic-face-function (state)
   "Speed up `python-font-lock-syntactic-face-function'.
