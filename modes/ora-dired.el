@@ -315,7 +315,7 @@ Number of marked items: %(length (dired-get-marked-files))
          (modtime (decode-time
                    (file-attribute-modification-time attrs)))
          (path (format-time-string "%Y/%m/%Y-%m-%d" (file-attribute-modification-time attrs)))
-         (dir (expand-file-name path roamy-directory-personal))
+         (dir (expand-file-name path roamy-directory-data))
          (new-fname (expand-file-name (file-name-nondirectory fname) dir)))
     (make-directory dir t)
     (rename-file fname new-fname)
