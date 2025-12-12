@@ -10,12 +10,22 @@
   (vterm-insert "()")
   (backward-char))
 
+(defun ora-vterm-to-copy-mode ()
+  (interactive)
+  (vterm-copy-mode 1)
+  (setq cursor-type t))
 
-(define-key vterm-mode-map (kbd "C-z") 'vterm-copy-mode)
+(defun ora-vterm-to-main-mode ()
+  (interactive)
+  (vterm-copy-mode -1)
+  (setq cursor-type nil))
+
+
+(define-key vterm-mode-map (kbd "C-z") 'ora-vterm-to-copy-mode)
 (define-key vterm-mode-map (kbd "C-m") 'vterm-send-return)
 (define-key vterm-mode-map (kbd "φ") 'ora-vterm-parens)
 ;; (define-key vterm-mode-map (kbd "<f1> k") 'describe-key)
-(define-key vterm-copy-mode-map (kbd "C-z") 'vterm-copy-mode)
+(define-key vterm-copy-mode-map (kbd "C-z") 'ora-vterm-to-main-mode)
 (setq vterm-clear-scrollback-when-clearing t)
 
 (push (list "find-file-below"
