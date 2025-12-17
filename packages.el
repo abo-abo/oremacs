@@ -48,7 +48,6 @@
      )
     ("docker"
      docker
-     docker-tramp
      dockerfile-mode)
     ("org"
      (orly :host github :repo "abo-abo/orly")
