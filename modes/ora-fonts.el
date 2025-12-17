@@ -12,6 +12,8 @@
 (set-face-attribute 'default nil :height (if (eq system-type 'darwin) 120 113))
 (ignore-errors
   (set-fontset-font t nil "Symbola" nil 'append))
+(set-fontset-font t 'symbol "Noto Emoji" nil 'prepend)
+(set-fontset-font t 'emoji "Noto Color Emoji" nil 'prepend)
 (add-hook 'after-make-frame-functions 'ora-set-font)
 
 (provide 'ora-fonts)
